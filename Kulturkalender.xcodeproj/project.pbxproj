@@ -24,6 +24,7 @@
 		69F52AC41608E70F0045B6F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AA31608E70F0045B6F6 /* CoreData.framework */; };
 		69F52ACC1608E70F0045B6F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ACA1608E70F0045B6F6 /* InfoPlist.strings */; };
 		69F52ACF1608E70F0045B6F6 /* KulturkalenderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F52ACE1608E70F0045B6F6 /* KulturkalenderTests.m */; };
+		69F52ADB1608E7E20045B6F6 /* Kulturkalender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		69F52ACB1608E70F0045B6F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69F52ACD1608E70F0045B6F6 /* KulturkalenderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KulturkalenderTests.h; sourceTree = "<group>"; };
 		69F52ACE1608E70F0045B6F6 /* KulturkalenderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KulturkalenderTests.m; sourceTree = "<group>"; };
+		69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kulturkalender.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,8 @@
 				69F52AAE1608E70F0045B6F6 /* AppDelegate.h */,
 				69F52AAF1608E70F0045B6F6 /* AppDelegate.m */,
 				69F52AB71608E70F0045B6F6 /* Kulturkalender.xcdatamodeld */,
+				69F52AD81608E7230045B6F6 /* User Interface */,
+				69F52AD91608E7500045B6F6 /* Business Logic */,
 				69F52AA61608E70F0045B6F6 /* Supporting Files */,
 			);
 			path = Kulturkalender;
@@ -159,6 +163,21 @@
 				69F52ACA1608E70F0045B6F6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69F52AD81608E7230045B6F6 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		69F52AD91608E7500045B6F6 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Business Logic";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +255,7 @@
 				69F52AB21608E70F0045B6F6 /* Default.png in Resources */,
 				69F52AB41608E70F0045B6F6 /* Default@2x.png in Resources */,
 				69F52AB61608E70F0045B6F6 /* Default-568h@2x.png in Resources */,
+				69F52ADB1608E7E20045B6F6 /* Kulturkalender.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +389,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
 				INFOPLIST_FILE = "Kulturkalender/Kulturkalender-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -380,7 +402,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
 				INFOPLIST_FILE = "Kulturkalender/Kulturkalender-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -438,6 +462,7 @@
 				69F52AD41608E70F0045B6F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69F52AD51608E70F0045B6F6 /* Build configuration list for PBXNativeTarget "KulturkalenderTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +471,7 @@
 				69F52AD71608E70F0045B6F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
