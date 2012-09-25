@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		693EF27916123B6300D10C03 /* MyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693EF27816123B6300D10C03 /* MyPageViewController.m */; };
 		69F52A9E1608E70F0045B6F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9D1608E70F0045B6F6 /* UIKit.framework */; };
 		69F52AA01608E70F0045B6F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9F1608E70F0045B6F6 /* Foundation.framework */; };
 		69F52AA21608E70F0045B6F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AA11608E70F0045B6F6 /* CoreGraphics.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		693EF27716123B6300D10C03 /* MyPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageViewController.h; sourceTree = "<group>"; };
+		693EF27816123B6300D10C03 /* MyPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageViewController.m; sourceTree = "<group>"; };
 		69F52A991608E70F0045B6F6 /* Kulturkalender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kulturkalender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F52A9D1608E70F0045B6F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		69F52A9F1608E70F0045B6F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,6 +91,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		693EF25D161220D100D10C03 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		693EF27616123B4B00D10C03 /* My Page */ = {
+			isa = PBXGroup;
+			children = (
+				693EF27716123B6300D10C03 /* MyPageViewController.h */,
+				693EF27816123B6300D10C03 /* MyPageViewController.m */,
+			);
+			name = "My Page";
+			sourceTree = "<group>";
+		};
 		69F52A8E1608E70F0045B6F6 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +146,7 @@
 				69F52AB71608E70F0045B6F6 /* Kulturkalender.xcdatamodeld */,
 				69F52AD81608E7230045B6F6 /* User Interface */,
 				69F52AD91608E7500045B6F6 /* Business Logic */,
+				693EF25D161220D100D10C03 /* Resources */,
 				69F52AA61608E70F0045B6F6 /* Supporting Files */,
 			);
 			path = Kulturkalender;
@@ -168,6 +188,7 @@
 		69F52AD81608E7230045B6F6 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				693EF27616123B4B00D10C03 /* My Page */,
 				69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */,
 			);
 			path = "User Interface";
@@ -293,6 +314,7 @@
 				69F52AAC1608E70F0045B6F6 /* main.m in Sources */,
 				69F52AB01608E70F0045B6F6 /* AppDelegate.m in Sources */,
 				69F52AB91608E70F0045B6F6 /* Kulturkalender.xcdatamodeld in Sources */,
+				693EF27916123B6300D10C03 /* MyPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
