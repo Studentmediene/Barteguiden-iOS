@@ -1,0 +1,18 @@
+{
+    "events": [
+        {
+            "title": "Tirsdagskviss",
+            "category": 0,
+            "ageLimit": 18,
+            "price": 0,
+            "note": "Samfundet"
+        },
+        {
+            "title": "Glassblåsing",
+            "category": 1,
+            "ageLimit": 18,
+            "price": 120,
+            "note": "Trondheim Glassblåseri"
+        }
+    ]
+}

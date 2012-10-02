@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "NSManagedObject+CIMGF.h" // TODO: Temp
+
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -16,7 +18,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
+//    NSData *data = [NSData dataWithContentsOfURL:url];
+//    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//    NSLog(@"%@", values);
+//    
+//    NSArray *events = values[@"events"];
+//    for (NSDictionary *event in events) {
+//        NSManagedObject *managedEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+//        [managedEvent safeSetValuesForKeysWithDictionary:event dateFormatter:nil];
+//        [managedEvent setValue:[NSDate date] forKey:@"dateTime"];
+//    }
+//    [self saveContext];
+    
     return YES;
 }
 
