@@ -34,9 +34,6 @@ enum {
     
     // Hide search bar as default
     self.tableView.contentOffset = CGPointMake(0.0, self.tableView.tableHeaderView.bounds.size.height);
-    
-	// Do any additional setup after loading the view.
-    NSLog(@"All Events Tab");
 }
 
 - (void)didReceiveMemoryWarning

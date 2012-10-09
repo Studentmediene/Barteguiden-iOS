@@ -28,9 +28,6 @@
     
     // Enable editing of favorites
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-	// Do any additional setup after loading the view.
-    NSLog(@"Favorites Tab");
 }
 
 - (void)didReceiveMemoryWarning

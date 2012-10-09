@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "Event.h"
+#import "Event+Custom.h"
 #import "Location.h"
 #import "LocalizedDescription.h"
 #import "LocalizedFeatured.h"

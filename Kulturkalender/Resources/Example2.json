@@ -7,6 +7,7 @@
                "price": 0,
                "isFeatured": true,
                "isFavorite": true,
+               "timeStartAt": "2012-10-09T19:00:00+0200",
                "location": {
                "placeName": "Samfundet"
                },
@@ -27,6 +28,7 @@
                "price": 120,
                "isFavorite": false,
                "isFeatured": false,
+               "timeStartAt": "2012-10-10T17:00:00+0200",
                "location": {
                "placeName": "Trondheim Glassblåseri"
                },
@@ -39,6 +41,7 @@
                "price": 200,
                "isFavorite": true,
                "isFeatured": false,
+               "timeStartAt": "2012-10-12T20:00:00+0200",
                "location": {
                "placeName": "Samfundet"
                },

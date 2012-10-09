@@ -28,6 +28,7 @@
 		698F873B1624BD95001B9090 /* AllEvents@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F87391624BD94001B9090 /* AllEvents@2x.png */; };
 		698F873E1624C05F001B9090 /* Filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F873C1624C05F001B9090 /* Filter.png */; };
 		698F873F1624C05F001B9090 /* Filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F873D1624C05F001B9090 /* Filter@2x.png */; };
+		69AEFE3A1624E7AB009F3567 /* Event+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AEFE391624E7AB009F3567 /* Event+Custom.m */; };
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
 		69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */; };
 		69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */; };
@@ -95,6 +96,8 @@
 		698F87391624BD94001B9090 /* AllEvents@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AllEvents@2x.png"; sourceTree = "<group>"; };
 		698F873C1624C05F001B9090 /* Filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter.png; sourceTree = "<group>"; };
 		698F873D1624C05F001B9090 /* Filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Filter@2x.png"; sourceTree = "<group>"; };
+		69AEFE381624E7AB009F3567 /* Event+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Custom.h"; sourceTree = "<group>"; };
+		69AEFE391624E7AB009F3567 /* Event+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Custom.m"; sourceTree = "<group>"; };
 		69D7FC38161B576A00E38D56 /* AllEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllEventsViewController.h; sourceTree = "<group>"; };
 		69D7FC39161B576A00E38D56 /* AllEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsViewController.m; sourceTree = "<group>"; };
 		69D7FC3E161B57B600E38D56 /* FeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedViewController.h; sourceTree = "<group>"; };
@@ -186,19 +189,9 @@
 		693EF25D161220D100D10C03 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				698F87381624BD94001B9090 /* AllEvents.png */,
-				698F87391624BD94001B9090 /* AllEvents@2x.png */,
-				698F872C1624B99A001B9090 /* MyPage.png */,
-				698F872D1624B99A001B9090 /* MyPage@2x.png */,
-				698F87281624B2FF001B9090 /* Settings.png */,
-				698F87291624B2FF001B9090 /* Settings@2x.png */,
-				698F873C1624C05F001B9090 /* Filter.png */,
-				698F873D1624C05F001B9090 /* Filter@2x.png */,
-				698F87241624B24A001B9090 /* Star.png */,
-				698F87251624B24A001B9090 /* Star@2x.png */,
-				6988E172161379DE00C2915A /* TableViewBorderColor.png */,
-				6937BBC9161365B1003718A4 /* Example.json */,
-				698F870F16249719001B9090 /* Example2.json */,
+				69AEFE361624E772009F3567 /* Buttons */,
+				69AEFE341624E769009F3567 /* Tab Bar */,
+				69AEFE371624E77C009F3567 /* Temp */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -219,6 +212,40 @@
 				69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */,
 			);
 			name = "Favorites Tab";
+			sourceTree = "<group>";
+		};
+		69AEFE341624E769009F3567 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				698F87381624BD94001B9090 /* AllEvents.png */,
+				698F87391624BD94001B9090 /* AllEvents@2x.png */,
+				698F872C1624B99A001B9090 /* MyPage.png */,
+				698F872D1624B99A001B9090 /* MyPage@2x.png */,
+				698F87281624B2FF001B9090 /* Settings.png */,
+				698F87291624B2FF001B9090 /* Settings@2x.png */,
+			);
+			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		69AEFE361624E772009F3567 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				698F873C1624C05F001B9090 /* Filter.png */,
+				698F873D1624C05F001B9090 /* Filter@2x.png */,
+				698F87241624B24A001B9090 /* Star.png */,
+				698F87251624B24A001B9090 /* Star@2x.png */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		69AEFE371624E77C009F3567 /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				6988E172161379DE00C2915A /* TableViewBorderColor.png */,
+				6937BBC9161365B1003718A4 /* Example.json */,
+				698F870F16249719001B9090 /* Example2.json */,
+			);
+			name = Temp;
 			sourceTree = "<group>";
 		};
 		69D7FC36161B570F00E38D56 /* Featured Tab */ = {
@@ -244,6 +271,8 @@
 			children = (
 				698F87171624A182001B9090 /* Event.h */,
 				698F87181624A182001B9090 /* Event.m */,
+				69AEFE381624E7AB009F3567 /* Event+Custom.h */,
+				69AEFE391624E7AB009F3567 /* Event+Custom.m */,
 				698F871A1624A182001B9090 /* Location.h */,
 				698F871B1624A183001B9090 /* Location.m */,
 				698F87141624A182001B9090 /* LocalizedText.h */,
@@ -503,6 +532,7 @@
 				698F87191624A182001B9090 /* Event.m in Sources */,
 				698F871C1624A183001B9090 /* Location.m in Sources */,
 				698F871F1624A183001B9090 /* LocalizedFeatured.m in Sources */,
+				69AEFE3A1624E7AB009F3567 /* Event+Custom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

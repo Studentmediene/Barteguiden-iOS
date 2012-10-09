@@ -225,9 +225,16 @@
 //    cell.imageView.image = image;
 //    cell.imageView.highlightedImage = highlightedImage;
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [NSLocale currentLocale];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    
     Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    NSString *detail = [NSString stringWithFormat:@"%@ at %@", [dateFormatter stringFromDate:event.timeStartAt], event.location.placeName]; // TODO: Localize
+    
     cell.textLabel.text = event.title;
-    cell.detailTextLabel.text = event.location.placeName;
+    cell.detailTextLabel.text = detail;
 }
 
 - (void)setUpFetchedResultsController
@@ -239,13 +246,12 @@
     fetchRequest.includesSubentities = YES;
     fetchRequest.fetchBatchSize = 20;
     
+    // Set predicate
     [fetchRequest setPredicate:[self predicate]];
     
-    // Add sort descriptor
-//    NSSortDescriptor *createdAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
-//    NSArray *sortDescriptors = @[ createdAtSortDescriptor ];
-    NSArray *sortDescriptors = @[ ];
-    
+    // Set sort descriptor
+    NSSortDescriptor *timeStartAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStartAt" ascending:YES];
+    NSArray *sortDescriptors = @[ timeStartAtSortDescriptor ];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // TODO: Fix sort descriptors, cache name, section name and predicate
@@ -253,18 +259,8 @@
     // Set a default cache name
 //    NSString *cacheName = [self cacheName];
     
-    // Filter the history based on friend ID
-//    if (self.friendID != nil)
-//    {
-//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"friendID == %@", self.friendID];
-//        [fetchRequest setPredicate:predicate];
-//        
-//        // Use a specific cache name
-//        cacheName = [NSString stringWithFormat:@"FriendID%@Cache", self.friendID];
-//    }
-    
     // Create the fetched results controller
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil]; // TODO: Fix section name and cache key
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:@"sectionName" cacheName:nil]; // TODO: Fix section name and cache key
     self.fetchedResultsController.delegate = self;
 }
 
@@ -278,12 +274,6 @@
 
 - (void)performFetch
 {
-    // Remove cache if date has changed
-//    static NSDate *lastFetchDate = nil;
-//    if (lastFetchDate == nil || ![lastFetchDate isEqualToDateIgnoringTime:[NSDate date]]) {
-//        [NSFetchedResultsController deleteCacheWithName:@"HistoryCache"];
-//    }
-    
     // Perform fetch and handle error
     NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error])
@@ -296,9 +286,6 @@
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
-    
-    // Save last fetch date
-//    lastFetchDate = [NSDate date];
 }
 
 - (void)triggerRefresh

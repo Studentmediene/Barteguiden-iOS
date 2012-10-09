@@ -37,20 +37,20 @@ static EventManager *_sharedManager;
     NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 //    NSLog(@"%@", values);
     
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss+ZZ:ZZ"];
+    NSDateFormatter *iso8601dateFormatter = [[NSDateFormatter alloc] init];
+    [iso8601dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
     
     NSArray *events = values[@"events"];
     for (NSDictionary *event in events) {
         // Event
         NSManagedObject *managedEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
-        [managedEvent safeSetValuesForKeysWithDictionary:event dateFormatter:nil];
-        [managedEvent setValue:[NSDate date] forKey:@"timeStartAt"];
+        [managedEvent safeSetValuesForKeysWithDictionary:event dateFormatter:iso8601dateFormatter];
+//        [managedEvent setValue:[NSDate date] forKey:@"timeStartAt"];
         [managedEvent setValue:[NSDate date] forKey:@"timeCreatedAt"];
         
         // Location
         NSManagedObject *managedLocation = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
-        [managedLocation safeSetValuesForKeysWithDictionary:[event objectForKey:@"location"] dateFormatter:nil];
+        [managedLocation safeSetValuesForKeysWithDictionary:[event objectForKey:@"location"] dateFormatter:iso8601dateFormatter];
         [managedEvent setValue:managedLocation forKey:@"location"];
         
         // Localized description
@@ -58,7 +58,7 @@ static EventManager *_sharedManager;
         NSArray *descriptions = [event objectForKey:@"localizedDescription"];
         for (NSDictionary *description in descriptions) {
             NSManagedObject *managedDescription = [NSEntityDescription insertNewObjectForEntityForName:@"LocalizedDescription" inManagedObjectContext:self.managedObjectContext];
-            [managedDescription safeSetValuesForKeysWithDictionary:description dateFormatter:nil];
+            [managedDescription safeSetValuesForKeysWithDictionary:description dateFormatter:iso8601dateFormatter];
             [descriptionSet addObject:managedDescription];
         }
         [managedEvent setValue:descriptionSet forKey:@"localizedDescription"];
