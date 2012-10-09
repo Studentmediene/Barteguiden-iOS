@@ -6,8 +6,12 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "EventsViewController.h"
+#import "AbstractEventsViewController.h"
 
-@interface AllEventsViewController : EventsViewController
+@interface AllEventsViewController : AbstractEventsViewController
+
+@property (nonatomic, strong) IBOutlet UISegmentedControl *priceFilterSegmentedControl;
+
+- (IBAction)changePriceFilter:(id)sender;
 
 @end

@@ -6,10 +6,8 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "EventsViewController.h"
+#import "AbstractEventsViewController.h"
 
-@interface FeaturedEventsViewController : EventsViewController
-
-- (IBAction)tempAddItem:(id)sender;
+@interface FeaturedViewController : AbstractEventsViewController
 
 @end

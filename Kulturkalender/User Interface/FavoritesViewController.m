@@ -8,10 +8,6 @@
 
 #import "FavoritesViewController.h"
 
-@interface FavoritesViewController ()
-
-@end
-
 @implementation FavoritesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,6 +22,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Hide search bar as default
+    self.tableView.contentOffset = CGPointMake(0.0, self.tableView.tableHeaderView.bounds.size.height);
+    
+    // Enable editing of favorites
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 	// Do any additional setup after loading the view.
     NSLog(@"Favorites Tab");
 }
@@ -34,6 +37,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - EventsViewController
+
+- (NSPredicate *)predicate
+{
+    NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"favorite == 1"];
+    
+    return favoritesPredicate;
+}
+
+- (NSString *)cacheName
+{
+    return @"FavoritesCache";
 }
 
 @end

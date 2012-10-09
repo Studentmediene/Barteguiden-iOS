@@ -1,18 +1,27 @@
 {
     "events": [
-        {
-            "title": "Tirsdagskviss",
-            "category": 0,
-            "ageLimit": 18,
-            "price": 0,
-            "note": "Samfundet"
-        },
-        {
-            "title": "Glassblåsing",
-            "category": 1,
-            "ageLimit": 18,
-            "price": 120,
-            "note": "Trondheim Glassblåseri"
-        }
-    ]
+               {
+               "title": "Tirsdagskviss",
+               "category": 0,
+               "ageLimit": 18,
+               "price": 0,
+               "note": "Samfundet",
+               "featured": "Recommended by the staff!"
+               },
+               {
+               "title": "Glassblåsing",
+               "category": 1,
+               "ageLimit": 18,
+               "price": 120,
+               "note": "Trondheim Glassblåseri"
+               },
+               {
+               "title": "LUKA",
+               "category": 1,
+               "ageLimit": 0,
+               "price": 200,
+               "note": "Samfundet",
+               "favorite": true
+               }
+               ]
 }

@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "EventsViewController.h"
+#import "AbstractEventsViewController.h"
 
-@interface FavoritesViewController : EventsViewController
+@interface FavoritesViewController : AbstractEventsViewController
 
 @end

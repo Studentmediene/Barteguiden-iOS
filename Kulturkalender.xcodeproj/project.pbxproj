@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6904F8DE16136DBA00482F13 /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6904F8DD16136DBA00482F13 /* EventsViewController.m */; };
+		6904F8DE16136DBA00482F13 /* AbstractEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */; };
 		6937BBC816136516003718A4 /* NSManagedObject+CIMGF.m in Sources */ = {isa = PBXBuildFile; fileRef = 6937BBC716136516003718A4 /* NSManagedObject+CIMGF.m */; };
 		6937BBCA161365B1003718A4 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = 6937BBC9161365B1003718A4 /* Example.json */; };
-		693EF27916123B6300D10C03 /* MyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693EF27816123B6300D10C03 /* MyPageViewController.m */; };
 		6988E173161379DE00C2915A /* TableViewBorderColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 6988E172161379DE00C2915A /* TableViewBorderColor.png */; };
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
-		69D7FC3D161B57A000E38D56 /* FreeEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3C161B57A000E38D56 /* FreeEventsViewController.m */; };
-		69D7FC40161B57B600E38D56 /* FeaturedEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3F161B57B600E38D56 /* FeaturedEventsViewController.m */; };
+		69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */; };
 		69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */; };
+		69D7FC46161B6E9700E38D56 /* EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC45161B6E9700E38D56 /* EventManager.m */; };
+		69D7FC4D161DF0B500E38D56 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC4C161DF0B500E38D56 /* SettingsViewController.m */; };
+		69D7FC50161DF10900E38D56 /* MyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC4F161DF10900E38D56 /* MyPageViewController.m */; };
+		69D7FC55161DF95600E38D56 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC54161DF95600E38D56 /* Event.m */; };
+		69D7FC58161DF95600E38D56 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC57161DF95600E38D56 /* Location.m */; };
 		69F52A9E1608E70F0045B6F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9D1608E70F0045B6F6 /* UIKit.framework */; };
 		69F52AA01608E70F0045B6F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9F1608E70F0045B6F6 /* Foundation.framework */; };
 		69F52AA21608E70F0045B6F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AA11608E70F0045B6F6 /* CoreGraphics.framework */; };
@@ -47,22 +50,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6904F8DC16136DBA00482F13 /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
-		6904F8DD16136DBA00482F13 /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
+		6904F8DC16136DBA00482F13 /* AbstractEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractEventsViewController.h; sourceTree = "<group>"; };
+		6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractEventsViewController.m; sourceTree = "<group>"; };
 		6937BBC616136516003718A4 /* NSManagedObject+CIMGF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+CIMGF.h"; sourceTree = "<group>"; };
 		6937BBC716136516003718A4 /* NSManagedObject+CIMGF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+CIMGF.m"; sourceTree = "<group>"; };
 		6937BBC9161365B1003718A4 /* Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Example.json; sourceTree = "<group>"; };
-		693EF27716123B6300D10C03 /* MyPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageViewController.h; sourceTree = "<group>"; };
-		693EF27816123B6300D10C03 /* MyPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageViewController.m; sourceTree = "<group>"; };
 		6988E172161379DE00C2915A /* TableViewBorderColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableViewBorderColor.png; sourceTree = "<group>"; };
 		69D7FC38161B576A00E38D56 /* AllEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllEventsViewController.h; sourceTree = "<group>"; };
 		69D7FC39161B576A00E38D56 /* AllEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsViewController.m; sourceTree = "<group>"; };
-		69D7FC3B161B57A000E38D56 /* FreeEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeEventsViewController.h; sourceTree = "<group>"; };
-		69D7FC3C161B57A000E38D56 /* FreeEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeEventsViewController.m; sourceTree = "<group>"; };
-		69D7FC3E161B57B600E38D56 /* FeaturedEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedEventsViewController.h; sourceTree = "<group>"; };
-		69D7FC3F161B57B600E38D56 /* FeaturedEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedEventsViewController.m; sourceTree = "<group>"; };
+		69D7FC3E161B57B600E38D56 /* FeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedViewController.h; sourceTree = "<group>"; };
+		69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedViewController.m; sourceTree = "<group>"; };
 		69D7FC41161B57CF00E38D56 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		69D7FC44161B6E9700E38D56 /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
+		69D7FC45161B6E9700E38D56 /* EventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventManager.m; sourceTree = "<group>"; };
+		69D7FC4B161DF0B500E38D56 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		69D7FC4C161DF0B500E38D56 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		69D7FC4E161DF10900E38D56 /* MyPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageViewController.h; sourceTree = "<group>"; };
+		69D7FC4F161DF10900E38D56 /* MyPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageViewController.m; sourceTree = "<group>"; };
+		69D7FC53161DF95600E38D56 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		69D7FC54161DF95600E38D56 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		69D7FC56161DF95600E38D56 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		69D7FC57161DF95600E38D56 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		69F52A991608E70F0045B6F6 /* Kulturkalender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kulturkalender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F52A9D1608E70F0045B6F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		69F52A9F1608E70F0045B6F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -151,8 +160,8 @@
 		693EF27616123B4B00D10C03 /* My Page Tab */ = {
 			isa = PBXGroup;
 			children = (
-				693EF27716123B6300D10C03 /* MyPageViewController.h */,
-				693EF27816123B6300D10C03 /* MyPageViewController.m */,
+				69D7FC4E161DF10900E38D56 /* MyPageViewController.h */,
+				69D7FC4F161DF10900E38D56 /* MyPageViewController.m */,
 			);
 			name = "My Page Tab";
 			sourceTree = "<group>";
@@ -169,19 +178,30 @@
 		69D7FC36161B570F00E38D56 /* Featured Tab */ = {
 			isa = PBXGroup;
 			children = (
-				69D7FC3E161B57B600E38D56 /* FeaturedEventsViewController.h */,
-				69D7FC3F161B57B600E38D56 /* FeaturedEventsViewController.m */,
+				69D7FC3E161B57B600E38D56 /* FeaturedViewController.h */,
+				69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */,
 			);
 			name = "Featured Tab";
 			sourceTree = "<group>";
 		};
-		69D7FC37161B573500E38D56 /* Free Tab */ = {
+		69D7FC47161DF08300E38D56 /* Settings Tab */ = {
 			isa = PBXGroup;
 			children = (
-				69D7FC3B161B57A000E38D56 /* FreeEventsViewController.h */,
-				69D7FC3C161B57A000E38D56 /* FreeEventsViewController.m */,
+				69D7FC4B161DF0B500E38D56 /* SettingsViewController.h */,
+				69D7FC4C161DF0B500E38D56 /* SettingsViewController.m */,
 			);
-			name = "Free Tab";
+			name = "Settings Tab";
+			sourceTree = "<group>";
+		};
+		69D7FC52161DF93B00E38D56 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				69D7FC53161DF95600E38D56 /* Event.h */,
+				69D7FC54161DF95600E38D56 /* Event.m */,
+				69D7FC56161DF95600E38D56 /* Location.h */,
+				69D7FC57161DF95600E38D56 /* Location.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		69F52A8E1608E70F0045B6F6 = {
@@ -266,13 +286,13 @@
 			isa = PBXGroup;
 			children = (
 				69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */,
-				6904F8DC16136DBA00482F13 /* EventsViewController.h */,
-				6904F8DD16136DBA00482F13 /* EventsViewController.m */,
+				6904F8DC16136DBA00482F13 /* AbstractEventsViewController.h */,
+				6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */,
 				69D7FC36161B570F00E38D56 /* Featured Tab */,
 				6904F8DA16136D9B00482F13 /* All Tab */,
-				69D7FC37161B573500E38D56 /* Free Tab */,
 				693EF27616123B4B00D10C03 /* My Page Tab */,
 				6988E1781613907B00C2915A /* Favorites Tab */,
+				69D7FC47161DF08300E38D56 /* Settings Tab */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -281,6 +301,9 @@
 			isa = PBXGroup;
 			children = (
 				69F52AB71608E70F0045B6F6 /* Kulturkalender.xcdatamodeld */,
+				69D7FC44161B6E9700E38D56 /* EventManager.h */,
+				69D7FC45161B6E9700E38D56 /* EventManager.m */,
+				69D7FC52161DF93B00E38D56 /* Models */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -400,13 +423,16 @@
 				69F52AAC1608E70F0045B6F6 /* main.m in Sources */,
 				69F52AB01608E70F0045B6F6 /* AppDelegate.m in Sources */,
 				69F52AB91608E70F0045B6F6 /* Kulturkalender.xcdatamodeld in Sources */,
-				693EF27916123B6300D10C03 /* MyPageViewController.m in Sources */,
 				6937BBC816136516003718A4 /* NSManagedObject+CIMGF.m in Sources */,
-				6904F8DE16136DBA00482F13 /* EventsViewController.m in Sources */,
+				6904F8DE16136DBA00482F13 /* AbstractEventsViewController.m in Sources */,
 				69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */,
-				69D7FC3D161B57A000E38D56 /* FreeEventsViewController.m in Sources */,
-				69D7FC40161B57B600E38D56 /* FeaturedEventsViewController.m in Sources */,
+				69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */,
 				69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */,
+				69D7FC46161B6E9700E38D56 /* EventManager.m in Sources */,
+				69D7FC4D161DF0B500E38D56 /* SettingsViewController.m in Sources */,
+				69D7FC50161DF10900E38D56 /* MyPageViewController.m in Sources */,
+				69D7FC55161DF95600E38D56 /* Event.m in Sources */,
+				69D7FC58161DF95600E38D56 /* Location.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

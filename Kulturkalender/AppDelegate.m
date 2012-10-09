@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "EventManager.h"
 
 #import "NSManagedObject+CIMGF.h" // TODO: Temp
 
@@ -18,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext];
+    
 //    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
 //    NSData *data = [NSData dataWithContentsOfURL:url];
 //    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
@@ -30,7 +33,7 @@
 //        [managedEvent setValue:[NSDate date] forKey:@"dateTime"];
 //    }
 //    [self saveContext];
-    
+
     return YES;
 }
 

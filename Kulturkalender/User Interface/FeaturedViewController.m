@@ -1,14 +1,14 @@
 //
-//  MyPageViewController.m
+//  FeaturedEventsViewController.m
 //  Kulturkalender
 //
-//  Created by Christian Rasmussen on 04.10.12.
+//  Created by Christian Rasmussen on 02.10.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "MyPageViewController.h"
+#import "FeaturedViewController.h"
 
-@implementation MyPageViewController
+@implementation FeaturedViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +27,7 @@
     self.tableView.contentOffset = CGPointMake(0.0, self.tableView.tableHeaderView.bounds.size.height);
     
 	// Do any additional setup after loading the view.
-    NSLog(@"My Page tab");
+    NSLog(@"Featured Events Tab");
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,23 +41,14 @@
 
 - (NSPredicate *)predicate
 {
-    // TODO: Implement
-    return nil;
+    NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"featured != nil"];
+    
+    return featuredPredicate;
 }
 
 - (NSString *)cacheName
 {
-    return @"MyPageCache";
-}
-
-
-#pragma mark - Unwind segues
-
-- (IBAction)close:(UIStoryboardSegue *)segue
-{
-    NSLog(@"Closing filter");
-    
-    [self reloadPredicate];
+    return @"FeaturedCache";
 }
 
 @end

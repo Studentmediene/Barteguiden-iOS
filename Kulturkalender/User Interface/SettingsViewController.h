@@ -1,5 +1,5 @@
 //
-//  MyPageViewController.h
+//  SettingsViewController.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 04.10.12.
@@ -8,6 +8,6 @@
 
 #import "AbstractEventsViewController.h"
 
-@interface MyPageViewController : AbstractEventsViewController
+@interface SettingsViewController : UITableViewController
 
 @end

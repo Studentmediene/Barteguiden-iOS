@@ -6,13 +6,10 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "EventsViewController.h"
+#import "AbstractEventsViewController.h"
+#import "EventManager.h"
 
-@interface EventsViewController ()
-
-@end
-
-@implementation EventsViewController
+@implementation AbstractEventsViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,12 +29,36 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // Add refresh control and observe
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl beginRefreshing];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:EventManagedDidRefresh object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"Notif");
+    }];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:EventManagedDidRefresh];
+}
+
+
+#pragma mark - Abstract methods
+
+- (NSPredicate *)predicate
+{
+    return nil;
+}
+
+- (NSString *)cacheName
+{
+    return nil;
 }
 
 
@@ -137,6 +158,7 @@
 }
 */
 
+
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,6 +176,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
 
 #pragma mark - Fetched results controller
 
@@ -218,7 +241,6 @@
 }
 
 
-
 #pragma mark - Private methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -272,23 +294,25 @@
 - (void)setUpFetchedResultsController
 {
     // Set up the fetch request
-    // TODO: Remove dependency on AppDelegate
-    NSManagedObjectContext *managedObjectContext = [((id)[[UIApplication sharedApplication] delegate]) managedObjectContext];//[NSManagedObjectContext MR_defaultContext];
+    NSManagedObjectContext *managedObjectContext = [[EventManager sharedManager] managedObjectContext];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
     fetchRequest.includesSubentities = YES;
     fetchRequest.fetchBatchSize = 20;
     
+    [fetchRequest setPredicate:[self predicate]];
+    
     // Add sort descriptor
-    //    NSSortDescriptor *acceptedSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"requestAccepted" ascending:YES];
 //    NSSortDescriptor *createdAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
 //    NSArray *sortDescriptors = @[ createdAtSortDescriptor ];
-    NSArray *sortDescriptors = @[];
+    NSArray *sortDescriptors = @[ ];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
+    // TODO: 
+    
     // Set a default cache name
-    NSString *cacheName = @"EventCache";
+//    NSString *cacheName = [self cacheName];
     
     // Filter the history based on friend ID
 //    if (self.friendID != nil)
@@ -301,8 +325,16 @@
 //    }
     
     // Create the fetched results controller
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:cacheName];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil]; // TODO: Fix section name and cache key
     self.fetchedResultsController.delegate = self;
+}
+
+- (void)reloadPredicate
+{
+    [NSFetchedResultsController deleteCacheWithName:[self cacheName]];
+    [self.fetchedResultsController.fetchRequest setPredicate:[self predicate]];
+    [self performFetch];
+    [self.tableView reloadData];
 }
 
 - (void)performFetch
@@ -330,4 +362,12 @@
 //    lastFetchDate = [NSDate date];
 }
 
+- (void)refresh
+{
+    [[EventManager sharedManager] refresh];
+    NSLog(@"Should refresh");
+    [self.refreshControl endRefreshing];
+}
+
 @end
+ 

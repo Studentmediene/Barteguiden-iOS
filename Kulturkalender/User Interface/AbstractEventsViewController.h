@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface EventsViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface AbstractEventsViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+
+- (void)reloadPredicate;
 
 @end
