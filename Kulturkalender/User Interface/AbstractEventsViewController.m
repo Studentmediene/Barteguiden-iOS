@@ -31,12 +31,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Add refresh control and observe
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    [self.refreshControl beginRefreshing];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(triggerRefresh) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:EventManagedDidRefresh object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"Notif");
+    [[NSNotificationCenter defaultCenter] addObserverForName:EventManagerDidRefreshNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"Refresh complete");
+        [refreshControl endRefreshing];
     }];
 }
 
@@ -45,7 +46,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:EventManagedDidRefresh];
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:EventManagerDidRefreshNotification];
 }
 
 
@@ -362,11 +363,9 @@
 //    lastFetchDate = [NSDate date];
 }
 
-- (void)refresh
+- (void)triggerRefresh
 {
     [[EventManager sharedManager] refresh];
-    NSLog(@"Should refresh");
-    [self.refreshControl endRefreshing];
 }
 
 @end

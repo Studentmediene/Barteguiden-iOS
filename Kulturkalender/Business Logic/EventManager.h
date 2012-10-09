@@ -18,11 +18,10 @@
 + (id)sharedManager;
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
-- (void)reload;
+- (void)refresh;
 
 @end
 
 // Notifications
 
-extern NSString * EventManagedDidRefresh;
-// TODO: Add more 
+extern NSString * EventManagerDidRefreshNotification;

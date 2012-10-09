@@ -28,9 +28,11 @@ static EventManager *_sharedManager;
     return self;
 }
 
-- (void)reload
+- (void)refresh
 {
+    // TODO: Asynchronous download of content
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventManagerDidRefreshNotification object:self];
 }
 
 @end
@@ -38,4 +40,4 @@ static EventManager *_sharedManager;
 
 #pragma mark - Notifications
 
-NSString *EventManagerDidReload = @"EventManagerDidReload";
+NSString *EventManagerDidRefreshNotification = @"EventManagerDidRefreshNotification";
