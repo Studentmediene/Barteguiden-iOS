@@ -1,5 +1,5 @@
 //
-//  Location.h
+//  LocalizedFeatured.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 09.10.12.
@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "LocalizedText.h"
 
 @class Event;
 
-@interface Location : NSManagedObject
+@interface LocalizedFeatured : LocalizedText
 
-@property (nonatomic, retain) NSNumber * latitude;
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSString * placeName;
 @property (nonatomic, retain) Event *event;
 
 @end

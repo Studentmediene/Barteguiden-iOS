@@ -33,7 +33,7 @@
 }
 
 
-#pragma mark - EventsViewController
+#pragma mark - AbstractEventsViewController
 
 - (NSFetchRequest *)fetchRequest
 {

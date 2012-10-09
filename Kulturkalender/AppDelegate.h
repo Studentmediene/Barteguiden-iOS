@@ -20,7 +20,6 @@
 
 @property (nonatomic, strong) EventManager *eventManager;
 
-- (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
 @end

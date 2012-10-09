@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 #import "EventManager.h"
 
-#import "NSManagedObject+CIMGF.h" // TODO: Temp
-
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -21,19 +19,6 @@
 {
     _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext];
     
-//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
-//    NSData *data = [NSData dataWithContentsOfURL:url];
-//    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//    NSLog(@"%@", values);
-//    
-//    NSArray *events = values[@"events"];
-//    for (NSDictionary *event in events) {
-//        NSManagedObject *managedEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
-//        [managedEvent safeSetValuesForKeysWithDictionary:event dateFormatter:nil];
-//        [managedEvent setValue:[NSDate date] forKey:@"dateTime"];
-//    }
-//    [self saveContext];
-
     return YES;
 }
 
@@ -62,22 +47,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
+//    [self saveContext];
+    // TODO: Is this necessary?
 }
 
-- (void)saveContext
-{
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
-    }
-}
 
 #pragma mark - Core Data stack
 

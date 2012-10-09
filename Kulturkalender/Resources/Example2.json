@@ -1,0 +1,48 @@
+{
+    "events": [
+               {
+               "title": "Tirsdagskviss",
+               "category": 0,
+               "ageLimit": 18,
+               "price": 0,
+               "isFeatured": true,
+               "isFavorite": true,
+               "location": {
+               "placeName": "Samfundet"
+               },
+               "localizedDescription": [ {
+                                        "locale": "nb_NO",
+                                        "text": "Det blir Tirsdagskviss i Edgar."
+                                        },
+                                        {
+                                        "locale": "en_US",
+                                        "text": "It will be Tuesday quiz at Edgar."
+                                        }
+                                        ]
+               },
+               {
+               "title": "Glassblåsing",
+               "category": 1,
+               "ageLimit": 18,
+               "price": 120,
+               "isFavorite": false,
+               "isFeatured": false,
+               "location": {
+               "placeName": "Trondheim Glassblåseri"
+               },
+               "localizedDescription": []
+               },
+               {
+               "title": "LUKA",
+               "category": 1,
+               "ageLimit": 0,
+               "price": 200,
+               "isFavorite": true,
+               "isFeatured": false,
+               "location": {
+               "placeName": "Samfundet"
+               },
+               "localizedDescription": []
+               }
+               ]
+}

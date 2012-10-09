@@ -46,7 +46,7 @@ enum {
 }
 
 
-#pragma mark - EventsViewController
+#pragma mark - AbstractEventsViewController
 
 - (NSPredicate *)predicate
 {

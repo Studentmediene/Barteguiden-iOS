@@ -1,5 +1,5 @@
 //
-//  EventsViewController.m
+//  AbstractEventsViewController.m
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 26.09.12.
@@ -26,9 +26,6 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Add refresh control and observe
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -63,7 +60,7 @@
 }
 
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -92,75 +89,8 @@
     return [sectionInfo name];
 }
 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete)
-    {
-        // Delete the managed object for the given index path
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-        
-        // Save the context.
-        NSError *error = nil;
-        if (![context save:&error])
-        {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-             */
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert)
-    {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-}
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-#pragma mark - Table view delegate
+#pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -179,7 +109,7 @@
 }
 
 
-#pragma mark - Fetched results controller
+#pragma mark - NSFetchedResultsController
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
@@ -242,6 +172,14 @@
 }
 
 
+#pragma mark - EventsSearchDisplayControllerDelegate
+
+- (NSArray *)result
+{
+    return @[ @"abc", @"def" ];
+}
+
+
 #pragma mark - Private methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -287,9 +225,9 @@
 //    cell.imageView.image = image;
 //    cell.imageView.highlightedImage = highlightedImage;
     
-    NSManagedObject *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [event valueForKey:@"title"];
-    cell.detailTextLabel.text = [event valueForKey:@"note"];
+    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = event.title;
+    cell.detailTextLabel.text = event.location.placeName;
 }
 
 - (void)setUpFetchedResultsController
@@ -310,7 +248,7 @@
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    // TODO: 
+    // TODO: Fix sort descriptors, cache name, section name and predicate
     
     // Set a default cache name
 //    NSString *cacheName = [self cacheName];

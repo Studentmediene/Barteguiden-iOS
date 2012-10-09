@@ -1,20 +1,17 @@
 //
-//  Location.m
+//  LocalizedDescription.m
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 09.10.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "Location.h"
+#import "LocalizedDescription.h"
 #import "Event.h"
 
 
-@implementation Location
+@implementation LocalizedDescription
 
-@dynamic latitude;
-@dynamic longitude;
-@dynamic placeName;
 @dynamic event;
 
 @end

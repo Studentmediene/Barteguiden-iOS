@@ -37,11 +37,11 @@
 }
 
 
-#pragma mark - EventsViewController
+#pragma mark - AbstractEventsViewController
 
 - (NSPredicate *)predicate
 {
-    NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"featured != nil"];
+    NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"isFeatured == 1"];
     
     return featuredPredicate;
 }

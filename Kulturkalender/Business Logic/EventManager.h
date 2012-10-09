@@ -10,6 +10,8 @@
 
 #import "Event.h"
 #import "Location.h"
+#import "LocalizedDescription.h"
+#import "LocalizedFeatured.h"
 
 @interface EventManager : NSObject
 

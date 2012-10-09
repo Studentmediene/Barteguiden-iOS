@@ -35,9 +35,17 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Featured" id="fcs-T2-Ubk">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="NWn-O4-7yn" id="SYc-wO-RdU"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" textLabel="PpK-ch-Kai" detailTextLabel="1E1-3f-h5Z" imageView="bqA-BP-HCs" rowHeight="64" style="IBUITableViewCellStyleSubtitle" id="3m5-VR-xC9">
-                                <rect key="frame" x="0.0" y="22" width="320" height="64"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="63"/>
@@ -71,18 +79,25 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Featured" id="J4V-dh-06v"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="wGC-t8-5Ss" id="mHq-2p-PCx"/>
+                        <outlet property="eventsSearchDisplayController" destination="9Yu-MV-Ym4" id="Ist-R5-f0s"/>
+                        <outlet property="searchDisplayController" destination="AKr-rN-D0P" id="NC6-gm-VHj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8If-cl-4qe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="wGC-t8-5Ss">
+                <searchDisplayController id="AKr-rN-D0P">
                     <connections>
-                        <outlet property="delegate" destination="NWn-O4-7yn" id="jsg-ey-L7h"/>
-                        <outlet property="searchContentsController" destination="NWn-O4-7yn" id="9O8-jc-TL7"/>
-                        <outlet property="searchResultsDataSource" destination="NWn-O4-7yn" id="5Yx-k3-qpI"/>
-                        <outlet property="searchResultsDelegate" destination="NWn-O4-7yn" id="GS3-0w-G0E"/>
+                        <outlet property="delegate" destination="9Yu-MV-Ym4" id="4MH-a2-I39"/>
+                        <outlet property="searchBar" destination="fcs-T2-Ubk" id="gXv-co-Ezq"/>
+                        <outlet property="searchContentsController" destination="NWn-O4-7yn" id="S5j-Ze-xJw"/>
+                        <outlet property="searchResultsDataSource" destination="9Yu-MV-Ym4" id="srx-PE-tei"/>
+                        <outlet property="searchResultsDelegate" destination="9Yu-MV-Ym4" id="AYt-ZR-2Qf"/>
                     </connections>
                 </searchDisplayController>
+                <customObject id="9Yu-MV-Ym4" customClass="EventsSearchDisplayController">
+                    <connections>
+                        <outlet property="delegate" destination="NWn-O4-7yn" id="0vw-Uy-h6G"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1272" y="237"/>
         </scene>
@@ -340,7 +355,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Event Details" id="Zjn-Zj-8VC">
-                        <barButtonItem key="rightBarButtonItem" title="Star" id="i6i-8e-srZ"/>
+                        <barButtonItem key="rightBarButtonItem" image="Star.png" id="i6i-8e-srZ"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ex2-M6-Z1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -382,7 +397,7 @@
         <scene sceneID="Mja-7v-Goi">
             <objects>
                 <navigationController definesPresentationContext="YES" id="FBL-b0-0ta" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Events" id="n1j-FU-kDv"/>
+                    <tabBarItem key="tabBarItem" title="All Events" image="AllEvents.png" id="n1j-FU-kDv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cHN-jc-KNG">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -398,7 +413,7 @@
         <scene sceneID="1xp-oc-uV0">
             <objects>
                 <navigationController definesPresentationContext="YES" id="UtO-4H-Skc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Page" id="ck3-c0-mhk"/>
+                    <tabBarItem key="tabBarItem" title="My Page" image="MyPage.png" id="ck3-c0-mhk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gQh-Ar-S9F">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -528,18 +543,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="priceFilterSegmentedControl" destination="JDc-np-0JG" id="5Xf-f1-Y4s"/>
-                        <outlet property="searchDisplayController" destination="wGC-t8-5Ss" id="MaI-Wa-ypo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcg-e5-qdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="nLU-Xb-5Bx">
-                    <connections>
-                        <outlet property="delegate" destination="lGT-Ys-tVy" id="a4X-UC-aYj"/>
-                        <outlet property="searchContentsController" destination="lGT-Ys-tVy" id="GWy-fD-hOb"/>
-                        <outlet property="searchResultsDataSource" destination="lGT-Ys-tVy" id="fh2-sJ-8Li"/>
-                        <outlet property="searchResultsDelegate" destination="lGT-Ys-tVy" id="IdY-6e-Q5b"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1272" y="953"/>
         </scene>
@@ -551,9 +557,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search My Page" id="Pie-Ue-OXU">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" textLabel="QJx-57-Jr6" detailTextLabel="VGD-NO-xpv" imageView="cE7-nx-nWn" rowHeight="64" style="IBUITableViewCellStyleSubtitle" id="uJr-L0-6XG">
-                                <rect key="frame" x="0.0" y="22" width="320" height="64"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="63"/>
@@ -588,25 +599,14 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Page" id="RVb-Da-8bw">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" id="8FG-HU-XVa">
+                        <barButtonItem key="leftBarButtonItem" image="Filter.png" id="8FG-HU-XVa">
                             <connections>
                                 <segue destination="pvR-GL-pHJ" kind="modal" id="z0Y-Yk-q9Z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="wGC-t8-5Ss" id="Nh6-43-tJ9"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9r-Kq-NFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="QBy-mV-Mt9">
-                    <connections>
-                        <outlet property="delegate" destination="tvS-YH-KEM" id="PXa-EF-WEm"/>
-                        <outlet property="searchContentsController" destination="tvS-YH-KEM" id="CJq-Nv-68h"/>
-                        <outlet property="searchResultsDataSource" destination="tvS-YH-KEM" id="phM-99-KQl"/>
-                        <outlet property="searchResultsDelegate" destination="tvS-YH-KEM" id="SrN-hN-p9G"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1272" y="1677"/>
         </scene>
@@ -871,7 +871,7 @@
                         </sections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Filter" id="3qj-MQ-FKp">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="4d2-v0-VCM">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="4d2-v0-VCM">
                             <connections>
                                 <segue destination="Q0v-oU-7sw" kind="unwind" unwindAction="close:" id="Li2-Q5-kyl"/>
                             </connections>
@@ -950,19 +950,8 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="TpC-dv-bkI"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="wGC-t8-5Ss" id="Bds-BS-jMB"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggr-Bi-aC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="KMX-sF-ly2">
-                    <connections>
-                        <outlet property="delegate" destination="2C8-c0-zNg" id="kJW-qp-j8G"/>
-                        <outlet property="searchContentsController" destination="2C8-c0-zNg" id="aS1-4K-c0Z"/>
-                        <outlet property="searchResultsDataSource" destination="2C8-c0-zNg" id="eA2-IO-AE9"/>
-                        <outlet property="searchResultsDelegate" destination="2C8-c0-zNg" id="yhu-R1-uhl"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1272" y="2397"/>
         </scene>
@@ -1062,7 +1051,7 @@
         <scene sceneID="zJV-qR-rvE">
             <objects>
                 <navigationController definesPresentationContext="YES" id="w33-Rt-09i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="WwZ-eq-MeG"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings.png" id="WwZ-eq-MeG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZlP-2Z-DgZ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1076,17 +1065,31 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AllEvents.png" width="30" height="30"/>
         <image name="Default.png" width="320" height="480"/>
+        <image name="Filter.png" width="23" height="22"/>
+        <image name="MyPage.png" width="30" height="30"/>
+        <image name="Settings.png" width="30" height="30"/>
+        <image name="Star.png" width="23" height="22"/>
     </resources>
     <classes>
         <class className="AbstractEventsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AbstractEventsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="eventsSearchDisplayController" candidateClass="EventsSearchDisplayController"/>
+            </relationships>
         </class>
         <class className="AllEventsViewController" superclassName="AbstractEventsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AllEventsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="changePriceFilter:"/>
                 <relationship kind="outlet" name="priceFilterSegmentedControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="EventsSearchDisplayController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsSearchDisplayController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
             </relationships>
         </class>
         <class className="FavoritesViewController" superclassName="AbstractEventsViewController">
@@ -1118,6 +1121,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="cM8-5T-SZe"/>
-        <segue reference="FZM-D6-ZOx"/>
+        <segue reference="6lm-Vf-hWM"/>
     </inferredMetricsTieBreakers>
 </document>

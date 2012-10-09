@@ -1,5 +1,5 @@
 //
-//  EventsViewController.h
+//  AbstractEventsViewController.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 26.09.12.
@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "EventsSearchDisplayControllerDelegate.h"
 
-@interface AbstractEventsViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@class EventsSearchDisplayController;
+
+@interface AbstractEventsViewController : UITableViewController <NSFetchedResultsControllerDelegate, EventsSearchDisplayControllerDelegate>
+
+@property (nonatomic, strong) IBOutlet EventsSearchDisplayController *eventsSearchDisplayController;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
