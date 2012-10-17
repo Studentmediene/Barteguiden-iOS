@@ -276,13 +276,13 @@
     NSArray *sortDescriptors = @[ timeStartAtSortDescriptor ];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    // TODO: Fix sort descriptors, cache name, section name and predicate
-    
     // Set a default cache name
+    NSString *cacheName = nil;
 //    NSString *cacheName = [self cacheName];
+    // TODO: Fix cache name
     
     // Create the fetched results controller
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:kEventSectionName cacheName:nil]; // TODO: Fix section name and cache key
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:kEventSectionName cacheName:cacheName];
     self.fetchedResultsController.delegate = self;
 }
 
