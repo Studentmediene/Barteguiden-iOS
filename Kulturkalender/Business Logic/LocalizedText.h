@@ -2,7 +2,7 @@
 //  LocalizedText.h
 //  Kulturkalender
 //
-//  Created by Christian Rasmussen on 09.10.12.
+//  Created by Christian Rasmussen on 11.10.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 @interface LocalizedText : NSManagedObject
 
-@property (nonatomic, retain) NSString * locale;
+@property (nonatomic, retain) NSString * language;
 @property (nonatomic, retain) NSString * text;
 
 @end

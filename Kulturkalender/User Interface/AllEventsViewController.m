@@ -45,7 +45,7 @@ enum {
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)predicate
+- (NSPredicate *)tabPredicate
 {
     switch ([self.priceFilterSegmentedControl selectedSegmentIndex]) {
         case kAllEventsSegmentedControllIndex:

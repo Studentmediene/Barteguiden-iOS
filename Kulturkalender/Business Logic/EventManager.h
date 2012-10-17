@@ -26,5 +26,4 @@
 @end
 
 // Notifications
-
-extern NSString * EventManagerDidRefreshNotification;
+extern NSString * const EventManagerDidRefreshNotification;

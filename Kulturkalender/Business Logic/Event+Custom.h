@@ -10,6 +10,17 @@
 
 @interface Event (Custom)
 
-- (NSString *)sectionName;
+- (NSString *)dateSectionName;
+
+- (NSString *)timeString;
+- (NSString *)categoryString;
+- (NSString *)priceString;
+- (NSString *)ageLimitString;
+
+- (NSString *)currentLocalizedDescription;
+- (NSString *)currentLocalizedFeatured;
 
 @end
+
+// Constants
+extern NSString * const kEventSectionName;

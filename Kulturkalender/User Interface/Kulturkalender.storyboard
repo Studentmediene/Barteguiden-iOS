@@ -38,6 +38,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Featured" id="fcs-T2-Ubk">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" red="0.89693278070000004" green="0.89024883509999997" blue="0.92128336430000002" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="NWn-O4-7yn" id="SYc-wO-RdU"/>
@@ -71,7 +72,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="QhT-Ab-EcC" kind="push" id="R6h-GG-9Db"/>
+                                    <segue destination="QhT-Ab-EcC" kind="push" identifier="EventDetailsSegue" id="R6h-GG-9Db"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -101,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="1272" y="237"/>
         </scene>
-        <!--Table View Controller - Event Details-->
+        <!--Event Details View Controller - Event Details-->
         <scene sceneID="0vA-Lk-qut">
             <objects>
-                <tableViewController id="QhT-Ab-EcC" sceneMemberID="viewController">
+                <tableViewController id="QhT-Ab-EcC" customClass="EventDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zIU-Qg-Cya">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,6 +126,9 @@
                                     <state key="highlighted">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="share:" destination="QhT-Ab-EcC" eventType="touchUpInside" id="rIp-ON-KhW"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vbg-q4-J6A">
                                     <constraints>
@@ -138,6 +142,9 @@
                                     <state key="highlighted">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="addToCalendar:" destination="QhT-Ab-EcC" eventType="touchUpInside" id="gfQ-Cw-Lnw"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -357,6 +364,18 @@
                     <navigationItem key="navigationItem" title="Event Details" id="Zjn-Zj-8VC">
                         <barButtonItem key="rightBarButtonItem" image="Star.png" id="i6i-8e-srZ"/>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="efi-QO-cOg" id="bMN-wH-iQs"/>
+                        <outlet property="ageLimitLabel" destination="4kv-Cn-ylQ" id="JsV-74-qmH"/>
+                        <outlet property="categoryLabel" destination="TWR-he-e3b" id="5Pp-l7-hFu"/>
+                        <outlet property="descriptionLabel" destination="Gmt-oK-mcM" id="wJf-KD-1f4"/>
+                        <outlet property="featuredLabel" destination="k3w-9Y-F3y" id="LdE-gd-JEl"/>
+                        <outlet property="placeNameLabel" destination="tFy-e1-O4j" id="MqA-uV-nwM"/>
+                        <outlet property="priceLabel" destination="Rqc-qq-vmF" id="PUu-kx-wsy"/>
+                        <outlet property="timeLabel" destination="ua9-zu-yaF" id="hCC-80-F4I"/>
+                        <outlet property="titleLabel" destination="lde-jd-Ny0" id="Ajl-uh-rn7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ex2-M6-Z1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -469,7 +488,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="QhT-Ab-EcC" kind="push" id="KVx-lk-uUx"/>
+                                    <segue destination="QhT-Ab-EcC" kind="push" identifier="EventDetailsSegue" id="KVx-lk-uUx"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExampleEventTableViewCell" rowHeight="64" id="8LZ-mU-Xin">
@@ -560,6 +579,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search My Page" id="Pie-Ue-OXU">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" red="0.89693278070000004" green="0.89024883509999997" blue="0.92128336430000002" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
@@ -592,7 +612,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="QhT-Ab-EcC" kind="push" id="6lm-Vf-hWM"/>
+                                    <segue destination="QhT-Ab-EcC" kind="push" identifier="EventDetailsSegue" id="6lm-Vf-hWM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -943,7 +963,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="QhT-Ab-EcC" kind="push" id="FZM-D6-ZOx"/>
+                                    <segue destination="QhT-Ab-EcC" kind="push" identifier="EventDetailsSegue" id="FZM-D6-ZOx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1072,55 +1092,13 @@
         <image name="Settings.png" width="30" height="30"/>
         <image name="Star.png" width="23" height="22"/>
     </resources>
-    <classes>
-        <class className="AbstractEventsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AbstractEventsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="eventsSearchDisplayController" candidateClass="EventsSearchDisplayController"/>
-            </relationships>
-        </class>
-        <class className="AllEventsViewController" superclassName="AbstractEventsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AllEventsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changePriceFilter:"/>
-                <relationship kind="outlet" name="priceFilterSegmentedControl" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="EventsSearchDisplayController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsSearchDisplayController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="FavoritesViewController" superclassName="AbstractEventsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
-        </class>
-        <class className="FeaturedViewController" superclassName="AbstractEventsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeaturedViewController.h"/>
-        </class>
-        <class className="MyPageViewController" superclassName="AbstractEventsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyPageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="close:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cM8-5T-SZe"/>
-        <segue reference="KVx-lk-uUx"/>
+        <segue reference="cN3-QH-aQP"/>
+        <segue reference="FZM-D6-ZOx"/>
     </inferredMetricsTieBreakers>
 </document>

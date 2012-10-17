@@ -2,12 +2,13 @@
 //  Event.m
 //  Kulturkalender
 //
-//  Created by Christian Rasmussen on 09.10.12.
+//  Created by Christian Rasmussen on 10.10.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
 #import "Event.h"
 #import "LocalizedDescription.h"
+#import "LocalizedFeatured.h"
 #import "Location.h"
 
 
@@ -15,15 +16,18 @@
 
 @dynamic ageLimit;
 @dynamic category;
-@dynamic timeStartAt;
-@dynamic favorite;
+@dynamic isFavorite;
+@dynamic isFeatured;
 @dynamic price;
 @dynamic timeCreatedAt;
-@dynamic timeModifiedAt;
 @dynamic timeEndAt;
+@dynamic timeModifiedAt;
+@dynamic timeStartAt;
 @dynamic title;
-@dynamic location;
+@dynamic eventID;
+@dynamic imageID;
 @dynamic localizedDescription;
 @dynamic localizedFeatured;
+@dynamic location;
 
 @end

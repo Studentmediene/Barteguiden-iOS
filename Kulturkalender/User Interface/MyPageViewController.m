@@ -36,7 +36,7 @@
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)predicate
+- (NSPredicate *)tabPredicate
 {
     // TODO: Implement
     return nil;

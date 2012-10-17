@@ -2,7 +2,7 @@
 //  Location.m
 //  Kulturkalender
 //
-//  Created by Christian Rasmussen on 09.10.12.
+//  Created by Christian Rasmussen on 10.10.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 @dynamic latitude;
 @dynamic longitude;
 @dynamic placeName;
+@dynamic address;
 @dynamic event;
 
 @end

@@ -31,6 +31,32 @@ static EventManager *_sharedManager;
 
 - (void)refresh
 {
+//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//    NSURL *URL = [NSURL URLWithString:@"https://dl.dropbox.com/u/10851469/Temp/Example2.json"];
+//    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:URL];
+//    
+//    typeof(self) bself = self;
+//    [NSURLConnection sendAsynchronousRequest:URLRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+////        NSLog(@"%@", data);
+////        NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+////        NSLog(@"%@", values);
+//        NSLog(@"%@", response);
+//       
+//        [bself refreshWithData:data];
+//
+//    //http://stackoverflow.com/questions/9270447/how-to-use-sendasynchronousrequestqueuecompletionhandler
+//    if ([data length] > 0 && error == nil)
+//        [delegate receivedData:data];
+//    else if ([data length] == 0 && error == nil)
+//        [delegate emptyReply];
+//    else if (error != nil && error.code == ERROR_CODE_TIMEOUT)
+//        [delegate timedOut];
+//    else if (error != nil)
+//        [delegate downloadError:error];
+//    }];
+//}
+//- (void)refreshWithData:(NSData *)data
+//{
     // TODO: Asynchronous download of content
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example2" withExtension:@"json"];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -63,9 +89,17 @@ static EventManager *_sharedManager;
         }
         [managedEvent setValue:descriptionSet forKey:@"localizedDescription"];
         
+        // Localized featured
+        NSMutableSet *featuredSet = [[NSMutableSet alloc] init];
+        NSArray *featureds = [event objectForKey:@"localizedFeatured"];
+        for (NSDictionary *featured in featureds) {
+            NSManagedObject *managedFeatured = [NSEntityDescription insertNewObjectForEntityForName:@"LocalizedFeatured" inManagedObjectContext:self.managedObjectContext];
+            [managedFeatured safeSetValuesForKeysWithDictionary:featured dateFormatter:iso8601dateFormatter];
+            [featuredSet addObject:managedFeatured];
+        }
+        [managedEvent setValue:featuredSet forKey:@"localizedFeatured"];
     }
     [self saveContext];
-    
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EventManagerDidRefreshNotification object:self];
 }
@@ -92,4 +126,4 @@ static EventManager *_sharedManager;
 
 #pragma mark - Notifications
 
-NSString *EventManagerDidRefreshNotification = @"EventManagerDidRefreshNotification";
+NSString * const EventManagerDidRefreshNotification = @"EventManagerDidRefreshNotification";

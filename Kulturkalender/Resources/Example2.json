@@ -1,49 +1,73 @@
 {
     "events": [
                {
+               "eventID": "1234-5678",
                "title": "Tirsdagskviss",
                "category": 0,
                "ageLimit": 18,
                "price": 0,
                "isFeatured": true,
                "isFavorite": true,
-               "timeStartAt": "2012-10-09T19:00:00+0200",
+               "timeStartAt": "2012-10-30T19:00:00+0200",
+               "timeEndAt": "2012-10-30T23:00:00+0200",
                "location": {
-               "placeName": "Samfundet"
+               "placeName": "Samfundet",
+               "address": "Elgesetergate 1",
+               "latitude": 63.430515,
+               "longitude": 10.395053
                },
-               "localizedDescription": [ {
-                                        "locale": "nb_NO",
+               "imageID": "img1",
+               "localizedDescription": [
+                                        {
+                                        "language": "nb",
                                         "text": "Det blir Tirsdagskviss i Edgar."
                                         },
                                         {
-                                        "locale": "en_US",
+                                        "language": "en",
                                         "text": "It will be Tuesday quiz at Edgar."
                                         }
-                                        ]
+                                        ],
+               "localizedFeatured": [
+                                     {
+                                     "language": "nb",
+                                     "text": "Redaksjonen liker denne hendelsen."
+                                     },
+                                     {
+                                     "language": "en",
+                                     "text": "The editorial staff like this event."
+                                     }
+                                     ]
                },
                {
+               "eventID": "2345-6789",
                "title": "Glassblåsing",
                "category": 1,
                "ageLimit": 18,
                "price": 120,
                "isFavorite": false,
                "isFeatured": false,
-               "timeStartAt": "2012-10-10T17:00:00+0200",
+               "timeStartAt": "2012-10-24T17:00:00+0200",
+               "timeEndAt": "2012-10-24T20:00:00+0200",
                "location": {
-               "placeName": "Trondheim Glassblåseri"
+               "placeName": "Trondheim Glassblåseri",
                },
                "localizedDescription": []
                },
                {
+               "eventID": "3456-7890",
                "title": "LUKA",
                "category": 1,
                "ageLimit": 0,
                "price": 200,
                "isFavorite": true,
                "isFeatured": false,
-               "timeStartAt": "2012-10-12T20:00:00+0200",
+               "timeStartAt": "2012-10-26T20:00:00+0200",
+               "timeEndAt": "2012-10-26T23:00:00+0200",
                "location": {
-               "placeName": "Samfundet"
+               "placeName": "Samfundet",
+               "streetName": "Elgesetergate 1",
+               "latitude": 63.430515,
+               "longitude": 10.395053
                },
                "localizedDescription": []
                }

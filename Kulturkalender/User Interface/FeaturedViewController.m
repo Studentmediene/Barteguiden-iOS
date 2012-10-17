@@ -36,7 +36,7 @@
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)predicate
+- (NSPredicate *)tabPredicate
 {
     NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"isFeatured == 1"];
     

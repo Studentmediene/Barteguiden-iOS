@@ -39,7 +39,7 @@
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)predicate
+- (NSPredicate *)tabPredicate
 {
     NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"isFavorite == 1"];
     

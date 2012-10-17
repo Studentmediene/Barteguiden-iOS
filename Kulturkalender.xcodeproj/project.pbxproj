@@ -29,6 +29,7 @@
 		698F873E1624C05F001B9090 /* Filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F873C1624C05F001B9090 /* Filter.png */; };
 		698F873F1624C05F001B9090 /* Filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F873D1624C05F001B9090 /* Filter@2x.png */; };
 		69AEFE3A1624E7AB009F3567 /* Event+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AEFE391624E7AB009F3567 /* Event+Custom.m */; };
+		69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C491671625F1DE00F28C45 /* EventDetailsViewController.m */; };
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
 		69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */; };
 		69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */; };
@@ -98,6 +99,8 @@
 		698F873D1624C05F001B9090 /* Filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Filter@2x.png"; sourceTree = "<group>"; };
 		69AEFE381624E7AB009F3567 /* Event+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Custom.h"; sourceTree = "<group>"; };
 		69AEFE391624E7AB009F3567 /* Event+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Custom.m"; sourceTree = "<group>"; };
+		69C491661625F1DE00F28C45 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
+		69C491671625F1DE00F28C45 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		69D7FC38161B576A00E38D56 /* AllEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllEventsViewController.h; sourceTree = "<group>"; };
 		69D7FC39161B576A00E38D56 /* AllEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsViewController.m; sourceTree = "<group>"; };
 		69D7FC3E161B57B600E38D56 /* FeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedViewController.h; sourceTree = "<group>"; };
@@ -248,6 +251,15 @@
 			name = Temp;
 			sourceTree = "<group>";
 		};
+		69C491641625F1A600F28C45 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				69C491661625F1DE00F28C45 /* EventDetailsViewController.h */,
+				69C491671625F1DE00F28C45 /* EventDetailsViewController.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		69D7FC36161B570F00E38D56 /* Featured Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +384,7 @@
 				698F870E16247C7F001B9090 /* EventsSearchDisplayControllerDelegate.h */,
 				698F870B16247B96001B9090 /* EventsSearchDisplayController.h */,
 				698F870C16247B96001B9090 /* EventsSearchDisplayController.m */,
+				69C491641625F1A600F28C45 /* Common */,
 				69D7FC36161B570F00E38D56 /* Featured Tab */,
 				6904F8DA16136D9B00482F13 /* All Tab */,
 				693EF27616123B4B00D10C03 /* My Page Tab */,
@@ -533,6 +546,7 @@
 				698F871C1624A183001B9090 /* Location.m in Sources */,
 				698F871F1624A183001B9090 /* LocalizedFeatured.m in Sources */,
 				69AEFE3A1624E7AB009F3567 /* Event+Custom.m in Sources */,
+				69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

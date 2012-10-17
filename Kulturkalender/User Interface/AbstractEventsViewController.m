@@ -8,6 +8,7 @@
 
 #import "AbstractEventsViewController.h"
 #import "EventManager.h"
+#import "EventDetailsViewController.h"
 
 @implementation AbstractEventsViewController
 
@@ -49,7 +50,7 @@
 
 #pragma mark - Abstract methods
 
-- (NSPredicate *)predicate
+- (NSPredicate *)tabPredicate
 {
     return nil;
 }
@@ -57,6 +58,22 @@
 - (NSString *)cacheName
 {
     return nil;
+}
+
+
+#pragma mark - Storyboard
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [super prepareForSegue:segue sender:sender];
+    
+    if ([segue.identifier isEqualToString:@"EventDetailsSegue"]) {
+        Event *event = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+        
+        EventDetailsViewController *eventDetailsViewController = [segue destinationViewController];
+//        eventDetailsViewController.delegate = self;
+        eventDetailsViewController.event = event;
+    }
 }
 
 
@@ -225,9 +242,14 @@
 //    cell.imageView.image = image;
 //    cell.imageView.highlightedImage = highlightedImage;
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.locale = [NSLocale currentLocale];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    // Set date formatter
+    static NSDateFormatter *dateFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.locale = [NSLocale currentLocale];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    });
     
     Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
@@ -260,8 +282,24 @@
 //    NSString *cacheName = [self cacheName];
     
     // Create the fetched results controller
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:@"sectionName" cacheName:nil]; // TODO: Fix section name and cache key
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:kEventSectionName cacheName:nil]; // TODO: Fix section name and cache key
     self.fetchedResultsController.delegate = self;
+}
+
+- (NSPredicate *)predicate
+{
+    NSPredicate *tabPredicate = [self tabPredicate];
+    NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"timeEndAt >= %@", [NSDate date]];
+    
+    NSPredicate *predicate;
+    if (tabPredicate != nil) {
+        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ tabPredicate, datePredicate ]];
+    }
+    else {
+        predicate = datePredicate;
+    }
+    
+    return predicate;
 }
 
 - (void)reloadPredicate
