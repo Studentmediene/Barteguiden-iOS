@@ -28,6 +28,7 @@
 
 //@property (nonatomic, strong) IBOutlet UIImageView *poster;
 
+- (IBAction)addToFavorite:(id)sender;
 - (IBAction)share:(id)sender;
 - (IBAction)addToCalendar:(id)sender;
 

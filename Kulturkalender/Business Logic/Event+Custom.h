@@ -12,6 +12,7 @@
 
 - (NSString *)dateSectionName;
 
+- (NSString *)timeAndLocationString;
 - (NSString *)timeString;
 - (NSString *)categoryString;
 - (NSString *)priceString;

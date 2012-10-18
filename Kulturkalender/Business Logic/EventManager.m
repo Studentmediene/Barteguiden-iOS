@@ -31,6 +31,7 @@ static EventManager *_sharedManager;
 
 - (void)refresh
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventManagerWillRefreshNotification object:self];
 //    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 //    NSURL *URL = [NSURL URLWithString:@"https://dl.dropbox.com/u/10851469/Temp/Example2.json"];
 //    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:URL];
@@ -126,4 +127,5 @@ static EventManager *_sharedManager;
 
 #pragma mark - Notifications
 
+NSString * const EventManagerWillRefreshNotification = @"EventManagerWillRefreshNotification";
 NSString * const EventManagerDidRefreshNotification = @"EventManagerDidRefreshNotification";

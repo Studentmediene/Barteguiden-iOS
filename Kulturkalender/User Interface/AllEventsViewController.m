@@ -84,12 +84,12 @@ enum {
 
 - (void)updatePlaceholderInSearchField
 {
-    NSLog(@"Update placeholder in search field");
-    // TODO: Implement
+//    self.searchDisplayController.searchBar.placeholder = [self searchFieldPlaceholder];
 }
 
 - (NSString *)searchFieldPlaceholder
 {
+    // TODO: Fix localization
     switch ([self.priceFilterSegmentedControl selectedSegmentIndex]) {
         case kAllEventsSegmentedControllIndex:
         {

@@ -50,24 +50,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"SearchDisplayTableViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+    UITableViewCell *cell = [self cell];
     
     // Configure the cell...
 //    NSDictionary *friend = (self.searchDisplayResult)[indexPath.row];
 //    cell.textLabel.text = friend[kResultFriendName];
-    cell.textLabel.text = @"Tirsdagskviss";
+//    cell.textLabel.text = @"Tirsdagskviss";
     
     return cell;
 }
 
 
 #pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 56;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -103,6 +102,24 @@
 //    
 //    BOOL hasChanged = !([self.searchDisplayResult isEqualToArray:lastResult]);
 //    return hasChanged;
+}
+
+
+#pragma mark - Private methods
+
+- (UITableViewCell *)cell
+{
+    static NSString *cellIdentifier = @"EventCell";
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        NSLog(@"Generating new cell from nib");
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EventCell" owner:self options:nil];
+        cell = (UITableViewCell *)[nib objectAtIndex:0];
+        [cell prepareForReuse];
+    }
+    
+    return cell;
 }
 
 @end

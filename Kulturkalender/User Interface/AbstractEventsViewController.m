@@ -9,6 +9,7 @@
 #import "AbstractEventsViewController.h"
 #import "EventManager.h"
 #import "EventDetailsViewController.h"
+#import "EventCell.h"
 
 @implementation AbstractEventsViewController
 
@@ -61,20 +62,20 @@
 }
 
 
-#pragma mark - Storyboard
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    [super prepareForSegue:segue sender:sender];
-    
-    if ([segue.identifier isEqualToString:@"EventDetailsSegue"]) {
-        Event *event = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
-        
-        EventDetailsViewController *eventDetailsViewController = [segue destinationViewController];
-//        eventDetailsViewController.delegate = self;
-        eventDetailsViewController.event = event;
-    }
-}
+//#pragma mark - Storyboard
+//
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    [super prepareForSegue:segue sender:sender];
+//    
+//    if ([segue.identifier isEqualToString:@"EventDetailsSegue"]) {
+//        Event *event = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+//        
+//        EventDetailsViewController *eventDetailsViewController = [segue destinationViewController];
+////        eventDetailsViewController.delegate = self;
+//        eventDetailsViewController.event = event;
+//    }
+//}
 
 
 #pragma mark - UITableViewDataSource
@@ -92,8 +93,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"EventTableViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [self cell];
     
     [self configureCell:cell atIndexPath:indexPath];
     
@@ -111,7 +111,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 64;
+    return 56;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,7 +123,39 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    Event *event = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Kulturkalender" bundle:nil];
+    EventDetailsViewController *eventDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
+//    eventDetailsViewController.delegate = self;
+    eventDetailsViewController.event = event;
+    
+    [self.navigationController pushViewController:eventDetailsViewController animated:YES];
 }
+
+
+// TODO: Remove this section?
+#pragma mark - UISearchDisplayDelegate methods
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    return YES;
+    //    // Store a copy of the last result in order to check if result has changed
+    //    NSArray *lastResult = self.searchDisplayResult;
+    //
+    //    // Filter search display result
+    //    NSString *test = [NSString stringWithFormat:@"*%@*", searchString];
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", kResultFriendName, test];
+    //    self.searchDisplayResult = [self.sortedResult filteredArrayUsingPredicate:predicate];
+    //
+    //    // Determine if search display should reload table
+    //    if ([self.searchDisplayResult count] != [lastResult count])
+    //        return YES;
+    //
+    //    BOOL hasChanged = !([self.searchDisplayResult isEqualToArray:lastResult]);
+    //    return hasChanged;
+}
+
 
 
 #pragma mark - NSFetchedResultsController
@@ -220,43 +252,19 @@
 //    UIImage *image = (lent == YES) ? lentImage : borrowedImage;
 //    UIImage *highlightedImage = (lent == YES) ? lentHighlightedImage : borrowedHighlightedImage;
 //    
-//    NSString *format = nil;
-//    if (settled == NO) {
-//        if (lent == YES) {
-//            format = NSLocalizedString(@"Lent %1$@ to %2$@", @"Outgoing loans in History-tab");
-//        }
-//        else {
-//            format = NSLocalizedString(@"Borrowed %1$@ from %2$@", @"Incoming loans in History-tab");
-//        }
-//    }
-//    else {
-//        if (lent == YES) {
-//            format = NSLocalizedString(@"Paid back %1$@ to %2$@", @"Settled incoming loans in History-tab");
-//        }
-//        else {
-//            format = NSLocalizedString(@"Got back %1$@ from %2$@", @"Settled outgoing loans in History-tab");
-//        }
-//    }
-//    
 //    cell.textLabel.text = [NSString stringWithFormat:format, amountText, friendText];
 //    cell.imageView.image = image;
 //    cell.imageView.highlightedImage = highlightedImage;
     
-    // Set date formatter
-    static NSDateFormatter *dateFormatter;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.locale = [NSLocale currentLocale];
-        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    });
-    
     Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    NSString *detail = [NSString stringWithFormat:@"%@ at %@", [dateFormatter stringFromDate:event.timeStartAt], event.location.placeName]; // TODO: Localize
+    EventCell *eventCell = (EventCell *)cell;
     
-    cell.textLabel.text = event.title;
-    cell.detailTextLabel.text = detail;
+    eventCell.titleLabel.text = event.title;
+    eventCell.timeAndLocationLabel.text = event.timeAndLocationString;
+    eventCell.priceLabel.text = event.priceString;
+//    cell.textLabel.text = event.title;
+//    cell.detailTextLabel.text = detail;
 }
 
 - (void)setUpFetchedResultsController
@@ -329,6 +337,21 @@
 - (void)triggerRefresh
 {
     [[EventManager sharedManager] refresh];
+}
+
+- (UITableViewCell *)cell
+{
+    static NSString *cellIdentifier = @"EventCell"; // TODO: Change to EventCell when I want to change to common UITableViewCell
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        NSLog(@"Generating new cell from nib");
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EventCell" owner:self options:nil];
+        cell = (UITableViewCell *)[nib objectAtIndex:0];
+        [cell prepareForReuse];
+    }
+
+    return cell;
 }
 
 @end

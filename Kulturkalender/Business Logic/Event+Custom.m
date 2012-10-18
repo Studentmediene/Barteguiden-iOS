@@ -8,6 +8,7 @@
 
 #import "Event+Custom.h"
 #import "LocalizedText.h"
+#import "Location.h"
 
 @implementation Event (Custom)
 
@@ -27,25 +28,45 @@
     return sectionName;
 }
 
-// TODO: Fix and remembere localization
+// TODO: Fix and remember localization
+- (NSString *)timeAndLocationString
+{
+    // Set date formatter
+    static NSDateFormatter *dateFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.locale = [NSLocale currentLocale];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    });
+    
+    NSString *timeAndLocation = [NSString stringWithFormat:@"%@ at %@", [dateFormatter stringFromDate:self.timeStartAt], self.location.placeName];
+    
+    return timeAndLocation;
+}
+
+// TODO: Fix and remember localization
 - (NSString *)timeString
 {
     return [self.timeStartAt description];
 }
 
-// TODO: Fix and remembere localization
+// TODO: Fix and remember localization
 - (NSString *)categoryString
 {
     return [self.category stringValue];
 }
 
-// TODO: Fix and remembere localization
+// TODO: Fix and remember localization
 - (NSString *)priceString
 {
-    return [NSString stringWithFormat:@"NOK %@", self.price];
+    if ([self.price isEqualToNumber:@0]) {
+        return @"Free";
+    }
+    return [NSString stringWithFormat:@"%@kr", self.price];
 }
 
-// TODO: Fix and remembere localization
+// TODO: Fix and remember localization
 - (NSString *)ageLimitString
 {
     return [NSString stringWithFormat:@"%@ and above", self.ageLimit];

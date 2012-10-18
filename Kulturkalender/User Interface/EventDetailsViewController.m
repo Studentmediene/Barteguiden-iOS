@@ -61,6 +61,12 @@
 
 #pragma mark - IBAction
 
+- (void)addToFavorite:(id)sender
+{
+    UIButton *button = sender;
+    button.selected = !(button.selected);
+}
+
 - (void)share:(id)sender
 {
     NSLog(@"Share");
