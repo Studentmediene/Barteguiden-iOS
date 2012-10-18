@@ -84,7 +84,7 @@ enum {
 
 - (void)updatePlaceholderInSearchField
 {
-//    self.searchDisplayController.searchBar.placeholder = [self searchFieldPlaceholder];
+    self.searchDisplayController.searchBar.placeholder = [self searchFieldPlaceholder];
 }
 
 - (NSString *)searchFieldPlaceholder

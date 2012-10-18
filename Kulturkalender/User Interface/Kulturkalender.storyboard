@@ -458,6 +458,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="priceFilterSegmentedControl" destination="JDc-np-0JG" id="5Xf-f1-Y4s"/>
+                        <outlet property="searchDisplayController" destination="pYS-WK-TTr" id="djq-Ns-Y5K"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcg-e5-qdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -495,6 +496,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="GAK-om-MTD" id="utA-Ry-seJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9r-Kq-NFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="GAK-om-MTD">
@@ -814,6 +818,9 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="TpC-dv-bkI"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="jCS-Bz-vRh" id="6fa-kU-rVH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggr-Bi-aC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="jCS-Bz-vRh">
@@ -990,12 +997,18 @@
         </class>
         <class className="MyPageViewController" superclassName="AbstractEventsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MyPageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="close:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
         <class className="SettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
