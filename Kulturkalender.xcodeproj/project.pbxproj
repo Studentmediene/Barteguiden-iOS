@@ -10,6 +10,14 @@
 		6904F8DE16136DBA00482F13 /* AbstractEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */; };
 		6937BBC816136516003718A4 /* NSManagedObject+CIMGF.m in Sources */ = {isa = PBXBuildFile; fileRef = 6937BBC716136516003718A4 /* NSManagedObject+CIMGF.m */; };
 		6937BBCA161365B1003718A4 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = 6937BBC9161365B1003718A4 /* Example.json */; };
+		694B5DFE1636FEC000631278 /* img1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B5DFA1636FEBF00631278 /* img1@2x.png */; };
+		694B5DFF1636FEC000631278 /* img2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B5DFB1636FEC000631278 /* img2@2x.png */; };
+		694B5E001636FEC000631278 /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B5DFC1636FEC000631278 /* img1.png */; };
+		694B5E011636FEC000631278 /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B5DFD1636FEC000631278 /* img2.png */; };
+		694B5E0C163717A600631278 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694B5E0B163717A600631278 /* MapViewController.m */; };
+		694B5E1816371D3D00631278 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B5E1716371D3D00631278 /* MapKit.framework */; };
+		694B5E1B1637203E00631278 /* Location+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 694B5E1A1637203D00631278 /* Location+Custom.m */; };
+		694B5E1D163720E400631278 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B5E1C163720E300631278 /* CoreLocation.framework */; };
 		698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F870C16247B96001B9090 /* EventsSearchDisplayController.m */; };
 		698F871016249719001B9090 /* Example2.json in Resources */ = {isa = PBXBuildFile; fileRef = 698F870F16249719001B9090 /* Example2.json */; };
 		698F87131624A181001B9090 /* LocalizedDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F87121624A181001B9090 /* LocalizedDescription.m */; };
@@ -80,6 +88,16 @@
 		6937BBC616136516003718A4 /* NSManagedObject+CIMGF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+CIMGF.h"; sourceTree = "<group>"; };
 		6937BBC716136516003718A4 /* NSManagedObject+CIMGF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+CIMGF.m"; sourceTree = "<group>"; };
 		6937BBC9161365B1003718A4 /* Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Example.json; sourceTree = "<group>"; };
+		694B5DFA1636FEBF00631278 /* img1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img1@2x.png"; sourceTree = "<group>"; };
+		694B5DFB1636FEC000631278 /* img2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img2@2x.png"; sourceTree = "<group>"; };
+		694B5DFC1636FEC000631278 /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
+		694B5DFD1636FEC000631278 /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
+		694B5E0A163717A600631278 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		694B5E0B163717A600631278 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		694B5E1716371D3D00631278 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		694B5E191637203D00631278 /* Location+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+Custom.h"; sourceTree = "<group>"; };
+		694B5E1A1637203D00631278 /* Location+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+Custom.m"; sourceTree = "<group>"; };
+		694B5E1C163720E300631278 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		698F870B16247B96001B9090 /* EventsSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsSearchDisplayController.h; sourceTree = "<group>"; };
 		698F870C16247B96001B9090 /* EventsSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsSearchDisplayController.m; sourceTree = "<group>"; };
 		698F870E16247C7F001B9090 /* EventsSearchDisplayControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsSearchDisplayControllerDelegate.h; sourceTree = "<group>"; };
@@ -159,6 +177,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				694B5E1816371D3D00631278 /* MapKit.framework in Frameworks */,
+				694B5E1D163720E400631278 /* CoreLocation.framework in Frameworks */,
 				69F52A9E1608E70F0045B6F6 /* UIKit.framework in Frameworks */,
 				69F52AA01608E70F0045B6F6 /* Foundation.framework in Frameworks */,
 				69F52AA21608E70F0045B6F6 /* CoreGraphics.framework in Frameworks */,
@@ -261,6 +281,10 @@
 		69AEFE371624E77C009F3567 /* Temp */ = {
 			isa = PBXGroup;
 			children = (
+				694B5DFC1636FEC000631278 /* img1.png */,
+				694B5DFA1636FEBF00631278 /* img1@2x.png */,
+				694B5DFD1636FEC000631278 /* img2.png */,
+				694B5DFB1636FEC000631278 /* img2@2x.png */,
 				69BA0B03162F841A009726E7 /* Star-Normal.png */,
 				69BA0B01162F841A009726E7 /* Star-Normal@2x.png */,
 				69BA0B02162F841A009726E7 /* Star-Selected.png */,
@@ -293,6 +317,8 @@
 				698F870B16247B96001B9090 /* EventsSearchDisplayController.h */,
 				698F870C16247B96001B9090 /* EventsSearchDisplayController.m */,
 				69BA0AD8162F44D3009726E7 /* Event Cell */,
+				694B5E0A163717A600631278 /* MapViewController.h */,
+				694B5E0B163717A600631278 /* MapViewController.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -333,6 +359,8 @@
 				69AEFE391624E7AB009F3567 /* Event+Custom.m */,
 				698F871A1624A182001B9090 /* Location.h */,
 				698F871B1624A183001B9090 /* Location.m */,
+				694B5E191637203D00631278 /* Location+Custom.h */,
+				694B5E1A1637203D00631278 /* Location+Custom.m */,
 				698F87141624A182001B9090 /* LocalizedText.h */,
 				698F87151624A182001B9090 /* LocalizedText.m */,
 				698F87111624A181001B9090 /* LocalizedDescription.h */,
@@ -346,6 +374,8 @@
 		69F52A8E1608E70F0045B6F6 = {
 			isa = PBXGroup;
 			children = (
+				694B5E1C163720E300631278 /* CoreLocation.framework */,
+				694B5E1716371D3D00631278 /* MapKit.framework */,
 				69F52AA51608E70F0045B6F6 /* Kulturkalender */,
 				69F52AC71608E70F0045B6F6 /* KulturkalenderTests */,
 				69F52A9C1608E70F0045B6F6 /* Frameworks */,
@@ -543,6 +573,10 @@
 				69BA0B07162F841A009726E7 /* Star-Normal.png in Resources */,
 				69BA0B08162F841A009726E7 /* Star-Selected@2x.png in Resources */,
 				69BA0B0E162F87A4009726E7 /* Star-Selected2@2x.png in Resources */,
+				694B5DFE1636FEC000631278 /* img1@2x.png in Resources */,
+				694B5DFF1636FEC000631278 /* img2@2x.png in Resources */,
+				694B5E001636FEC000631278 /* img1.png in Resources */,
+				694B5E011636FEC000631278 /* img2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +631,8 @@
 				69AEFE3A1624E7AB009F3567 /* Event+Custom.m in Sources */,
 				69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */,
 				69BA0ADC162F4513009726E7 /* EventCell.m in Sources */,
+				694B5E0C163717A600631278 /* MapViewController.m in Sources */,
+				694B5E1B1637203E00631278 /* Location+Custom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

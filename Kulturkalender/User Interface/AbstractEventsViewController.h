@@ -8,16 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "EventsSearchDisplayControllerDelegate.h"
+//#import "EventsSearchDisplayControllerDelegate.h"
 
-@class EventsSearchDisplayController;
+//@class EventsSearchDisplayController;
 
-@interface AbstractEventsViewController : UITableViewController <NSFetchedResultsControllerDelegate, EventsSearchDisplayControllerDelegate>
+@interface AbstractEventsViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) IBOutlet EventsSearchDisplayController *eventsSearchDisplayController;
+//@property (nonatomic, strong) IBOutlet EventsSearchDisplayController *eventsSearchDisplayController;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 - (void)reloadPredicate;
+- (NSPredicate *)tabPredicate;
+- (NSPredicate *)searchPredicate;
 
 @end

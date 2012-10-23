@@ -56,6 +56,11 @@
     return nil;
 }
 
+- (NSPredicate *)searchPredicate
+{
+    return nil;
+}
+
 - (NSString *)cacheName
 {
     return nil;
@@ -157,7 +162,6 @@
 }
 
 
-
 #pragma mark - NSFetchedResultsController
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -221,50 +225,19 @@
 }
 
 
-#pragma mark - EventsSearchDisplayControllerDelegate
-
-- (NSArray *)result
-{
-    return @[ @"abc", @"def" ];
-}
-
-
 #pragma mark - Private methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-//    id<FLLoan> loan = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    
-//    UIImage *lentImage = [UIImage imageNamed:@"UpArrow-Normal"];
-//    UIImage *lentHighlightedImage = [UIImage imageNamed:@"UpArrow-Highlighted"];
-//    UIImage *borrowedImage = [UIImage imageNamed:@"DownArrow-Normal"];
-//    UIImage *borrowedHighlightedImage = [UIImage imageNamed:@"DownArrow-Highlighted"];
-//    //    UIImage *image = [loan categoryImage];
-//    //    UIImage *highlightedImage = [loan categoryHighlightedImage];
-//    
-//    // FIXME: Fix code
-//    NSString *amountText = @"FIXME";//loan.amountPresentation;
-//    NSString *friendText = @"FIXME";//loan.friendFullName;
-//    
-//    BOOL settled = [loan isSettled];
-//    BOOL lent = NO;//[loan.lent boolValue];
-//    
-//    UIImage *image = (lent == YES) ? lentImage : borrowedImage;
-//    UIImage *highlightedImage = (lent == YES) ? lentHighlightedImage : borrowedHighlightedImage;
-//    
-//    cell.textLabel.text = [NSString stringWithFormat:format, amountText, friendText];
-//    cell.imageView.image = image;
-//    cell.imageView.highlightedImage = highlightedImage;
-    
     Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     EventCell *eventCell = (EventCell *)cell;
     
+    NSString *imageName = event.imageID ?: @"EmptyPoster";
+    eventCell.thumbnailImageView.image = [UIImage imageNamed:imageName];
     eventCell.titleLabel.text = event.title;
     eventCell.timeAndLocationLabel.text = event.timeAndLocationString;
     eventCell.priceLabel.text = event.priceString;
-//    cell.textLabel.text = event.title;
-//    cell.detailTextLabel.text = detail;
 }
 
 - (void)setUpFetchedResultsController
@@ -296,15 +269,19 @@
 
 - (NSPredicate *)predicate
 {
-    NSPredicate *tabPredicate = [self tabPredicate];
     NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"timeEndAt >= %@", [NSDate date]];
+    NSPredicate *tabPredicate = [self tabPredicate];
+    NSPredicate *searchPredicate = [self searchPredicate];
     
-    NSPredicate *predicate;
+    // Initial predicate is the date predicate
+    NSPredicate *predicate = datePredicate;
+    
+    //
     if (tabPredicate != nil) {
-        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ tabPredicate, datePredicate ]];
+        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ tabPredicate, predicate ]];
     }
-    else {
-        predicate = datePredicate;
+    if (searchPredicate != nil) {
+        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ searchPredicate, predicate ]];
     }
     
     return predicate;

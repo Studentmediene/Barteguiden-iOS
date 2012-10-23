@@ -11,6 +11,7 @@
 #import "Event.h"
 #import "Event+Custom.h"
 #import "Location.h"
+#import "Location+Custom.h"
 #import "LocalizedDescription.h"
 #import "LocalizedFeatured.h"
 

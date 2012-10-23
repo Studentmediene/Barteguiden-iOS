@@ -8,6 +8,7 @@
 
 #import "EventDetailsViewController.h"
 #import "EventManager.h"
+#import "MapViewController.h"
 
 @implementation EventDetailsViewController
 
@@ -59,10 +60,23 @@
 }
 
 
+#pragma mark - Storyboard
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"MapSegue"])
+    {
+        MapViewController *mapViewController = [segue destinationViewController];
+        mapViewController.annotation = self.event.location;
+    }
+}
+
+
 #pragma mark - IBAction
 
 - (void)addToFavorite:(id)sender
 {
+    NSLog(@"Add to Favorite");
     UIButton *button = sender;
     button.selected = !(button.selected);
 }

@@ -13,8 +13,8 @@
                "location": {
                "placeName": "Samfundet",
                "address": "Elgesetergate 1",
-               "latitude": 63.430515,
-               "longitude": 10.395053
+               "latitude": 63.422634,
+               "longitude": 10.394697
                },
                "imageID": "img1",
                "localizedDescription": [
@@ -51,6 +51,7 @@
                "location": {
                "placeName": "Trondheim Glassblåseri",
                },
+               "imageID": "img2",
                "localizedDescription": []
                },
                {
