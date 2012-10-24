@@ -23,6 +23,7 @@
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 - (void)refresh;
+- (void)save;
 
 @end
 

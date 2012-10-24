@@ -374,8 +374,6 @@
 		69F52A8E1608E70F0045B6F6 = {
 			isa = PBXGroup;
 			children = (
-				694B5E1C163720E300631278 /* CoreLocation.framework */,
-				694B5E1716371D3D00631278 /* MapKit.framework */,
 				69F52AA51608E70F0045B6F6 /* Kulturkalender */,
 				69F52AC71608E70F0045B6F6 /* KulturkalenderTests */,
 				69F52A9C1608E70F0045B6F6 /* Frameworks */,
@@ -400,6 +398,8 @@
 				69F52AA11608E70F0045B6F6 /* CoreGraphics.framework */,
 				69F52AA31608E70F0045B6F6 /* CoreData.framework */,
 				69F52AC01608E70F0045B6F6 /* SenTestingKit.framework */,
+				694B5E1C163720E300631278 /* CoreLocation.framework */,
+				694B5E1716371D3D00631278 /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

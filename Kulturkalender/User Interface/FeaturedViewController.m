@@ -38,7 +38,7 @@
 
 - (NSPredicate *)tabPredicate
 {
-    NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"isFeatured == 1"];
+    NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"featured == 1"];
     
     return featuredPredicate;
 }

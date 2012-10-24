@@ -17,20 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSDateFormatter *iso8601dateFormatter = [[NSDateFormatter alloc] init];
-    [iso8601dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-    
-    NSDate *date = [iso8601dateFormatter dateFromString:@"2012-04-03T21:00:00+200"];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setLocale:[NSLocale currentLocale]];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    
-    NSString *output = [dateFormatter stringFromDate:date];
-    
-    NSLog(@"%@", output);
-    
     _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext];
     
     return YES;
@@ -61,8 +47,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
-//    [self saveContext];
-    // TODO: Is this necessary?
 }
 
 

@@ -74,19 +74,23 @@
 
 #pragma mark - IBAction
 
-- (void)addToFavorite:(id)sender
+- (void)toggleFavorite:(id)sender
 {
-    NSLog(@"Add to Favorite");
-    UIButton *button = sender;
-    button.selected = !(button.selected);
+    NSLog(@"Toggling favorite...");
+    
+    BOOL favoriteStatus = ![self.event.favorite boolValue];
+    self.event.favorite = @(favoriteStatus);
+    [[EventManager sharedManager] save];
+    
+    self.favoriteButton.selected = favoriteStatus;
 }
 
-- (void)share:(id)sender
+- (void)shareEvent:(id)sender
 {
     NSLog(@"Share");
 }
 
-- (void)addToCalendar:(id)sender
+- (void)toggleReminder:(id)sender
 {
     NSLog(@"Add to Calendar");
 }
@@ -107,6 +111,8 @@
     
     self.placeNameLabel.text = self.event.location.placeName;
     self.addressLabel.text = self.event.location.address;
+    
+    self.favoriteButton.selected = [self.event.favorite boolValue];
 }
 
 @end

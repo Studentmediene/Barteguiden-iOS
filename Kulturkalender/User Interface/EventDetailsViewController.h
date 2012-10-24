@@ -26,10 +26,12 @@
 @property (nonatomic, strong) IBOutlet UILabel *placeNameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *addressLabel;
 
+@property (nonatomic, strong) IBOutlet UIButton *favoriteButton;
+
 //@property (nonatomic, strong) IBOutlet UIImageView *poster;
 
-- (IBAction)addToFavorite:(id)sender;
-- (IBAction)share:(id)sender;
-- (IBAction)addToCalendar:(id)sender;
+- (IBAction)toggleFavorite:(id)sender;
+- (IBAction)shareEvent:(id)sender;
+- (IBAction)toggleReminder:(id)sender;
 
 @end

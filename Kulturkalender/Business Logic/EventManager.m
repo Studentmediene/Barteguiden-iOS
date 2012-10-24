@@ -7,7 +7,6 @@
 //
 
 #import "EventManager.h"
-#import "NSManagedObject+CIMGF.h"
 
 @implementation EventManager
 
@@ -64,51 +63,16 @@ static EventManager *_sharedManager;
     NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 //    NSLog(@"%@", values);
     
-    NSDateFormatter *iso8601dateFormatter = [[NSDateFormatter alloc] init];
-    [iso8601dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-    
     NSArray *events = values[@"events"];
     for (NSDictionary *event in events) {
-        // Event
-        NSManagedObject *managedEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
-        [managedEvent safeSetValuesForKeysWithDictionary:event dateFormatter:iso8601dateFormatter];
-//        [managedEvent setValue:[NSDate date] forKey:@"timeStartAt"];
-        [managedEvent setValue:[NSDate date] forKey:@"timeCreatedAt"];
-        
-        // Location
-        NSManagedObject *managedLocation = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
-        [managedLocation safeSetValuesForKeysWithDictionary:[event objectForKey:@"location"] dateFormatter:iso8601dateFormatter];
-        [managedEvent setValue:managedLocation forKey:@"location"];
-        
-        // Localized description
-        NSMutableSet *descriptionSet = [[NSMutableSet alloc] init];
-        NSArray *descriptions = [event objectForKey:@"localizedDescription"];
-        for (NSDictionary *description in descriptions) {
-            NSManagedObject *managedDescription = [NSEntityDescription insertNewObjectForEntityForName:@"LocalizedDescription" inManagedObjectContext:self.managedObjectContext];
-            [managedDescription safeSetValuesForKeysWithDictionary:description dateFormatter:iso8601dateFormatter];
-            [descriptionSet addObject:managedDescription];
-        }
-        [managedEvent setValue:descriptionSet forKey:@"localizedDescription"];
-        
-        // Localized featured
-        NSMutableSet *featuredSet = [[NSMutableSet alloc] init];
-        NSArray *featureds = [event objectForKey:@"localizedFeatured"];
-        for (NSDictionary *featured in featureds) {
-            NSManagedObject *managedFeatured = [NSEntityDescription insertNewObjectForEntityForName:@"LocalizedFeatured" inManagedObjectContext:self.managedObjectContext];
-            [managedFeatured safeSetValuesForKeysWithDictionary:featured dateFormatter:iso8601dateFormatter];
-            [featuredSet addObject:managedFeatured];
-        }
-        [managedEvent setValue:featuredSet forKey:@"localizedFeatured"];
+        [Event insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
     }
-    [self saveContext];
+    [self save];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EventManagerDidRefreshNotification object:self];
 }
 
-
-#pragma mark - Private methods
-
-- (void)saveContext
+- (void)save
 {
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;

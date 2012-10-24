@@ -41,7 +41,7 @@
 
 - (NSPredicate *)tabPredicate
 {
-    NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"isFavorite == 1"];
+    NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"favorite == 1"];
     
     return favoritesPredicate;
 }

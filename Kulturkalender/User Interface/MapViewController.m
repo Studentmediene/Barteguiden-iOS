@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
 
-const CLLocationDistance kMapViewLocationDistance = 2000;
+const CLLocationDistance kMapViewLocationDistance = 500;
 
 @implementation MapViewController
 
@@ -25,9 +25,9 @@ const CLLocationDistance kMapViewLocationDistance = 2000;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-    [self locateAndAddAnnotation];
+    // HACK: Delay the message to make the map view center around the annotation
+    [self performSelector:@selector(setRegionAndAddAnnotation) withObject:nil afterDelay:0.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,7 +38,7 @@ const CLLocationDistance kMapViewLocationDistance = 2000;
 
 #pragma mark - Private methods
 
-- (void)locateAndAddAnnotation
+- (void)setRegionAndAddAnnotation
 {
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([self.annotation coordinate], kMapViewLocationDistance, kMapViewLocationDistance);
     [self.mapView setRegion:region animated:NO];
