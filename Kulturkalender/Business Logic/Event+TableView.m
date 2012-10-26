@@ -1,16 +1,16 @@
 //
-//  Event+UITableView.m
+//  Event+TableView.m
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 10.10.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "Event+UITableView.h"
+#import "Event+TableView.h"
 #import "EventConstants.h"
 #import "Location.h"
 
-@implementation Event (UITableView)
+@implementation Event (TableView)
 
 - (NSString *)dateSectionName
 {
@@ -28,7 +28,7 @@
     NSDateFormatter *dateFormatter = [[self class] timeAndLocationStringDateFormatter];
     
     // TODO: Fix and remember localization
-    NSString *format = NSLocalizedStringWithDefaultValue(@"TIME_AND_LOCATION_STRING_FORMAT", tbl, bundle, @"%1$@ at $2$@", @"Format for the time and location");
+    NSString *format = NSLocalizedStringWithDefaultValue(@"TIME_AND_LOCATION_STRING_FORMAT", tbl, bundle, @"%1$@ at %2$@", @"Format for the time and location");
     NSString *timeAndLocation = [NSString stringWithFormat:format, [dateFormatter stringFromDate:self.startAt], self.location.placeName];
     
     return timeAndLocation;

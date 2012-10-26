@@ -1,5 +1,5 @@
 //
-//  Event+UITableView.h
+//  Event+TableView.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 10.10.12.
@@ -8,7 +8,7 @@
 
 #import "Event.h"
 
-@interface Event (UITableView)
+@interface Event (TableView)
 
 - (NSString *)dateSectionName;
 
