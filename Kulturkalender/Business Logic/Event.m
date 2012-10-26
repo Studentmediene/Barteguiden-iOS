@@ -2,7 +2,7 @@
 //  Event.m
 //  Kulturkalender
 //
-//  Created by Christian Rasmussen on 24.10.12.
+//  Created by Christian Rasmussen on 26.10.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
@@ -15,16 +15,16 @@
 @implementation Event
 
 @dynamic ageLimit;
-@dynamic category;
+@dynamic categoryID;
 @dynamic eventID;
-@dynamic imageID;
 @dynamic favorite;
 @dynamic featured;
+@dynamic imageID;
 @dynamic price;
-@dynamic timeCreatedAt;
-@dynamic timeEndAt;
-@dynamic timeModifiedAt;
-@dynamic timeStartAt;
+@dynamic createdAt;
+@dynamic endAt;
+@dynamic updatedAt;
+@dynamic startAt;
 @dynamic title;
 @dynamic localizedDescription;
 @dynamic localizedFeatured;

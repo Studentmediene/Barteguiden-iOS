@@ -1,5 +1,5 @@
 //
-//  Location+Custom.h
+//  Location+Annotation.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 23.10.12.
@@ -9,6 +9,6 @@
 #import "Location.h"
 #import <MapKit/MapKit.h>
 
-@interface Location (Custom) <MKAnnotation>
+@interface Location (Annotation) <MKAnnotation>
 
 @end

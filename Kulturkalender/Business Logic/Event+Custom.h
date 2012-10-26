@@ -10,18 +10,9 @@
 
 @interface Event (Custom)
 
-+ (id)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
-
 - (NSString *)dateSectionName;
 
 - (NSString *)timeAndLocationString;
-- (NSString *)timeString;
-- (NSString *)categoryString;
-- (NSString *)priceString;
-- (NSString *)ageLimitString;
-
-- (NSString *)currentLocalizedDescription;
-- (NSString *)currentLocalizedFeatured;
 
 @end
 

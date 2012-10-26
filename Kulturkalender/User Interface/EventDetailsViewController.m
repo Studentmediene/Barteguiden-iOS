@@ -78,11 +78,13 @@
 {
     NSLog(@"Toggling favorite...");
     
-    BOOL favoriteStatus = ![self.event.favorite boolValue];
-    self.event.favorite = @(favoriteStatus);
+    NSValueTransformer *valueTransformer = [NSValueTransformer valueTransformerForName:NSNegateBooleanTransformerName];
+    NSNumber *favorite = [valueTransformer transformedValue:self.event.favorite];
+    
+    self.event.favorite = favorite;
     [[EventManager sharedManager] save];
     
-    self.favoriteButton.selected = favoriteStatus;
+    self.favoriteButton.selected = [favorite boolValue];
 }
 
 - (void)shareEvent:(id)sender

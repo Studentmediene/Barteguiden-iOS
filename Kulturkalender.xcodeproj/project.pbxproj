@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6904F8DE16136DBA00482F13 /* AbstractEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */; };
+		690C271F163885B100DF432F /* Event+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C271E163885B100DF432F /* Event+Category.m */; };
+		690C27221638874300DF432F /* Event+AgeLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C27211638874300DF432F /* Event+AgeLimit.m */; };
+		690C27251638876300DF432F /* Event+Price.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C27241638876300DF432F /* Event+Price.m */; };
 		6937BBC816136516003718A4 /* NSManagedObject+CIMGF.m in Sources */ = {isa = PBXBuildFile; fileRef = 6937BBC716136516003718A4 /* NSManagedObject+CIMGF.m */; };
 		6937BBCA161365B1003718A4 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = 6937BBC9161365B1003718A4 /* Example.json */; };
 		694B5DFE1636FEC000631278 /* img1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B5DFA1636FEBF00631278 /* img1@2x.png */; };
@@ -16,8 +19,12 @@
 		694B5E011636FEC000631278 /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B5DFD1636FEC000631278 /* img2.png */; };
 		694B5E0C163717A600631278 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694B5E0B163717A600631278 /* MapViewController.m */; };
 		694B5E1816371D3D00631278 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B5E1716371D3D00631278 /* MapKit.framework */; };
-		694B5E1B1637203E00631278 /* Location+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 694B5E1A1637203D00631278 /* Location+Custom.m */; };
+		694B5E1B1637203E00631278 /* Location+Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 694B5E1A1637203D00631278 /* Location+Annotation.m */; };
 		694B5E1D163720E400631278 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B5E1C163720E300631278 /* CoreLocation.framework */; };
+		69884B7C1639FB670057D189 /* Event.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69884B7B1639FB670057D189 /* Event.strings */; };
+		69884B97163A0CE70057D189 /* Event+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B96163A0CE70057D189 /* Event+Time.m */; };
+		69884B9A163A0D200057D189 /* Event+LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B99163A0D1F0057D189 /* Event+LocalizedText.m */; };
+		69884B9D163A0D820057D189 /* Event+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B9C163A0D810057D189 /* Event+Mapping.m */; };
 		698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F870C16247B96001B9090 /* EventsSearchDisplayController.m */; };
 		698F871016249719001B9090 /* Example2.json in Resources */ = {isa = PBXBuildFile; fileRef = 698F870F16249719001B9090 /* Example2.json */; };
 		698F87131624A181001B9090 /* LocalizedDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F87121624A181001B9090 /* LocalizedDescription.m */; };
@@ -85,6 +92,12 @@
 /* Begin PBXFileReference section */
 		6904F8DC16136DBA00482F13 /* AbstractEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractEventsViewController.h; sourceTree = "<group>"; };
 		6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractEventsViewController.m; sourceTree = "<group>"; };
+		690C271D163885B100DF432F /* Event+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Category.h"; sourceTree = "<group>"; };
+		690C271E163885B100DF432F /* Event+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Category.m"; sourceTree = "<group>"; };
+		690C27201638874300DF432F /* Event+AgeLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+AgeLimit.h"; sourceTree = "<group>"; };
+		690C27211638874300DF432F /* Event+AgeLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+AgeLimit.m"; sourceTree = "<group>"; };
+		690C27231638876300DF432F /* Event+Price.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Price.h"; sourceTree = "<group>"; };
+		690C27241638876300DF432F /* Event+Price.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Price.m"; sourceTree = "<group>"; };
 		6937BBC616136516003718A4 /* NSManagedObject+CIMGF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+CIMGF.h"; sourceTree = "<group>"; };
 		6937BBC716136516003718A4 /* NSManagedObject+CIMGF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+CIMGF.m"; sourceTree = "<group>"; };
 		6937BBC9161365B1003718A4 /* Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Example.json; sourceTree = "<group>"; };
@@ -95,9 +108,17 @@
 		694B5E0A163717A600631278 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		694B5E0B163717A600631278 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		694B5E1716371D3D00631278 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		694B5E191637203D00631278 /* Location+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+Custom.h"; sourceTree = "<group>"; };
-		694B5E1A1637203D00631278 /* Location+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+Custom.m"; sourceTree = "<group>"; };
+		694B5E191637203D00631278 /* Location+Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+Annotation.h"; sourceTree = "<group>"; };
+		694B5E1A1637203D00631278 /* Location+Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+Annotation.m"; sourceTree = "<group>"; };
 		694B5E1C163720E300631278 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		69884B7B1639FB670057D189 /* Event.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Event.strings; sourceTree = "<group>"; };
+		69884B87163A05810057D189 /* EventLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventLocalization.h; sourceTree = "<group>"; };
+		69884B95163A0CE60057D189 /* Event+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Time.h"; sourceTree = "<group>"; };
+		69884B96163A0CE70057D189 /* Event+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Time.m"; sourceTree = "<group>"; };
+		69884B98163A0D1F0057D189 /* Event+LocalizedText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+LocalizedText.h"; sourceTree = "<group>"; };
+		69884B99163A0D1F0057D189 /* Event+LocalizedText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+LocalizedText.m"; sourceTree = "<group>"; };
+		69884B9B163A0D810057D189 /* Event+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Mapping.h"; sourceTree = "<group>"; };
+		69884B9C163A0D810057D189 /* Event+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Mapping.m"; sourceTree = "<group>"; };
 		698F870B16247B96001B9090 /* EventsSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsSearchDisplayController.h; sourceTree = "<group>"; };
 		698F870C16247B96001B9090 /* EventsSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsSearchDisplayController.m; sourceTree = "<group>"; };
 		698F870E16247C7F001B9090 /* EventsSearchDisplayControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsSearchDisplayControllerDelegate.h; sourceTree = "<group>"; };
@@ -245,6 +266,48 @@
 			name = "My Page Tab";
 			sourceTree = "<group>";
 		};
+		69884B9E163A0E210057D189 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				698F87171624A182001B9090 /* Event.h */,
+				698F87181624A182001B9090 /* Event.m */,
+				698F871A1624A182001B9090 /* Location.h */,
+				698F871B1624A183001B9090 /* Location.m */,
+				698F87141624A182001B9090 /* LocalizedText.h */,
+				698F87151624A182001B9090 /* LocalizedText.m */,
+				698F87111624A181001B9090 /* LocalizedDescription.h */,
+				698F87121624A181001B9090 /* LocalizedDescription.m */,
+				698F871D1624A183001B9090 /* LocalizedFeatured.h */,
+				698F871E1624A183001B9090 /* LocalizedFeatured.m */,
+			);
+			name = Generated;
+			sourceTree = "<group>";
+		};
+		69884B9F163A0E2B0057D189 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				69884B7B1639FB670057D189 /* Event.strings */,
+				69884B87163A05810057D189 /* EventLocalization.h */,
+				69884B9B163A0D810057D189 /* Event+Mapping.h */,
+				69884B9C163A0D810057D189 /* Event+Mapping.m */,
+				69AEFE381624E7AB009F3567 /* Event+Custom.h */,
+				69AEFE391624E7AB009F3567 /* Event+Custom.m */,
+				69884B95163A0CE60057D189 /* Event+Time.h */,
+				69884B96163A0CE70057D189 /* Event+Time.m */,
+				69884B98163A0D1F0057D189 /* Event+LocalizedText.h */,
+				69884B99163A0D1F0057D189 /* Event+LocalizedText.m */,
+				690C271D163885B100DF432F /* Event+Category.h */,
+				690C271E163885B100DF432F /* Event+Category.m */,
+				690C27201638874300DF432F /* Event+AgeLimit.h */,
+				690C27211638874300DF432F /* Event+AgeLimit.m */,
+				690C27231638876300DF432F /* Event+Price.h */,
+				690C27241638876300DF432F /* Event+Price.m */,
+				694B5E191637203D00631278 /* Location+Annotation.h */,
+				694B5E1A1637203D00631278 /* Location+Annotation.m */,
+			);
+			name = Custom;
+			sourceTree = "<group>";
+		};
 		6988E1781613907B00C2915A /* Favorites Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,20 +416,8 @@
 		69D7FC52161DF93B00E38D56 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				698F87171624A182001B9090 /* Event.h */,
-				698F87181624A182001B9090 /* Event.m */,
-				69AEFE381624E7AB009F3567 /* Event+Custom.h */,
-				69AEFE391624E7AB009F3567 /* Event+Custom.m */,
-				698F871A1624A182001B9090 /* Location.h */,
-				698F871B1624A183001B9090 /* Location.m */,
-				694B5E191637203D00631278 /* Location+Custom.h */,
-				694B5E1A1637203D00631278 /* Location+Custom.m */,
-				698F87141624A182001B9090 /* LocalizedText.h */,
-				698F87151624A182001B9090 /* LocalizedText.m */,
-				698F87111624A181001B9090 /* LocalizedDescription.h */,
-				698F87121624A181001B9090 /* LocalizedDescription.m */,
-				698F871D1624A183001B9090 /* LocalizedFeatured.h */,
-				698F871E1624A183001B9090 /* LocalizedFeatured.m */,
+				69884B9E163A0E210057D189 /* Generated */,
+				69884B9F163A0E2B0057D189 /* Custom */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -577,6 +628,7 @@
 				694B5DFF1636FEC000631278 /* img2@2x.png in Resources */,
 				694B5E001636FEC000631278 /* img1.png in Resources */,
 				694B5E011636FEC000631278 /* img2.png in Resources */,
+				69884B7C1639FB670057D189 /* Event.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,7 +684,13 @@
 				69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */,
 				69BA0ADC162F4513009726E7 /* EventCell.m in Sources */,
 				694B5E0C163717A600631278 /* MapViewController.m in Sources */,
-				694B5E1B1637203E00631278 /* Location+Custom.m in Sources */,
+				694B5E1B1637203E00631278 /* Location+Annotation.m in Sources */,
+				690C271F163885B100DF432F /* Event+Category.m in Sources */,
+				690C27221638874300DF432F /* Event+AgeLimit.m in Sources */,
+				690C27251638876300DF432F /* Event+Price.m in Sources */,
+				69884B97163A0CE70057D189 /* Event+Time.m in Sources */,
+				69884B9A163A0D200057D189 /* Event+LocalizedText.m in Sources */,
+				69884B9D163A0D820057D189 /* Event+Mapping.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

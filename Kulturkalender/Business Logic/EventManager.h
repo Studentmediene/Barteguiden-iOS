@@ -9,9 +9,15 @@
 #import <Foundation/Foundation.h>
 
 #import "Event.h"
+#import "Event+Mapping.h"
 #import "Event+Custom.h"
+#import "Event+Time.h"
+#import "Event+LocalizedText.h"
+#import "Event+Category.h"
+#import "Event+AgeLimit.h"
+#import "Event+Price.h"
 #import "Location.h"
-#import "Location+Custom.h"
+#import "Location+Annotation.h"
 #import "LocalizedDescription.h"
 #import "LocalizedFeatured.h"
 

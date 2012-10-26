@@ -8,8 +8,8 @@
                "price": 0,
                "featured": true,
                "favorite": true,
-               "timeStartAt": "2013-01-15T19:00:00+0200",
-               "timeEndAt": "2013-01-15T23:00:00+0200",
+               "startAt": "2013-01-15T19:00:00+0200",
+               "endAt": "2013-01-15T23:00:00+0200",
                "location": {
                "placeName": "Samfundet",
                "address": "Elgesetergate 1",
@@ -46,8 +46,8 @@
                "price": 120,
                "favorite": false,
                "featured": false,
-               "timeStartAt": "2013-01-17T17:00:00+0200",
-               "timeEndAt": "2013-01-17T20:00:00+0200",
+               "startAt": "2013-01-17T17:00:00+0200",
+               "endAt": "2013-01-17T20:00:00+0200",
                "location": {
                "placeName": "Trondheim Glassblåseri",
                },
@@ -62,8 +62,8 @@
                "price": 200,
                "favorite": true,
                "featured": false,
-               "timeStartAt": "2013-01-19T20:00:00+0200",
-               "timeEndAt": "2013-01-19T23:00:00+0200",
+               "startAt": "2013-01-19T20:00:00+0200",
+               "endAt": "2013-01-19T23:00:00+0200",
                "location": {
                "placeName": "Samfundet",
                "streetName": "Elgesetergate 1",

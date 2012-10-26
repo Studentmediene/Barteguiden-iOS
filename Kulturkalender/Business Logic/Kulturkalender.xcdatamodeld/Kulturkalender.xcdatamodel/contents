@@ -2,17 +2,17 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="ageLimit" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="category" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="categoryID" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdAt" attributeType="Date" syncable="YES"/>
+        <attribute name="endAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="eventID" attributeType="String" syncable="YES"/>
         <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="featured" attributeType="Boolean" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" attributeType="Decimal" minValueString="0" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="timeCreatedAt" attributeType="Date" syncable="YES"/>
-        <attribute name="timeEndAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="timeModifiedAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="timeStartAt" attributeType="Date" syncable="YES"/>
+        <attribute name="startAt" attributeType="Date" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="localizedDescription" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocalizedDescription" inverseName="event" inverseEntity="LocalizedDescription" syncable="YES"/>
         <relationship name="localizedFeatured" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocalizedFeatured" inverseName="event" inverseEntity="LocalizedFeatured" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="event" inverseEntity="Location" syncable="YES"/>

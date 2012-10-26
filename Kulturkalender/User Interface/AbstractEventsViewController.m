@@ -253,8 +253,8 @@
     [fetchRequest setPredicate:[self predicate]];
     
     // Set sort descriptor
-    NSSortDescriptor *timeStartAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStartAt" ascending:YES];
-    NSArray *sortDescriptors = @[ timeStartAtSortDescriptor ];
+    NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES];
+    NSArray *sortDescriptors = @[ startAtSortDescriptor ];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Set a default cache name
@@ -269,7 +269,7 @@
 
 - (NSPredicate *)predicate
 {
-    NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"timeEndAt >= %@", [NSDate date]];
+    NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"endAt >= %@", [NSDate date]];
     NSPredicate *tabPredicate = [self tabPredicate];
     NSPredicate *searchPredicate = [self searchPredicate];
     

@@ -1,0 +1,21 @@
+/* 
+  Event.strings
+  Kulturkalender
+
+  Created by Christian Rasmussen on 26.10.12.
+  Copyright (c) 2012 Under Dusken. All rights reserved.
+*/
+
+"CATEGORY_CONCERTS" = "Concerts";
+"CATEGORY_NIGHTLIFE" = "Nightlife";
+"CATEGORY_THEATRE" = "Theatre";
+"CATEGORY_DANCE" = "Dance";
+"CATEGORY_ART_EXHIBITION" = "Art Exhibition";
+"CATEGORY_SPORTS" = "Sports";
+"CATEGORY_PRESENTATIONS" = "Presentaions";
+
+"AGE_LIMIT_NO_AGE_LIMIT" = "No age Limit";
+"AGE_LIMIT_ARBITRARY_AGE_LIMIT" = "%1$@ and Above";
+
+"PRICE_FREE_EVENT" = "Free";
+"PRICE_PAID_EVENT" = "%1$@kr";

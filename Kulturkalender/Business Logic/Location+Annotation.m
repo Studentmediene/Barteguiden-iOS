@@ -1,14 +1,14 @@
 //
-//  Location+Custom.m
+//  Location+Annotation.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 23.10.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "Location+Custom.h"
+#import "Location+Annotation.h"
 
-@implementation Location (Custom)
+@implementation Location (Annotation)
 
 #pragma mark - MKAnnotation
 
