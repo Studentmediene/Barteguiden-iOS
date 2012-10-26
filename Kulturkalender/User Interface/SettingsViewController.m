@@ -30,27 +30,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark - AbstractEventsViewController
-
-- (NSFetchRequest *)fetchRequest
-{
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    
-    // Add sort descriptor
-    //    NSSortDescriptor *acceptedSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"requestAccepted" ascending:YES];
-    //    NSSortDescriptor *createdAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
-    //    NSArray *sortDescriptors = @[ createdAtSortDescriptor ];
-    NSArray *sortDescriptors = @[];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    return fetchRequest;
-}
-
-- (NSString *)cacheName
-{
-    return @"Settings";
-}
-
 @end

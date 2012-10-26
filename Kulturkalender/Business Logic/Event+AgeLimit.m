@@ -7,7 +7,7 @@
 //
 
 #import "Event+AgeLimit.h"
-#import "EventLocalization.h"
+#import "EventConstants.h"
 
 enum {
     kNoAgeLimit = 0

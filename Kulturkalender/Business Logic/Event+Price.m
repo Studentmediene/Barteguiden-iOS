@@ -7,7 +7,7 @@
 //
 
 #import "Event+Price.h"
-#import "EventLocalization.h"
+#import "EventConstants.h"
 
 enum {
     kFreePrice = 0

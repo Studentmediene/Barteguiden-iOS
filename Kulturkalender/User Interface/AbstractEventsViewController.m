@@ -236,7 +236,7 @@
     NSString *imageName = event.imageID ?: @"EmptyPoster";
     eventCell.thumbnailImageView.image = [UIImage imageNamed:imageName];
     eventCell.titleLabel.text = event.title;
-    eventCell.timeAndLocationLabel.text = event.timeAndLocationString;
+    eventCell.detailLabel.text = event.timeAndLocationString;
     eventCell.priceLabel.text = event.priceString;
 }
 

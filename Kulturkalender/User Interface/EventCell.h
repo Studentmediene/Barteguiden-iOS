@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) IBOutlet UIImageView *thumbnailImageView;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UILabel *timeAndLocationLabel;
+@property (nonatomic, strong) IBOutlet UILabel *detailLabel;
 @property (nonatomic, strong) IBOutlet UILabel *priceLabel;
 
 @end

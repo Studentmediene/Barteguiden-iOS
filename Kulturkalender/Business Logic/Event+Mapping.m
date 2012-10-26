@@ -7,6 +7,7 @@
 //
 
 #import "Event+Mapping.h"
+#import "EventConstants.h"
 #import "Location.h"
 #import "NSManagedObject+CIMGF.h"
 
@@ -14,16 +15,17 @@
 
 + (id)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
-    // TODO: Implement for the real server
     NSDateFormatter *dateFormatter = [[self class] jsonDateFormatter];
     
+    // TODO: Implement for the real server
+    
     // Create event
-    Event *event = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:managedObjectContext];
+    Event *event = [NSEntityDescription insertNewObjectForEntityForName:eventEntityName inManagedObjectContext:managedObjectContext];
     [event safeSetValuesForKeysWithDictionary:jsonObject dateFormatter:dateFormatter];
     event.createdAt = [NSDate date];
     
     // Add location
-    Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:managedObjectContext];
+    Location *location = [NSEntityDescription insertNewObjectForEntityForName:locationEntityName inManagedObjectContext:managedObjectContext];
     [location safeSetValuesForKeysWithDictionary:jsonObject[@"location"] dateFormatter:dateFormatter];
     event.location = location;
     
@@ -31,7 +33,7 @@
     NSMutableSet *descriptionSet = [[NSMutableSet alloc] init];
     NSArray *descriptions = jsonObject[@"localizedDescription"];
     for (NSDictionary *description in descriptions) {
-        NSManagedObject *managedDescription = [NSEntityDescription insertNewObjectForEntityForName:@"LocalizedDescription" inManagedObjectContext:managedObjectContext];
+        NSManagedObject *managedDescription = [NSEntityDescription insertNewObjectForEntityForName:localizedDescriptionEntityName inManagedObjectContext:managedObjectContext];
         [managedDescription safeSetValuesForKeysWithDictionary:description dateFormatter:dateFormatter];
         
         [descriptionSet addObject:managedDescription];
@@ -42,7 +44,7 @@
     NSMutableSet *featuredSet = [[NSMutableSet alloc] init];
     NSArray *featureds = jsonObject[@"localizedFeatured"];
     for (NSDictionary *featured in featureds) {
-        NSManagedObject *managedFeatured = [NSEntityDescription insertNewObjectForEntityForName:@"LocalizedFeatured" inManagedObjectContext:managedObjectContext];
+        NSManagedObject *managedFeatured = [NSEntityDescription insertNewObjectForEntityForName:localizedFeaturedEntityName inManagedObjectContext:managedObjectContext];
         [managedFeatured safeSetValuesForKeysWithDictionary:featured dateFormatter:dateFormatter];
         
         [featuredSet addObject:managedFeatured];
@@ -58,6 +60,7 @@
 + (NSDateFormatter *)jsonDateFormatter
 {
     static NSDateFormatter *dateFormatter;
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dateFormatter = [[NSDateFormatter alloc] init];

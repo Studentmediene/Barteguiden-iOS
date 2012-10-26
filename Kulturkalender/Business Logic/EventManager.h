@@ -10,7 +10,7 @@
 
 #import "Event.h"
 #import "Event+Mapping.h"
-#import "Event+Custom.h"
+#import "Event+UITableView.h"
 #import "Event+Time.h"
 #import "Event+LocalizedText.h"
 #import "Event+Category.h"

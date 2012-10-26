@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "AbstractEventsViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface SettingsViewController : UITableViewController
 

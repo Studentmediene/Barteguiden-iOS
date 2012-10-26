@@ -7,13 +7,14 @@
 //
 
 #import "Event+Category.h"
-#import "EventLocalization.h"
+#import "EventConstants.h"
 
 @implementation Event (Category)
 
 + (NSArray *)categoryIDs
 {
     static NSArray *categoryIDs = nil;
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         categoryIDs = @[ @0, @1, @2, @3, @4, @5, @6 ];
