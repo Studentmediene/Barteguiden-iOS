@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "EventManager.h"
+#import "FilterManager.h"
 
 @implementation AppDelegate
 
@@ -19,6 +20,9 @@
 {
     _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext];
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    _filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaults];
+    
     return YES;
 }
 
@@ -26,6 +30,11 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    // TODO: Move to applicationWillTerminate: instead?
+    NSLog(@"Closing...");
+    [_eventManager save];
+    [_filterManager save];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application

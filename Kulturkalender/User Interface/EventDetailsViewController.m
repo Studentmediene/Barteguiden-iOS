@@ -82,7 +82,8 @@
     NSNumber *favorite = [valueTransformer transformedValue:self.event.favorite];
     
     self.event.favorite = favorite;
-    [[EventManager sharedManager] save];
+    // TODO: Is it necessary to save at this point?
+//    [[EventManager sharedManager] save];
     
     self.favoriteButton.selected = [favorite boolValue];
 }

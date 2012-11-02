@@ -28,16 +28,6 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Add refresh control and observe
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(triggerRefresh) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:EventManagerDidRefreshNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"Refresh complete");
-        [refreshControl endRefreshing];
-    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,7 +118,7 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    Event *event = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    Event *event = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Kulturkalender" bundle:nil];
     EventDetailsViewController *eventDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
@@ -309,11 +299,6 @@
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
-}
-
-- (void)triggerRefresh
-{
-    [[EventManager sharedManager] refresh];
 }
 
 - (UITableViewCell *)cell

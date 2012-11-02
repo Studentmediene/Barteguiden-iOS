@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class EventManager;
+@class FilterManager;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,6 +20,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (nonatomic, strong) EventManager *eventManager;
+@property (nonatomic, strong) FilterManager *filterManager;
 
 - (NSURL *)applicationDocumentsDirectory;
 

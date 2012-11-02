@@ -3,7 +3,7 @@
                {
                "eventID": "1234-5678",
                "title": "Tirsdagskviss",
-               "category": 0,
+               "categoryID": 0,
                "ageLimit": 18,
                "price": 0,
                "featured": true,
@@ -12,7 +12,7 @@
                "endAt": "2013-01-15T23:00:00+0200",
                "location": {
                "placeName": "Samfundet",
-               "address": "Elgesetergate 1",
+               "address": "Elgeseter gate 1",
                "latitude": 63.422634,
                "longitude": 10.394697
                },
@@ -41,7 +41,7 @@
                {
                "eventID": "2345-6789",
                "title": "Glassblåsing",
-               "category": 1,
+               "categoryID": 1,
                "ageLimit": 18,
                "price": 120,
                "favorite": false,
@@ -57,7 +57,7 @@
                {
                "eventID": "3456-7890",
                "title": "LUKA",
-               "category": 1,
+               "categoryID": 1,
                "ageLimit": 0,
                "price": 200,
                "favorite": true,

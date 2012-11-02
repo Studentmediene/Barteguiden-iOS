@@ -16,10 +16,11 @@
 {
     NSDateFormatter *dateFormatter = [[self class] dateSectionNameDateFormatter];
     
+    // TODO: Fix
     // Get section name
-    BOOL startAtIsEarlierThanNow = [[self.startAt earlierDate:[NSDate date]] isEqualToDate:self.startAt];
-    NSDate *date = (startAtIsEarlierThanNow) ? self.startAt : [NSDate date];
-    NSString *sectionName = [dateFormatter stringFromDate:date];
+//    BOOL startAtIsEarlierThanNow = [[self.startAt earlierDate:[NSDate date]] isEqualToDate:self.startAt];
+//    NSDate *date = (startAtIsEarlierThanNow) ? self.startAt : [NSDate date];
+    NSString *sectionName = [dateFormatter stringFromDate:self.startAt];
     return sectionName;
 }
 

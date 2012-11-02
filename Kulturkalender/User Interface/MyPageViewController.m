@@ -7,6 +7,7 @@
 //
 
 #import "MyPageViewController.h"
+#import "FilterManager.h"
 
 @implementation MyPageViewController
 
@@ -38,8 +39,8 @@
 
 - (NSPredicate *)tabPredicate
 {
-    // TODO: Implement
-    return nil;
+    NSPredicate *predicate = [[FilterManager sharedManager] predicate];
+    return predicate;
 }
 
 - (NSString *)cacheName
