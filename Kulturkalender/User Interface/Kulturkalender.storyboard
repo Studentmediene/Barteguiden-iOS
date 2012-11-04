@@ -245,7 +245,7 @@
                             </tableViewSection>
                             <tableViewSection id="aHV-GI-aaG">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="k3w-9Y-F3y" rowHeight="82" style="IBUITableViewCellStyleDefault" id="Zgr-2c-aHV">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="k3w-9Y-F3y" rowHeight="82" style="IBUITableViewCellStyleDefault" id="Zgr-2c-aHV">
                                         <rect key="frame" x="0.0" y="283" width="320" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -604,6 +604,9 @@
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <action selector="myAgeTextFieldDidEndEditing:" destination="Evm-zU-Kfr" eventType="editingDidEnd" id="0gb-H9-oUV"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -685,6 +688,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ageLimitAllEventsCell" destination="PWF-Pc-qU4" id="MC6-pJ-yIk"/>
+                        <outlet property="ageLimitAllowedForMyAgeCell" destination="uam-Zo-yVG" id="xzf-il-ivQ"/>
+                        <outlet property="myAgeTextField" destination="hKk-SL-ba4" id="UYy-O2-GFe"/>
+                        <outlet property="priceFilterAllEventsCell" destination="Du6-WE-2e0" id="CLg-C3-0Hs"/>
+                        <outlet property="priceFilterFreeEvents" destination="aHj-Ic-v0B" id="rIC-GK-hTd"/>
+                        <outlet property="priceFilterPaidEvents" destination="Vkg-b3-qI5" id="KmR-UE-GaE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5W-pt-nhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Q0v-oU-7sw" userLabel="Exit" sceneMemberID="exit"/>
@@ -880,69 +891,6 @@
         <image name="Star-Normal3.png" width="34" height="34"/>
         <image name="Star-Selected4.png" width="34" height="34"/>
     </resources>
-    <classes>
-        <class className="AbstractEventsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AbstractEventsViewController.h"/>
-        </class>
-        <class className="AllEventsViewController" superclassName="AbstractEventsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AllEventsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changePriceFilter:"/>
-                <relationship kind="outlet" name="priceFilterSegmentedControl" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="EventDetailsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="shareEvent:"/>
-                <relationship kind="action" name="toggleFavorite:"/>
-                <relationship kind="action" name="toggleReminder:"/>
-                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ageLimitLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="favoriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="featuredLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="placeNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FavoritesViewController" superclassName="AbstractEventsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
-        </class>
-        <class className="FeaturedViewController" superclassName="AbstractEventsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeaturedViewController.h"/>
-        </class>
-        <class className="FilterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FilterViewController.h"/>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="MyPageViewController" superclassName="AbstractEventsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyPageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="close:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="triggerRefresh:"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

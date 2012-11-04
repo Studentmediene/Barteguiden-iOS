@@ -9,9 +9,7 @@
 #import "Event+Price.h"
 #import "EventConstants.h"
 
-enum {
-    kFreePrice = 0
-};
+const int kFreeEvent = 0;
 
 @implementation Event (Price)
 
@@ -19,7 +17,7 @@ enum {
 {
     NSString *priceString = nil;
     
-    if ([price isEqualToNumber:@(kFreePrice)]) {
+    if ([price isEqualToNumber:@(kFreeEvent)]) {
         priceString = NSLocalizedStringWithDefaultValue(@"PRICE_FREE_EVENT", tbl, bundle, @"Free", @"Free event");
     }
     else {

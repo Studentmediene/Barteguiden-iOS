@@ -9,12 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Event.h"
 
-//typedef enum {
-//    EventShowAllEvents = 0,
-//    EventShowPaidEvents,
-//    EventShowFreeEvents
-//} EventPriceStatus;
-
 @interface Event (Price)
 
 + (NSString *)stringForPrice:(NSDecimalNumber *)price;

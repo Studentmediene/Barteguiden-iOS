@@ -17,13 +17,15 @@ enum {
     kPriceSectionIndex = 3
 };
 
-@implementation FilterViewController
+@implementation FilterViewController {
+    FilterManager *_filterManager;
+}
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        _filterManager = [FilterManager sharedManager];
     }
     return self;
 }
@@ -31,12 +33,6 @@ enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +40,27 @@ enum {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updateViewInfo];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"disappear");
+    [self setMyAge];
+}
+
+
+#pragma mark - IBAction
+
+- (IBAction)myAgeTextFieldDidEndEditing:(id)sender
+{
+    NSLog(@"End editing");
+    [self setMyAge];
+}
+
 
 #pragma mark - UITableViewDataSource
 
@@ -73,7 +90,7 @@ enum {
         }
         
         NSNumber *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-        BOOL isSelected = [[FilterManager sharedManager] isSelectedForCategoryID:categoryID];
+        BOOL isSelected = [_filterManager isSelectedForCategoryID:categoryID];
         
         cell.textLabel.text = [Event stringForCategoryID:categoryID];
         cell.accessoryType = (isSelected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
@@ -84,30 +101,27 @@ enum {
     return [super tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
+
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self hideKeyboard];
+    
+    // If the row is not selected, selected it, and vice verca
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
     switch (indexPath.section) {
         case kCategorySectionIndex: {
-            NSNumber *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-            BOOL isSelected = [[FilterManager sharedManager] isSelectedForCategoryID:categoryID];
-            
-            // If the row is not selected, selected it, and vice verca
-            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType = (isSelected == NO) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-            
-            // Update the selected categories
-            [[FilterManager sharedManager] setSelected:(isSelected == NO) forCategoryID:categoryID];
-        
+            [self setCategoryFilterForCell:cell];
             break;
         }
         case kAgeLimitSectionIndex: {
-            
+            [self setAgeLimitFilterForCell:cell];
             break;
         }
         case kPriceSectionIndex: {
-            
+            [self setPriceFilterForCell:cell];
             break;
         }
     }
@@ -124,5 +138,112 @@ enum {
 {
     return 0;
 }
+
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self hideKeyboard];
+}
+
+
+#pragma mark - Category filter
+
+- (void)updateCategoryFilterSelectedCell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    NSNumber *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
+    BOOL isSelected = [_filterManager isSelectedForCategoryID:categoryID];
+    
+    cell.accessoryType = (isSelected == YES) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+}
+
+- (void)setCategoryFilterForCell:(UITableViewCell *)cell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSNumber *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
+    [_filterManager toggleSelectedForCategoryID:categoryID];
+    
+    [self updateCategoryFilterSelectedCell];
+}
+
+
+#pragma mark - Age limit filter
+
+- (void)updateAgeLimitFilterCells
+{
+    self.ageLimitAllEventsCell.accessoryType = (_filterManager.ageFilter == AgeLimitFilterShowAllEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.ageLimitAllowedForMyAgeCell.accessoryType = (_filterManager.ageFilter == AgeLimitFilterShowAllowedForMyAge) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+}
+
+- (void)setAgeLimitFilterForCell:(UITableViewCell *)cell
+{
+    if (cell == self.ageLimitAllEventsCell) {
+        _filterManager.ageFilter = AgeLimitFilterShowAllEvents;
+    }
+    else if (cell == self.ageLimitAllowedForMyAgeCell) {
+        _filterManager.ageFilter = AgeLimitFilterShowAllowedForMyAge;
+    }
+    
+    [self updateAgeLimitFilterCells];
+}
+
+- (void)updateMyAgeTextField
+{
+    if ([_filterManager.myAge unsignedIntegerValue] > 0) {
+        self.myAgeTextField.text = [_filterManager.myAge stringValue];
+    }
+}
+
+- (void)setMyAge
+{
+    NSNumber *myAge = [NSNumber numberWithUnsignedInteger:[self.myAgeTextField.text integerValue]];
+    [_filterManager setMyAge:myAge];
+}
+
+
+#pragma mark - Price filter
+
+- (void)updatePriceFilterCells
+{
+    self.priceFilterAllEventsCell.accessoryType = (_filterManager.priceFilter == PriceFilterShowAllEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.priceFilterPaidEvents.accessoryType = (_filterManager.priceFilter == PriceFilterShowPaidEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.priceFilterFreeEvents.accessoryType = (_filterManager.priceFilter == PriceFilterShowFreeEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+}
+
+- (void)setPriceFilterForCell:(UITableViewCell *)cell
+{
+    if (cell == self.priceFilterAllEventsCell) {
+        _filterManager.priceFilter = PriceFilterShowAllEvents;
+    }
+    else if (cell == self.priceFilterPaidEvents) {
+        _filterManager.priceFilter = PriceFilterShowPaidEvents;
+    }
+    else if (cell == self.priceFilterFreeEvents) {
+        _filterManager.priceFilter = PriceFilterShowFreeEvents;
+    }
+    
+    [self updatePriceFilterCells];
+}
+
+
+#pragma mark - Private methods
+
+- (void)hideKeyboard
+{
+    [self.tableView endEditing:YES];
+}
+
+- (void)updateViewInfo
+{
+    [self updateAgeLimitFilterCells];
+    [self updateMyAgeTextField];
+    [self updatePriceFilterCells];
+}
+
+
 
 @end

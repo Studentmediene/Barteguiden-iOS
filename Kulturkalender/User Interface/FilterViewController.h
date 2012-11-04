@@ -10,6 +10,12 @@
 
 @interface FilterViewController : UITableViewController
 
-@property (nonatomic, strong) UITextField *myAgeTextField;
+@property (nonatomic, strong) IBOutlet UITableViewCell *ageLimitAllEventsCell;
+@property (nonatomic, strong) IBOutlet UITableViewCell *ageLimitAllowedForMyAgeCell;
+@property (nonatomic, strong) IBOutlet UITextField *myAgeTextField;
+
+@property (nonatomic, strong) IBOutlet UITableViewCell *priceFilterAllEventsCell;
+@property (nonatomic, strong) IBOutlet UITableViewCell *priceFilterPaidEvents;
+@property (nonatomic, strong) IBOutlet UITableViewCell *priceFilterFreeEvents;
 
 @end
