@@ -57,6 +57,7 @@ enum {
 
 - (IBAction)myAgeTextFieldDidEndEditing:(id)sender
 {
+    // FIXME: Fix bug where the age is not set if the filter view is closed while editing the text field
     NSLog(@"End editing");
     [self setMyAge];
 }

@@ -121,7 +121,7 @@ static FilterManager *_sharedManager;
     
     // Age filter
     if (self.ageFilter == AgeLimitFilterShowAllowedForMyAge && [self.myAge unsignedIntegerValue] > 0) {
-        NSPredicate *ageLimitFilter = [NSPredicate predicateWithFormat:@"ageLimit >= %@", self.myAge];
+        NSPredicate *ageLimitFilter = [NSPredicate predicateWithFormat:@"ageLimit <= %@", self.myAge];
         [predicates addObject:ageLimitFilter];
     }
     
