@@ -78,9 +78,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id item = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
+    id event = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
     
-    [self navigateToEvent:item];
+    [self navigateToEvent:event];
 }
 
 #pragma mark - NSFetchedResultsController
@@ -151,16 +151,14 @@
 {
     // Date predicate
     NSDate *now = [NSDate date];
-    NSString *format = @"(endAt != nil && endAt >= %@) || startAt >= %@";
+    NSString *format = @"(endAt != nil AND endAt >= %@) OR startAt >= %@";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:format, now, now];
     
     return predicate;
 }
 
-- (void)navigateToEvent:(id)item
+- (void)navigateToEvent:(id)event
 {
-    Event *event = (Event *)item;
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Kulturkalender" bundle:nil];
     EventDetailsViewController *eventDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
     //    eventDetailsViewController.delegate = self;

@@ -57,9 +57,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id item = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
+    id event = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
     
-    [self.delegate navigateToEvent:item];
+    [self.delegate navigateToEvent:event];
 }
 
 
@@ -70,7 +70,7 @@
     NSPredicate *predicate = [self.delegate eventsPredicate];
     
     if ([_searchString length] > 0) {
-        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", _searchString];
+        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@ AND placeName CONTAINS[cd] %@", _searchString, _searchString];
         predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, searchPredicate ]];
     }
     

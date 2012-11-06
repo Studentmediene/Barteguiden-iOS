@@ -176,17 +176,17 @@ enum {
 
 - (void)updateAgeLimitFilterCells
 {
-    self.ageLimitAllEventsCell.accessoryType = (_filterManager.ageFilter == AgeLimitFilterShowAllEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-    self.ageLimitAllowedForMyAgeCell.accessoryType = (_filterManager.ageFilter == AgeLimitFilterShowAllowedForMyAge) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.ageLimitAllEventsCell.accessoryType = (_filterManager.ageLimitFilter == AgeLimitFilterShowAllEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.ageLimitAllowedForMyAgeCell.accessoryType = (_filterManager.ageLimitFilter == AgeLimitFilterShowAllowedForMyAge) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 - (void)setAgeLimitFilterForCell:(UITableViewCell *)cell
 {
     if (cell == self.ageLimitAllEventsCell) {
-        _filterManager.ageFilter = AgeLimitFilterShowAllEvents;
+        _filterManager.ageLimitFilter = AgeLimitFilterShowAllEvents;
     }
     else if (cell == self.ageLimitAllowedForMyAgeCell) {
-        _filterManager.ageFilter = AgeLimitFilterShowAllowedForMyAge;
+        _filterManager.ageLimitFilter = AgeLimitFilterShowAllowedForMyAge;
     }
     
     [self updateAgeLimitFilterCells];

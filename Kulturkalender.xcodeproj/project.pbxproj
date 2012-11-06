@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690148C21649666600869553 /* EventManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 690148C11649666600869553 /* EventManagerTests.m */; };
+		690148C51649667600869553 /* FilterManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 690148C41649667600869553 /* FilterManagerTests.m */; };
 		6904F8DE16136DBA00482F13 /* AbstractEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */; };
 		690C271F163885B100DF432F /* Event+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C271E163885B100DF432F /* Event+Category.m */; };
 		690C27221638874300DF432F /* Event+AgeLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C27211638874300DF432F /* Event+AgeLimit.m */; };
@@ -90,6 +92,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		690148C01649666600869553 /* EventManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManagerTests.h; sourceTree = "<group>"; };
+		690148C11649666600869553 /* EventManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventManagerTests.m; sourceTree = "<group>"; };
+		690148C31649667600869553 /* FilterManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterManagerTests.h; sourceTree = "<group>"; };
+		690148C41649667600869553 /* FilterManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterManagerTests.m; sourceTree = "<group>"; };
 		6904F8DC16136DBA00482F13 /* AbstractEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractEventsViewController.h; sourceTree = "<group>"; };
 		6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractEventsViewController.m; sourceTree = "<group>"; };
 		690C271D163885B100DF432F /* Event+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Category.h"; sourceTree = "<group>"; };
@@ -499,6 +505,10 @@
 			children = (
 				69F52ACD1608E70F0045B6F6 /* KulturkalenderTests.h */,
 				69F52ACE1608E70F0045B6F6 /* KulturkalenderTests.m */,
+				690148C01649666600869553 /* EventManagerTests.h */,
+				690148C11649666600869553 /* EventManagerTests.m */,
+				690148C31649667600869553 /* FilterManagerTests.h */,
+				690148C41649667600869553 /* FilterManagerTests.m */,
 				69F52AC81608E70F0045B6F6 /* Supporting Files */,
 			);
 			path = KulturkalenderTests;
@@ -711,6 +721,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				69F52ACF1608E70F0045B6F6 /* KulturkalenderTests.m in Sources */,
+				690148C21649666600869553 /* EventManagerTests.m in Sources */,
+				690148C51649667600869553 /* FilterManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

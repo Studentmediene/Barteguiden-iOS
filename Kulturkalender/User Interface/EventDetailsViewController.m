@@ -76,7 +76,9 @@
 
 - (void)shareEvent:(id)sender
 {
-    NSLog(@"Share");
+    NSArray *activityItems = @[ [UIImage imageNamed:@"EmptyPoster.png"], @"Test" ];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:NULL];
 }
 
 - (void)toggleReminder:(id)sender
