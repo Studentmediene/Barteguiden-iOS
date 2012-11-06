@@ -10,13 +10,19 @@
 
 @implementation EventCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
+//        self.contentView.backgroundColor = [UIColor redColor];
     }
     return self;
+}
+
+- (void)awakeFromNib
+{
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

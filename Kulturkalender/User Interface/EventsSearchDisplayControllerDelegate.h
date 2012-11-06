@@ -11,5 +11,6 @@
 @protocol EventsSearchDisplayControllerDelegate <NSObject>
 
 - (NSPredicate *)predicate;
+- (void)navigateTo:(id)item;
 
 @end

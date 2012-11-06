@@ -35,7 +35,7 @@
     // TODO: Optimize code
     _searchString = searchString;
     NSLog(@"%@%@", NSStringFromSelector(_cmd), searchString);
-    [self reloadPredicate];
+    [self reloadPredicate]; // TODO: Is there something I can do with the implementation of this method?
     return YES;
     //    // Store a copy of the last result in order to check if result has changed
     //    NSArray *lastResult = self.searchDisplayResult;
@@ -51,6 +51,15 @@
     //
     //    BOOL hasChanged = !([self.searchDisplayResult isEqualToArray:lastResult]);
     //    return hasChanged;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id item = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
+    
+    [self.delegate navigateTo:item];
 }
 
 

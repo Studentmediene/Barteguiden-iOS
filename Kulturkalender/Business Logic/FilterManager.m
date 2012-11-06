@@ -7,7 +7,7 @@
 //
 
 #import "FilterManager.h"
-#import "EventManager.h"
+#import "EventManager.h" // TODO: Remove dependency on EventManager? Hard to test at the moment
 
 NSString * const kCategoryFilterSelection = @"CategoryFilterSelection";
 NSString * const kAgeLimitMyAge = @"AgeLimitMyAge";
