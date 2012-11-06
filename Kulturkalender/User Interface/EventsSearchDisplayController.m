@@ -59,15 +59,15 @@
 {
     id item = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
     
-    [self.delegate navigateTo:item];
+    [self.delegate navigateToEvent:item];
 }
 
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)predicate
+- (NSPredicate *)eventsPredicate
 {
-    NSPredicate *predicate = [self.delegate predicate];
+    NSPredicate *predicate = [self.delegate eventsPredicate];
     
     if ([_searchString length] > 0) {
         NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", _searchString];

@@ -113,6 +113,8 @@ static FilterManager *_sharedManager;
 
 - (NSPredicate *)predicate
 {
+    // FIXME: Move method to MyPageViewController
+    
     NSMutableArray *predicates = [[NSMutableArray alloc] init];
     
     // Category filter

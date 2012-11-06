@@ -14,9 +14,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Hide search bar as default
-    self.tableView.contentOffset = CGPointMake(0.0, self.tableView.tableHeaderView.bounds.size.height);
 }
 
 - (void)didReceiveMemoryWarning
@@ -28,9 +25,9 @@
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)predicate
+- (NSPredicate *)eventsPredicate
 {
-    NSPredicate *predicate = [super predicate];
+    NSPredicate *predicate = [super eventsPredicate];
     
     NSPredicate *filterPredicate = [[FilterManager sharedManager] predicate];
     predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, filterPredicate ]];

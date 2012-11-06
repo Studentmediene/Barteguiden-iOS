@@ -16,9 +16,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Hide search bar as default
+//    self.tableView.conten
+    self.tableView.contentOffset = CGPointMake(0, -44);//self.searchDisplayController.searchBar.frame.size.height);
+//    self.tableView.contentInset = UIEdgeInsetsMake(-44,0,0,0);
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,7 +80,7 @@
 {
     id item = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
     
-    [self navigateTo:item];
+    [self navigateToEvent:item];
 }
 
 #pragma mark - NSFetchedResultsController
@@ -145,7 +147,7 @@
 
 #pragma mark - EventsSearchDisplayControllerDelegate
 
-- (NSPredicate *)predicate
+- (NSPredicate *)eventsPredicate
 {
     // Date predicate
     NSDate *now = [NSDate date];
@@ -155,7 +157,7 @@
     return predicate;
 }
 
-- (void)navigateTo:(id)item
+- (void)navigateToEvent:(id)item
 {
     Event *event = (Event *)item;
     
@@ -193,7 +195,7 @@
     fetchRequest.fetchBatchSize = 20;
     
     // Set predicate
-    [fetchRequest setPredicate:[self predicate]];
+    [fetchRequest setPredicate:[self eventsPredicate]];
     
     // Set sort descriptor
     NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES];
@@ -229,7 +231,7 @@
 - (void)reloadPredicate
 {
     [NSFetchedResultsController deleteCacheWithName:[self cacheName]];
-    [self.fetchedResultsController.fetchRequest setPredicate:[self predicate]];
+    [self.fetchedResultsController.fetchRequest setPredicate:[self eventsPredicate]];
     [self performFetch];
     [self.tableView reloadData];
 }

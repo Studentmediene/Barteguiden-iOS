@@ -14,6 +14,6 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 - (void)reloadPredicate;
-- (NSPredicate *)predicate;
+- (NSPredicate *)eventsPredicate;
 
 @end

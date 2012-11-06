@@ -17,7 +17,7 @@ const CLLocationDistance kMapViewLocationDistance = 500;
 {
     [super viewDidLoad];
     
-    // HACK: Delay the message to make the map view center around the annotation
+    // WORKAROUND: Delay the message to make the map view center around the annotation
     [self performSelector:@selector(setRegionAndAddAnnotation) withObject:nil afterDelay:0.0];
 }
 

@@ -15,9 +15,6 @@
 {
     [super viewDidLoad];
     
-    // Hide search bar as default
-    self.tableView.contentOffset = CGPointMake(0.0, self.tableView.tableHeaderView.bounds.size.height);
-    
     // Enable editing of favorites
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -31,14 +28,13 @@
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)predicate
+- (NSPredicate *)eventsPredicate
 {
-    NSPredicate *predicate = [super predicate];
+    // NOTE: Does not call [super eventsPredicate] to allow old events to show in this list
     
     NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"favorite == 1"];
-    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, favoritesPredicate ]];
     
-    return predicate;
+    return favoritesPredicate;
 }
 
 - (NSString *)cacheName

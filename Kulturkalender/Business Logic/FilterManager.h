@@ -31,15 +31,19 @@ typedef enum {
 - (void)save;
 
 // Category filter
+- (void)registerDefaultSelectedCategoryIDs:(NSArray *)categoryIDs;
+- (NSArray *)selectedCategoryIDs;
 - (BOOL)isSelectedForCategoryID:(NSNumber *)categoryID;
 - (void)setSelected:(BOOL)selected forCategoryID:(NSNumber *)categoryID;
 - (void)toggleSelectedForCategoryID:(NSNumber *)categoryID;
 
 // Age limit filter
-@property (nonatomic) AgeLimitFilter ageFilter;
+- (void)registerDefaultAgeLimitFilter:(AgeLimitFilter)ageLimitFilter;
+@property (nonatomic) AgeLimitFilter ageLimitFilter;
 @property (nonatomic, strong) NSNumber *myAge;
 
 // Price filter
+- (void)registerDefaultPriceFilter:(PriceFilter)priceFilter;
 @property (nonatomic) PriceFilter priceFilter;
 
 @end

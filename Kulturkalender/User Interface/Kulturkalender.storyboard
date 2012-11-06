@@ -45,9 +45,12 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="Featured" id="J4V-dh-06v"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="AKr-rN-D0P" id="QSk-w2-6m8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8If-cl-4qe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="AKr-rN-D0P">
+                <searchDisplayController searchResultsTitle="" id="AKr-rN-D0P">
                     <connections>
                         <outlet property="delegate" destination="1o3-AK-gmm" id="7WV-hP-D0K"/>
                         <outlet property="searchBar" destination="fcs-T2-Ubk" id="gXv-co-Ezq"/>
@@ -59,7 +62,6 @@
                 <customObject id="1o3-AK-gmm" customClass="EventsSearchDisplayController">
                     <connections>
                         <outlet property="delegate" destination="NWn-O4-7yn" id="8Xe-br-ZET"/>
-                        <outlet property="searchDisplayController" destination="AKr-rN-D0P" id="aiz-YY-sO5"/>
                     </connections>
                 </customObject>
             </objects>
@@ -449,6 +451,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="priceFilterSegmentedControl" destination="JDc-np-0JG" id="5Xf-f1-Y4s"/>
+                        <outlet property="searchDisplayController" destination="pYS-WK-TTr" id="aYz-jB-C8X"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcg-e5-qdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -464,7 +467,6 @@
                 <customObject id="62J-QH-Hym" customClass="EventsSearchDisplayController">
                     <connections>
                         <outlet property="delegate" destination="lGT-Ys-tVy" id="ADj-8f-TRk"/>
-                        <outlet property="searchDisplayController" destination="pYS-WK-TTr" id="ZkB-hE-Y6B"/>
                     </connections>
                 </customObject>
             </objects>
@@ -492,6 +494,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="GAK-om-MTD" id="1eq-1r-lfN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9r-Kq-NFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="GAK-om-MTD">
@@ -506,7 +511,6 @@
                 <customObject id="BzY-W8-aw4" customClass="EventsSearchDisplayController">
                     <connections>
                         <outlet property="delegate" destination="tvS-YH-KEM" id="S8h-G8-H2H"/>
-                        <outlet property="searchDisplayController" destination="GAK-om-MTD" id="85Q-qK-fwR"/>
                     </connections>
                 </customObject>
             </objects>
@@ -747,6 +751,9 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="TpC-dv-bkI"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="jCS-Bz-vRh" id="ZWj-Sw-9de"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggr-Bi-aC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="jCS-Bz-vRh">
@@ -761,7 +768,6 @@
                 <customObject id="6Lu-m1-VYR" customClass="EventsSearchDisplayController">
                     <connections>
                         <outlet property="delegate" destination="2C8-c0-zNg" id="cmZ-A8-EX4"/>
-                        <outlet property="searchDisplayController" destination="jCS-Bz-vRh" id="Pmr-if-mCt"/>
                     </connections>
                 </customObject>
             </objects>
@@ -975,9 +981,6 @@
         </class>
         <class className="SettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="triggerRefresh:"/>
-            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

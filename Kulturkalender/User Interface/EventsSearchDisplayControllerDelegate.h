@@ -10,7 +10,7 @@
 
 @protocol EventsSearchDisplayControllerDelegate <NSObject>
 
-- (NSPredicate *)predicate;
-- (void)navigateTo:(id)item;
+- (NSPredicate *)eventsPredicate;
+- (void)navigateToEvent:(id)event;
 
 @end
