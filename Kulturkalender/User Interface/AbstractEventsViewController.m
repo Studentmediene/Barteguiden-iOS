@@ -32,15 +32,6 @@
 
 #pragma mark - Abstract methods
 
-- (NSPredicate *)predicate
-{
-    // Date predicate
-    NSDate *now = [NSDate date];
-    NSString *format = @"(endAt != nil && endAt >= %@) || startAt >= %@";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:format, now, now];
-    return predicate;
-}
-
 - (NSString *)cacheName
 {
     return nil;
@@ -152,6 +143,30 @@
     [self.tableView endUpdates];
 }
 
+#pragma mark - EventsSearchDisplayControllerDelegate
+
+- (NSPredicate *)predicate
+{
+    // Date predicate
+    NSDate *now = [NSDate date];
+    NSString *format = @"(endAt != nil && endAt >= %@) || startAt >= %@";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:format, now, now];
+    
+    return predicate;
+}
+
+- (void)navigateTo:(id)item
+{
+    Event *event = (Event *)item;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Kulturkalender" bundle:nil];
+    EventDetailsViewController *eventDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
+    //    eventDetailsViewController.delegate = self;
+    eventDetailsViewController.event = event;
+    
+    [self.navigationController pushViewController:eventDetailsViewController animated:YES];
+}
+
 
 #pragma mark - Private methods
 
@@ -195,14 +210,6 @@
     self.fetchedResultsController.delegate = self;
 }
 
-- (void)reloadPredicate
-{
-    [NSFetchedResultsController deleteCacheWithName:[self cacheName]];
-    [self.fetchedResultsController.fetchRequest setPredicate:[self predicate]];
-    [self performFetch];
-    [self.tableView reloadData];
-}
-
 - (void)performFetch
 {
     // Perform fetch and handle error
@@ -219,6 +226,14 @@
 	}
 }
 
+- (void)reloadPredicate
+{
+    [NSFetchedResultsController deleteCacheWithName:[self cacheName]];
+    [self.fetchedResultsController.fetchRequest setPredicate:[self predicate]];
+    [self performFetch];
+    [self.tableView reloadData];
+}
+
 - (UITableViewCell *)cell
 {
     static NSString *cellIdentifier = @"EventCell";
@@ -232,18 +247,6 @@
     }
 
     return cell;
-}
-
-- (void)navigateTo:(id)item
-{
-    Event *event = (Event *)item;
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Kulturkalender" bundle:nil];
-    EventDetailsViewController *eventDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
-    //    eventDetailsViewController.delegate = self;
-    eventDetailsViewController.event = event;
-    
-    [self.navigationController pushViewController:eventDetailsViewController animated:YES];
 }
 
 @end
