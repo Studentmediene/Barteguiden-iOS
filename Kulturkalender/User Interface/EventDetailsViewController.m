@@ -12,15 +12,6 @@
 
 @implementation EventDetailsViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -76,16 +67,11 @@
 
 - (void)toggleFavorite:(id)sender
 {
-    NSLog(@"Toggling favorite...");
+    BOOL isFavorite = ([self.event.favorite boolValue] == NO);
     
-    NSValueTransformer *valueTransformer = [NSValueTransformer valueTransformerForName:NSNegateBooleanTransformerName];
-    NSNumber *favorite = [valueTransformer transformedValue:self.event.favorite];
+    self.event.favorite = @(isFavorite);
     
-    self.event.favorite = favorite;
-    // TODO: Is it necessary to save at this point?
-//    [[EventManager sharedManager] save];
-    
-    self.favoriteButton.selected = [favorite boolValue];
+    self.favoriteButton.selected = isFavorite;
 }
 
 - (void)shareEvent:(id)sender

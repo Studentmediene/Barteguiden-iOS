@@ -11,15 +11,6 @@
 
 @implementation MyPageViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -37,9 +28,13 @@
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)tabPredicate
+- (NSPredicate *)predicate
 {
-    NSPredicate *predicate = [[FilterManager sharedManager] predicate];
+    NSPredicate *predicate = [super predicate];
+    
+    NSPredicate *filterPredicate = [[FilterManager sharedManager] predicate];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, filterPredicate ]];
+    
     return predicate;
 }
 

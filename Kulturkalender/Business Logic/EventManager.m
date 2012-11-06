@@ -59,7 +59,7 @@ static EventManager *_sharedManager;
 //- (void)refreshWithData:(NSData *)data
 //{
     // TODO: Asynchronous download of content
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example2" withExtension:@"json"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
     NSData *data = [NSData dataWithContentsOfURL:url];
     NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 //    NSLog(@"%@", values);

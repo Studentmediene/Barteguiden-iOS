@@ -10,15 +10,6 @@
 
 @implementation FavoritesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -39,11 +30,14 @@
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)tabPredicate
+- (NSPredicate *)predicate
 {
-    NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"favorite == 1"];
+    NSPredicate *predicate = [super predicate];
     
-    return favoritesPredicate;
+    NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"favorite == 1"];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, favoritesPredicate ]];
+    
+    return predicate;
 }
 
 - (NSString *)cacheName

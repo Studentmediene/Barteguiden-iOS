@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AbstractEventsViewController.h"
 
 @protocol EventsSearchDisplayControllerDelegate;
 
-@interface EventsSearchDisplayController : UITableViewController <UISearchDisplayDelegate>
+@interface EventsSearchDisplayController : AbstractEventsViewController <UISearchDisplayDelegate>
 
 @property (nonatomic, weak) IBOutlet id<EventsSearchDisplayControllerDelegate> delegate;
 

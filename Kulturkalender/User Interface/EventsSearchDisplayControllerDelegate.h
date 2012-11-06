@@ -10,6 +10,6 @@
 
 @protocol EventsSearchDisplayControllerDelegate <NSObject>
 
-- (NSArray *)result;
+- (NSPredicate *)predicate;
 
 @end

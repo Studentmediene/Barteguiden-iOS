@@ -10,15 +10,6 @@
 
 @implementation FeaturedViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,11 +27,14 @@
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)tabPredicate
+- (NSPredicate *)predicate
 {
-    NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"featured == 1"];
+    NSPredicate *predicate = [super predicate];
     
-    return featuredPredicate;
+    NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"featured == 1"];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, featuredPredicate ]];
+    
+    return predicate;
 }
 
 - (NSString *)cacheName

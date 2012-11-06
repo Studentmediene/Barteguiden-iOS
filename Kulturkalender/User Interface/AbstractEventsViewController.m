@@ -13,15 +13,6 @@
 
 @implementation AbstractEventsViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,36 +32,19 @@
 
 #pragma mark - Abstract methods
 
-- (NSPredicate *)tabPredicate
+- (NSPredicate *)predicate
 {
-    return nil;
-}
-
-- (NSPredicate *)searchPredicate
-{
-    return nil;
+    // Date predicate
+    NSDate *now = [NSDate date];
+    NSString *format = @"(endAt != nil && endAt >= %@) || startAt >= %@";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:format, now, now];
+    return predicate;
 }
 
 - (NSString *)cacheName
 {
     return nil;
 }
-
-
-//#pragma mark - Storyboard
-//
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    [super prepareForSegue:segue sender:sender];
-//    
-//    if ([segue.identifier isEqualToString:@"EventDetailsSegue"]) {
-//        Event *event = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
-//        
-//        EventDetailsViewController *eventDetailsViewController = [segue destinationViewController];
-////        eventDetailsViewController.delegate = self;
-//        eventDetailsViewController.event = event;
-//    }
-//}
 
 
 #pragma mark - UITableViewDataSource
@@ -111,13 +85,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
     Event *event = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Kulturkalender" bundle:nil];
@@ -127,30 +94,6 @@
     
     [self.navigationController pushViewController:eventDetailsViewController animated:YES];
 }
-
-
-// TODO: Remove this section?
-#pragma mark - UISearchDisplayDelegate methods
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    return YES;
-    //    // Store a copy of the last result in order to check if result has changed
-    //    NSArray *lastResult = self.searchDisplayResult;
-    //
-    //    // Filter search display result
-    //    NSString *test = [NSString stringWithFormat:@"*%@*", searchString];
-    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", kResultFriendName, test];
-    //    self.searchDisplayResult = [self.sortedResult filteredArrayUsingPredicate:predicate];
-    //
-    //    // Determine if search display should reload table
-    //    if ([self.searchDisplayResult count] != [lastResult count])
-    //        return YES;
-    //
-    //    BOOL hasChanged = !([self.searchDisplayResult isEqualToArray:lastResult]);
-    //    return hasChanged;
-}
-
 
 #pragma mark - NSFetchedResultsController
 
@@ -165,54 +108,54 @@
     return _fetchedResultsController;
 }
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
-    switch(type)
-    {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-    }
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
-{
-    UITableView *tableView = self.tableView;
-    
-    switch(type)
-    {
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-    }
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView endUpdates];
-}
+//- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+//{
+//    [self.tableView beginUpdates];
+//}
+//
+//- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+//{
+//    switch (type)
+//    {
+//        case NSFetchedResultsChangeInsert:
+//            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+//            break;
+//            
+//        case NSFetchedResultsChangeDelete:
+//            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+//            break;
+//    }
+//}
+//
+//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+//{
+//    UITableView *tableView = self.tableView;
+//    
+//    switch (type)
+//    {
+//        case NSFetchedResultsChangeInsert:
+//            [tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+//            break;
+//            
+//        case NSFetchedResultsChangeDelete:
+//            [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+//            break;
+//            
+//        case NSFetchedResultsChangeUpdate:
+//            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+//            break;
+//            
+//        case NSFetchedResultsChangeMove:
+//            [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+//            [tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+//            break;
+//    }
+//}
+//
+//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+//{
+//    [self.tableView endUpdates];
+//}
 
 
 #pragma mark - Private methods
@@ -257,26 +200,6 @@
     self.fetchedResultsController.delegate = self;
 }
 
-- (NSPredicate *)predicate
-{
-    NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"endAt >= %@", [NSDate date]];
-    NSPredicate *tabPredicate = [self tabPredicate];
-    NSPredicate *searchPredicate = [self searchPredicate];
-    
-    // Initial predicate is the date predicate
-    NSPredicate *predicate = datePredicate;
-    
-    //
-    if (tabPredicate != nil) {
-        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ tabPredicate, predicate ]];
-    }
-    if (searchPredicate != nil) {
-        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ searchPredicate, predicate ]];
-    }
-    
-    return predicate;
-}
-
 - (void)reloadPredicate
 {
     [NSFetchedResultsController deleteCacheWithName:[self cacheName]];
@@ -303,7 +226,7 @@
 
 - (UITableViewCell *)cell
 {
-    static NSString *cellIdentifier = @"EventCell"; // TODO: Change to EventCell when I want to change to common UITableViewCell
+    static NSString *cellIdentifier = @"EventCell";
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {

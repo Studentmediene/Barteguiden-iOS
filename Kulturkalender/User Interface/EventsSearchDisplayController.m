@@ -9,15 +9,8 @@
 #import "EventsSearchDisplayController.h"
 #import "EventsSearchDisplayControllerDelegate.h"
 
-@implementation EventsSearchDisplayController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+@implementation EventsSearchDisplayController {
+    NSString *_searchString;
 }
 
 - (void)viewDidLoad
@@ -35,91 +28,44 @@
 }
 
 
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
-//    return [[self.delegate result] count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [self cell];
-    
-    // Configure the cell...
-//    NSDictionary *friend = (self.searchDisplayResult)[indexPath.row];
-//    cell.textLabel.text = friend[kResultFriendName];
-//    cell.textLabel.text = @"Tirsdagskviss";
-    
-    return cell;
-}
-
-
-#pragma mark - UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 56;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Convert index path from search display result to sorted result
-//    id object = (self.searchDisplayResult)[indexPath.row];
-//    NSUInteger row = [self.sortedResult indexOfObject:object];
-//    NSIndexPath *sortedResultIndexPath = [NSIndexPath indexPathForRow:row inSection:0];
-//    
-//    // Select row in table view and perform segue
-//    [self.friendsViewController.tableView selectRowAtIndexPath:sortedResultIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-//    [self.friendsViewController performSegueWithIdentifier:@"FilteredHistorySegue" sender:self];
-    
-    NSLog(@"Selected row");
-}
-
-
 #pragma mark - UISearchDisplayDelegate methods
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
+    // TODO: Optimize code
+    _searchString = searchString;
+    NSLog(@"%@%@", NSStringFromSelector(_cmd), searchString);
+    [self reloadPredicate];
     return YES;
-//    // Store a copy of the last result in order to check if result has changed
-//    NSArray *lastResult = self.searchDisplayResult;
-//    
-//    // Filter search display result
-//    NSString *test = [NSString stringWithFormat:@"*%@*", searchString];
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", kResultFriendName, test];
-//    self.searchDisplayResult = [self.sortedResult filteredArrayUsingPredicate:predicate];
-//    
-//    // Determine if search display should reload table
-//    if ([self.searchDisplayResult count] != [lastResult count])
-//        return YES;
-//    
-//    BOOL hasChanged = !([self.searchDisplayResult isEqualToArray:lastResult]);
-//    return hasChanged;
+    //    // Store a copy of the last result in order to check if result has changed
+    //    NSArray *lastResult = self.searchDisplayResult;
+    //
+    //    // Filter search display result
+    //    NSString *test = [NSString stringWithFormat:@"*%@*", searchString];
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", kResultFriendName, test];
+    //    self.searchDisplayResult = [self.sortedResult filteredArrayUsingPredicate:predicate];
+    //
+    //    // Determine if search display should reload table
+    //    if ([self.searchDisplayResult count] != [lastResult count])
+    //        return YES;
+    //
+    //    BOOL hasChanged = !([self.searchDisplayResult isEqualToArray:lastResult]);
+    //    return hasChanged;
 }
 
 
-#pragma mark - Private methods
+#pragma mark - AbstractEventsViewController
 
-- (UITableViewCell *)cell
+- (NSPredicate *)predicate
 {
-    static NSString *cellIdentifier = @"EventCell";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    NSPredicate *predicate = [self.delegate predicate];
     
-    if (cell == nil) {
-        NSLog(@"Generating new cell from nib");
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EventCell" owner:self options:nil];
-        cell = (UITableViewCell *)[nib objectAtIndex:0];
-        [cell prepareForReuse];
+    if ([_searchString length] > 0) {
+        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", _searchString];
+        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, searchPredicate ]];
     }
     
-    return cell;
+    return predicate;
 }
 
 @end

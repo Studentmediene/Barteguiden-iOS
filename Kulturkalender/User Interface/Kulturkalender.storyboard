@@ -59,7 +59,11 @@
                         <outlet property="searchResultsDelegate" destination="1o3-AK-gmm" id="kf7-tS-uNc"/>
                     </connections>
                 </searchDisplayController>
-                <customObject id="1o3-AK-gmm" customClass="FeaturedViewController"/>
+                <customObject id="1o3-AK-gmm" customClass="EventsSearchDisplayController">
+                    <connections>
+                        <outlet property="delegate" destination="NWn-O4-7yn" id="8Xe-br-ZET"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1272" y="237"/>
         </scene>
@@ -140,15 +144,19 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="EmptyPoster.png" translatesAutoresizingMaskIntoConstraints="NO" id="pTz-pG-b4h"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="EmptyPoster.png" translatesAutoresizingMaskIntoConstraints="NO" id="pTz-pG-b4h">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="eiM-yt-DWa"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="ua9-zu-yaF" firstAttribute="top" secondItem="lde-jd-Ny0" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="3wO-34-WYc"/>
                                             <constraint firstItem="ua9-zu-yaF" firstAttribute="leading" secondItem="3An-A0-Gpe" secondAttribute="leading" constant="20" type="default" id="6yt-cl-oy9"/>
-                                            <constraint firstItem="pTz-pG-b4h" firstAttribute="centerY" secondItem="3An-A0-Gpe" secondAttribute="centerY" type="default" id="eV6-Yu-Xy6"/>
-                                            <constraint firstItem="lde-jd-Ny0" firstAttribute="top" secondItem="3An-A0-Gpe" secondAttribute="top" constant="11" id="fyx-a2-e1D"/>
+                                            <constraint firstItem="pTz-pG-b4h" firstAttribute="bottom" secondItem="lde-jd-Ny0" secondAttribute="bottom" type="default" id="LAl-2a-Sbt"/>
+                                            <constraint firstItem="pTz-pG-b4h" firstAttribute="top" secondItem="3An-A0-Gpe" secondAttribute="top" constant="10" id="drK-l1-BUY"/>
                                             <constraint firstAttribute="trailing" secondItem="pTz-pG-b4h" secondAttribute="trailing" constant="18" id="iyS-Sz-dqh"/>
                                             <constraint firstAttribute="trailing" secondItem="lde-jd-Ny0" secondAttribute="trailing" constant="20" type="default" id="kXa-sS-Kng"/>
                                             <constraint firstItem="lde-jd-Ny0" firstAttribute="leading" secondItem="3An-A0-Gpe" secondAttribute="leading" constant="20" type="default" id="mhh-oL-vBi"/>
@@ -449,13 +457,18 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcg-e5-qdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="pYS-WK-TTr">
                     <connections>
-                        <outlet property="delegate" destination="lGT-Ys-tVy" id="Tqu-sU-rBx"/>
+                        <outlet property="delegate" destination="62J-QH-Hym" id="hat-aT-vfX"/>
                         <outlet property="searchBar" destination="pEG-19-r4i" id="lOD-W7-WSi"/>
                         <outlet property="searchContentsController" destination="lGT-Ys-tVy" id="rmZ-Zh-TQb"/>
-                        <outlet property="searchResultsDataSource" destination="lGT-Ys-tVy" id="PLD-5b-EfP"/>
-                        <outlet property="searchResultsDelegate" destination="lGT-Ys-tVy" id="kfv-IY-lsa"/>
+                        <outlet property="searchResultsDataSource" destination="62J-QH-Hym" id="kv2-Y5-qPo"/>
+                        <outlet property="searchResultsDelegate" destination="62J-QH-Hym" id="yV1-yo-qMm"/>
                     </connections>
                 </searchDisplayController>
+                <customObject id="62J-QH-Hym" customClass="EventsSearchDisplayController">
+                    <connections>
+                        <outlet property="delegate" destination="lGT-Ys-tVy" id="ADj-8f-TRk"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1272" y="953"/>
         </scene>
@@ -488,13 +501,18 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9r-Kq-NFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="GAK-om-MTD">
                     <connections>
-                        <outlet property="delegate" destination="tvS-YH-KEM" id="G7P-T8-8iW"/>
+                        <outlet property="delegate" destination="BzY-W8-aw4" id="Dxg-M2-zUZ"/>
                         <outlet property="searchBar" destination="Pie-Ue-OXU" id="mri-lu-R2P"/>
                         <outlet property="searchContentsController" destination="tvS-YH-KEM" id="tEg-IY-iSy"/>
-                        <outlet property="searchResultsDataSource" destination="tvS-YH-KEM" id="VBn-7c-Y59"/>
-                        <outlet property="searchResultsDelegate" destination="tvS-YH-KEM" id="hHi-6s-Mib"/>
+                        <outlet property="searchResultsDataSource" destination="BzY-W8-aw4" id="0tn-xA-MaU"/>
+                        <outlet property="searchResultsDelegate" destination="BzY-W8-aw4" id="KgC-JK-xIS"/>
                     </connections>
                 </searchDisplayController>
+                <customObject id="BzY-W8-aw4" customClass="EventsSearchDisplayController">
+                    <connections>
+                        <outlet property="delegate" destination="tvS-YH-KEM" id="S8h-G8-H2H"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1272" y="1677"/>
         </scene>
@@ -740,13 +758,18 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggr-Bi-aC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="jCS-Bz-vRh">
                     <connections>
-                        <outlet property="delegate" destination="2C8-c0-zNg" id="mW0-0V-DhM"/>
+                        <outlet property="delegate" destination="6Lu-m1-VYR" id="gpM-OK-wtE"/>
                         <outlet property="searchBar" destination="CnG-RM-MRb" id="w8J-P5-hRW"/>
                         <outlet property="searchContentsController" destination="2C8-c0-zNg" id="avJ-hQ-f7x"/>
-                        <outlet property="searchResultsDataSource" destination="2C8-c0-zNg" id="lg2-1H-ubo"/>
-                        <outlet property="searchResultsDelegate" destination="2C8-c0-zNg" id="33Z-JI-oTA"/>
+                        <outlet property="searchResultsDataSource" destination="6Lu-m1-VYR" id="Q7n-im-Wv1"/>
+                        <outlet property="searchResultsDelegate" destination="6Lu-m1-VYR" id="YBZ-Nd-J0E"/>
                     </connections>
                 </searchDisplayController>
+                <customObject id="6Lu-m1-VYR" customClass="EventsSearchDisplayController">
+                    <connections>
+                        <outlet property="delegate" destination="2C8-c0-zNg" id="cmZ-A8-EX4"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1272" y="2397"/>
         </scene>
@@ -920,6 +943,12 @@
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="EventsSearchDisplayController" superclassName="AbstractEventsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsSearchDisplayController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
         <class className="FavoritesViewController" superclassName="AbstractEventsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
         </class>
@@ -946,9 +975,6 @@
         </class>
         <class className="MyPageViewController" superclassName="AbstractEventsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MyPageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="close:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -958,9 +984,6 @@
             <relationships>
                 <relationship kind="action" name="triggerRefresh:"/>
             </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

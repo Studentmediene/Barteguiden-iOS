@@ -19,15 +19,6 @@ enum {
 
 @implementation AllEventsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,24 +36,26 @@ enum {
 
 #pragma mark - AbstractEventsViewController
 
-- (NSPredicate *)tabPredicate
+- (NSPredicate *)predicate
 {
+    NSPredicate *predicate = [super predicate];
+    
     switch ([self.priceFilterSegmentedControl selectedSegmentIndex]) {
-        case kAllEventsSegmentedControllIndex:
-        {
-            return nil;
+        case kPaidEventsSegmentedControllIndex: {
+            NSPredicate *paidPredicate = [NSPredicate predicateWithFormat:@"price > 0"];
+            predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, paidPredicate ]];
+            
+            break;
         }
-        case kPaidEventsSegmentedControllIndex:
-        {
-            return [NSPredicate predicateWithFormat:@"price > 0"];
-        }
-        case kFreeEventsSegmentedControllIndex:
-        {
-            return [NSPredicate predicateWithFormat:@"price == 0"];
+        case kFreeEventsSegmentedControllIndex: {
+            NSPredicate *freePredicate = [NSPredicate predicateWithFormat:@"price == 0"];
+            predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, freePredicate ]];
+            
+            break;
         }
     }
     
-    return nil;
+    return predicate;
 }
 
 - (NSString *)cacheName
@@ -98,13 +91,13 @@ enum {
         }
         case kPaidEventsSegmentedControllIndex:
         {
-            return NSLocalizedString(@"Search All Paid Events", nil);
-//            return NSLocalizedStringWithDefaultValue(@"PAID_EVENTS_SEARCH_FIELD_PLACEHOLDER", nil, nil, @"Search All Paid Events", @"Placeholder in search field");
+            return NSLocalizedString(@"Search Paid Events", nil);
+//            return NSLocalizedStringWithDefaultValue(@"PAID_EVENTS_SEARCH_FIELD_PLACEHOLDER", nil, nil, @"Search Paid Events", @"Placeholder in search field");
         }
         case kFreeEventsSegmentedControllIndex:
         {
-            return NSLocalizedString(@"Search All Free Events", nil);
-//            return NSLocalizedStringWithDefaultValue(@"FREE_EVENTS_SEARCH_FIELD_PLACEHOLDER", nil, nil, @"Search All Free Events", @"Placeholder in search field");
+            return NSLocalizedString(@"Search Free Events", nil);
+//            return NSLocalizedStringWithDefaultValue(@"FREE_EVENTS_SEARCH_FIELD_PLACEHOLDER", nil, nil, @"Search Free Events", @"Placeholder in search field");
         }
     }
     
