@@ -1,14 +1,14 @@
 //
-//  KulturkalenderTests.m
-//  KulturkalenderTests
+//  FilterManagerTests.m
+//  Kulturkalender
 //
-//  Created by Christian Rasmussen on 18.09.12.
+//  Created by Christian Rasmussen on 06.11.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "KulturkalenderTests.h"
+#import "FilterManagerTests.h"
 
-@implementation KulturkalenderTests
+@implementation FilterManagerTests
 
 - (void)setUp
 {
@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in KulturkalenderTests");
+    STFail(@"Unit tests are not implemented yet.");
 }
 
 @end

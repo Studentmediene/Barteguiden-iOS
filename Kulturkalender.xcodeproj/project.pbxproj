@@ -77,7 +77,6 @@
 		69F52AC31608E70F0045B6F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9F1608E70F0045B6F6 /* Foundation.framework */; };
 		69F52AC41608E70F0045B6F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AA31608E70F0045B6F6 /* CoreData.framework */; };
 		69F52ACC1608E70F0045B6F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ACA1608E70F0045B6F6 /* InfoPlist.strings */; };
-		69F52ACF1608E70F0045B6F6 /* KulturkalenderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F52ACE1608E70F0045B6F6 /* KulturkalenderTests.m */; };
 		69F52ADB1608E7E20045B6F6 /* Kulturkalender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -196,8 +195,6 @@
 		69F52AC01608E70F0045B6F6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		69F52AC91608E70F0045B6F6 /* KulturkalenderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KulturkalenderTests-Info.plist"; sourceTree = "<group>"; };
 		69F52ACB1608E70F0045B6F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		69F52ACD1608E70F0045B6F6 /* KulturkalenderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KulturkalenderTests.h; sourceTree = "<group>"; };
-		69F52ACE1608E70F0045B6F6 /* KulturkalenderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KulturkalenderTests.m; sourceTree = "<group>"; };
 		69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kulturkalender.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -503,8 +500,6 @@
 		69F52AC71608E70F0045B6F6 /* KulturkalenderTests */ = {
 			isa = PBXGroup;
 			children = (
-				69F52ACD1608E70F0045B6F6 /* KulturkalenderTests.h */,
-				69F52ACE1608E70F0045B6F6 /* KulturkalenderTests.m */,
 				690148C01649666600869553 /* EventManagerTests.h */,
 				690148C11649666600869553 /* EventManagerTests.m */,
 				690148C31649667600869553 /* FilterManagerTests.h */,
@@ -720,7 +715,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69F52ACF1608E70F0045B6F6 /* KulturkalenderTests.m in Sources */,
 				690148C21649666600869553 /* EventManagerTests.m in Sources */,
 				690148C51649667600869553 /* FilterManagerTests.m in Sources */,
 			);
