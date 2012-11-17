@@ -7,8 +7,8 @@
 //
 
 #import "Event+Mapping.h"
+#import "Event+Location.h"
 #import "EventConstants.h"
-#import "Location.h"
 #import "NSManagedObject+CIMGF.h"
 
 @implementation Event (Mapping)
@@ -22,12 +22,6 @@
     // Create event
     Event *event = [NSEntityDescription insertNewObjectForEntityForName:eventEntityName inManagedObjectContext:managedObjectContext];
     [event safeSetValuesForKeysWithDictionary:jsonObject dateFormatter:dateFormatter];
-    event.createdAt = [NSDate date];
-    
-    // Add location
-    Location *location = [NSEntityDescription insertNewObjectForEntityForName:locationEntityName inManagedObjectContext:managedObjectContext];
-    [location safeSetValuesForKeysWithDictionary:jsonObject[@"location"] dateFormatter:dateFormatter];
-    event.location = location;
     
     // Add localized description
     NSMutableSet *descriptionSet = [[NSMutableSet alloc] init];

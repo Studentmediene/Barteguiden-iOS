@@ -21,7 +21,7 @@ const int kFreeEvent = 0;
         priceString = NSLocalizedStringWithDefaultValue(@"PRICE_FREE_EVENT", tbl, bundle, @"Free", @"Free event");
     }
     else {
-        // TODO: Replace with currency formatter? Maybe a bad idea because the price will always be in NOK
+        // TODO: Replace with currency formatter?
         NSString *format = NSLocalizedStringWithDefaultValue(@"PRICE_PAID_EVENT", tbl, bundle, @"%1$@kr", @"Format for paid event");
         priceString = [NSString stringWithFormat:format, price];
     }

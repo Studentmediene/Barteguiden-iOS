@@ -32,19 +32,20 @@ static EventManager *_sharedManager;
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:EventManagerWillRefreshNotification object:self];
     
-//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-//    NSURL *URL = [NSURL URLWithString:@"https://dl.dropbox.com/u/10851469/Temp/Example2.json"];
-//    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:URL];
-//    
-//    typeof(self) bself = self;
-//    [NSURLConnection sendAsynchronousRequest:URLRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-////        NSLog(@"%@", data);
-////        NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-////        NSLog(@"%@", values);
-//        NSLog(@"%@", response);
-//       
-//        [bself refreshWithData:data];
-//
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSURL *URL = [NSURL URLWithString:@"https://dl.dropbox.com/u/10851469/Under%20Dusken/Kulturkalender/Data.json"];
+    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:URL];
+    
+    typeof(self) bself = self;
+    [NSURLConnection sendAsynchronousRequest:URLRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+//        NSLog(@"%@", data);
+//        NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//        NSLog(@"%@", values);
+        NSLog(@"%@", response);
+       
+        [bself refreshWithData:data];
+
 //    //http://stackoverflow.com/questions/9270447/how-to-use-sendasynchronousrequestqueuecompletionhandler
 //    if ([data length] > 0 && error == nil)
 //        [delegate receivedData:data];
@@ -54,13 +55,13 @@ static EventManager *_sharedManager;
 //        [delegate timedOut];
 //    else if (error != nil)
 //        [delegate downloadError:error];
-//    }];
-//}
-//- (void)refreshWithData:(NSData *)data
-//{
+    }];
+}
+- (void)refreshWithData:(NSData *)data
+{
     // TODO: Asynchronous download of content
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
-    NSData *data = [NSData dataWithContentsOfURL:url];
+    data = [NSData dataWithContentsOfURL:url];
     NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 //    NSLog(@"%@", values);
     
@@ -68,8 +69,9 @@ static EventManager *_sharedManager;
     for (NSDictionary *event in events) {
         [Event insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
     }
-    [self save];
+//    [self save];
     
+//    NSLog(@"");
     [[NSNotificationCenter defaultCenter] postNotificationName:EventManagerDidRefreshNotification object:self];
 }
 

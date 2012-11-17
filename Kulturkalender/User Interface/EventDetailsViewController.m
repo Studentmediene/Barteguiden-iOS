@@ -58,7 +58,7 @@
     if ([segue.identifier isEqualToString:@"MapSegue"])
     {
         MapViewController *mapViewController = [segue destinationViewController];
-        mapViewController.annotation = self.event.location;
+        mapViewController.annotation = self.event.annotation;
     }
 }
 
@@ -100,8 +100,8 @@
     
     self.featuredLabel.text = self.event.currentLocalizedFeatured;
     
-    self.placeNameLabel.text = self.event.location.placeName;
-    self.addressLabel.text = self.event.location.address;
+    self.placeNameLabel.text = self.event.placeName;
+    self.addressLabel.text = self.event.address;
     
     self.favoriteButton.selected = [self.event.favorite boolValue];
 }

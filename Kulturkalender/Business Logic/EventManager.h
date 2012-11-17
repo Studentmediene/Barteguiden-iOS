@@ -16,8 +16,7 @@
 #import "Event+Category.h"
 #import "Event+AgeLimit.h"
 #import "Event+Price.h"
-#import "Location.h"
-#import "Location+Annotation.h"
+#import "Event+Location.h"
 #import "LocalizedDescription.h"
 #import "LocalizedFeatured.h"
 

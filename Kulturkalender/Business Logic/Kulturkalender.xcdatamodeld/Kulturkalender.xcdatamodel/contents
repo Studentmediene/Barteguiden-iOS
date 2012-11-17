@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3006" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Event" representedClassName="Event" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ageLimit" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="categoryID" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="createdAt" attributeType="Date" syncable="YES"/>
         <attribute name="endAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="eventID" attributeType="String" syncable="YES"/>
         <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="featured" attributeType="Boolean" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" minValueString="0" maxValueString="90" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" minValueString="-180" maxValueString="180" syncable="YES"/>
+        <attribute name="placeName" attributeType="String" syncable="YES"/>
         <attribute name="price" attributeType="Decimal" minValueString="0" defaultValueString="0.0" syncable="YES"/>
         <attribute name="startAt" attributeType="Date" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="localizedDescription" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocalizedDescription" inverseName="event" inverseEntity="LocalizedDescription" syncable="YES"/>
         <relationship name="localizedFeatured" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocalizedFeatured" inverseName="event" inverseEntity="LocalizedFeatured" syncable="YES"/>
-        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="event" inverseEntity="Location" syncable="YES"/>
     </entity>
     <entity name="LocalizedDescription" representedClassName="LocalizedDescription" parentEntity="LocalizedText" syncable="YES">
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="localizedDescription" inverseEntity="Event" syncable="YES"/>
@@ -27,18 +29,10 @@
         <attribute name="language" attributeType="String" syncable="YES"/>
         <attribute name="text" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Location" representedClassName="Location" syncable="YES">
-        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="latitude" optional="YES" attributeType="Double" minValueString="0" maxValueString="90" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Double" minValueString="-180" maxValueString="180" syncable="YES"/>
-        <attribute name="placeName" attributeType="String" syncable="YES"/>
-        <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="location" inverseEntity="Event" syncable="YES"/>
-    </entity>
     <elements>
-        <element name="Event" positionX="0" positionY="0" width="128" height="268"/>
+        <element name="Event" positionX="0" positionY="0" width="128" height="298"/>
         <element name="LocalizedDescription" positionX="241" positionY="99" width="128" height="60"/>
         <element name="LocalizedFeatured" positionX="234" positionY="264" width="128" height="60"/>
         <element name="LocalizedText" positionX="412" positionY="186" width="128" height="73"/>
-        <element name="Location" positionX="-164" positionY="108" width="128" height="120"/>
     </elements>
 </model>

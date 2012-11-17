@@ -1,14 +1,14 @@
 //
-//  Location+Annotation.h
+//  EventAnnotation.m
 //  Kulturkalender
 //
-//  Created by Christian Rasmussen on 23.10.12.
+//  Created by Christian Rasmussen on 17.11.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "Location+Annotation.h"
+#import "EventAnnotation.h"
 
-@implementation Location (Annotation)
+@implementation EventAnnotation
 
 #pragma mark - MKAnnotation
 

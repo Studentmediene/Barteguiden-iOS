@@ -8,7 +8,7 @@
 
 #import "Event+TableView.h"
 #import "EventConstants.h"
-#import "Location.h"
+#import "Event+Location.h"
 
 @implementation Event (TableView)
 
@@ -30,7 +30,7 @@
     
     // TODO: Fix and remember localization
     NSString *format = NSLocalizedStringWithDefaultValue(@"TIME_AND_LOCATION_STRING_FORMAT", tbl, bundle, @"%1$@ at %2$@", @"Format for the time and location");
-    NSString *timeAndLocation = [NSString stringWithFormat:format, [dateFormatter stringFromDate:self.startAt], self.location.placeName];
+    NSString *timeAndLocation = [NSString stringWithFormat:format, [dateFormatter stringFromDate:self.startAt], self.placeName];
     
     return timeAndLocation;
 }

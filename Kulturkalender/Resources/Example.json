@@ -10,12 +10,10 @@
                "favorite": true,
                "startAt": "2013-01-15T19:00:00+0200",
                "endAt": "2013-01-15T23:00:00+0200",
-               "location": {
                "placeName": "Samfundet",
                "address": "Elgeseter gate 1",
                "latitude": 63.422634,
-               "longitude": 10.394697
-               },
+               "longitude": 10.394697,
                "imageID": "img1",
                "localizedDescription": [
                                         {
@@ -48,9 +46,7 @@
                "featured": false,
                "startAt": "2013-01-17T17:00:00+0200",
                "endAt": "2013-01-17T20:00:00+0200",
-               "location": {
                "placeName": "Trondheim Glassblåseri",
-               },
                "imageID": "img2",
                "localizedDescription": []
                },
@@ -64,9 +60,7 @@
                "featured": false,
                "startAt": "2013-01-19T21:00:00+0200",
                "endAt": "2013-01-19T23:00:00+0200",
-               "location": {
-               "placeName": "Ukjent"
-               },
+               "placeName": "Ukjent",
                "localizedDescription": []
                },
                {
