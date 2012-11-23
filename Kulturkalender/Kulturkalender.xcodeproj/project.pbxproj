@@ -55,7 +55,6 @@
 		69BA0ADF162F76B3009726E7 /* EmptyPoster.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0ADD162F76B3009726E7 /* EmptyPoster.png */; };
 		69BA0AE0162F76B3009726E7 /* EmptyPoster@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0ADE162F76B3009726E7 /* EmptyPoster@2x.png */; };
 		69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C491671625F1DE00F28C45 /* EventDetailsViewController.m */; };
-		69CA4953164AD577006066F4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CA4952164AD577006066F4 /* Reachability.m */; };
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
 		69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */; };
 		69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */; };
@@ -79,6 +78,7 @@
 		69F52AC41608E70F0045B6F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AA31608E70F0045B6F6 /* CoreData.framework */; };
 		69F52ACC1608E70F0045B6F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ACA1608E70F0045B6F6 /* InfoPlist.strings */; };
 		69F52ADB1608E7E20045B6F6 /* Kulturkalender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */; };
+		6E05CCA58BFD406C860A4DF8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB8DEFF9AB94CCB94DFF519 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,8 +165,6 @@
 		69BA0ADE162F76B3009726E7 /* EmptyPoster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EmptyPoster@2x.png"; sourceTree = "<group>"; };
 		69C491661625F1DE00F28C45 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		69C491671625F1DE00F28C45 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
-		69CA4951164AD577006066F4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		69CA4952164AD577006066F4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		69D7FC38161B576A00E38D56 /* AllEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllEventsViewController.h; sourceTree = "<group>"; };
 		69D7FC39161B576A00E38D56 /* AllEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsViewController.m; sourceTree = "<group>"; };
 		69D7FC3E161B57B600E38D56 /* FeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedViewController.h; sourceTree = "<group>"; };
@@ -199,6 +197,8 @@
 		69F52AC91608E70F0045B6F6 /* KulturkalenderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KulturkalenderTests-Info.plist"; sourceTree = "<group>"; };
 		69F52ACB1608E70F0045B6F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kulturkalender.storyboard; sourceTree = "<group>"; };
+		7493FD972B57486DBA74AF06 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FBB8DEFF9AB94CCB94DFF519 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +212,7 @@
 				69F52AA01608E70F0045B6F6 /* Foundation.framework in Frameworks */,
 				69F52AA21608E70F0045B6F6 /* CoreGraphics.framework in Frameworks */,
 				69F52AA41608E70F0045B6F6 /* CoreData.framework in Frameworks */,
+				6E05CCA58BFD406C860A4DF8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +242,6 @@
 		6937BBB91613648B003718A4 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				69CA4950164AD538006066F4 /* Reachability */,
 				6937BBC5161364D3003718A4 /* Core Data Additions */,
 			);
 			path = Libraries;
@@ -413,15 +413,6 @@
 			name = "Event Details";
 			sourceTree = "<group>";
 		};
-		69CA4950164AD538006066F4 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				69CA4951164AD577006066F4 /* Reachability.h */,
-				69CA4952164AD577006066F4 /* Reachability.m */,
-			);
-			name = Reachability;
-			sourceTree = "<group>";
-		};
 		69D7FC36161B570F00E38D56 /* Featured Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +447,7 @@
 				69F52AC71608E70F0045B6F6 /* KulturkalenderTests */,
 				69F52A9C1608E70F0045B6F6 /* Frameworks */,
 				69F52A9A1608E70F0045B6F6 /* Products */,
+				7493FD972B57486DBA74AF06 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -478,6 +470,7 @@
 				69F52AC01608E70F0045B6F6 /* SenTestingKit.framework */,
 				694B5E1C163720E300631278 /* CoreLocation.framework */,
 				694B5E1716371D3D00631278 /* MapKit.framework */,
+				FBB8DEFF9AB94CCB94DFF519 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -568,6 +561,7 @@
 				69F52A951608E70F0045B6F6 /* Sources */,
 				69F52A961608E70F0045B6F6 /* Frameworks */,
 				69F52A971608E70F0045B6F6 /* Resources */,
+				72168C31D74648708BF435A7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -684,6 +678,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		72168C31D74648708BF435A7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -730,7 +738,6 @@
 			files = (
 				690148C21649666600869553 /* EventManagerTests.m in Sources */,
 				690148C51649667600869553 /* FilterManagerTests.m in Sources */,
-				69CA4953164AD577006066F4 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,6 +822,7 @@
 		};
 		69F52AD31608E70F0045B6F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7493FD972B57486DBA74AF06 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
@@ -828,6 +836,7 @@
 		};
 		69F52AD41608E70F0045B6F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7493FD972B57486DBA74AF06 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
