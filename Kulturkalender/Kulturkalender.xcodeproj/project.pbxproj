@@ -13,7 +13,6 @@
 		690C271F163885B100DF432F /* Event+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C271E163885B100DF432F /* Event+Category.m */; };
 		690C27221638874300DF432F /* Event+AgeLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C27211638874300DF432F /* Event+AgeLimit.m */; };
 		690C27251638876300DF432F /* Event+Price.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C27241638876300DF432F /* Event+Price.m */; };
-		6937BBC816136516003718A4 /* NSManagedObject+CIMGF.m in Sources */ = {isa = PBXBuildFile; fileRef = 6937BBC716136516003718A4 /* NSManagedObject+CIMGF.m */; };
 		694B5DFE1636FEC000631278 /* img1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B5DFA1636FEBF00631278 /* img1@2x.png */; };
 		694B5DFF1636FEC000631278 /* img2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B5DFB1636FEC000631278 /* img2@2x.png */; };
 		694B5E001636FEC000631278 /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 694B5DFC1636FEC000631278 /* img1.png */; };
@@ -104,8 +103,6 @@
 		690C27211638874300DF432F /* Event+AgeLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+AgeLimit.m"; sourceTree = "<group>"; };
 		690C27231638876300DF432F /* Event+Price.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Price.h"; sourceTree = "<group>"; };
 		690C27241638876300DF432F /* Event+Price.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Price.m"; sourceTree = "<group>"; };
-		6937BBC616136516003718A4 /* NSManagedObject+CIMGF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+CIMGF.h"; sourceTree = "<group>"; };
-		6937BBC716136516003718A4 /* NSManagedObject+CIMGF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+CIMGF.m"; sourceTree = "<group>"; };
 		694B5DFA1636FEBF00631278 /* img1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img1@2x.png"; sourceTree = "<group>"; };
 		694B5DFB1636FEC000631278 /* img2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img2@2x.png"; sourceTree = "<group>"; };
 		694B5DFC1636FEC000631278 /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
@@ -237,23 +234,6 @@
 				69D7FC39161B576A00E38D56 /* AllEventsViewController.m */,
 			);
 			name = "All Tab";
-			sourceTree = "<group>";
-		};
-		6937BBB91613648B003718A4 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				6937BBC5161364D3003718A4 /* Core Data Additions */,
-			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
-		6937BBC5161364D3003718A4 /* Core Data Additions */ = {
-			isa = PBXGroup;
-			children = (
-				6937BBC616136516003718A4 /* NSManagedObject+CIMGF.h */,
-				6937BBC716136516003718A4 /* NSManagedObject+CIMGF.m */,
-			);
-			name = "Core Data Additions";
 			sourceTree = "<group>";
 		};
 		693EF25D161220D100D10C03 /* Resources */ = {
@@ -482,7 +462,6 @@
 				69F52AAF1608E70F0045B6F6 /* AppDelegate.m */,
 				69F52AD81608E7230045B6F6 /* User Interface */,
 				69F52AD91608E7500045B6F6 /* Business Logic */,
-				6937BBB91613648B003718A4 /* Libraries */,
 				693EF25D161220D100D10C03 /* Resources */,
 				69F52AA61608E70F0045B6F6 /* Supporting Files */,
 			);
@@ -702,7 +681,6 @@
 				69F52AAC1608E70F0045B6F6 /* main.m in Sources */,
 				69F52AB01608E70F0045B6F6 /* AppDelegate.m in Sources */,
 				69F52AB91608E70F0045B6F6 /* Kulturkalender.xcdatamodeld in Sources */,
-				6937BBC816136516003718A4 /* NSManagedObject+CIMGF.m in Sources */,
 				6904F8DE16136DBA00482F13 /* AbstractEventsViewController.m in Sources */,
 				69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */,
 				69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */,

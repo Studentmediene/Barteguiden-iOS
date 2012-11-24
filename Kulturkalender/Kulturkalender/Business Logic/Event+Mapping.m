@@ -9,7 +9,7 @@
 #import "Event+Mapping.h"
 #import "Event+Location.h"
 #import "EventConstants.h"
-#import "NSManagedObject+CIMGF.h"
+#import <NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.h>
 
 @implementation Event (Mapping)
 
