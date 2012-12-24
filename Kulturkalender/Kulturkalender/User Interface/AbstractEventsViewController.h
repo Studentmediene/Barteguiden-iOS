@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "EventsSearchDisplayControllerDelegate.h"
 
+@protocol EventManager;
+
 @interface AbstractEventsViewController : UITableViewController <NSFetchedResultsControllerDelegate, EventsSearchDisplayControllerDelegate>
+
+@property (nonatomic, strong) id<EventManager> eventManager;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 

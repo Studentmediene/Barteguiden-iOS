@@ -54,6 +54,7 @@
 		69BA0ADF162F76B3009726E7 /* EmptyPoster.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0ADD162F76B3009726E7 /* EmptyPoster.png */; };
 		69BA0AE0162F76B3009726E7 /* EmptyPoster@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0ADE162F76B3009726E7 /* EmptyPoster@2x.png */; };
 		69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C491671625F1DE00F28C45 /* EventDetailsViewController.m */; };
+		69C9E21B1687C60200D65004 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E21A1687C60200D65004 /* TabBarController.m */; };
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
 		69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */; };
 		69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */; };
@@ -162,6 +163,8 @@
 		69BA0ADE162F76B3009726E7 /* EmptyPoster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EmptyPoster@2x.png"; sourceTree = "<group>"; };
 		69C491661625F1DE00F28C45 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		69C491671625F1DE00F28C45 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
+		69C9E2191687C60200D65004 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		69C9E21A1687C60200D65004 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		69D7FC38161B576A00E38D56 /* AllEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllEventsViewController.h; sourceTree = "<group>"; };
 		69D7FC39161B576A00E38D56 /* AllEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsViewController.m; sourceTree = "<group>"; };
 		69D7FC3E161B57B600E38D56 /* FeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedViewController.h; sourceTree = "<group>"; };
@@ -368,20 +371,6 @@
 			name = "Event Cell";
 			sourceTree = "<group>";
 		};
-		69BA0AD9162F44E3009726E7 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				6904F8DC16136DBA00482F13 /* AbstractEventsViewController.h */,
-				6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */,
-				698F870E16247C7F001B9090 /* EventsSearchDisplayControllerDelegate.h */,
-				698F870B16247B96001B9090 /* EventsSearchDisplayController.h */,
-				698F870C16247B96001B9090 /* EventsSearchDisplayController.m */,
-				69BA0AD8162F44D3009726E7 /* Event Cell */,
-				69C491641625F1A600F28C45 /* Event Details */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
 		69C491641625F1A600F28C45 /* Event Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +380,25 @@
 				694B5E0B163717A600631278 /* MapViewController.m */,
 			);
 			name = "Event Details";
+			sourceTree = "<group>";
+		};
+		69C9E2181687C5B700D65004 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				69C9E2191687C60200D65004 /* TabBarController.h */,
+				69C9E21A1687C60200D65004 /* TabBarController.m */,
+				6904F8DC16136DBA00482F13 /* AbstractEventsViewController.h */,
+				6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */,
+				698F870E16247C7F001B9090 /* EventsSearchDisplayControllerDelegate.h */,
+				698F870B16247B96001B9090 /* EventsSearchDisplayController.h */,
+				698F870C16247B96001B9090 /* EventsSearchDisplayController.m */,
+				69D7FC36161B570F00E38D56 /* Featured Tab */,
+				6904F8DA16136D9B00482F13 /* All Tab */,
+				693EF27616123B4B00D10C03 /* My Page Tab */,
+				6988E1781613907B00C2915A /* Favorites Tab */,
+				69D7FC47161DF08300E38D56 /* Settings Tab */,
+			);
+			name = Tabs;
 			sourceTree = "<group>";
 		};
 		69D7FC36161B570F00E38D56 /* Featured Tab */ = {
@@ -507,12 +515,9 @@
 			isa = PBXGroup;
 			children = (
 				69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */,
-				69BA0AD9162F44E3009726E7 /* Common */,
-				69D7FC36161B570F00E38D56 /* Featured Tab */,
-				6904F8DA16136D9B00482F13 /* All Tab */,
-				693EF27616123B4B00D10C03 /* My Page Tab */,
-				6988E1781613907B00C2915A /* Favorites Tab */,
-				69D7FC47161DF08300E38D56 /* Settings Tab */,
+				69BA0AD8162F44D3009726E7 /* Event Cell */,
+				69C491641625F1A600F28C45 /* Event Details */,
+				69C9E2181687C5B700D65004 /* Tabs */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -707,6 +712,7 @@
 				6956C67A16422A0500E10586 /* SettingsViewController.m in Sources */,
 				69528C0F1643152C00A96B65 /* FilterManager.m in Sources */,
 				69DCD8ED165729A800A6E6A8 /* EventAnnotation.m in Sources */,
+				69C9E21B1687C60200D65004 /* TabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

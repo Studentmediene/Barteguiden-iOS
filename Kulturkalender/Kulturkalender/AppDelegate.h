@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class EventManager;
-@class FilterManager;
+@protocol EventManager;
+@protocol FilterManager;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,8 +19,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, strong) EventManager *eventManager;
-@property (nonatomic, strong) FilterManager *filterManager;
+@property (nonatomic, strong) id<EventManager> eventManager;
+@property (nonatomic, strong) id<FilterManager> filterManager;
 
 - (NSURL *)applicationDocumentsDirectory;
 

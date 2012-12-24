@@ -20,15 +20,20 @@
 #import "LocalizedDescription.h"
 #import "LocalizedFeatured.h"
 
-@interface EventManager : NSObject
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@protocol EventManager <NSObject>
 
-+ (id)sharedManager;
+@property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 - (void)refresh;
 - (void)save;
+
+@end
+
+
+@interface EventManager : NSObject <EventManager>
+
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 @end
 

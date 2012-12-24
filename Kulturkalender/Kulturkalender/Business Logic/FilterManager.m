@@ -18,19 +18,11 @@ NSString * const kPriceFilterSelection = @"PriceFilterSelection";
     NSMutableSet *_selectedCategories;
 }
 
-static FilterManager *_sharedManager;
-
-+ (id)sharedManager
-{
-    return _sharedManager;
-}
-
-- (id)initWithUserDefaults:(NSUserDefaults *)userDefaults
+- (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults
 {
     self = [super init];
     if (self) {
         _userDefaults = userDefaults;
-        _sharedManager = self;
         
         // Register defaults
         NSArray *allCategories = [Event categoryIDs];
@@ -72,15 +64,15 @@ static FilterManager *_sharedManager;
 
 #pragma mark - Age limit filter
 
-- (AgeLimitFilter)ageFilter
+- (AgeLimitFilter)ageLimitFilter
 {
-    AgeLimitFilter ageFilter = [self.userDefaults integerForKey:kAgeLimitSelection];
-    return ageFilter;
+    AgeLimitFilter ageLimitFilter = [self.userDefaults integerForKey:kAgeLimitSelection];
+    return ageLimitFilter;
 }
 
-- (void)setAgeFilter:(AgeLimitFilter)ageFilter
+- (void)setAgeLimitFilter:(AgeLimitFilter)ageLimitFilter
 {
-    [self.userDefaults setInteger:ageFilter forKey:kAgeLimitSelection];
+    [self.userDefaults setInteger:ageLimitFilter forKey:kAgeLimitSelection];
 }
 
 - (NSNumber *)myAge
@@ -122,7 +114,7 @@ static FilterManager *_sharedManager;
     [predicates addObject:categoryPredicate];
     
     // Age filter
-    if (self.ageFilter == AgeLimitFilterShowAllowedForMyAge && [self.myAge unsignedIntegerValue] > 0) {
+    if (self.ageLimitFilter == AgeLimitFilterShowAllowedForMyAge && [self.myAge unsignedIntegerValue] > 0) {
         NSPredicate *ageLimitFilter = [NSPredicate predicateWithFormat:@"ageLimit <= %@", self.myAge];
         [predicates addObject:ageLimitFilter];
     }

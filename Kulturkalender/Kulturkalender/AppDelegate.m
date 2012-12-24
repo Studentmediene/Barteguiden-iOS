@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "EventManager.h"
 #import "FilterManager.h"
+#import "TabBarController.h"
 
 @implementation AppDelegate
 
@@ -22,6 +23,11 @@
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     _filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaults];
+    
+    // Inject dependencies
+    TabBarController *tabBarController = (TabBarController *)self.window.rootViewController;
+    tabBarController.eventManager = _eventManager;
+    tabBarController.filterManager = _filterManager;
     
     return YES;
 }

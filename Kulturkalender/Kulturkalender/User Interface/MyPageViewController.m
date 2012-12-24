@@ -29,7 +29,7 @@
 {
     NSPredicate *predicate = [super eventsPredicate];
     
-    NSPredicate *filterPredicate = [[FilterManager sharedManager] predicate];
+    NSPredicate *filterPredicate = [self.filterManager predicate];
     predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, filterPredicate ]];
     
     return predicate;

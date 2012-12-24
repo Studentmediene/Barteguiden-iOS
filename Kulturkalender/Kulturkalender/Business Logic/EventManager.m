@@ -10,19 +10,13 @@
 
 @implementation EventManager
 
-static EventManager *_sharedManager;
-
-+ (id)sharedManager
-{
-    return _sharedManager;
-}
+@synthesize managedObjectContext=_managedObjectContext;
 
 // TODO: Add parameter for connection?
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     self = [super init];
     if (self) {
-        _sharedManager = self;
         _managedObjectContext = managedObjectContext;
     }
     return self;

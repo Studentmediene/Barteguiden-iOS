@@ -19,31 +19,40 @@ typedef enum {
     PriceFilterShowFreeEvents
 } PriceFilter;
 
-@interface FilterManager : NSObject
-
-@property (nonatomic, strong) NSUserDefaults *userDefaults;
-
-+ (id)sharedManager;
-
-- (id)initWithUserDefaults:(NSUserDefaults *)userDefaults;
+@protocol FilterManager <NSObject>
 
 - (NSPredicate *)predicate;
 - (void)save;
 
 // Category filter
-- (void)registerDefaultSelectedCategoryIDs:(NSArray *)categoryIDs;
-- (NSArray *)selectedCategoryIDs;
+//- (NSArray *)selectedCategoryIDs;
 - (BOOL)isSelectedForCategoryID:(NSNumber *)categoryID;
 - (void)setSelected:(BOOL)selected forCategoryID:(NSNumber *)categoryID;
 - (void)toggleSelectedForCategoryID:(NSNumber *)categoryID;
 
 // Age limit filter
-- (void)registerDefaultAgeLimitFilter:(AgeLimitFilter)ageLimitFilter;
 @property (nonatomic) AgeLimitFilter ageLimitFilter;
 @property (nonatomic, strong) NSNumber *myAge;
 
 // Price filter
-- (void)registerDefaultPriceFilter:(PriceFilter)priceFilter;
 @property (nonatomic) PriceFilter priceFilter;
+
+@end
+
+
+@interface FilterManager : NSObject <FilterManager>
+
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
+
+- (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults;
+
+// Category filter
+//- (void)registerDefaultSelectedCategoryIDs:(NSArray *)categoryIDs;
+
+// Age limit filter
+//- (void)registerDefaultAgeLimitFilter:(AgeLimitFilter)ageLimitFilter;
+
+// Price filter
+//- (void)registerDefaultPriceFilter:(PriceFilter)priceFilter;
 
 @end

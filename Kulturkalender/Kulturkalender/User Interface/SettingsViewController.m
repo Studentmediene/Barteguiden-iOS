@@ -41,8 +41,8 @@
 
 - (IBAction)triggerRefresh:(id)sender
 {
-    NSLog(@"Refreshing");
-    [[EventManager sharedManager] refresh];
+//    NSLog(@"Refreshing (Not working)");
+//    [self.eventManager refresh];
 }
 
 

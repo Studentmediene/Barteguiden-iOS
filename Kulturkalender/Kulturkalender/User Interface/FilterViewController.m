@@ -17,15 +17,13 @@ enum {
     kPriceSectionIndex = 3
 };
 
-@implementation FilterViewController {
-    FilterManager *_filterManager;
-}
+@implementation FilterViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _filterManager = [FilterManager sharedManager];
+        
     }
     return self;
 }

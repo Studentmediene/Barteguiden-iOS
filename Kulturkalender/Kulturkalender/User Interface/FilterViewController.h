@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol FilterManager;
+
 @interface FilterViewController : UITableViewController
+
+@property (nonatomic, strong) id<FilterManager> filterManager;
 
 @property (nonatomic, strong) IBOutlet UITableViewCell *ageLimitAllEventsCell;
 @property (nonatomic, strong) IBOutlet UITableViewCell *ageLimitAllowedForMyAgeCell;

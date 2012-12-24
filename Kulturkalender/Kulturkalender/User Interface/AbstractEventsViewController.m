@@ -186,7 +186,7 @@
 - (void)setUpFetchedResultsController
 {
     // Set up the fetch request
-    NSManagedObjectContext *managedObjectContext = [[EventManager sharedManager] managedObjectContext];
+    NSManagedObjectContext *managedObjectContext = [self.eventManager managedObjectContext];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
     fetchRequest.includesSubentities = YES;
