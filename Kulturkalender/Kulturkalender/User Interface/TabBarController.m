@@ -9,11 +9,8 @@
 #import "TabBarController.h"
 #import "EventManager.h"
 #import "FilterManager.h"
-
-#import "FeaturedViewController.h"
-#import "AllEventsViewController.h"
+#import "AbstractEventsViewController.h"
 #import "MyPageViewController.h"
-#import "FavoritesViewController.h"
 
 @implementation TabBarController
 
