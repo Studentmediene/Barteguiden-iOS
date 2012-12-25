@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext];
+    _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext connectionManager:nil];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     _filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaults];

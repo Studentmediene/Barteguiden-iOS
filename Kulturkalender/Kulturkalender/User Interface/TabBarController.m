@@ -23,14 +23,12 @@
     for (UINavigationController *navigationController in self.viewControllers) {
         UIViewController *rootViewController = navigationController.viewControllers[0];
         
-        if ([rootViewController isKindOfClass:[AbstractEventsViewController class]] == YES) {
-            AbstractEventsViewController *abstractEventsViewController = (AbstractEventsViewController *)rootViewController;
-            abstractEventsViewController.eventManager = self.eventManager;
+        if ([rootViewController respondsToSelector:@selector(setEventManager:)]) {
+            [rootViewController performSelector:@selector(setEventManager:) withObject:self.eventManager];
         }
         
-        if ([rootViewController isKindOfClass:[MyPageViewController class]] == YES) {
-            MyPageViewController *myPageViewController = (MyPageViewController *)rootViewController;
-            myPageViewController.filterManager = self.filterManager;
+        if ([rootViewController respondsToSelector:@selector(setFilterManager:)]) {
+            [rootViewController performSelector:@selector(setFilterManager:) withObject:self.eventManager];
         }
     }
 }
