@@ -56,6 +56,7 @@
 		69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C491671625F1DE00F28C45 /* EventDetailsViewController.m */; };
 		69C9E21B1687C60200D65004 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E21A1687C60200D65004 /* TabBarController.m */; };
 		69C9E21E1688AEA900D65004 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E21D1688AEA900D65004 /* ConnectionManager.m */; };
+		69C9E223168A53B900D65004 /* FilterViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E222168A53B900D65004 /* FilterViewControllerTests.m */; };
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
 		69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */; };
 		69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */; };
@@ -168,6 +169,8 @@
 		69C9E21A1687C60200D65004 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		69C9E21C1688AEA900D65004 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
 		69C9E21D1688AEA900D65004 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
+		69C9E221168A53B900D65004 /* FilterViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewControllerTests.h; sourceTree = "<group>"; };
+		69C9E222168A53B900D65004 /* FilterViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewControllerTests.m; sourceTree = "<group>"; };
 		69D7FC38161B576A00E38D56 /* AllEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllEventsViewController.h; sourceTree = "<group>"; };
 		69D7FC39161B576A00E38D56 /* AllEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsViewController.m; sourceTree = "<group>"; };
 		69D7FC3E161B57B600E38D56 /* FeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedViewController.h; sourceTree = "<group>"; };
@@ -404,6 +407,26 @@
 			name = Tabs;
 			sourceTree = "<group>";
 		};
+		69C9E21F168A532700D65004 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				690148C01649666600869553 /* EventManagerTests.h */,
+				690148C11649666600869553 /* EventManagerTests.m */,
+				690148C31649667600869553 /* FilterManagerTests.h */,
+				690148C41649667600869553 /* FilterManagerTests.m */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		69C9E220168A533A00D65004 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				69C9E221168A53B900D65004 /* FilterViewControllerTests.h */,
+				69C9E222168A53B900D65004 /* FilterViewControllerTests.m */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
 		69D7FC36161B570F00E38D56 /* Featured Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,10 +519,8 @@
 		69F52AC71608E70F0045B6F6 /* KulturkalenderTests */ = {
 			isa = PBXGroup;
 			children = (
-				690148C01649666600869553 /* EventManagerTests.h */,
-				690148C11649666600869553 /* EventManagerTests.m */,
-				690148C31649667600869553 /* FilterManagerTests.h */,
-				690148C41649667600869553 /* FilterManagerTests.m */,
+				69C9E220168A533A00D65004 /* User Interface */,
+				69C9E21F168A532700D65004 /* Business Logic */,
 				69F52AC81608E70F0045B6F6 /* Supporting Files */,
 			);
 			path = KulturkalenderTests;
@@ -728,6 +749,7 @@
 			files = (
 				690148C21649666600869553 /* EventManagerTests.m in Sources */,
 				690148C51649667600869553 /* FilterManagerTests.m in Sources */,
+				69C9E223168A53B900D65004 /* FilterViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,7 +872,7 @@
 				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
 				INFOPLIST_FILE = "KulturkalenderTests/KulturkalenderTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -867,7 +889,7 @@
 				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
 				INFOPLIST_FILE = "KulturkalenderTests/KulturkalenderTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
