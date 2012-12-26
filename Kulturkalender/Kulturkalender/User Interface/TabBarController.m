@@ -28,7 +28,7 @@
         }
         
         if ([rootViewController respondsToSelector:@selector(setFilterManager:)]) {
-            [rootViewController performSelector:@selector(setFilterManager:) withObject:self.eventManager];
+            [rootViewController performSelector:@selector(setFilterManager:) withObject:self.filterManager];
         }
     }
 }
