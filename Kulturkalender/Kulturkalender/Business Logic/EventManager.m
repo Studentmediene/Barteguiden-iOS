@@ -28,8 +28,9 @@
     
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    NSURL *URL = [NSURL URLWithString:@"https://dl.dropbox.com/u/10851469/Under%20Dusken/Kulturkalender/Data.json"];
-    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:URL];
+//    NSURL *url = [NSURL URLWithString:@"https://dl.dropbox.com/u/10851469/Under%20Dusken/Kulturkalender/Data.json"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example.json" withExtension:@"json"];
+    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:url];
     
     typeof(self) bself = self;
     [NSURLConnection sendAsynchronousRequest:URLRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {

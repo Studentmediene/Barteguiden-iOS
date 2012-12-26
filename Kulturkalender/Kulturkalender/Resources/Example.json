@@ -72,12 +72,10 @@
                "favorite": true,
                "featured": false,
                "startAt": "2013-01-18T20:00:00+0200",
-               "location": {
                "placeName": "Samfundet",
                "streetName": "Elgesetergate 1",
                "latitude": 63.430515,
-               "longitude": 10.395053
-               },
+               "longitude": 10.395053,
                "localizedDescription": []
                }
                ]
