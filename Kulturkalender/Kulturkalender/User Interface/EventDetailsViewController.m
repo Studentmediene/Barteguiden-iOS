@@ -78,6 +78,7 @@
 {
     NSArray *activityItems = @[ [UIImage imageNamed:@"EmptyPoster.png"], @"Test" ];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
     [self presentViewController:activityViewController animated:YES completion:NULL];
 }
 
