@@ -11,6 +11,7 @@
 #import "FilterManager.h"
 #import "AbstractEventsViewController.h"
 #import "MyPageViewController.h"
+#import "EventsSearchDisplayController.h"
 
 @implementation TabBarController
 
@@ -20,15 +21,21 @@
 	// Do any additional setup after loading the view.
     
     // Inject dependencies
+    NSLog(@"Injecting dependencies");
     for (UINavigationController *navigationController in self.viewControllers) {
         UIViewController *rootViewController = navigationController.viewControllers[0];
         
-        if ([rootViewController respondsToSelector:@selector(setEventManager:)]) {
-            [rootViewController performSelector:@selector(setEventManager:) withObject:self.eventManager];
+        if ([rootViewController isKindOfClass:[AbstractEventsViewController class]]) {
+            AbstractEventsViewController *abstractEventsViewController = (AbstractEventsViewController *)rootViewController;
+            abstractEventsViewController.eventManager = self.eventManager;
+            
+            EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)abstractEventsViewController.searchDisplayController.delegate;
+            eventsSearchDisplayController.eventManager = self.eventManager;
         }
         
-        if ([rootViewController respondsToSelector:@selector(setFilterManager:)]) {
-            [rootViewController performSelector:@selector(setFilterManager:) withObject:self.filterManager];
+        if ([rootViewController isKindOfClass:[MyPageViewController class]]) {
+            MyPageViewController *myPageViewController = (MyPageViewController *)rootViewController;
+            myPageViewController.filterManager = self.filterManager;
         }
     }
 }

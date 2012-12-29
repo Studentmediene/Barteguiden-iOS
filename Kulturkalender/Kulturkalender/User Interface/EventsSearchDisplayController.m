@@ -70,7 +70,7 @@
     NSPredicate *predicate = [self.delegate eventsPredicate];
     
     if ([_searchString length] > 0) {
-        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"(title CONTAINS[cd] %@) OR placeName CONTAINS[cd] %@", _searchString, _searchString];
+        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"(title CONTAINS[cd] %@) OR (placeName CONTAINS[cd] %@)", _searchString, _searchString];
         predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, searchPredicate ]];
     }
     
