@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
 
 @class Event;
 
-@interface EventDetailsViewController : UITableViewController
+@interface EventDetailsViewController : UITableViewController <UIActionSheetDelegate, EKEventEditViewDelegate>
 
 @property (nonatomic, strong) Event *event;
+
+@property (nonatomic, strong) EKEventStore *eventStore;
+@property (nonatomic, strong) EKCalendar *defaultCalendar;
+@property (nonatomic, retain) EKEventViewController *detailViewController;
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *timeLabel;
@@ -32,6 +38,6 @@
 
 - (IBAction)toggleFavorite:(id)sender;
 - (IBAction)shareEvent:(id)sender;
-- (IBAction)toggleReminder:(id)sender;
+- (IBAction)addToCalendar:(id)sender;
 
 @end

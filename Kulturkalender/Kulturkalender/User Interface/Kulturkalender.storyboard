@@ -75,48 +75,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="8l0-ue-9Xq">
-                            <rect key="frame" x="0.0" y="567" width="320" height="64"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7d-fs-6zX">
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Share">
-                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="shareEvent:" destination="QhT-Ab-EcC" eventType="touchUpInside" id="dvQ-KJ-VMP"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vbg-q4-J6A">
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Add to Calendar">
-                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="toggleReminder:" destination="QhT-Ab-EcC" eventType="touchUpInside" id="fPB-OI-imX"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="p7d-fs-6zX" firstAttribute="top" secondItem="8l0-ue-9Xq" secondAttribute="top" constant="10" id="1iz-QP-sqI"/>
-                                <constraint firstItem="Vbg-q4-J6A" firstAttribute="baseline" secondItem="p7d-fs-6zX" secondAttribute="baseline" type="user" id="52i-cG-9El"/>
-                                <constraint firstItem="p7d-fs-6zX" firstAttribute="leading" secondItem="8l0-ue-9Xq" secondAttribute="leading" constant="10" type="user" id="5w8-jV-unR"/>
-                                <constraint firstAttribute="trailing" secondItem="Vbg-q4-J6A" secondAttribute="trailing" constant="10" type="user" id="CYH-e9-m4m"/>
-                                <constraint firstItem="Vbg-q4-J6A" firstAttribute="top" secondItem="p7d-fs-6zX" secondAttribute="top" type="user" id="IKq-jn-jWm"/>
-                                <constraint firstItem="Vbg-q4-J6A" firstAttribute="leading" secondItem="p7d-fs-6zX" secondAttribute="trailing" constant="20" type="user" id="KJe-8e-MvW"/>
-                                <constraint firstItem="p7d-fs-6zX" firstAttribute="width" secondItem="Vbg-q4-J6A" secondAttribute="width" type="user" id="rCH-xY-7Co"/>
-                            </constraints>
-                        </view>
                         <sections>
                             <tableViewSection id="XY8-Fn-gVe">
                                 <cells>
@@ -128,42 +86,63 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tirsdagskviss" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lde-jd-Ny0">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="238" id="Hu0-p6-d3d"/>
+                                                        <constraint firstAttribute="height" constant="29" id="iot-oc-PiZ"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="EmptyPoster.png" translatesAutoresizingMaskIntoConstraints="NO" id="pTz-pG-b4h"/>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zYj-Ed-sac">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1q-Qs-B5E">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" image="Star-Normal.png">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="Star-Selected.png"/>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="toggleFavorite:" destination="QhT-Ab-EcC" eventType="touchUpInside" id="JMF-Ty-zJE"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IqA-9X-RQh">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <state key="normal">
                                                         <attributedString key="attributedTitle">
                                                             <fragment content="Tuesday, August 28 at 7:00 pm">
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <font key="NSFont" size="14" name="Helvetica-Bold"/>
-                                                                    <font key="NSOriginalFont" size="14" name="Helvetica-Bold"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                                     <integer key="NSUnderline" value="1"/>
+                                                                    <color key="NSUnderlineColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
                                                     </state>
-                                                    <state key="highlighted">
+                                                    <state key="selected">
                                                         <attributedString key="attributedTitle"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="addToCalendar:" destination="QhT-Ab-EcC" eventType="touchUpInside" id="xK6-i0-Imd"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="zYj-Ed-sac" firstAttribute="bottom" secondItem="pTz-pG-b4h" secondAttribute="bottom" type="default" id="4dj-h9-vAw"/>
-                                            <constraint firstItem="zYj-Ed-sac" firstAttribute="leading" secondItem="3An-A0-Gpe" secondAttribute="leading" constant="20" type="default" id="CvQ-wa-Gah"/>
-                                            <constraint firstAttribute="trailing" secondItem="pTz-pG-b4h" secondAttribute="trailing" constant="20" type="default" id="FXx-Rq-Kku"/>
-                                            <constraint firstItem="lde-jd-Ny0" firstAttribute="top" secondItem="3An-A0-Gpe" secondAttribute="top" constant="11" id="hXR-vB-6Wh"/>
-                                            <constraint firstAttribute="trailing" secondItem="lde-jd-Ny0" secondAttribute="trailing" constant="20" type="default" id="kXa-sS-Kng"/>
-                                            <constraint firstItem="pTz-pG-b4h" firstAttribute="top" secondItem="lde-jd-Ny0" secondAttribute="top" type="default" id="kek-wt-cYn"/>
-                                            <constraint firstItem="lde-jd-Ny0" firstAttribute="leading" secondItem="3An-A0-Gpe" secondAttribute="leading" constant="20" type="default" id="mhh-oL-vBi"/>
+                                            <constraint firstItem="lde-jd-Ny0" firstAttribute="leading" secondItem="pTz-pG-b4h" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="4Kp-SO-6ht"/>
+                                            <constraint firstItem="q1q-Qs-B5E" firstAttribute="top" secondItem="pTz-pG-b4h" secondAttribute="top" type="default" id="6jE-gn-Hws"/>
+                                            <constraint firstItem="q1q-Qs-B5E" firstAttribute="top" secondItem="lde-jd-Ny0" secondAttribute="top" type="default" id="Pk0-QT-ijT"/>
+                                            <constraint firstItem="pTz-pG-b4h" firstAttribute="top" secondItem="3An-A0-Gpe" secondAttribute="top" constant="7" id="YBd-82-1mo"/>
+                                            <constraint firstItem="IqA-9X-RQh" firstAttribute="leading" secondItem="pTz-pG-b4h" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ZhK-xP-3sk"/>
+                                            <constraint firstItem="IqA-9X-RQh" firstAttribute="bottom" secondItem="pTz-pG-b4h" secondAttribute="bottom" type="default" id="djV-SI-Ur2"/>
+                                            <constraint firstItem="pTz-pG-b4h" firstAttribute="leading" secondItem="3An-A0-Gpe" secondAttribute="leading" constant="20" type="default" id="faq-pb-fD0"/>
+                                            <constraint firstAttribute="trailing" secondItem="q1q-Qs-B5E" secondAttribute="trailing" constant="21" id="yCx-l1-qrd"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="0qG-03-GOS" detailTextLabel="TWR-he-e3b" style="IBUITableViewCellStyleValue2" id="2E4-b2-96k">
@@ -238,7 +217,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Gmt-oK-mcM" style="IBUITableViewCellStyleDefault" id="tA3-y9-A2x">
-                                        <rect key="frame" x="0.0" y="218" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="218" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -253,84 +232,12 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="104" id="D21-je-FET">
-                                        <rect key="frame" x="0.0" y="262" width="320" height="105"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="103"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Tuesday, August 28 at 7:00 pm" translatesAutoresizingMaskIntoConstraints="NO" id="rq6-Th-2ng">
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="4Ul-5S-6Bv"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <dataDetectorType key="dataDetectorTypes" calendarEvent="YES"/>
-                                                </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4d-jM-h6n">
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" image="EmptyPoster.png">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcd-dV-EIi">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="108" id="PRS-8b-8kO"/>
-                                                        <constraint firstAttribute="height" constant="44" id="tE0-5q-gGx"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="Test">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                                <label opaque="NO" clipsSubviews="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ua9-zu-yaF">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Ciu-qV-uEw"/>
-                                                    </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Tuesday, August 28 at 7:00 pm">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="14" name="Helvetica-Bold"/>
-                                                                <font key="NSOriginalFont" size="14" name="Helvetica-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                <integer key="NSUnderline" value="1"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="ua9-zu-yaF" firstAttribute="top" secondItem="rq6-Th-2ng" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4WG-uR-glW"/>
-                                            <constraint firstItem="J4d-jM-h6n" firstAttribute="top" secondItem="rq6-Th-2ng" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Fgw-Jv-tbl"/>
-                                            <constraint firstItem="ua9-zu-yaF" firstAttribute="top" secondItem="D21-je-FET" secondAttribute="top" constant="44" id="GDu-7t-Cw5"/>
-                                            <constraint firstItem="rq6-Th-2ng" firstAttribute="centerX" secondItem="D21-je-FET" secondAttribute="centerX" type="default" id="fda-jB-mfX"/>
-                                            <constraint firstItem="ua9-zu-yaF" firstAttribute="leading" secondItem="D21-je-FET" secondAttribute="leading" constant="21" id="mid-6T-lyZ"/>
-                                            <constraint firstAttribute="bottom" secondItem="fcd-dV-EIi" secondAttribute="bottom" constant="2" id="qF6-jZ-Laq"/>
-                                            <constraint firstAttribute="trailing" secondItem="J4d-jM-h6n" secondAttribute="trailing" constant="20" type="default" id="rg9-Ln-i0H"/>
-                                            <constraint firstItem="fcd-dV-EIi" firstAttribute="leading" secondItem="D21-je-FET" secondAttribute="leading" constant="46" id="u1E-Dg-lcL"/>
-                                            <constraint firstItem="rq6-Th-2ng" firstAttribute="top" secondItem="D21-je-FET" secondAttribute="top" type="default" id="vjo-nb-ZjF"/>
-                                        </constraints>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="aHV-GI-aaG">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="k3w-9Y-F3y" rowHeight="82" style="IBUITableViewCellStyleDefault" id="Zgr-2c-aHV">
-                                        <rect key="frame" x="0.0" y="387" width="320" height="84"/>
+                                        <rect key="frame" x="0.0" y="283" width="320" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="81"/>
@@ -351,7 +258,7 @@
                             <tableViewSection id="1ax-vc-uNh">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="tFy-e1-O4j" detailTextLabel="efi-QO-cOg" rowHeight="64" style="IBUITableViewCellStyleSubtitle" id="guK-AO-L9y">
-                                        <rect key="frame" x="0.0" y="491" width="320" height="66"/>
+                                        <rect key="frame" x="0.0" y="387" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="63"/>
@@ -383,23 +290,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Event Details" id="Zjn-Zj-8VC">
-                        <barButtonItem key="rightBarButtonItem" id="HuG-R2-WgQ">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="3mS-j4-Ddu">
-                                <rect key="frame" x="281" y="5" width="34" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="Star-Normal.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" image="Star-Selected.png"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleFavorite:" destination="QhT-Ab-EcC" eventType="touchUpInside" id="M9f-m0-uiY"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="bC6-rP-2Gr">
+                            <connections>
+                                <action selector="shareEvent:" destination="QhT-Ab-EcC" id="lcn-xP-Mm3"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -409,11 +303,10 @@
                         <outlet property="ageLimitLabel" destination="4kv-Cn-ylQ" id="JsV-74-qmH"/>
                         <outlet property="categoryLabel" destination="TWR-he-e3b" id="5Pp-l7-hFu"/>
                         <outlet property="descriptionLabel" destination="Gmt-oK-mcM" id="wJf-KD-1f4"/>
-                        <outlet property="favoriteButton" destination="3mS-j4-Ddu" id="u5g-9A-ofi"/>
+                        <outlet property="favoriteButton" destination="q1q-Qs-B5E" id="KDY-rD-1DG"/>
                         <outlet property="featuredLabel" destination="k3w-9Y-F3y" id="LdE-gd-JEl"/>
                         <outlet property="placeNameLabel" destination="tFy-e1-O4j" id="MqA-uV-nwM"/>
                         <outlet property="priceLabel" destination="Rqc-qq-vmF" id="PUu-kx-wsy"/>
-                        <outlet property="timeLabel" destination="ua9-zu-yaF" id="hCC-80-F4I"/>
                         <outlet property="titleLabel" destination="lde-jd-Ny0" id="Ajl-uh-rn7"/>
                     </connections>
                 </tableViewController>
@@ -990,6 +883,90 @@
         <image name="Star-Normal.png" width="34" height="34"/>
         <image name="Star-Selected.png" width="34" height="34"/>
     </resources>
+    <classes>
+        <class className="AbstractEventsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AbstractEventsViewController.h"/>
+        </class>
+        <class className="AllEventsViewController" superclassName="AbstractEventsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AllEventsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changePriceFilter:"/>
+                <relationship kind="outlet" name="priceFilterSegmentedControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="EventDetailsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addToCalendar:"/>
+                <relationship kind="action" name="shareEvent:"/>
+                <relationship kind="action" name="toggleFavorite:"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ageLimitLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="favoriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="featuredLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="placeNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EventsSearchDisplayController" superclassName="AbstractEventsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsSearchDisplayController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+        <class className="FavoritesViewController" superclassName="AbstractEventsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
+        </class>
+        <class className="FeaturedViewController" superclassName="AbstractEventsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeaturedViewController.h"/>
+        </class>
+        <class className="FilterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FilterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="myAgeTextFieldDidEndEditing:"/>
+                <relationship kind="outlet" name="ageLimitAllEventsCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="ageLimitAllowedForMyAgeCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="myAgeTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="priceFilterAllEventsCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="priceFilterFreeEvents" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="priceFilterPaidEvents" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="MyPageViewController" superclassName="AbstractEventsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyPageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="close:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="triggerRefresh:"/>
+            </relationships>
+        </class>
+        <class className="TabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="test"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -49,6 +49,8 @@
 		698F873E1624C05F001B9090 /* Filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F873C1624C05F001B9090 /* Filter.png */; };
 		698F873F1624C05F001B9090 /* Filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F873D1624C05F001B9090 /* Filter@2x.png */; };
 		69AEFE3A1624E7AB009F3567 /* Event+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AEFE391624E7AB009F3567 /* Event+TableView.m */; };
+		69B860DF168E6CEB002936B4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B860DE168E6CEB002936B4 /* EventKit.framework */; };
+		69B860E1168E6CF1002936B4 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B860E0168E6CF1002936B4 /* EventKitUI.framework */; };
 		69BA0AD5162F3E13009726E7 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0AD4162F3E13009726E7 /* EventCell.xib */; };
 		69BA0ADC162F4513009726E7 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA0ADB162F4513009726E7 /* EventCell.m */; };
 		69BA0ADF162F76B3009726E7 /* EmptyPoster.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0ADD162F76B3009726E7 /* EmptyPoster.png */; };
@@ -158,6 +160,8 @@
 		698F873D1624C05F001B9090 /* Filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Filter@2x.png"; sourceTree = "<group>"; };
 		69AEFE381624E7AB009F3567 /* Event+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+TableView.h"; sourceTree = "<group>"; };
 		69AEFE391624E7AB009F3567 /* Event+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+TableView.m"; sourceTree = "<group>"; };
+		69B860DE168E6CEB002936B4 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		69B860E0168E6CF1002936B4 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		69BA0AD4162F3E13009726E7 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		69BA0ADA162F4513009726E7 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
 		69BA0ADB162F4513009726E7 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69B860E1168E6CF1002936B4 /* EventKitUI.framework in Frameworks */,
+				69B860DF168E6CEB002936B4 /* EventKit.framework in Frameworks */,
 				694B5E1816371D3D00631278 /* MapKit.framework in Frameworks */,
 				694B5E1D163720E400631278 /* CoreLocation.framework in Frameworks */,
 				69F52A9E1608E70F0045B6F6 /* UIKit.framework in Frameworks */,
@@ -484,6 +490,8 @@
 				69F52AC01608E70F0045B6F6 /* SenTestingKit.framework */,
 				694B5E1C163720E300631278 /* CoreLocation.framework */,
 				694B5E1716371D3D00631278 /* MapKit.framework */,
+				69B860DE168E6CEB002936B4 /* EventKit.framework */,
+				69B860E0168E6CF1002936B4 /* EventKitUI.framework */,
 				FBB8DEFF9AB94CCB94DFF519 /* libPods.a */,
 			);
 			name = Frameworks;
