@@ -8,10 +8,6 @@
 
 #import "LocalizedText.h"
 
-
 @implementation LocalizedText
-
-@dynamic language;
-@dynamic text;
 
 @end

@@ -35,7 +35,7 @@
 
 @interface EventManager : NSObject <EventManager>
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext connectionManager:(id<ConnectionManager>)connectionManager;
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 @end
 

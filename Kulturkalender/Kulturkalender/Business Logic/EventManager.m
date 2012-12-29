@@ -7,13 +7,12 @@
 //
 
 #import "EventManager.h"
-#import "ConnectionManager.h"
 
 @implementation EventManager
 
 @synthesize managedObjectContext=_managedObjectContext;
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext connectionManager:(id<ConnectionManager>)connectionManager
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     self = [super init];
     if (self) {

@@ -946,7 +946,6 @@
         <class className="FilterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FilterViewController.h"/>
             <relationships>
-                <relationship kind="action" name="myAgeTextFieldDidEndEditing:"/>
                 <relationship kind="outlet" name="ageLimitAllEventsCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="ageLimitAllowedForMyAgeCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="myAgeTextField" candidateClass="UITextField"/>
@@ -963,9 +962,6 @@
         </class>
         <class className="MyPageViewController" superclassName="AbstractEventsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MyPageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="close:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -981,9 +977,6 @@
             <relationships>
                 <relationship kind="outlet" name="test"/>
             </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

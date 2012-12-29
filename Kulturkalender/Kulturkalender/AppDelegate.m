@@ -10,6 +10,7 @@
 #import "EventManager.h"
 #import "FilterManager.h"
 #import "TabBarController.h"
+#import "RIOEventKit.h"
 
 @implementation AppDelegate
 
@@ -19,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext connectionManager:nil];
+    _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     _filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaults];

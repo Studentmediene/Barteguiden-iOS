@@ -7,11 +7,7 @@
 //
 
 #import "LocalizedFeatured.h"
-#import "Event.h"
-
 
 @implementation LocalizedFeatured
-
-@dynamic event;
 
 @end

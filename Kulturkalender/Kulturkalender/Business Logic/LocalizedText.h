@@ -7,12 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "_LocalizedText.h"
 
-
-@interface LocalizedText : NSManagedObject
-
-@property (nonatomic, retain) NSString * language;
-@property (nonatomic, retain) NSString * text;
+@interface LocalizedText : _LocalizedText
 
 @end

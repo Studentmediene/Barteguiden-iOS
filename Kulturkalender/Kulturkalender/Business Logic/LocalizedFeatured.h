@@ -7,13 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
-#import "LocalizedText.h"
+#import "_LocalizedFeatured.h"
 
-@class Event;
-
-@interface LocalizedFeatured : LocalizedText
-
-@property (nonatomic, retain) Event *event;
+@interface LocalizedFeatured : _LocalizedFeatured
 
 @end
