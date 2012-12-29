@@ -7,10 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "EventManager.h"
-#import "FilterManager.h"
 #import "TabBarController.h"
 #import "RIOEventKit.h"
+#import "EventStore.h"
+#import "EventManager.h"// TODO: Temp
+#import "FilterManager.h"// TODO: Temp
 
 @implementation AppDelegate
 
@@ -20,6 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    _eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
+    
+    // TODO: Temp
     _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -42,6 +46,7 @@
     NSLog(@"Closing...");
     [_eventManager save];
     [_filterManager save];
+//    [self save];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -139,6 +144,17 @@
     }    
     
     return _persistentStoreCoordinator;
+}
+
+- (void)save
+{
+    NSError *error = nil;
+    if ([self.eventStore save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
 }
 
 #pragma mark - Application's Documents directory

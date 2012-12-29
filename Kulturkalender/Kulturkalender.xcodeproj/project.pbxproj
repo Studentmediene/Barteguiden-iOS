@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		690148C21649666600869553 /* EventManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 690148C11649666600869553 /* EventManagerTests.m */; };
-		690148C51649667600869553 /* FilterManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 690148C41649667600869553 /* FilterManagerTests.m */; };
 		6904F8DE16136DBA00482F13 /* AbstractEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */; };
 		690C271F163885B100DF432F /* Event+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C271E163885B100DF432F /* Event+Category.m */; };
 		690C27221638874300DF432F /* Event+AgeLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C27211638874300DF432F /* Event+AgeLimit.m */; };
@@ -60,9 +59,9 @@
 		69C37BF6168F835E009631DF /* LocalizedDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BF1168F835D009631DF /* LocalizedDescription.m */; };
 		69C37BF7168F835E009631DF /* LocalizedFeatured.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BF3168F835E009631DF /* LocalizedFeatured.m */; };
 		69C37BF8168F835E009631DF /* LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BF5168F835E009631DF /* LocalizedText.m */; };
+		69C37BFE168F8F28009631DF /* EventStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BFD168F8F28009631DF /* EventStoreTests.m */; };
 		69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C491671625F1DE00F28C45 /* EventDetailsViewController.m */; };
 		69C9E21B1687C60200D65004 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E21A1687C60200D65004 /* TabBarController.m */; };
-		69C9E223168A53B900D65004 /* FilterViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E222168A53B900D65004 /* FilterViewControllerTests.m */; };
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
 		69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */; };
 		69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */; };
@@ -102,8 +101,6 @@
 /* Begin PBXFileReference section */
 		690148C01649666600869553 /* EventManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManagerTests.h; sourceTree = "<group>"; };
 		690148C11649666600869553 /* EventManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventManagerTests.m; sourceTree = "<group>"; };
-		690148C31649667600869553 /* FilterManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterManagerTests.h; sourceTree = "<group>"; };
-		690148C41649667600869553 /* FilterManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterManagerTests.m; sourceTree = "<group>"; };
 		6904F8DC16136DBA00482F13 /* AbstractEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractEventsViewController.h; sourceTree = "<group>"; };
 		6904F8DD16136DBA00482F13 /* AbstractEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractEventsViewController.m; sourceTree = "<group>"; };
 		690C271D163885B100DF432F /* Event+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Category.h"; sourceTree = "<group>"; };
@@ -184,12 +181,12 @@
 		69C37BF3168F835E009631DF /* LocalizedFeatured.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedFeatured.m; sourceTree = "<group>"; };
 		69C37BF4168F835E009631DF /* LocalizedText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedText.h; sourceTree = "<group>"; };
 		69C37BF5168F835E009631DF /* LocalizedText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedText.m; sourceTree = "<group>"; };
+		69C37BFC168F8F28009631DF /* EventStoreTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventStoreTests.h; sourceTree = "<group>"; };
+		69C37BFD168F8F28009631DF /* EventStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreTests.m; sourceTree = "<group>"; };
 		69C491661625F1DE00F28C45 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		69C491671625F1DE00F28C45 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		69C9E2191687C60200D65004 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		69C9E21A1687C60200D65004 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
-		69C9E221168A53B900D65004 /* FilterViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewControllerTests.h; sourceTree = "<group>"; };
-		69C9E222168A53B900D65004 /* FilterViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewControllerTests.m; sourceTree = "<group>"; };
 		69D7FC38161B576A00E38D56 /* AllEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllEventsViewController.h; sourceTree = "<group>"; };
 		69D7FC39161B576A00E38D56 /* AllEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsViewController.m; sourceTree = "<group>"; };
 		69D7FC3E161B57B600E38D56 /* FeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedViewController.h; sourceTree = "<group>"; };
@@ -303,12 +300,9 @@
 			children = (
 				698F87171624A182001B9090 /* Event.h */,
 				698F87181624A182001B9090 /* Event.m */,
-				69C37BF4168F835E009631DF /* LocalizedText.h */,
-				69C37BF5168F835E009631DF /* LocalizedText.m */,
-				69C37BF0168F835D009631DF /* LocalizedDescription.h */,
-				69C37BF1168F835D009631DF /* LocalizedDescription.m */,
-				69C37BF2168F835E009631DF /* LocalizedFeatured.h */,
-				69C37BF3168F835E009631DF /* LocalizedFeatured.m */,
+				69884B9B163A0D810057D189 /* Event+Mapping.h */,
+				69884B9C163A0D810057D189 /* Event+Mapping.m */,
+				69C37C01168F91BD009631DF /* Might be useful */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -316,26 +310,6 @@
 		69884B9F163A0E2B0057D189 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				69884B7B1639FB670057D189 /* Event.strings */,
-				69884B87163A05810057D189 /* EventConstants.h */,
-				69884B9B163A0D810057D189 /* Event+Mapping.h */,
-				69884B9C163A0D810057D189 /* Event+Mapping.m */,
-				69AEFE381624E7AB009F3567 /* Event+TableView.h */,
-				69AEFE391624E7AB009F3567 /* Event+TableView.m */,
-				69884B95163A0CE60057D189 /* Event+Time.h */,
-				69884B96163A0CE70057D189 /* Event+Time.m */,
-				69884B98163A0D1F0057D189 /* Event+LocalizedText.h */,
-				69884B99163A0D1F0057D189 /* Event+LocalizedText.m */,
-				690C271D163885B100DF432F /* Event+Category.h */,
-				690C271E163885B100DF432F /* Event+Category.m */,
-				690C27201638874300DF432F /* Event+AgeLimit.h */,
-				690C27211638874300DF432F /* Event+AgeLimit.m */,
-				690C27231638876300DF432F /* Event+Price.h */,
-				690C27241638876300DF432F /* Event+Price.m */,
-				694B5E191637203D00631278 /* Event+Location.h */,
-				694B5E1A1637203D00631278 /* Event+Location.m */,
-				69DCD8EB165729A800A6E6A8 /* EventAnnotation.h */,
-				69DCD8EC165729A800A6E6A8 /* EventAnnotation.m */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -434,6 +408,60 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		69C37BFB168F8ECC009631DF /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				690148C01649666600869553 /* EventManagerTests.h */,
+				690148C11649666600869553 /* EventManagerTests.m */,
+			);
+			name = Old;
+			sourceTree = "<group>";
+		};
+		69C37BFF168F8FE3009631DF /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				69C37BF4168F835E009631DF /* LocalizedText.h */,
+				69C37BF5168F835E009631DF /* LocalizedText.m */,
+				69C37BF0168F835D009631DF /* LocalizedDescription.h */,
+				69C37BF1168F835D009631DF /* LocalizedDescription.m */,
+				69C37BF2168F835E009631DF /* LocalizedFeatured.h */,
+				69C37BF3168F835E009631DF /* LocalizedFeatured.m */,
+			);
+			name = Generated;
+			sourceTree = "<group>";
+		};
+		69C37C00168F90E8009631DF /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				69884B7B1639FB670057D189 /* Event.strings */,
+				69884B87163A05810057D189 /* EventConstants.h */,
+				69AEFE381624E7AB009F3567 /* Event+TableView.h */,
+				69AEFE391624E7AB009F3567 /* Event+TableView.m */,
+				69884B95163A0CE60057D189 /* Event+Time.h */,
+				69884B96163A0CE70057D189 /* Event+Time.m */,
+				690C271D163885B100DF432F /* Event+Category.h */,
+				690C271E163885B100DF432F /* Event+Category.m */,
+				690C27231638876300DF432F /* Event+Price.h */,
+				690C27241638876300DF432F /* Event+Price.m */,
+				690C27201638874300DF432F /* Event+AgeLimit.h */,
+				690C27211638874300DF432F /* Event+AgeLimit.m */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		69C37C01168F91BD009631DF /* Might be useful */ = {
+			isa = PBXGroup;
+			children = (
+				69884B98163A0D1F0057D189 /* Event+LocalizedText.h */,
+				69884B99163A0D1F0057D189 /* Event+LocalizedText.m */,
+				694B5E191637203D00631278 /* Event+Location.h */,
+				694B5E1A1637203D00631278 /* Event+Location.m */,
+				69DCD8EB165729A800A6E6A8 /* EventAnnotation.h */,
+				69DCD8EC165729A800A6E6A8 /* EventAnnotation.m */,
+			);
+			name = "Might be useful";
+			sourceTree = "<group>";
+		};
 		69C491641625F1A600F28C45 /* Event Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,10 +495,9 @@
 		69C9E21F168A532700D65004 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
-				690148C01649666600869553 /* EventManagerTests.h */,
-				690148C11649666600869553 /* EventManagerTests.m */,
-				690148C31649667600869553 /* FilterManagerTests.h */,
-				690148C41649667600869553 /* FilterManagerTests.m */,
+				69C37BFC168F8F28009631DF /* EventStoreTests.h */,
+				69C37BFD168F8F28009631DF /* EventStoreTests.m */,
+				69C37BFB168F8ECC009631DF /* Old */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -478,8 +505,6 @@
 		69C9E220168A533A00D65004 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				69C9E221168A53B900D65004 /* FilterViewControllerTests.h */,
-				69C9E222168A53B900D65004 /* FilterViewControllerTests.m */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -505,6 +530,8 @@
 		69D7FC52161DF93B00E38D56 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				69C37BFF168F8FE3009631DF /* Generated */,
+				69C37C00168F90E8009631DF /* GUI */,
 				69884B9F163A0E2B0057D189 /* Custom */,
 			);
 			name = Models;
@@ -810,8 +837,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				690148C21649666600869553 /* EventManagerTests.m in Sources */,
-				690148C51649667600869553 /* FilterManagerTests.m in Sources */,
-				69C9E223168A53B900D65004 /* FilterViewControllerTests.m in Sources */,
+				69C37BFE168F8F28009631DF /* EventStoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,7 +960,7 @@
 				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
 				INFOPLIST_FILE = "KulturkalenderTests/KulturkalenderTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_AFTER_BUILD = YES;
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -951,7 +977,7 @@
 				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
 				INFOPLIST_FILE = "KulturkalenderTests/KulturkalenderTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_AFTER_BUILD = YES;
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

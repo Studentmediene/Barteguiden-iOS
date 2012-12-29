@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol EventManager;
-@protocol FilterManager;
+@protocol RIOEventStore;
+@protocol EventManager;// TODO: Temp
+@protocol FilterManager;// TODO: Temp
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,9 +20,11 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, strong) id<EventManager> eventManager;
-@property (nonatomic, strong) id<FilterManager> filterManager;
+@property (nonatomic, strong) id<RIOEventStore> eventStore;
+@property (nonatomic, strong) id<EventManager> eventManager;// TODO: Temp
+@property (nonatomic, strong) id<FilterManager> filterManager;// TODO: Temp
 
+- (void)save;
 - (NSURL *)applicationDocumentsDirectory;
 
 @end

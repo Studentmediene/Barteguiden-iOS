@@ -206,7 +206,7 @@
     // TODO: Fix cache name
     
     // Create the fetched results controller
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:kEventSectionName cacheName:cacheName];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:cacheName];
     self.fetchedResultsController.delegate = self;
 }
 

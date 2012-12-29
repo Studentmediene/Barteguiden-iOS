@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3006" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Event" representedClassName="_Event" syncable="YES">
+    <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ageLimit" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="categoryID" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -19,13 +19,13 @@
         <relationship name="localizedDescription" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocalizedDescription" inverseName="event" inverseEntity="LocalizedDescription" syncable="YES"/>
         <relationship name="localizedFeatured" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocalizedFeatured" inverseName="event" inverseEntity="LocalizedFeatured" syncable="YES"/>
     </entity>
-    <entity name="LocalizedDescription" representedClassName="_LocalizedDescription" parentEntity="LocalizedText" syncable="YES">
+    <entity name="LocalizedDescription" representedClassName="LocalizedDescription" parentEntity="LocalizedText" syncable="YES">
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="localizedDescription" inverseEntity="Event" syncable="YES"/>
     </entity>
-    <entity name="LocalizedFeatured" representedClassName="_LocalizedFeatured" parentEntity="LocalizedText" syncable="YES">
+    <entity name="LocalizedFeatured" representedClassName="LocalizedFeatured" parentEntity="LocalizedText" syncable="YES">
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="localizedFeatured" inverseEntity="Event" syncable="YES"/>
     </entity>
-    <entity name="LocalizedText" representedClassName="_LocalizedText" syncable="YES">
+    <entity name="LocalizedText" representedClassName="LocalizedText" syncable="YES">
         <attribute name="language" attributeType="String" syncable="YES"/>
         <attribute name="text" attributeType="String" syncable="YES"/>
     </entity>

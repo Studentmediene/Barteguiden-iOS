@@ -10,6 +10,6 @@
 
 @interface Event (Mapping)
 
-+ (id)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
++ (instancetype)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 @end

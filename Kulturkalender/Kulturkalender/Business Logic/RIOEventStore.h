@@ -27,10 +27,7 @@
 - (NSPredicate *)predicateForPlaceNameContainingText:(NSString *)text;
 // TODO: Add predicates for categories, age limit and price
 
-// Saving and Removing Events
-- (BOOL)saveEvent:(id<RIOEvent>)event error:(NSError **)error;
-- (BOOL)removeEvent:(id<RIOEvent>)event error:(NSError **)error;
-
-// TODO: Add
+// Saving Changes
+- (BOOL)save:(NSError **)error;
 
 @end

@@ -13,5 +13,6 @@
 @interface EventStore : NSObject <RIOEventStore>
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+- (void)importEvents:(NSArray *)events;
 
 @end

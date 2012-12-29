@@ -7,12 +7,15 @@
 //
 
 #import "EventStore.h"
+#import "Event+Mapping.h"
 
 @interface EventStore ()
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
+
+static NSString * const kEventEntityName = @"Event";
 
 
 @implementation EventStore
@@ -26,19 +29,41 @@
     return self;
 }
 
-// Accessing Events
+- (void)importEvents:(NSArray *)events
+{
+    for (NSDictionary *event in events) {
+        [Event insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
+    }
+}
+
+
+#pragma mark - Accessing Events
+
 - (id<RIOEvent>)eventWithIdentifier:(NSString *)identifier
 {
+    NSPredicate *predicate = [self predicateForEventIdentifier:identifier];
+    NSFetchRequest *fetchRequest = [self fetchRequestWithPredicate:predicate];
+    fetchRequest.fetchLimit = 1;
+    
+    NSArray *result = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil]; // TODO: Fix error handling
+    if (result.count > 0) {
+        return result[0];
+    }
+    
     return nil;
 }
 
 - (NSArray *)eventsMatchingPredicate:(NSPredicate *)predicate
 {
-    return nil;
+    NSFetchRequest *fetchRequest = [self fetchRequestWithPredicate:predicate];
+    
+    NSArray *result = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil]; // TODO: Fix error handling
+    return result;
 }
 
 - (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate
 {
+    // TIPS: @"(endAt != nil AND endAt >= %@) OR startAt >= %@"
     return nil;
 }
 
@@ -54,12 +79,12 @@
 
 - (NSPredicate *)predicateForPaidEvents
 {
-    return [NSPredicate predicateWithFormat:@"price > 0"];;
+    return [NSPredicate predicateWithFormat:@"price > 0"];
 }
 
 - (NSPredicate *)predicateForFreeEvents
 {
-    return [NSPredicate predicateWithFormat:@"price == 0"];;
+    return [NSPredicate predicateWithFormat:@"price == 0"];
 }
 
 - (NSPredicate *)predicateForTitleContainingText:(NSString *)text
@@ -72,15 +97,35 @@
     return [NSPredicate predicateWithFormat:@"placeName CONTAINS[cd] %@", text];
 }
 
-// Saving and Removing Events
-- (BOOL)saveEvent:(id<RIOEvent>)event error:(NSError *__autoreleasing *)error
+
+#pragma mark - Saving changes
+
+- (BOOL)save:(NSError *__autoreleasing *)error
 {
-    return NO;
+    return ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:error]);
 }
 
-- (BOOL)removeEvent:(id<RIOEvent>)event error:(NSError *__autoreleasing *)error
+
+#pragma mark - Private methods
+
+- (NSPredicate *)predicateForEventIdentifier:(NSString *)identifier
 {
-    return NO;
+    return [NSPredicate predicateWithFormat:@"eventID == %@", identifier];
+}
+
+- (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEventEntityName];
+    fetchRequest.includesSubentities = YES;
+    fetchRequest.fetchBatchSize = 20;
+    fetchRequest.predicate = predicate;
+    
+    // TODO: Do I need sort descriptors?
+//    NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES];
+//    NSArray *sortDescriptors = @[ startAtSortDescriptor ];
+//    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    return fetchRequest;
 }
 
 @end
