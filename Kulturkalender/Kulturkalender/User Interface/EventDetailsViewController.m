@@ -15,14 +15,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Initialize an event store object with the init method. Initilize the array for events.
-	self.eventStore = [[EKEventStore alloc] init];
-    [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+    
+	EKEventStore *eventStore = [[EKEventStore alloc] init];
+    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
         NSLog(@"granted:%d error:%@", granted, error);
     }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(storeChanged:) name:EKEventStoreChangedNotification object:eventStore];
     
-    NSLog(@"%@", [self.eventStore eventWithIdentifier:@"4874E572-D9CD-4617-9D28-60BA9B4083CC:1A543AEC-8A68-4612-BE0A-7BC5CF2FEC71"]);
+    self.eventStore = eventStore;
     
     [self updateViewInfo];
 }
@@ -153,8 +153,6 @@
 	[controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
-
-// Set the calendar edited by EKEventEditViewController to our chosen calendar - the default calendar.
 - (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 	EKCalendar *calendarForEdit = [self.eventStore defaultCalendarForNewEvents];
@@ -179,6 +177,12 @@
     self.addressLabel.text = self.event.address;
     
     self.favoriteButton.selected = [self.event.favorite boolValue];
+}
+
+- (void)storeChanged:(NSNotification *)note
+{
+    NSLog(@"Store changed:%@", note);
+    // TIPS: If you are currently modifying an event and you do not want to refetch it unless it is absolutely necessary to do so, you can call the refresh method on the event. If the method returns YES, you can continue to use the event; otherwise, you need to refetch it.
 }
 
 @end
