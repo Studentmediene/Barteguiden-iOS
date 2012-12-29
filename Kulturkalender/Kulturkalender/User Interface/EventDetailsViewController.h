@@ -17,8 +17,6 @@
 @property (nonatomic, strong) Event *event;
 
 @property (nonatomic, strong) EKEventStore *eventStore;
-@property (nonatomic, strong) EKCalendar *defaultCalendar;
-@property (nonatomic, retain) EKEventViewController *detailViewController;
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *timeLabel;

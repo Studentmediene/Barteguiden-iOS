@@ -10,6 +10,8 @@
 #import "EventManager.h"
 #import "MapViewController.h"
 
+const float kAlertOffset = -30*60; // 30 minutes before event
+
 @implementation EventDetailsViewController
 
 - (void)viewDidLoad
@@ -86,26 +88,22 @@
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
-//    EKEvent *calendarEvent = [EKEvent eventWithEventStore:self.eventStore];
-//    calendarEvent.title = self.event.title;
-//    calendarEvent.location = self.event.placeName;
-//    calendarEvent.calendar = [self.eventStore defaultCalendarForNewEvents];
-//    calendarEvent.startDate = [NSDate dateWithTimeIntervalSinceNow:60*60*10];
-//    calendarEvent.endDate = [calendarEvent.startDate dateByAddingTimeInterval:60*60*1];
-//    
-//	EKEventEditViewController *eventEditViewController = [[EKEventEditViewController alloc] init];
-//    eventEditViewController.event = calendarEvent;
-//	eventEditViewController.eventStore = self.eventStore;
-//	eventEditViewController.editViewDelegate = self;
+    EKEvent *calendarEvent = [EKEvent eventWithEventStore:self.eventStore];
+    calendarEvent.calendar = [self.eventStore defaultCalendarForNewEvents];
+    calendarEvent.title = self.event.title;
+    calendarEvent.location = self.event.placeName;
+    calendarEvent.startDate = self.event.startAt;
+    calendarEvent.endDate = self.event.endAt;
     
+    EKAlarm *alarm = [EKAlarm alarmWithRelativeOffset:kAlertOffset];
+    [calendarEvent addAlarm:alarm];
     
-    EKEventViewController *eventViewController = [[EKEventViewController alloc] init];
-    eventViewController.event = [self.eventStore eventWithIdentifier:@"4874E572-D9CD-4617-9D28-60BA9B4083CC:4A01BF5A-106B-4E61-A7AB-1B02B7271C85"];
-    eventViewController.allowsEditing = NO;
-    eventViewController.allowsCalendarPreview = NO;
+	EKEventEditViewController *eventEditViewController = [[EKEventEditViewController alloc] init];
+    eventEditViewController.event = calendarEvent;
+	eventEditViewController.eventStore = self.eventStore;
+	eventEditViewController.editViewDelegate = self;
     
-    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:eventViewController];
-	[self presentViewController:navCtrl animated:YES completion:NULL];
+	[self presentViewController:eventEditViewController animated:YES completion:NULL];
 }
 
 
@@ -121,33 +119,20 @@
 - (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action {
 	NSLog(@"%@", NSStringFromSelector(_cmd));
     
-	NSError *error = nil;
-	EKEvent *thisEvent = controller.event;
-	
 	switch (action) {
-		case EKEventEditViewActionCanceled:
-			// Edit action canceled, do nothing.
+		case EKEventEditViewActionCanceled: {
 			break;
-			
-		case EKEventEditViewActionSaved:
-			// When user hit "Done" button, save the newly created event to the event store,
-			// and reload table view.
-			// If the new event is being added to the default calendar, then update its
-			// eventsList.
-			[controller.eventStore saveEvent:controller.event span:EKSpanThisEvent error:&error];
+        }
+		case EKEventEditViewActionSaved: {
+			[controller.eventStore saveEvent:controller.event span:EKSpanThisEvent error:nil];
+            
             NSLog(@"Saved event:%@", controller.event.eventIdentifier);
 			break;
-			
-		case EKEventEditViewActionDeleted:
-			// When deleting an event, remove the event from the event store,
-			// and reload table view.
-			// If deleting an event from the currenly default calendar, then update its
-			// eventsList.
-			[controller.eventStore removeEvent:thisEvent span:EKSpanThisEvent error:&error];
+        }
+		case EKEventEditViewActionDeleted: {
+			[controller.eventStore removeEvent:controller.event span:EKSpanThisEvent error:nil];
 			break;
-			
-		default:
-			break;
+        }
 	}
     
 	[controller dismissViewControllerAnimated:YES completion:NULL];
