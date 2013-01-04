@@ -51,7 +51,7 @@
 		69BA0ADC162F4513009726E7 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA0ADB162F4513009726E7 /* EventCell.m */; };
 		69BA0ADF162F76B3009726E7 /* EmptyPoster.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0ADD162F76B3009726E7 /* EmptyPoster.png */; };
 		69BA0AE0162F76B3009726E7 /* EmptyPoster@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0ADE162F76B3009726E7 /* EmptyPoster@2x.png */; };
-		69C37BDE168F71C4009631DF /* EventStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BDD168F71C4009631DF /* EventStore.m */; };
+		69C37BDE168F71C4009631DF /* ManagedEventStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BDD168F71C4009631DF /* ManagedEventStore.m */; };
 		69C37BE5168F82BC009631DF /* _LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BE4168F82BC009631DF /* _LocalizedText.m */; };
 		69C37BE8168F82BC009631DF /* _LocalizedDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BE7168F82BC009631DF /* _LocalizedDescription.m */; };
 		69C37BEB168F82BC009631DF /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BEA168F82BC009631DF /* _Event.m */; };
@@ -162,8 +162,8 @@
 		69BA0ADB162F4513009726E7 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
 		69BA0ADD162F76B3009726E7 /* EmptyPoster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmptyPoster.png; sourceTree = "<group>"; };
 		69BA0ADE162F76B3009726E7 /* EmptyPoster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EmptyPoster@2x.png"; sourceTree = "<group>"; };
-		69C37BDC168F71C4009631DF /* EventStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventStore.h; sourceTree = "<group>"; };
-		69C37BDD168F71C4009631DF /* EventStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStore.m; sourceTree = "<group>"; };
+		69C37BDC168F71C4009631DF /* ManagedEventStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedEventStore.h; sourceTree = "<group>"; };
+		69C37BDD168F71C4009631DF /* ManagedEventStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedEventStore.m; sourceTree = "<group>"; };
 		69C37BE0168F775F009631DF /* RIOEventStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RIOEventStore.h; sourceTree = "<group>"; };
 		69C37BE1168F77AF009631DF /* RIOEventKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RIOEventKit.h; sourceTree = "<group>"; };
 		69C37BE2168F7808009631DF /* RIOEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RIOEvent.h; sourceTree = "<group>"; };
@@ -638,8 +638,8 @@
 				69C37BE1168F77AF009631DF /* RIOEventKit.h */,
 				69C37BE0168F775F009631DF /* RIOEventStore.h */,
 				69C37BE2168F7808009631DF /* RIOEvent.h */,
-				69C37BDC168F71C4009631DF /* EventStore.h */,
-				69C37BDD168F71C4009631DF /* EventStore.m */,
+				69C37BDC168F71C4009631DF /* ManagedEventStore.h */,
+				69C37BDD168F71C4009631DF /* ManagedEventStore.m */,
 				69C37BFA168F841F009631DF /* Models */,
 				69C37BF9168F83F8009631DF /* Old */,
 			);
@@ -674,7 +674,7 @@
 				69F52ABA1608E70F0045B6F6 /* Sources */,
 				69F52ABB1608E70F0045B6F6 /* Frameworks */,
 				69F52ABC1608E70F0045B6F6 /* Resources */,
-				69F52ABD1608E70F0045B6F6 /* ShellScript */,
+				69F52ABD1608E70F0045B6F6 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -760,18 +760,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		69F52ABD1608E70F0045B6F6 /* ShellScript */ = {
+		69F52ABD1608E70F0045B6F6 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			showEnvVarsInLog = 0;
 		};
 		72168C31D74648708BF435A7 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -786,6 +788,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -821,7 +824,7 @@
 				69528C0F1643152C00A96B65 /* FilterManager.m in Sources */,
 				69DCD8ED165729A800A6E6A8 /* EventAnnotation.m in Sources */,
 				69C9E21B1687C60200D65004 /* TabBarController.m in Sources */,
-				69C37BDE168F71C4009631DF /* EventStore.m in Sources */,
+				69C37BDE168F71C4009631DF /* ManagedEventStore.m in Sources */,
 				69C37BE5168F82BC009631DF /* _LocalizedText.m in Sources */,
 				69C37BE8168F82BC009631DF /* _LocalizedDescription.m in Sources */,
 				69C37BEB168F82BC009631DF /* _Event.m in Sources */,
@@ -926,6 +929,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Kulturkalender/Kulturkalender-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -940,6 +944,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Kulturkalender/Kulturkalender-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

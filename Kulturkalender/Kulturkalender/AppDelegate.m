@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "TabBarController.h"
 #import "RIOEventKit.h"
-#import "EventStore.h"
+#import "ManagedEventStore.h"
 #import "EventManager.h"// TODO: Temp
 #import "FilterManager.h"// TODO: Temp
 
@@ -21,7 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
+    _eventStore = [[ManagedEventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     
     // TODO: Temp
     _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext];

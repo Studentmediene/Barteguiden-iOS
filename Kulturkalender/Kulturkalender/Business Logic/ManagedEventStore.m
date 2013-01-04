@@ -1,15 +1,15 @@
 //
-//  EventStore.m
+//  ManagedEventStore.m
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 29.12.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "EventStore.h"
+#import "ManagedEventStore.h"
 #import "Event+Mapping.h"
 
-@interface EventStore ()
+@interface ManagedEventStore ()
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
@@ -18,7 +18,7 @@
 static NSString * const kEventEntityName = @"Event";
 
 
-@implementation EventStore
+@implementation ManagedEventStore
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {

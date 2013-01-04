@@ -9,16 +9,14 @@
 #import "EventStoreTests.h"
 #import <CoreData/CoreData.h>
 #import "RIOEventKit.h"
-#import "EventStore.h"
+#import "ManagedEventStore.h"
+#import "Event.h"
 
 @implementation EventStoreTests
 
 - (void)setUp
 {
-    [super setUp];
-    
-    // Set-up code here.
-    EventStore *eventStore = [[EventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
+    ManagedEventStore *eventStore = [[ManagedEventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
     
     // Import test data
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
@@ -32,13 +30,16 @@
 
 - (void)tearDown
 {
-    // Tear-down code here.
     
-    [super tearDown];
 }
 
 
 #pragma mark - Tests
+
+- (void)testFailingTest
+{
+    STFail(@"This test is temporary.");
+}
 
 - (void)testEventWithIdentifierReturnsNotNil
 {

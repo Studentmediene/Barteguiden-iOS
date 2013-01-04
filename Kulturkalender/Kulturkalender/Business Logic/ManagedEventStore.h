@@ -1,5 +1,5 @@
 //
-//  EventStore.h
+//  ManagedEventStore.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 29.12.12.
@@ -10,7 +10,7 @@
 #import "RIOEventStore.h"
 
 
-@interface EventStore : NSObject <RIOEventStore>
+@interface ManagedEventStore : NSObject <RIOEventStore>
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 - (void)importEvents:(NSArray *)events;
