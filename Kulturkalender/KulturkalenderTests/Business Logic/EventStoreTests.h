@@ -8,10 +8,10 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@protocol RIOEventStore;
+@protocol EventStore;
 
 @interface EventStoreTests : SenTestCase
 
-@property (nonatomic, strong) id<RIOEventStore> eventStore;
+@property (nonatomic, strong) id<EventStore> eventStore;
 
 @end

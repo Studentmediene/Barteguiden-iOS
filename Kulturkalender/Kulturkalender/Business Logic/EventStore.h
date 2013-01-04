@@ -1,5 +1,5 @@
 //
-//  RIOEventStore.h
+//  EventStore.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 29.12.12.
@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol RIOEvent;
+@protocol Event;
 
-typedef void (^RIOEventSearchCallback)(id<RIOEvent> event, BOOL *stop);
+typedef void (^RIOEventSearchCallback)(id<Event> event, BOOL *stop);
 
-@protocol RIOEventStore <NSObject>
+@protocol EventStore <NSObject>
 
 // Access Events
-- (id<RIOEvent>)eventWithIdentifier:(NSString *)identifier;
+- (id<Event>)eventWithIdentifier:(NSString *)identifier;
 - (NSArray *)eventsMatchingPredicate:(NSPredicate *)predicate;
 - (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(RIOEventSearchCallback)block;
 - (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;

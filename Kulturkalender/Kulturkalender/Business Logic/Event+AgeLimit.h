@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Event.h"
+#import "ManagedEvent.h"
 
-@interface Event (AgeLimit)
+@interface ManagedEvent (AgeLimit)
 
 + (NSString *)stringForAgeLimit:(NSNumber *)ageLimit;
 

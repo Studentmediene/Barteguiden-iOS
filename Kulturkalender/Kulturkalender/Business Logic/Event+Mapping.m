@@ -15,7 +15,7 @@ static NSString * const kLocalizedDescriptionEntityName = @"LocalizedDescription
 static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
 
 
-@implementation Event (Mapping)
+@implementation ManagedEvent (Mapping)
 
 + (instancetype)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
@@ -24,7 +24,7 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     // TODO: Implement for the real server
     
     // Create event
-    Event *event = [NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:managedObjectContext];
+    ManagedEvent *event = [NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:managedObjectContext];
     [event safeSetValuesForKeysWithDictionary:jsonObject dateFormatter:dateFormatter];
     
     // Add localized description

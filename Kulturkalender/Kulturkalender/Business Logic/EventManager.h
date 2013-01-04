@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Event.h"
+#import "ManagedEvent.h"
 #import "Event+Mapping.h"
 #import "Event+TableView.h"
 #import "Event+Time.h"

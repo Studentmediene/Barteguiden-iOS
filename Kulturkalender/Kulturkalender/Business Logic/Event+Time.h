@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "Event.h"
+#import "ManagedEvent.h"
 
-@interface Event (Time)
+@interface ManagedEvent (Time)
 
 - (NSString *)timeString;
 

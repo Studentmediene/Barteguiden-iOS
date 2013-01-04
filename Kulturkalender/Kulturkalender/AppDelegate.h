@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol RIOEventStore;
+@protocol EventStore;
 @protocol EventManager;// TODO: Temp
 @protocol FilterManager;// TODO: Temp
 
@@ -20,7 +20,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, strong) id<RIOEventStore> eventStore;
+@property (nonatomic, strong) id<EventStore> eventStore;
 @property (nonatomic, strong) id<EventManager> eventManager;// TODO: Temp
 @property (nonatomic, strong) id<FilterManager> filterManager;// TODO: Temp
 

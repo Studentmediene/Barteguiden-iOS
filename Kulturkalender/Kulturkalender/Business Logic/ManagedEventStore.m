@@ -32,14 +32,14 @@ static NSString * const kEventEntityName = @"Event";
 - (void)importEvents:(NSArray *)events
 {
     for (NSDictionary *event in events) {
-        [Event insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
+        [ManagedEvent insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
     }
 }
 
 
 #pragma mark - Accessing Events
 
-- (id<RIOEvent>)eventWithIdentifier:(NSString *)identifier
+- (id<Event>)eventWithIdentifier:(NSString *)identifier
 {
     NSPredicate *predicate = [self predicateForEventIdentifier:identifier];
     NSFetchRequest *fetchRequest = [self fetchRequestWithPredicate:predicate];

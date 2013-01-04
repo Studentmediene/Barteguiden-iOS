@@ -25,7 +25,7 @@ NSString * const kPriceFilterSelection = @"PriceFilterSelection";
         _userDefaults = userDefaults;
         
         // Register defaults
-        NSArray *allCategories = [Event categoryIDs];
+        NSArray *allCategories = [ManagedEvent categoryIDs];
         NSDictionary *defaults = @{ kCategoryFilterSelection : allCategories };
         [userDefaults registerDefaults:defaults];
         

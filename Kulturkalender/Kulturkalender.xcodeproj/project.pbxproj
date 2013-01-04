@@ -32,7 +32,7 @@
 		69884B9D163A0D820057D189 /* Event+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B9C163A0D810057D189 /* Event+Mapping.m */; };
 		698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F870C16247B96001B9090 /* EventsSearchDisplayController.m */; };
 		698F871016249719001B9090 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = 698F870F16249719001B9090 /* Example.json */; };
-		698F87191624A182001B9090 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F87181624A182001B9090 /* Event.m */; };
+		698F87191624A182001B9090 /* ManagedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F87181624A182001B9090 /* ManagedEvent.m */; };
 		698F87261624B24A001B9090 /* Star.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F87241624B24A001B9090 /* Star.png */; };
 		698F87271624B24A001B9090 /* Star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F87251624B24A001B9090 /* Star@2x.png */; };
 		698F872A1624B2FF001B9090 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F87281624B2FF001B9090 /* Settings.png */; };
@@ -138,8 +138,8 @@
 		698F870C16247B96001B9090 /* EventsSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsSearchDisplayController.m; sourceTree = "<group>"; };
 		698F870E16247C7F001B9090 /* EventsSearchDisplayControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsSearchDisplayControllerDelegate.h; sourceTree = "<group>"; };
 		698F870F16249719001B9090 /* Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Example.json; sourceTree = "<group>"; };
-		698F87171624A182001B9090 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		698F87181624A182001B9090 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		698F87171624A182001B9090 /* ManagedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedEvent.h; sourceTree = "<group>"; };
+		698F87181624A182001B9090 /* ManagedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedEvent.m; sourceTree = "<group>"; };
 		698F87241624B24A001B9090 /* Star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star.png; sourceTree = "<group>"; };
 		698F87251624B24A001B9090 /* Star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star@2x.png"; sourceTree = "<group>"; };
 		698F87281624B2FF001B9090 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
@@ -161,9 +161,9 @@
 		69BA0ADE162F76B3009726E7 /* EmptyPoster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EmptyPoster@2x.png"; sourceTree = "<group>"; };
 		69C37BDC168F71C4009631DF /* ManagedEventStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedEventStore.h; sourceTree = "<group>"; };
 		69C37BDD168F71C4009631DF /* ManagedEventStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedEventStore.m; sourceTree = "<group>"; };
-		69C37BE0168F775F009631DF /* RIOEventStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RIOEventStore.h; sourceTree = "<group>"; };
-		69C37BE1168F77AF009631DF /* RIOEventKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RIOEventKit.h; sourceTree = "<group>"; };
-		69C37BE2168F7808009631DF /* RIOEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RIOEvent.h; sourceTree = "<group>"; };
+		69C37BE0168F775F009631DF /* EventStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventStore.h; sourceTree = "<group>"; };
+		69C37BE1168F77AF009631DF /* EventKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventKit.h; sourceTree = "<group>"; };
+		69C37BE2168F7808009631DF /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		69C37BE3168F82BC009631DF /* _LocalizedText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LocalizedText.h; sourceTree = "<group>"; };
 		69C37BE4168F82BC009631DF /* _LocalizedText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LocalizedText.m; sourceTree = "<group>"; };
 		69C37BE6168F82BC009631DF /* _LocalizedDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LocalizedDescription.h; sourceTree = "<group>"; };
@@ -295,8 +295,8 @@
 		69884B9E163A0E210057D189 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				698F87171624A182001B9090 /* Event.h */,
-				698F87181624A182001B9090 /* Event.m */,
+				698F87171624A182001B9090 /* ManagedEvent.h */,
+				698F87181624A182001B9090 /* ManagedEvent.m */,
 				69884B9B163A0D810057D189 /* Event+Mapping.h */,
 				69884B9C163A0D810057D189 /* Event+Mapping.m */,
 				69C37C01168F91BD009631DF /* Might be useful */,
@@ -622,9 +622,9 @@
 			isa = PBXGroup;
 			children = (
 				69F52AB71608E70F0045B6F6 /* Kulturkalender.xcdatamodeld */,
-				69C37BE1168F77AF009631DF /* RIOEventKit.h */,
-				69C37BE0168F775F009631DF /* RIOEventStore.h */,
-				69C37BE2168F7808009631DF /* RIOEvent.h */,
+				69C37BE1168F77AF009631DF /* EventKit.h */,
+				69C37BE0168F775F009631DF /* EventStore.h */,
+				69C37BE2168F7808009631DF /* Event.h */,
 				69C37BDC168F71C4009631DF /* ManagedEventStore.h */,
 				69C37BDD168F71C4009631DF /* ManagedEventStore.m */,
 				69C37BFA168F841F009631DF /* Models */,
@@ -793,7 +793,7 @@
 				69D7FC46161B6E9700E38D56 /* EventManager.m in Sources */,
 				69D7FC50161DF10900E38D56 /* MyPageViewController.m in Sources */,
 				698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */,
-				698F87191624A182001B9090 /* Event.m in Sources */,
+				698F87191624A182001B9090 /* ManagedEvent.m in Sources */,
 				69AEFE3A1624E7AB009F3567 /* Event+TableView.m in Sources */,
 				69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */,
 				69BA0ADC162F4513009726E7 /* EventCell.m in Sources */,

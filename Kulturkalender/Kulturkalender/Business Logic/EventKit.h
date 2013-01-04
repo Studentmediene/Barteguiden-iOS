@@ -1,5 +1,5 @@
 //
-//  RIOEventKit.h
+//  EventKit.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 29.12.12.
@@ -9,7 +9,10 @@
 #ifndef Kulturkalender_RIOEventKit_h
 #define Kulturkalender_RIOEventKit_h
 
-#import "RIOEventStore.h"
-#import "RIOEvent.h"
+#import "EventStore.h"
+#import "Event.h"
+
+#import "ManagedEventStore.h"
+#import "ManagedEvent.h"
 
 #endif

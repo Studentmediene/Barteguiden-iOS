@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TabBarController.h"
-#import "RIOEventKit.h"
-#import "ManagedEventStore.h"
+#import "EventKit.h"
 #import "EventManager.h"// TODO: Temp
 #import "FilterManager.h"// TODO: Temp
 

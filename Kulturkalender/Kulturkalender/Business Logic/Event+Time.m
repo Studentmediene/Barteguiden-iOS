@@ -9,7 +9,7 @@
 #import "Event+Time.h"
 #import "EventConstants.h"
 
-@implementation Event (Time)
+@implementation ManagedEvent (Time)
 
 - (NSString *)timeString
 {

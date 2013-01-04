@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "Event.h"
+#import "ManagedEvent.h"
 
-@interface Event (Mapping)
+@interface ManagedEvent (Mapping)
 
 + (instancetype)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 

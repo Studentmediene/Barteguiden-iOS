@@ -10,7 +10,7 @@
 #import "EventConstants.h"
 #import "Event+Location.h"
 
-@implementation Event (TableView)
+@implementation ManagedEvent (TableView)
 
 - (NSString *)dateSectionName
 {

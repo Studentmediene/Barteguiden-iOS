@@ -60,11 +60,13 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 
 - (void)toggleFavorite:(id)sender
 {
-    BOOL isFavorite = ([self.event.favorite boolValue] == NO);
-    
+//    BOOL isFavorite = ([self.event.favorite boolValue] == NO);
+    BOOL isFavorite = (self.event.favorite == NO);
+
     self.event.favorite = @(isFavorite);
-    
+
     self.favoriteButton.selected = isFavorite;
+
 }
 
 - (void)shareEvent:(id)sender
@@ -161,7 +163,8 @@ const float kAlertOffset = -30*60; // 30 minutes before event
     self.placeNameLabel.text = self.event.placeName;
     self.addressLabel.text = self.event.address;
     
-    self.favoriteButton.selected = [self.event.favorite boolValue];
+    self.favoriteButton.selected = self.event.favorite;
+//    self.favoriteButton.selected = [self.event.favorite boolValue];
 }
 
 - (void)storeChanged:(NSNotification *)note

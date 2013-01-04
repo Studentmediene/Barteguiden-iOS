@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3006" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Event" representedClassName="Event" syncable="YES">
+    <entity name="Event" representedClassName="ManagedEvent" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ageLimit" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="categoryID" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -30,9 +30,9 @@
         <attribute name="text" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="0" positionY="0" width="128" height="298"/>
-        <element name="LocalizedDescription" positionX="241" positionY="99" width="128" height="58"/>
-        <element name="LocalizedFeatured" positionX="234" positionY="264" width="128" height="58"/>
-        <element name="LocalizedText" positionX="412" positionY="186" width="128" height="73"/>
+        <element name="LocalizedDescription" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="LocalizedFeatured" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="LocalizedText" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="Event" positionX="0" positionY="0" width="128" height="300"/>
     </elements>
 </model>

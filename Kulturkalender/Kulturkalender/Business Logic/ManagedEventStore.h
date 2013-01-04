@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RIOEventStore.h"
+#import "EventStore.h"
 
 
-@interface ManagedEventStore : NSObject <RIOEventStore>
+@interface ManagedEventStore : NSObject <EventStore>
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 - (void)importEvents:(NSArray *)events;

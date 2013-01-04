@@ -13,7 +13,7 @@ enum {
     kNoAgeLimit = 0
 };
 
-@implementation Event (AgeLimit)
+@implementation ManagedEvent (AgeLimit)
 
 + (NSString *)stringForAgeLimit:(NSNumber *)ageLimit
 {

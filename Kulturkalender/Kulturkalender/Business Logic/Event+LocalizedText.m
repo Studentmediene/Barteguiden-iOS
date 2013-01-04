@@ -9,7 +9,7 @@
 #import "Event+LocalizedText.h"
 #import "LocalizedText.h"
 
-@implementation Event (LocalizedText)
+@implementation ManagedEvent (LocalizedText)
 
 - (NSString *)currentLocalizedDescription
 {
