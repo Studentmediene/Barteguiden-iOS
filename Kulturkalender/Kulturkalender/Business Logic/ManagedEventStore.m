@@ -61,7 +61,7 @@ static NSString * const kEventEntityName = @"Event";
     return result;
 }
 
-- (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(RIOEventSearchCallback)block
+- (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(EventSearchCallback)block
 {
     
 }

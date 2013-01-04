@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#ifndef Kulturkalender_RIOEventKit_h
-#define Kulturkalender_RIOEventKit_h
+#ifndef Kulturkalender_EventKit_h
+#define Kulturkalender_EventKit_h
 
 #import "EventStore.h"
 #import "Event.h"

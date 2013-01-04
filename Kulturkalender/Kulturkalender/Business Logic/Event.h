@@ -12,10 +12,10 @@
 
 // TODO: Update list
 typedef NS_ENUM(NSInteger, EventCategory) {
-    RIOEventCategory1,
-    RIOEventCategory2,
-    RIOEventCategory3,
-    RIOEventCategory4
+    EventCategory1,
+    EventCategory2,
+    EventCategory3,
+    EventCategory4
 };
 
 

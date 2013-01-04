@@ -10,14 +10,14 @@
 
 @protocol Event;
 
-typedef void (^RIOEventSearchCallback)(id<Event> event, BOOL *stop);
+typedef void (^EventSearchCallback)(id<Event> event, BOOL *stop);
 
 @protocol EventStore <NSObject>
 
 // Access Events
 - (id<Event>)eventWithIdentifier:(NSString *)identifier;
 - (NSArray *)eventsMatchingPredicate:(NSPredicate *)predicate;
-- (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(RIOEventSearchCallback)block;
+- (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(EventSearchCallback)block;
 - (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
 - (NSPredicate *)predicateForFeaturedEvents;
 - (NSPredicate *)predicateForFavoritedEvents;
