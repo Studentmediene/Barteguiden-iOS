@@ -17,8 +17,3 @@ profile
 *.moved-aside
 DerivedData
 .idea/
-
-# Cocoapods
-Podfile~
-Podfile.lock
-Pods/

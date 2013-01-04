@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.cocoapods.JMImageCache-0.2.1</string>
+	<key>CFBundleName</key>
+	<string>JMImageCache 0.2.1 Documentation</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	
+	
+	<key>DocSetDescription</key>
+	<string>NSCache based remote-image caching and downloading mechanism for iOS. Is block based and uses a simple UIImageView category to handle loading images with placeholders.</string>
+	
+	<key>DocSetFeedName</key>
+	<string>JMImageCache 0.2.1 Documentation</string>
+	
+	<key>DocSetMinimumXcodeVersion</key>
+	<string>3.0</string>
+	
+	<key>DocSetPublisherIdentifier</key>
+	<string>org.cocoapods.documentation</string>
+	<key>DocSetPublisherName</key>
+	<string>Jake Marsh</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Jake Marsh</string>
+</dict>
+</plist>

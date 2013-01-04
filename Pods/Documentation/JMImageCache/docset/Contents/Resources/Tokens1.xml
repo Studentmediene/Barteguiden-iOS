@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/JMImageCache.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/JMImageCache</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/JMImageCache/sharedCache</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>+ (JMImageCache *)sharedCache</Declaration>
+			
+			
+			<Anchor>//api/name/sharedCache</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/cachedImageForURL:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)cachedImageForURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/cachedImageForURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/imageForURL:completionBlock:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)imageForURL:(NSURL *)url completionBlock:(void ( ^ ) ( UIImage *image ))completion</Declaration>
+			
+			
+			<Anchor>//api/name/imageForURL:completionBlock:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/imageForURL:delegate:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageForURL:(NSURL *)url delegate:(id&lt;JMImageCacheDelegate&gt;)d</Declaration>
+			
+			
+			<Anchor>//api/name/imageForURL:delegate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/imageFromDiskForURL:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageFromDiskForURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/imageFromDiskForURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/setImage:forURL:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)setImage:(UIImage *)i forURL:(NSURL *)url</Declaration>
+			
+			
+			<Anchor>//api/name/setImage:forURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/removeImageForURL:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)removeImageForURL:(NSString *)url</Declaration>
+			
+			
+			<Anchor>//api/name/removeImageForURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/writeData:toPath:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)writeData:(NSData *)data toPath:(NSString *)path</Declaration>
+			
+			
+			<Anchor>//api/name/writeData:toPath:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/performDiskWriteOperation:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)performDiskWriteOperation:(NSInvocation *)invoction</Declaration>
+			
+			
+			<Anchor>//api/name/performDiskWriteOperation:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

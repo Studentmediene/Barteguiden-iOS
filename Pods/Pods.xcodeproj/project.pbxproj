@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1127125A79FE49E3B37BDD91 /* UIImageView+JMImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FFC9F3AE19541A38543C670 /* UIImageView+JMImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		177316C4716C4017BA7928E0 /* KSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 929EF390331A4BC58A2CF87F /* KSReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D773B16C3DC4005B4F34641 /* PodsDummy_Pods.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D83E6F5D1D407FA7514672 /* PodsDummy_Pods.m */; };
+		45D7328D1DC6494F83E8AF1E /* ARCSafe_MemMgmt.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E055E6EE2DA4D55BF1652ED /* ARCSafe_MemMgmt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56ABA8E161C7433DA58B12CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A325F2BAA0A243F2A656B130 /* Foundation.framework */; };
+		85B80A1FE7674B71954E6B17 /* JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D583FBC359BF4D7CA9C237A6 /* JMImageCache.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A912C504649B4919A7079357 /* JMImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AEFF953F6F8C4425925B92DA /* JMImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ADC84806E77A4F81A2768215 /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1319CBD5C9AD4EA28BF89402 /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		B7E05409911E486ABC6BA38F /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = B62053FF3E7F45A5B4A74923 /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DDF09698A64443AABF358494 /* KSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FC4ACE41645FDA79D4F85 /* KSReachability.m */; };
+		EB44BFA776FD4EA8AF7CDEDB /* UIImageView+JMImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 96530DC52DAF4A928091C409 /* UIImageView+JMImageCache.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1319CBD5C9AD4EA28BF89402 /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.m"; path = "NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary/NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.m"; sourceTree = SOURCE_ROOT; };
+		1E055E6EE2DA4D55BF1652ED /* ARCSafe_MemMgmt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ARCSafe_MemMgmt.h; path = KSReachability/ARCSafe_MemMgmt.h; sourceTree = SOURCE_ROOT; };
+		2A1FC4ACE41645FDA79D4F85 /* KSReachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KSReachability.m; path = KSReachability/KSReachability.m; sourceTree = SOURCE_ROOT; };
+		2FFC9F3AE19541A38543C670 /* UIImageView+JMImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+JMImageCache.h"; path = "JMImageCache/UIImageView+JMImageCache.h"; sourceTree = SOURCE_ROOT; };
+		584B7837C4764C098F47C1C3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		929EF390331A4BC58A2CF87F /* KSReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KSReachability.h; path = KSReachability/KSReachability.h; sourceTree = SOURCE_ROOT; };
+		96530DC52DAF4A928091C409 /* UIImageView+JMImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+JMImageCache.m"; path = "JMImageCache/UIImageView+JMImageCache.m"; sourceTree = SOURCE_ROOT; };
+		99D83E6F5D1D407FA7514672 /* PodsDummy_Pods.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PodsDummy_Pods.m; sourceTree = SOURCE_ROOT; };
+		A001612286494F628B7DD5FA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = SOURCE_ROOT; };
+		A325F2BAA0A243F2A656B130 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A6BFD25A7EE64B4A84D9CE1B /* Pods-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-prefix.pch"; sourceTree = SOURCE_ROOT; };
+		AEFF953F6F8C4425925B92DA /* JMImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JMImageCache.h; path = JMImageCache/JMImageCache.h; sourceTree = SOURCE_ROOT; };
+		B62053FF3E7F45A5B4A74923 /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.h"; path = "NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary/NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.h"; sourceTree = SOURCE_ROOT; };
+		D583FBC359BF4D7CA9C237A6 /* JMImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JMImageCache.m; path = JMImageCache/JMImageCache.m; sourceTree = SOURCE_ROOT; };
+		F5C7109C9D9D41ECA55D2F65 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94D58DD36CA049CEB8AABAB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56ABA8E161C7433DA58B12CD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06F042BCD38A409AA6731798 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A001612286494F628B7DD5FA /* Pods-resources.sh */,
+				A6BFD25A7EE64B4A84D9CE1B /* Pods-prefix.pch */,
+				584B7837C4764C098F47C1C3 /* Pods.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2112C2EB93D349609E1E3A23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A325F2BAA0A243F2A656B130 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E3A248609A8451680E013E3 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				06F042BCD38A409AA6731798 /* Pods */,
+				99D83E6F5D1D407FA7514672 /* PodsDummy_Pods.m */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3F7BDEFB4F164CFF98F324FA /* JMImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				AEFF953F6F8C4425925B92DA /* JMImageCache.h */,
+				2FFC9F3AE19541A38543C670 /* UIImageView+JMImageCache.h */,
+				D583FBC359BF4D7CA9C237A6 /* JMImageCache.m */,
+				96530DC52DAF4A928091C409 /* UIImageView+JMImageCache.m */,
+			);
+			name = JMImageCache;
+			sourceTree = "<group>";
+		};
+		7727F89B5F854A1CBE6A4146 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5C7109C9D9D41ECA55D2F65 /* libPods.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9282A4AF4C77436F809FDCC5 /* KSReachability */ = {
+			isa = PBXGroup;
+			children = (
+				929EF390331A4BC58A2CF87F /* KSReachability.h */,
+				2A1FC4ACE41645FDA79D4F85 /* KSReachability.m */,
+				1E055E6EE2DA4D55BF1652ED /* ARCSafe_MemMgmt.h */,
+			);
+			name = KSReachability;
+			sourceTree = "<group>";
+		};
+		9B3FAA3FCD3A43DDBA46F2AE = {
+			isa = PBXGroup;
+			children = (
+				7727F89B5F854A1CBE6A4146 /* Products */,
+				2112C2EB93D349609E1E3A23 /* Frameworks */,
+				FD75201AD0674AEC8847F324 /* Pods */,
+				3E3A248609A8451680E013E3 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		DAB3B4FCB55A4FE892AC641B /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				B62053FF3E7F45A5B4A74923 /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.h */,
+				1319CBD5C9AD4EA28BF89402 /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.m */,
+			);
+			name = "NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary";
+			sourceTree = "<group>";
+		};
+		FD75201AD0674AEC8847F324 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F7BDEFB4F164CFF98F324FA /* JMImageCache */,
+				9282A4AF4C77436F809FDCC5 /* KSReachability */,
+				DAB3B4FCB55A4FE892AC641B /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8E9EC19659A14D089A84FE9E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A912C504649B4919A7079357 /* JMImageCache.h in Headers */,
+				1127125A79FE49E3B37BDD91 /* UIImageView+JMImageCache.h in Headers */,
+				177316C4716C4017BA7928E0 /* KSReachability.h in Headers */,
+				45D7328D1DC6494F83E8AF1E /* ARCSafe_MemMgmt.h in Headers */,
+				B7E05409911E486ABC6BA38F /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		26F391A4633F45749F8D9075 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24D66B4F08474E3AA23FCEC1 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				E2D3DEC7A70C4EE287425531 /* Sources */,
+				94D58DD36CA049CEB8AABAB9 /* Frameworks */,
+				8E9EC19659A14D089A84FE9E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = F5C7109C9D9D41ECA55D2F65 /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A66A316680045CC88C903FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 573C311B5E314D6586696CCC /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9B3FAA3FCD3A43DDBA46F2AE;
+			productRefGroup = 7727F89B5F854A1CBE6A4146 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				26F391A4633F45749F8D9075 /* Pods */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E2D3DEC7A70C4EE287425531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85B80A1FE7674B71954E6B17 /* JMImageCache.m in Sources */,
+				EB44BFA776FD4EA8AF7CDEDB /* UIImageView+JMImageCache.m in Sources */,
+				DDF09698A64443AABF358494 /* KSReachability.m in Sources */,
+				ADC84806E77A4F81A2768215 /* NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.m in Sources */,
+				1D773B16C3DC4005B4F34641 /* PodsDummy_Pods.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		137FE8E9E03744AC91144C73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 584B7837C4764C098F47C1C3 /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
+				PODS_ROOT = "${SRCROOT}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		583128410A3240DFBEA2AE79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		7C8A18EB43754446AC4C0F38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 584B7837C4764C098F47C1C3 /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
+				PODS_ROOT = "${SRCROOT}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AB32D87364FE4BBB8DEEC3E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24D66B4F08474E3AA23FCEC1 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				137FE8E9E03744AC91144C73 /* Release */,
+				7C8A18EB43754446AC4C0F38 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		573C311B5E314D6586696CCC /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB32D87364FE4BBB8DEEC3E9 /* Release */,
+				583128410A3240DFBEA2AE79 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A66A316680045CC88C903FB /* Project object */;
+}

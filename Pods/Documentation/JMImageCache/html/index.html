@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>JMImageCache 0.2.1 Reference</title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<meta name="generator" content="appledoc 2.0.4 (build 703)" />
+	</head>
+	<body>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">JMImageCache 0.2.1 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1><a href="Classes/JMImageCache.html">JMImageCache</a></h1>
+
+<h2>Introduction</h2>
+
+<p><a href="Classes/JMImageCache.html"><code>JMImageCache</code></a> is an <code>NSCache</code> based remote-image caching mechanism for iOS projects.</p>
+
+<h2>Screenshots (Demo App)</h2>
+
+<center><img src="[http://cl.ly/IHSG/iOS%20Simulator%20Screen%20shot%20Jul%2023,%202012%208.25.33%20PM.png](http://cl.ly/IHSG/iOS%20Simulator%20Screen%20shot%20Jul%2023,%202012%208.25.33%20PM.png)" title="UITableView Loading Images" width="320" /></center>
+
+
+<h2>How It Works (Logically)</h2>
+
+<p>There are three states an image can be in:</p>
+
+<p>*  Cached In Memory</p>
+
+<h1>!~**  Cached On Disk</h1>
+
+<p>*  Not Cached</p>
+
+<p>If an image is requested from cache, and it has never been cached, it is downloaded, stored on disk, put into memory and returned via a delegate callback.</p>
+
+<p>If an image is requested from cache, and it has been cached, but hasn&rsquo;t been requested this session, it is read from disk, brought into memory and returned immediately.</p>
+
+<p>If an image is requested from cache, and it has been cached and it is already in memory, it is simply returned immediately.</p>
+
+<p>The idea behind <code>JMImageCache</code> is to always return images the <strong><strong>fastest</strong></strong> way possible, thus the in-memory caching. Reading from disk can be expensive, and should only be done if it has to be.</p>
+
+<h2>How It Works (Code)</h2>
+
+<p>The clean and easy way (uses a category that <code>JMImageCache</code> adds to <code>UIImageView</code>):</p>
+
+<p>``` objective-c
+[cell.imageView setImageWithURL:[NSURL URLWithString:@&ldquo;http://dundermifflin.com/i/MichaelScott.png&rdquo;]<a href="http://dundermifflin.com/i/MichaelScott.png">http://dundermifflin.com/i/MichaelScott.png</a>&ldquo;]</p>
+
+<pre><code>                    placeholder:[UIImage imageNamed:@"placeholder.png"]];
+</code></pre>
+
+<p>```</p>
+
+<p>Request an image like so:</p>
+
+<p>``` objective-c
+[[JMImageCache sharedCache] imageForURL:[NSURL URLWithString:@&ldquo;<a href="http://dundermifflin.com/i/MichaelScott.png">http://dundermifflin.com/i/MichaelScott.png</a>&rdquo;] completionBlock:^(UIImage *downloadedImage) {</p>
+
+<pre><code>someImageView.image = downloadedImage;
+</code></pre>
+
+<p>}];
+```</p>
+
+<h2>Clearing The Cache</h2>
+
+<p>The beauty of building on top of <code>NSCache</code> is that<code></code>JMImageCache<code></code> handles low memory situations gracefully. It will evict objects on its own when memory gets tight, you don&rsquo;t need to worry about it.</p>
+
+<p>However, if you really need to, clearing the cache manually is this simple:</p>
+
+<p><code>objective-c
+[[JMImageCache sharedCache] removeAllObjects];
+</code></p>
+
+<p>If you&rsquo;d like to remove a specific image from the cache, you can do this:</p>
+
+<p><code>objective-c
+[[JMImageCache sharedCache] removeImageForURL:@"http://dundermifflin.com/i/MichaelScott.png"];
+</code></p>
+
+<h2>Demo App</h2>
+
+<p>This repository is actually a demo project itself. Just a simple <code>UITableViewController</code> app that loads a few images. Nothing too fancy, but it should give you a good idea of a standard usage of <a href="Classes/JMImageCache.html"><code>JMImageCache</code></a>.</p>
+
+<h2>Adding To Your Project</h2>
+
+<h3>With CocoaPods</h3>
+
+<p>If you are using <a href="http://cocoapods.org">CocoaPods</a> then just add this line to your <code>Podfile</code>:</p>
+
+<p><code>ruby
+pod 'JMImageCache'
+</code></p>
+
+<p>Now run <code>pod install</code> to install the dependency.</p>
+
+<h3>Without CocoaPods</h3>
+
+<p><a href="https://github.com/jakemarsh/JMImageCache/zipball/master">Download</a> the source files or add it as a <a href="http://schacon.github.com/git/user-manual.html#submodules">git submodule</a>. Here&rsquo;s how to add it as a submodule:</p>
+
+<pre><code>$ cd YourProject
+$ git submodule add https://github.com/jakemarsh/JMImageCache.git Vendor/JMImageCache
+</code></pre>
+
+<p>Add the 4 Objective-C files inside the <a href="Classes/JMImageCache.html"><code>JMImageCache</code></a> folder to your project. <code>#import "</code>JMImageCache<code>.h" where you need it.</code></p>
+
+<h2>ARC (Automatic Reference Counting)</h2>
+
+<p><a href="Classes/JMImageCache.html"><code>JMImageCache</code></a> uses <a href="http://clang.llvm.org/docs/AutomaticReferenceCounting.html">Automatic Reference Counting (ARC)</a>. If your project doesn&rsquo;t use ARC, you will need to set the <code>-fobjc-arc</code> compiler flag on all of the <a href="Classes/JMImageCache.html"><code>JMImageCache</code></a> source files. To do this in Xcode, go to your active target and select the &ldquo;Build Phases&rdquo; tab. In the &ldquo;Compiler Flags&rdquo; column, set <code>-fobjc-arc</code> for each of the <a href="Classes/JMImageCache.html"><code>JMImageCache</code></a> source files.</p>
+						
+						
+					</div>
+					
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/JMImageCache.html">JMImageCache</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/JMImageCacheDelegate.html">JMImageCacheDelegate</a></li>
+							
+						</ul>
+						
+						
+						<h2 class="index-title">Category References</h2>
+						<ul>
+							
+							<li><a href="Categories/UIImageView(JMImageCache).html">UIImageView(JMImageCache)</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Jake Marsh. All rights reserved. (Last updated: 2012-11-24)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.4 (build 703)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

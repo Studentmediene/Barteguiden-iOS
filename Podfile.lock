@@ -1,0 +1,21 @@
+
+DEPENDENCIES: 
+- JMImageCache
+- KSReachability
+- NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary (from `https://github.com/skohorn/NSManagedObject-CIMGF_SafeSetValuesForKeysWithDictionary')
+
+COCOAPODS: 0.16.0
+
+SPEC CHECKSUMS: 
+  JMImageCache: b3963dfd0a95e1a45d42ce4cba13db248a157b50
+  NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary: fbba80d119a81f86d40edc888cc3f876a0356a12
+  KSReachability: b8a98603f325aa5d0276e0f821cc087417e02e2d
+
+EXTERNAL SOURCES: 
+  NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary: 
+    :git: https://github.com/skohorn/NSManagedObject-CIMGF_SafeSetValuesForKeysWithDictionary
+
+PODS: 
+- JMImageCache (0.2.1)
+- KSReachability (1.0)
+- NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary (0.0.1)
