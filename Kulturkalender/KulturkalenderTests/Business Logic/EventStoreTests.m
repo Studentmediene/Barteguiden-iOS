@@ -18,7 +18,16 @@
     [super setUp];
     
     // Set-up code here.
-    self.eventStore = [[EventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
+    EventStore *eventStore = [[EventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
+    
+    // Import test data
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray *events = values[@"events"];
+    [eventStore importEvents:events];
+    
+    self.eventStore = eventStore;
 }
 
 - (void)tearDown
@@ -28,9 +37,39 @@
     [super tearDown];
 }
 
-- (void)testExample
+
+#pragma mark - Tests
+
+- (void)testEventWithIdentifierReturnsNotNil
 {
-    STFail(@"Unit tests are not implemented yet.");
+    NSString *identifier = @"1234-5678";
+    id<RIOEvent> event = [self.eventStore eventWithIdentifier:identifier];
+    STAssertNotNil(event, @"No event was returned.");
+}
+
+- (void)testPredicateForFeaturedEvents
+{
+    NSPredicate *predicate = [self.eventStore predicateForFeaturedEvents];
+    NSArray *result = [self.eventStore eventsMatchingPredicate:predicate];
+    STAssertEquals(result.count, 1U, @"Incorrect number of featured events.");
+    // TODO: Check all returned IDs
+}
+
+// TODO: Check all predicates
+// TODO: Create an extensive JSON test file
+
+- (void)testLoadAllEvents
+{
+    NSArray *result = [self.eventStore eventsMatchingPredicate:nil];
+    STAssertEquals(result.count, 4U, @"Incorrect number of events.");
+}
+
+// TODO: Move to EventTests? Rename?
+- (void)testTitleOfEventIsValid
+{
+    NSString *identifier = @"1234-5678";
+    id<RIOEvent> event = [self.eventStore eventWithIdentifier:identifier];
+    STAssertEqualObjects(event.title, @"Tirsdagskviss", @"Incorrect title.");
 }
 
 

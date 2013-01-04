@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) id<EventManager> eventManager;
 
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong, readonly) NSFetchedResultsController *fetchedResultsController;
 
 - (void)reloadPredicate;
 - (NSPredicate *)eventsPredicate;

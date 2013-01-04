@@ -11,6 +11,13 @@
 #import "EventDetailsViewController.h"
 #import "EventCell.h"
 
+@interface AbstractEventsViewController ()
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+
+@end
+
+
 @implementation AbstractEventsViewController
 
 - (void)viewDidLoad
@@ -83,18 +90,8 @@
     [self navigateToEvent:event];
 }
 
-#pragma mark - NSFetchedResultsController
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (_fetchedResultsController == nil)
-    {
-        [self setUpFetchedResultsController];
-        [self performFetch];
-    }
-    
-    return _fetchedResultsController;
-}
+#pragma mark - NSFetchedResultsControllerDelegate
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
@@ -145,6 +142,7 @@
     [self.tableView endUpdates];
 }
 
+
 #pragma mark - EventsSearchDisplayControllerDelegate
 
 - (NSPredicate *)eventsPredicate
@@ -169,6 +167,17 @@
 
 
 #pragma mark - Private methods
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController == nil)
+    {
+        [self setUpFetchedResultsController];
+        [self performFetch];
+    }
+    
+    return _fetchedResultsController;
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {

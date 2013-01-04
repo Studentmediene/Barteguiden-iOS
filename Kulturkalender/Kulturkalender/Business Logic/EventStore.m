@@ -61,6 +61,11 @@ static NSString * const kEventEntityName = @"Event";
     return result;
 }
 
+- (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(RIOEventSearchCallback)block
+{
+    
+}
+
 - (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate
 {
     // TIPS: @"(endAt != nil AND endAt >= %@) OR startAt >= %@"
