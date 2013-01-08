@@ -7,7 +7,6 @@
 //
 
 #import "Event+Mapping.h"
-#import <NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.h>
 
 
 static NSString * const kEventEntityName = @"Event";

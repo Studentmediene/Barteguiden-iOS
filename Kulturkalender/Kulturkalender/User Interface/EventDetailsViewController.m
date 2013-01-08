@@ -163,7 +163,7 @@ const float kAlertOffset = -30*60; // 30 minutes before event
     self.placeNameLabel.text = self.event.placeName;
     self.addressLabel.text = self.event.address;
     
-    self.favoriteButton.selected = self.event.favorite;
+//    self.favoriteButton.selected = self.event.favorite;
 //    self.favoriteButton.selected = [self.event.favorite boolValue];
 }
 

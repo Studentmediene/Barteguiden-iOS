@@ -3,9 +3,9 @@
 //  http://www.cimgf.com/2011/06/02/saving-json-to-core-data/
 //
 
-#import "NSManagedObject+CIMGF_SafeSetValuesForKeysWithDictionary.h"
+#import "NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.h"
 
-@implementation NSManagedObject (CIMGF_SafeSetValuesForKeysWithDictionary)
+@implementation NSManagedObject (CIMGFSafeSetValuesForKeysWithDictionary)
 
 - (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues
 {

@@ -5,7 +5,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface NSManagedObject (CIMGF_SafeSetValuesForKeysWithDictionary)
+@interface NSManagedObject (CIMGFSafeSetValuesForKeysWithDictionary)
 
 - (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues;
 - (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues dateFormatter:(NSDateFormatter *)dateFormatter;
