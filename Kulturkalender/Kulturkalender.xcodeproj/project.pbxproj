@@ -61,6 +61,9 @@
 		69C37BFE168F8F28009631DF /* EventStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BFD168F8F28009631DF /* EventStoreTests.m */; };
 		69C37D0E169BB8EF009631DF /* NSError+RIOUnderlyingError.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D0D169BB8EF009631DF /* NSError+RIOUnderlyingError.m */; };
 		69C37D11169BBA93009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D10169BBA92009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m */; };
+		69C37D16169BDF62009631DF /* EventStoreCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D15169BDF62009631DF /* EventStoreCommunicator.m */; };
+		69C37D19169BDF95009631DF /* ManagedEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D18169BDF95009631DF /* ManagedEventBuilder.m */; };
+		69C37D1C169BF180009631DF /* EventStoreCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D1B169BF180009631DF /* EventStoreCommunicatorTests.m */; };
 		69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C491671625F1DE00F28C45 /* EventDetailsViewController.m */; };
 		69C9E21B1687C60200D65004 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E21A1687C60200D65004 /* TabBarController.m */; };
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
@@ -186,6 +189,12 @@
 		69C37D0D169BB8EF009631DF /* NSError+RIOUnderlyingError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+RIOUnderlyingError.m"; sourceTree = "<group>"; };
 		69C37D0F169BBA92009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.h"; sourceTree = "<group>"; };
 		69C37D10169BBA92009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m"; sourceTree = "<group>"; };
+		69C37D14169BDF62009631DF /* EventStoreCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventStoreCommunicator.h; sourceTree = "<group>"; };
+		69C37D15169BDF62009631DF /* EventStoreCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreCommunicator.m; sourceTree = "<group>"; };
+		69C37D17169BDF95009631DF /* ManagedEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedEventBuilder.h; sourceTree = "<group>"; };
+		69C37D18169BDF95009631DF /* ManagedEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedEventBuilder.m; sourceTree = "<group>"; };
+		69C37D1A169BF180009631DF /* EventStoreCommunicatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventStoreCommunicatorTests.h; sourceTree = "<group>"; };
+		69C37D1B169BF180009631DF /* EventStoreCommunicatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreCommunicatorTests.m; sourceTree = "<group>"; };
 		69C491661625F1DE00F28C45 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		69C491671625F1DE00F28C45 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		69C9E2191687C60200D65004 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
@@ -502,6 +511,8 @@
 			children = (
 				69C37BFC168F8F28009631DF /* EventStoreTests.h */,
 				69C37BFD168F8F28009631DF /* EventStoreTests.m */,
+				69C37D1A169BF180009631DF /* EventStoreCommunicatorTests.h */,
+				69C37D1B169BF180009631DF /* EventStoreCommunicatorTests.m */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -647,6 +658,10 @@
 				69C37BDD168F71C4009631DF /* ManagedEventStore.m */,
 				69C37BFA168F841F009631DF /* Models */,
 				69C37BF9168F83F8009631DF /* Old */,
+				69C37D14169BDF62009631DF /* EventStoreCommunicator.h */,
+				69C37D15169BDF62009631DF /* EventStoreCommunicator.m */,
+				69C37D17169BDF95009631DF /* ManagedEventBuilder.h */,
+				69C37D18169BDF95009631DF /* ManagedEventBuilder.m */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -838,6 +853,8 @@
 				69C37BF8168F835E009631DF /* LocalizedText.m in Sources */,
 				69C37D0E169BB8EF009631DF /* NSError+RIOUnderlyingError.m in Sources */,
 				69C37D11169BBA93009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m in Sources */,
+				69C37D16169BDF62009631DF /* EventStoreCommunicator.m in Sources */,
+				69C37D19169BDF95009631DF /* ManagedEventBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,6 +863,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69C37BFE168F8F28009631DF /* EventStoreTests.m in Sources */,
+				69C37D1C169BF180009631DF /* EventStoreCommunicatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
