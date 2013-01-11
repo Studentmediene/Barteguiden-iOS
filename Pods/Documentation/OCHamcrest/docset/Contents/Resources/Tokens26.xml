@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/HCIsIn.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsIn</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsIn.h</DeclaredIn>
+			
+			<NodeRef refid="26"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsIn/isInCollection:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsIn.h</DeclaredIn>			
+			
+			<Declaration>+ (id)isInCollection:(id)aCollection</Declaration>
+			
+			
+			<Anchor>//api/name/isInCollection:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsIn/initWithCollection:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsIn.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithCollection:(id)aCollection</Declaration>
+			
+			
+			<Anchor>//api/name/initWithCollection:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

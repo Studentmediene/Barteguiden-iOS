@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/HCIsCollectionContainingInOrder.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsCollectionContainingInOrder</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsCollectionContainingInOrder.h</DeclaredIn>
+			
+			<NodeRef refid="16"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsCollectionContainingInOrder/isCollectionContainingInOrder:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsCollectionContainingInOrder.h</DeclaredIn>			
+			
+			<Declaration>+ (id)isCollectionContainingInOrder:(NSArray *)itemMatchers</Declaration>
+			
+			
+			<Anchor>//api/name/isCollectionContainingInOrder:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsCollectionContainingInOrder/initWithMatchers:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsCollectionContainingInOrder.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithMatchers:(NSArray *)itemMatchers</Declaration>
+			
+			
+			<Anchor>//api/name/initWithMatchers:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

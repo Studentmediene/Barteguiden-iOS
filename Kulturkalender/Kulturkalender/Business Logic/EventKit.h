@@ -12,7 +12,4 @@
 #import "EventStore.h"
 #import "Event.h"
 
-#import "ManagedEventStore.h"
-#import "ManagedEvent.h"
-
 #endif

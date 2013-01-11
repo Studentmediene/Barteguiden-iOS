@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/HCIsInstanceOf.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsInstanceOf</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsInstanceOf.h</DeclaredIn>
+			
+			<NodeRef refid="27"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsInstanceOf/isInstanceOf:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsInstanceOf.h</DeclaredIn>			
+			
+			<Declaration>+ (id)isInstanceOf:(Class)type</Declaration>
+			
+			
+			<Anchor>//api/name/isInstanceOf:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsInstanceOf/initWithType:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsInstanceOf.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithType:(Class)type</Declaration>
+			
+			
+			<Anchor>//api/name/initWithType:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

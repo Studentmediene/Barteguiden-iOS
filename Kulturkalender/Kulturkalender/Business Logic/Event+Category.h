@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ManagedEvent.h"
+#import "Event.h"
 
-@interface ManagedEvent (Category)
+@interface Event (Category)
 
 + (NSArray *)categoryIDs;
 + (NSString *)stringForCategoryID:(NSNumber *)categoryID;

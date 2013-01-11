@@ -8,21 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
+typedef NS_ENUM(NSInteger, AgeLimitFilter) {
     AgeLimitFilterShowAllEvents = 0,
     AgeLimitFilterShowAllowedForMyAge
-} AgeLimitFilter;
+};
 
-typedef enum {
+typedef NS_ENUM(NSInteger, PriceFilter) {
     PriceFilterShowAllEvents = 0,
     PriceFilterShowPaidEvents,
     PriceFilterShowFreeEvents
-} PriceFilter;
+};
 
 @protocol FilterManager <NSObject>
-
-- (NSPredicate *)predicate;
-- (void)save;
 
 // Category filter
 //- (NSArray *)selectedCategoryIDs;
@@ -37,22 +34,19 @@ typedef enum {
 // Price filter
 @property (nonatomic) PriceFilter priceFilter;
 
+- (NSPredicate *)predicate;
+- (void)save;
+
 @end
 
 
 @interface FilterManager : NSObject <FilterManager>
 
-@property (nonatomic, strong) NSUserDefaults *userDefaults;
-
 - (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults;
 
-// Category filter
+// Defaults
 //- (void)registerDefaultSelectedCategoryIDs:(NSArray *)categoryIDs;
-
-// Age limit filter
 //- (void)registerDefaultAgeLimitFilter:(AgeLimitFilter)ageLimitFilter;
-
-// Price filter
 //- (void)registerDefaultPriceFilter:(PriceFilter)priceFilter;
 
 @end

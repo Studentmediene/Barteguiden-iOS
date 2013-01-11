@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MKTException.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MKTException</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MKTException.h</DeclaredIn>
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MKTException/failureInFile:atLine:reason:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MKTException.h</DeclaredIn>			
+			
+			<Declaration>+ (NSException *)failureInFile:(NSString *)fileName atLine:(int)lineNumber reason:(NSString *)reason</Declaration>
+			
+			
+			<Anchor>//api/name/failureInFile:atLine:reason:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

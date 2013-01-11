@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "ManagedEvent.h"
+#import "Event.h"
 
 @protocol MKAnnotation;
 
-@interface ManagedEvent (Location)
+@interface Event (Location)
 
 - (BOOL)hasLocation;
 - (id<MKAnnotation>)annotation;

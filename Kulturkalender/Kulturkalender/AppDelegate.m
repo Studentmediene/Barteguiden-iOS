@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _eventStore = [[ManagedEventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
+    _eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     
     // TODO: Temp
     _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext];

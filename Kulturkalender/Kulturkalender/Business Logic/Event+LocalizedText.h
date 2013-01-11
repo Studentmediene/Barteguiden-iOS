@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "ManagedEvent.h"
+#import "Event.h"
 
-@interface ManagedEvent (LocalizedText)
+@interface Event (LocalizedText)
 
 - (NSString *)currentLocalizedDescription;
 - (NSString *)currentLocalizedFeatured;

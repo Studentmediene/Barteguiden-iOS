@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MKTAtLeastTimes.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MKTAtLeastTimes</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MKTAtLeastTimes.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MKTAtLeastTimes/timesWithMinimumCount:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MKTAtLeastTimes.h</DeclaredIn>			
+			
+			<Declaration>+ (id)timesWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations</Declaration>
+			
+			
+			<Anchor>//api/name/timesWithMinimumCount:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTAtLeastTimes/initWithMinimumCount:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MKTAtLeastTimes.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithMinimumCount:(NSUInteger)minimumExpectedNumberOfInvocations</Declaration>
+			
+			
+			<Anchor>//api/name/initWithMinimumCount:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

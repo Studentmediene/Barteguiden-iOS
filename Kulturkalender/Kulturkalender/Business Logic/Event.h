@@ -1,12 +1,12 @@
 //
-//  Event.h
+//  ManagedEvent.h
 //  Kulturkalender
 //
-//  Created by Christian Rasmussen on 29.12.12.
+//  Created by Christian Rasmussen on 17.11.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "_Event.h"
 #import <CoreLocation/CoreLocation.h>
 
 
@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, EventCategory) {
 @property (nonatomic, readonly) NSDate *startAt;
 @property (nonatomic, readonly) NSDate *endAt;
 
-@property (nonatomic, readonly, getter=isfeatured) BOOL featured;
+@property (nonatomic, readonly, getter=isFeatured) BOOL featured;
 @property (nonatomic, getter=isFavorite) BOOL favorite;
 
 @property (nonatomic, readonly) EventCategory category;
@@ -42,5 +42,10 @@ typedef NS_ENUM(NSInteger, EventCategory) {
 
 - (NSString *)descriptionForLanguage:(NSString *)language;
 - (NSString *)featuredForLanguage:(NSString *)language;
+
+@end
+
+
+@interface Event : _Event <Event>
 
 @end

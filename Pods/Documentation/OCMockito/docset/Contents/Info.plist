@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.cocoapods.OCMockito-0.23</string>
+	<key>CFBundleName</key>
+	<string>OCMockito 0.23 Documentation</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	
+	
+	<key>DocSetDescription</key>
+	<string>
+OCMockito is an Objective-C implementation of Mockito, supporting creation, 
+verification and stubbing of mock objects.
+
+Key differences from other mocking frameworks:
+
+* Mock objects are always &quot;nice,&quot; recording their calls instead of 
+  throwing exceptions about unspecified invocations. This makes tests less fragile.
+* No expect-run-verify, making tests more readable. Mock objects 
+  record their calls, then you verify the methods you want.
+* Verification failures are reported as unit test failures, 
+  identifying specific lines instead of throwing exceptions. This makes 
+  it easier to identify failures. (It also keeps the pre-iOS 5 Simulator from crashing.)
+  </string>
+	
+	<key>DocSetFeedName</key>
+	<string>OCMockito 0.23 Documentation</string>
+	
+	<key>DocSetMinimumXcodeVersion</key>
+	<string>3.0</string>
+	
+	<key>DocSetPublisherIdentifier</key>
+	<string>org.cocoapods.documentation</string>
+	<key>DocSetPublisherName</key>
+	<string>Jon Reid</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Jon Reid</string>
+</dict>
+</plist>

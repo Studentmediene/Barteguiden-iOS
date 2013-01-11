@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ManagedEvent.h"
+#import "Event.h"
 
-@interface ManagedEvent (Price)
+@interface Event (Price)
 
 + (NSString *)stringForPrice:(NSDecimalNumber *)price;
 

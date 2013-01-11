@@ -9,7 +9,7 @@
 #import "Event+Location.h"
 #import "EventAnnotation.h"
 
-@implementation ManagedEvent (Location)
+@implementation Event (Location)
 
 - (BOOL)hasLocation
 {

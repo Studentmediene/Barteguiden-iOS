@@ -181,7 +181,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    ManagedEvent *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     EventCell *eventCell = (EventCell *)cell;
     

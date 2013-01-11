@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class ManagedEvent;
+@class Event;
 
 @interface ManagedEventBuilder : NSObject
 
-+ (ManagedEvent *)eventFromDictionary:(NSDictionary *)dictionary;
++ (Event *)eventFromDictionary:(NSDictionary *)dictionary;
 
 @end

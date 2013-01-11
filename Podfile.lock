@@ -1,14 +1,21 @@
 
+DEPENDENCIES: 
+- JMImageCache
+- KSReachability
+- OCHamcrest
+- OCMockito
+
 PODS: 
 - JMImageCache (0.2.1)
 - KSReachability (1.0)
+- OCHamcrest (1.9)
+- OCMockito (0.23): 
+  - OCHamcrest (= 1.9)
 
 COCOAPODS: 0.16.0
 
 SPEC CHECKSUMS: 
-  JMImageCache: b3963dfd0a95e1a45d42ce4cba13db248a157b50
+  OCMockito: 2223021dd82697fc536c403d6850d2ed8ffae578
+  OCHamcrest: f8393efd5a49d91879be573635d6183effacc0ab
   KSReachability: b8a98603f325aa5d0276e0f821cc087417e02e2d
-
-DEPENDENCIES: 
-- JMImageCache
-- KSReachability
+  JMImageCache: b3963dfd0a95e1a45d42ce4cba13db248a157b50

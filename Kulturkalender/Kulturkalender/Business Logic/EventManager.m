@@ -61,7 +61,7 @@
     
     NSArray *events = values[@"events"];
     for (NSDictionary *event in events) {
-        [ManagedEvent insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
+        [Event insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
     }
 //    [self save];
     

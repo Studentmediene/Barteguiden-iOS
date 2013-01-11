@@ -6,29 +6,26 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "EventStoreTests.h"
-#import <CoreData/CoreData.h>
-#import "EventKit.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@implementation EventStoreTests
+#import "EventStore.h"
+#import "Event.h"
+
+
+@interface EventStoreTests : SenTestCase
+@end
+
+@implementation EventStoreTests {
+    id<EventStore> _eventStore;
+}
 
 - (void)setUp
 {
-    ManagedEventStore *eventStore = [[ManagedEventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
-    
-    // Import test data
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSArray *events = values[@"events"];
-    [eventStore importEvents:events];
-    
-    self.eventStore = eventStore;
+    _eventStore = [self eventStore];
 }
 
 - (void)tearDown
 {
-    
 }
 
 
@@ -37,24 +34,27 @@
 - (void)testEventWithIdentifierReturnsNotNil
 {
     NSString *identifier = @"1234-5678";
-    id<Event> event = [self.eventStore eventWithIdentifier:identifier];
+    id<Event> event = [_eventStore eventWithIdentifier:identifier];
     STAssertNotNil(event, @"No event was returned.");
 }
 
-- (void)testPredicateForFeaturedEvents
+- (void)testPredicateForFeaturedEventsShouldOnlyMatchFeaturedEvents
 {
-    NSPredicate *predicate = [self.eventStore predicateForFeaturedEvents];
-    NSArray *result = [self.eventStore eventsMatchingPredicate:predicate];
+    NSPredicate *predicate = [EventStore predicateForFeaturedEvents];
+    NSArray *result = [_eventStore eventsMatchingPredicate:predicate];
     STAssertEquals(result.count, 1U, @"Incorrect number of featured events.");
+    
     // TODO: Check all returned IDs
+//    [_eventStore enumerateEventsMatchingPredicate:predicate usingBlock:^(id<Event> event, BOOL *stop) {
+//    }];
 }
 
 // TODO: Check all predicates
 // TODO: Create an extensive JSON test file
 
-- (void)testLoadAllEvents
+- (void)testNilPredicateShouldMatchAllEvents
 {
-    NSArray *result = [self.eventStore eventsMatchingPredicate:nil];
+    NSArray *result = [_eventStore eventsMatchingPredicate:nil];
     STAssertEquals(result.count, 4U, @"Incorrect number of events.");
 }
 
@@ -62,12 +62,26 @@
 - (void)testTitleOfEventIsValid
 {
     NSString *identifier = @"1234-5678";
-    id<Event> event = [self.eventStore eventWithIdentifier:identifier];
+    id<Event> event = [_eventStore eventWithIdentifier:identifier];
     STAssertEqualObjects(event.title, @"Tirsdagskviss", @"Incorrect title.");
 }
 
 
-#pragma mark - Core Data stack
+#pragma mark - Private methods
+
+- (EventStore *)eventStore
+{
+    EventStore *eventStore = [[EventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
+    
+    // Import test data
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+    NSArray *events = values[@"events"];
+    [eventStore importEvents:events];
+    
+    return eventStore;
+}
 
 - (NSManagedObjectContext *)managedObjectContext
 {

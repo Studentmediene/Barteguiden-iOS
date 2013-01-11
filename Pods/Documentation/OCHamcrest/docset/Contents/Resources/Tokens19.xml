@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/HCIsDictionaryContainingEntries.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsDictionaryContainingEntries</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsDictionaryContainingEntries.h</DeclaredIn>
+			
+			<NodeRef refid="19"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsDictionaryContainingEntries/isDictionaryContainingKeys:valueMatchers:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsDictionaryContainingEntries.h</DeclaredIn>			
+			
+			<Declaration>+ (id)isDictionaryContainingKeys:(NSArray *)theKeys valueMatchers:(NSArray *)theValueMatchers</Declaration>
+			
+			
+			<Anchor>//api/name/isDictionaryContainingKeys:valueMatchers:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsDictionaryContainingEntries/initWithKeys:valueMatchers:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsDictionaryContainingEntries.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithKeys:(NSArray *)theKeys valueMatchers:(NSArray *)theValueMatchers</Declaration>
+			
+			
+			<Anchor>//api/name/initWithKeys:valueMatchers:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

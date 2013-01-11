@@ -9,7 +9,7 @@
 #import "Event+Category.h"
 #import "EventConstants.h"
 
-@implementation ManagedEvent (Category)
+@implementation Event (Category)
 
 + (NSArray *)categoryIDs
 {

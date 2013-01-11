@@ -58,7 +58,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Remove favorite flag
-        ManagedEvent *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
         event.favorite = @NO;
     }
 }

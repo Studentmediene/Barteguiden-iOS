@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocSetNodes version="1.0">
+    <TOC>
+        <Node type="folder">
+            <Name>OCHamcrest 1.9</Name>
+            <Path>index.html</Path>
+			<Subnodes>
+				
+				<Node type="folder">
+					<Name>Classes</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="1"/>
+						<NodeRef refid="2"/>
+						<NodeRef refid="3"/>
+						<NodeRef refid="4"/>
+						<NodeRef refid="5"/>
+						<NodeRef refid="6"/>
+						<NodeRef refid="7"/>
+						<NodeRef refid="8"/>
+						<NodeRef refid="9"/>
+						<NodeRef refid="10"/>
+						<NodeRef refid="11"/>
+						<NodeRef refid="12"/>
+						<NodeRef refid="13"/>
+						<NodeRef refid="14"/>
+						<NodeRef refid="15"/>
+						<NodeRef refid="16"/>
+						<NodeRef refid="17"/>
+						<NodeRef refid="18"/>
+						<NodeRef refid="19"/>
+						<NodeRef refid="20"/>
+						<NodeRef refid="21"/>
+						<NodeRef refid="22"/>
+						<NodeRef refid="23"/>
+						<NodeRef refid="24"/>
+						<NodeRef refid="25"/>
+						<NodeRef refid="26"/>
+						<NodeRef refid="27"/>
+						<NodeRef refid="28"/>
+						<NodeRef refid="29"/>
+						<NodeRef refid="30"/>
+						<NodeRef refid="31"/>
+						<NodeRef refid="32"/>
+						<NodeRef refid="33"/>
+						<NodeRef refid="34"/>
+						<NodeRef refid="35"/>
+						<NodeRef refid="36"/>
+						<NodeRef refid="37"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+				
+				<Node type="folder">
+					<Name>Protocols</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="38"/>
+						<NodeRef refid="39"/>
+						<NodeRef refid="40"/>
+						
+					</Subnodes>
+				</Node>
+				
+			</Subnodes>
+        </Node>
+    </TOC>
+	<Library>
+		<Node id="1">
+			<Name>HCAllOf</Name>
+			<Path>Classes/HCAllOf.html</Path>
+		</Node>
+		<Node id="2">
+			<Name>HCAnyOf</Name>
+			<Path>Classes/HCAnyOf.html</Path>
+		</Node>
+		<Node id="3">
+			<Name>HCBaseDescription</Name>
+			<Path>Classes/HCBaseDescription.html</Path>
+		</Node>
+		<Node id="4">
+			<Name>HCBaseMatcher</Name>
+			<Path>Classes/HCBaseMatcher.html</Path>
+		</Node>
+		<Node id="5">
+			<Name>HCConformsToProtocol</Name>
+			<Path>Classes/HCConformsToProtocol.html</Path>
+		</Node>
+		<Node id="6">
+			<Name>HCDescribedAs</Name>
+			<Path>Classes/HCDescribedAs.html</Path>
+		</Node>
+		<Node id="7">
+			<Name>HCHasCount</Name>
+			<Path>Classes/HCHasCount.html</Path>
+		</Node>
+		<Node id="8">
+			<Name>HCHasDescription</Name>
+			<Path>Classes/HCHasDescription.html</Path>
+		</Node>
+		<Node id="9">
+			<Name>HCHasProperty</Name>
+			<Path>Classes/HCHasProperty.html</Path>
+		</Node>
+		<Node id="10">
+			<Name>HCInvocationMatcher</Name>
+			<Path>Classes/HCInvocationMatcher.html</Path>
+		</Node>
+		<Node id="11">
+			<Name>HCIs</Name>
+			<Path>Classes/HCIs.html</Path>
+		</Node>
+		<Node id="12">
+			<Name>HCIsAnything</Name>
+			<Path>Classes/HCIsAnything.html</Path>
+		</Node>
+		<Node id="13">
+			<Name>HCIsCloseTo</Name>
+			<Path>Classes/HCIsCloseTo.html</Path>
+		</Node>
+		<Node id="14">
+			<Name>HCIsCollectionContaining</Name>
+			<Path>Classes/HCIsCollectionContaining.html</Path>
+		</Node>
+		<Node id="15">
+			<Name>HCIsCollectionContainingInAnyOrder</Name>
+			<Path>Classes/HCIsCollectionContainingInAnyOrder.html</Path>
+		</Node>
+		<Node id="16">
+			<Name>HCIsCollectionContainingInOrder</Name>
+			<Path>Classes/HCIsCollectionContainingInOrder.html</Path>
+		</Node>
+		<Node id="17">
+			<Name>HCIsCollectionOnlyContaining</Name>
+			<Path>Classes/HCIsCollectionOnlyContaining.html</Path>
+		</Node>
+		<Node id="18">
+			<Name>HCIsDictionaryContaining</Name>
+			<Path>Classes/HCIsDictionaryContaining.html</Path>
+		</Node>
+		<Node id="19">
+			<Name>HCIsDictionaryContainingEntries</Name>
+			<Path>Classes/HCIsDictionaryContainingEntries.html</Path>
+		</Node>
+		<Node id="20">
+			<Name>HCIsDictionaryContainingKey</Name>
+			<Path>Classes/HCIsDictionaryContainingKey.html</Path>
+		</Node>
+		<Node id="21">
+			<Name>HCIsDictionaryContainingValue</Name>
+			<Path>Classes/HCIsDictionaryContainingValue.html</Path>
+		</Node>
+		<Node id="22">
+			<Name>HCIsEmptyCollection</Name>
+			<Path>Classes/HCIsEmptyCollection.html</Path>
+		</Node>
+		<Node id="23">
+			<Name>HCIsEqual</Name>
+			<Path>Classes/HCIsEqual.html</Path>
+		</Node>
+		<Node id="24">
+			<Name>HCIsEqualIgnoringCase</Name>
+			<Path>Classes/HCIsEqualIgnoringCase.html</Path>
+		</Node>
+		<Node id="25">
+			<Name>HCIsEqualIgnoringWhiteSpace</Name>
+			<Path>Classes/HCIsEqualIgnoringWhiteSpace.html</Path>
+		</Node>
+		<Node id="26">
+			<Name>HCIsIn</Name>
+			<Path>Classes/HCIsIn.html</Path>
+		</Node>
+		<Node id="27">
+			<Name>HCIsInstanceOf</Name>
+			<Path>Classes/HCIsInstanceOf.html</Path>
+		</Node>
+		<Node id="28">
+			<Name>HCIsNil</Name>
+			<Path>Classes/HCIsNil.html</Path>
+		</Node>
+		<Node id="29">
+			<Name>HCIsNot</Name>
+			<Path>Classes/HCIsNot.html</Path>
+		</Node>
+		<Node id="30">
+			<Name>HCIsSame</Name>
+			<Path>Classes/HCIsSame.html</Path>
+		</Node>
+		<Node id="31">
+			<Name>HCOrderingComparison</Name>
+			<Path>Classes/HCOrderingComparison.html</Path>
+		</Node>
+		<Node id="32">
+			<Name>HCStringContains</Name>
+			<Path>Classes/HCStringContains.html</Path>
+		</Node>
+		<Node id="33">
+			<Name>HCStringContainsInOrder</Name>
+			<Path>Classes/HCStringContainsInOrder.html</Path>
+		</Node>
+		<Node id="34">
+			<Name>HCStringDescription</Name>
+			<Path>Classes/HCStringDescription.html</Path>
+		</Node>
+		<Node id="35">
+			<Name>HCStringEndsWith</Name>
+			<Path>Classes/HCStringEndsWith.html</Path>
+		</Node>
+		<Node id="36">
+			<Name>HCStringStartsWith</Name>
+			<Path>Classes/HCStringStartsWith.html</Path>
+		</Node>
+		<Node id="37">
+			<Name>HCSubstringMatcher</Name>
+			<Path>Classes/HCSubstringMatcher.html</Path>
+		</Node>
+		
+		
+		<Node id="38">
+			<Name>HCDescription</Name>
+			<Path>Protocols/HCDescription.html</Path>
+		</Node>
+		<Node id="39">
+			<Name>HCMatcher</Name>
+			<Path>Protocols/HCMatcher.html</Path>
+		</Node>
+		<Node id="40">
+			<Name>HCSelfDescribing</Name>
+			<Path>Protocols/HCSelfDescribing.html</Path>
+		</Node>
+		
+	</Library>
+</DocSetNodes>

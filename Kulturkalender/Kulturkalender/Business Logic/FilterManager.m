@@ -7,14 +7,14 @@
 //
 
 #import "FilterManager.h"
-#import "EventManager.h" // TODO: Remove dependency on EventManager? Hard to test at the moment
 
-NSString * const kCategoryFilterSelection = @"CategoryFilterSelection";
-NSString * const kAgeLimitMyAge = @"AgeLimitMyAge";
-NSString * const kAgeLimitSelection = @"AgeLimitSelection";
-NSString * const kPriceFilterSelection = @"PriceFilterSelection";
+NSString * const kCategoryFilterSelectionKey = @"CategoryFilterSelection";
+NSString * const kAgeLimitMyAgeKey = @"AgeLimitMyAge";
+NSString * const kAgeLimitSelectionKey = @"AgeLimitSelection";
+NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
 
 @implementation FilterManager {
+    NSUserDefaults *_userDefaults;
     NSMutableSet *_selectedCategories;
 }
 
@@ -23,18 +23,22 @@ NSString * const kPriceFilterSelection = @"PriceFilterSelection";
     self = [super init];
     if (self) {
         _userDefaults = userDefaults;
-        
-        // Register defaults
-        NSArray *allCategories = [ManagedEvent categoryIDs];
-        NSDictionary *defaults = @{ kCategoryFilterSelection : allCategories };
-        [userDefaults registerDefaults:defaults];
-        
-        // Load selected categories
-        NSArray *selectedCategories = [userDefaults objectForKey:kCategoryFilterSelection];
-        _selectedCategories = [NSMutableSet setWithArray:selectedCategories];
     }
     return self;
 }
+
+// TODO: Where to put this code?
+//// Register defaults
+//NSArray *allCategories = [ManagedEvent categoryIDs];
+//NSDictionary *defaults = @{ kCategoryFilterSelectionKey : allCategories };
+//[userDefaults registerDefaults:defaults];
+//
+//// Load selected categories
+//NSArray *selectedCategories = [userDefaults objectForKey:kCategoryFilterSelectionKey];
+//_selectedCategories = [NSMutableSet setWithArray:selectedCategories];
+
+
+#pragma mark - Defaults
 
 
 #pragma mark - Category filter
@@ -66,24 +70,24 @@ NSString * const kPriceFilterSelection = @"PriceFilterSelection";
 
 - (AgeLimitFilter)ageLimitFilter
 {
-    AgeLimitFilter ageLimitFilter = [self.userDefaults integerForKey:kAgeLimitSelection];
+    AgeLimitFilter ageLimitFilter = [_userDefaults integerForKey:kAgeLimitSelectionKey];
     return ageLimitFilter;
 }
 
 - (void)setAgeLimitFilter:(AgeLimitFilter)ageLimitFilter
 {
-    [self.userDefaults setInteger:ageLimitFilter forKey:kAgeLimitSelection];
+    [_userDefaults setInteger:ageLimitFilter forKey:kAgeLimitSelectionKey];
 }
 
 - (NSNumber *)myAge
 {
-    NSNumber *myAge = [self.userDefaults objectForKey:kAgeLimitMyAge];
+    NSNumber *myAge = [_userDefaults objectForKey:kAgeLimitMyAgeKey];
     return myAge;
 }
 
 - (void)setMyAge:(NSNumber *)myAge
 {
-    [self.userDefaults setObject:myAge forKey:kAgeLimitMyAge];
+    [_userDefaults setObject:myAge forKey:kAgeLimitMyAgeKey];
 }
 
 
@@ -91,13 +95,13 @@ NSString * const kPriceFilterSelection = @"PriceFilterSelection";
 
 - (PriceFilter)priceFilter
 {
-    AgeLimitFilter priceFilter = [self.userDefaults integerForKey:kPriceFilterSelection];
+    AgeLimitFilter priceFilter = [_userDefaults integerForKey:kPriceFilterSelectionKey];
     return priceFilter;
 }
 
 - (void)setPriceFilter:(PriceFilter)priceFilter
 {
-    [self.userDefaults setInteger:priceFilter forKey:kPriceFilterSelection];
+    [_userDefaults setInteger:priceFilter forKey:kPriceFilterSelectionKey];
 }
 
 
@@ -136,8 +140,8 @@ NSString * const kPriceFilterSelection = @"PriceFilterSelection";
 - (void)save
 {
     NSArray *selectedCategories = [_selectedCategories allObjects];
-    [self.userDefaults setObject:selectedCategories forKey:kCategoryFilterSelection];
-    [self.userDefaults synchronize];
+    [_userDefaults setObject:selectedCategories forKey:kCategoryFilterSelectionKey];
+    [_userDefaults synchronize];
 }
 
 @end

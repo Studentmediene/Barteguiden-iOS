@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.cocoapods.OCHamcrest-1.9</string>
+	<key>CFBundleName</key>
+	<string>OCHamcrest 1.9 Documentation</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	
+	
+	<key>DocSetDescription</key>
+	<string>
+OCHamcrest is:
+* a library of &quot;matcher&quot; objects that let you declare rules for whether a
+  given object matches the criteria or not;
+* a framework for writing your own matchers.
+Matchers are useful for a variety of purposes, such as UI validation. But
+they&apos;re most commonly used for writing unit tests that are expressive and
+flexible.
+  </string>
+	
+	<key>DocSetFeedName</key>
+	<string>OCHamcrest 1.9 Documentation</string>
+	
+	<key>DocSetMinimumXcodeVersion</key>
+	<string>3.0</string>
+	
+	<key>DocSetPublisherIdentifier</key>
+	<string>org.cocoapods.documentation</string>
+	<key>DocSetPublisherName</key>
+	<string>Jon Reid</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Jon Reid</string>
+</dict>
+</plist>

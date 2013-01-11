@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MKTOngoingStubbing.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MKTOngoingStubbing</TokenIdentifier>
+			<Abstract>    Methods to invoke on @c given(methodCall) to return stubbed values.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>
+			
+			<NodeRef refid="13"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/initWithInvocationContainer:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithInvocationContainer:(MKTInvocationContainer *)invocationContainer</Declaration>
+			
+			
+			<Anchor>//api/name/initWithInvocationContainer:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturn:</TokenIdentifier>
+			<Abstract>Stubs given object as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturn:(id)object</Declaration>
+			
+			
+			<Anchor>//api/name/willReturn:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnBool:</TokenIdentifier>
+			<Abstract>Stubs given @c BOOL as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnBool:(BOOL)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnBool:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnChar:</TokenIdentifier>
+			<Abstract>Stubs given @c char as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnChar:(char)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnChar:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnInt:</TokenIdentifier>
+			<Abstract>Stubs given @c int as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnInt:(int)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnInt:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnShort:</TokenIdentifier>
+			<Abstract>Stubs given @c short as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnShort:(short)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnShort:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnLong:</TokenIdentifier>
+			<Abstract>Stubs given @c long as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnLong:(long)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnLong:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnLongLong:</TokenIdentifier>
+			<Abstract>Stubs given codelong long/code as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnLongLong:(long long)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnLongLong:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnInteger:</TokenIdentifier>
+			<Abstract>Stubs given @c NSInteger as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnInteger:(NSInteger)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnInteger:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnUnsignedChar:</TokenIdentifier>
+			<Abstract>Stubs given codeunsigned char/code as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnUnsignedChar:(unsigned char)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnUnsignedChar:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnUnsignedInt:</TokenIdentifier>
+			<Abstract>Stubs given codeunsigned int/code as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnUnsignedInt:(unsigned int)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnUnsignedInt:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnUnsignedShort:</TokenIdentifier>
+			<Abstract>Stubs given codeunsigned short/code as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnUnsignedShort:(unsigned short)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnUnsignedShort:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnUnsignedLong:</TokenIdentifier>
+			<Abstract>Stubs given codeunsigned long/code as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnUnsignedLong:(unsigned long)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnUnsignedLong:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnUnsignedLongLong:</TokenIdentifier>
+			<Abstract>Stubs given codeunsigned long long/code as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnUnsignedLongLong:(unsigned long long)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnUnsignedLongLong:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnUnsignedInteger:</TokenIdentifier>
+			<Abstract>Stubs given @c NSUInteger as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnUnsignedInteger:(NSUInteger)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnUnsignedInteger:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnFloat:</TokenIdentifier>
+			<Abstract>Stubs given @c float as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnFloat:(float)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnFloat:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTOngoingStubbing/willReturnDouble:</TokenIdentifier>
+			<Abstract>Stubs given @c double as return value.</Abstract>
+			<DeclaredIn>MKTOngoingStubbing.h</DeclaredIn>			
+			
+			<Declaration>- (MKTOngoingStubbing *)willReturnDouble:(double)value</Declaration>
+			
+			
+			<Anchor>//api/name/willReturnDouble:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

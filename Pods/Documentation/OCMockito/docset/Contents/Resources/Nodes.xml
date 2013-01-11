@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocSetNodes version="1.0">
+    <TOC>
+        <Node type="folder">
+            <Name>OCMockito 0.23</Name>
+            <Path>index.html</Path>
+			<Subnodes>
+				
+				<Node type="folder">
+					<Name>Classes</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="1"/>
+						<NodeRef refid="2"/>
+						<NodeRef refid="3"/>
+						<NodeRef refid="4"/>
+						<NodeRef refid="5"/>
+						<NodeRef refid="6"/>
+						<NodeRef refid="7"/>
+						<NodeRef refid="8"/>
+						<NodeRef refid="9"/>
+						<NodeRef refid="10"/>
+						<NodeRef refid="11"/>
+						<NodeRef refid="12"/>
+						<NodeRef refid="13"/>
+						<NodeRef refid="14"/>
+						<NodeRef refid="15"/>
+						<NodeRef refid="16"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+				
+				<Node type="folder">
+					<Name>Protocols</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="17"/>
+						<NodeRef refid="18"/>
+						
+					</Subnodes>
+				</Node>
+				
+			</Subnodes>
+        </Node>
+    </TOC>
+	<Library>
+		<Node id="1">
+			<Name>MKTAtLeastTimes</Name>
+			<Path>Classes/MKTAtLeastTimes.html</Path>
+		</Node>
+		<Node id="2">
+			<Name>MKTBaseMockObject</Name>
+			<Path>Classes/MKTBaseMockObject.html</Path>
+		</Node>
+		<Node id="3">
+			<Name>MKTClassObjectMock</Name>
+			<Path>Classes/MKTClassObjectMock.html</Path>
+		</Node>
+		<Node id="4">
+			<Name>MKTExactTimes</Name>
+			<Path>Classes/MKTExactTimes.html</Path>
+		</Node>
+		<Node id="5">
+			<Name>MKTException</Name>
+			<Path>Classes/MKTException.html</Path>
+		</Node>
+		<Node id="6">
+			<Name>MKTInvocationContainer</Name>
+			<Path>Classes/MKTInvocationContainer.html</Path>
+		</Node>
+		<Node id="7">
+			<Name>MKTInvocationMatcher</Name>
+			<Path>Classes/MKTInvocationMatcher.html</Path>
+		</Node>
+		<Node id="8">
+			<Name>MKTMockAwareVerificationMode</Name>
+			<Path>Classes/MKTMockAwareVerificationMode.html</Path>
+		</Node>
+		<Node id="9">
+			<Name>MKTMockingProgress</Name>
+			<Path>Classes/MKTMockingProgress.html</Path>
+		</Node>
+		<Node id="10">
+			<Name>MKTMockitoCore</Name>
+			<Path>Classes/MKTMockitoCore.html</Path>
+		</Node>
+		<Node id="11">
+			<Name>MKTObjectAndProtocolMock</Name>
+			<Path>Classes/MKTObjectAndProtocolMock.html</Path>
+		</Node>
+		<Node id="12">
+			<Name>MKTObjectMock</Name>
+			<Path>Classes/MKTObjectMock.html</Path>
+		</Node>
+		<Node id="13">
+			<Name>MKTOngoingStubbing</Name>
+			<Path>Classes/MKTOngoingStubbing.html</Path>
+		</Node>
+		<Node id="14">
+			<Name>MKTProtocolMock</Name>
+			<Path>Classes/MKTProtocolMock.html</Path>
+		</Node>
+		<Node id="15">
+			<Name>MKTStubbedInvocationMatcher</Name>
+			<Path>Classes/MKTStubbedInvocationMatcher.html</Path>
+		</Node>
+		<Node id="16">
+			<Name>MKTVerificationData</Name>
+			<Path>Classes/MKTVerificationData.html</Path>
+		</Node>
+		
+		
+		<Node id="17">
+			<Name>MKTPrimitiveArgumentMatching</Name>
+			<Path>Protocols/MKTPrimitiveArgumentMatching.html</Path>
+		</Node>
+		<Node id="18">
+			<Name>MKTVerificationMode</Name>
+			<Path>Protocols/MKTVerificationMode.html</Path>
+		</Node>
+		
+	</Library>
+</DocSetNodes>

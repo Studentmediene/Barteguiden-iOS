@@ -1,0 +1,9 @@
+platform :ios
+xcodeproj 'Kulturkalender/Kulturkalender.xcodeproj'
+
+pod 'OCMockito'
+pod 'OCHamcrest'
+pod 'KSReachability'
+pod 'JMImageCache'
+
+ManagedEve

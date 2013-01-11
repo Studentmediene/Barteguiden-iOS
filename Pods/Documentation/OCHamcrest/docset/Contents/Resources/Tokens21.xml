@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/HCIsDictionaryContainingValue.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsDictionaryContainingValue</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsDictionaryContainingValue.h</DeclaredIn>
+			
+			<NodeRef refid="21"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsDictionaryContainingValue/isDictionaryContainingValue:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsDictionaryContainingValue.h</DeclaredIn>			
+			
+			<Declaration>+ (id)isDictionaryContainingValue:(id&lt;HCMatcher&gt;)theValueMatcher</Declaration>
+			
+			
+			<Anchor>//api/name/isDictionaryContainingValue:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsDictionaryContainingValue/initWithValueMatcher:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsDictionaryContainingValue.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithValueMatcher:(id&lt;HCMatcher&gt;)theValueMatcher</Declaration>
+			
+			
+			<Anchor>//api/name/initWithValueMatcher:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

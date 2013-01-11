@@ -11,7 +11,7 @@
 
 const int kFreeEvent = 0;
 
-@implementation ManagedEvent (Price)
+@implementation Event (Price)
 
 + (NSString *)stringForPrice:(NSDecimalNumber *)price
 {

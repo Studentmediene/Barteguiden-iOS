@@ -1,5 +1,5 @@
 //
-//  EventStore.h
+//  ManagedEventStore.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 29.12.12.
@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 
 @protocol Event;
 
@@ -18,13 +19,13 @@ typedef void (^EventSearchCallback)(id<Event> event, BOOL *stop);
 - (id<Event>)eventWithIdentifier:(NSString *)identifier;
 - (NSArray *)eventsMatchingPredicate:(NSPredicate *)predicate;
 - (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(EventSearchCallback)block;
-- (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
-- (NSPredicate *)predicateForFeaturedEvents;
-- (NSPredicate *)predicateForFavoritedEvents;
-- (NSPredicate *)predicateForPaidEvents;
-- (NSPredicate *)predicateForFreeEvents;
-- (NSPredicate *)predicateForTitleContainingText:(NSString *)text;
-- (NSPredicate *)predicateForPlaceNameContainingText:(NSString *)text;
++ (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
++ (NSPredicate *)predicateForFeaturedEvents;
++ (NSPredicate *)predicateForFavoritedEvents;
++ (NSPredicate *)predicateForPaidEvents;
++ (NSPredicate *)predicateForFreeEvents;
++ (NSPredicate *)predicateForTitleContainingText:(NSString *)text;
++ (NSPredicate *)predicateForPlaceNameContainingText:(NSString *)text;
 // TODO: Add predicates for categories, age limit and price
 
 // Saving Changes
@@ -34,3 +35,11 @@ typedef void (^EventSearchCallback)(id<Event> event, BOOL *stop);
 
 // Notifications
 //extern NSString * const EventStoreChangedNotification;
+
+
+@interface EventStore : NSObject <EventStore>
+
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+- (void)importEvents:(NSArray *)events;
+
+@end

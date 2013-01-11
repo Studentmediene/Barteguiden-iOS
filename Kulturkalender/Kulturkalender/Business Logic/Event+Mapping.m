@@ -7,6 +7,7 @@
 //
 
 #import "Event+Mapping.h"
+#import "NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.h"
 
 
 static NSString * const kEventEntityName = @"Event";
@@ -14,7 +15,7 @@ static NSString * const kLocalizedDescriptionEntityName = @"LocalizedDescription
 static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
 
 
-@implementation ManagedEvent (Mapping)
+@implementation Event (Mapping)
 
 + (instancetype)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
@@ -23,7 +24,7 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     // TODO: Implement for the real server
     
     // Create event
-    ManagedEvent *event = [NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:managedObjectContext];
+    Event *event = [NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:managedObjectContext];
     [event safeSetValuesForKeysWithDictionary:jsonObject dateFormatter:dateFormatter];
     
     // Add localized description

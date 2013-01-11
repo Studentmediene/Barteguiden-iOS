@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "ManagedEvent.h"
+#import "Event.h"
 
-@interface ManagedEvent (TableView)
+@interface Event (TableView)
 
 - (NSString *)dateSectionName;
 

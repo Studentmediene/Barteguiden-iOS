@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MKTObjectAndProtocolMock.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MKTObjectAndProtocolMock</TokenIdentifier>
+			<Abstract>    Mock object of a given class that also implements a given protocol.</Abstract>
+			<DeclaredIn>MKTObjectAndProtocolMock.h</DeclaredIn>
+			
+			<NodeRef refid="11"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/MKTObjectAndProtocolMock/mockForClass:protocol:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MKTObjectAndProtocolMock.h</DeclaredIn>			
+			
+			<Declaration>+ (id)mockForClass:(Class)aClass protocol:(Protocol *)protocol</Declaration>
+			
+			
+			<Anchor>//api/name/mockForClass:protocol:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MKTObjectAndProtocolMock/initWithClass:protocol:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MKTObjectAndProtocolMock.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithClass:(Class)aClass protocol:(Protocol *)protocol</Declaration>
+			
+			
+			<Anchor>//api/name/initWithClass:protocol:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
