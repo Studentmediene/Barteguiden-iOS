@@ -30,9 +30,9 @@
         <attribute name="text" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="LocalizedDescription" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="LocalizedFeatured" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="LocalizedText" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Event" positionX="-299" positionY="-135" width="128" height="300"/>
+        <element name="LocalizedDescription" positionX="-65" positionY="12" width="128" height="60"/>
+        <element name="LocalizedFeatured" positionX="-56" positionY="138" width="128" height="60"/>
+        <element name="LocalizedText" positionX="115" positionY="15" width="128" height="75"/>
     </elements>
 </model>

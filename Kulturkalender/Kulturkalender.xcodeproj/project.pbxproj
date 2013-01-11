@@ -62,10 +62,11 @@
 		69C37D0E169BB8EF009631DF /* NSError+RIOUnderlyingError.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D0D169BB8EF009631DF /* NSError+RIOUnderlyingError.m */; };
 		69C37D11169BBA93009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D10169BBA92009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m */; };
 		69C37D16169BDF62009631DF /* EventStoreCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D15169BDF62009631DF /* EventStoreCommunicator.m */; };
-		69C37D19169BDF95009631DF /* ManagedEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D18169BDF95009631DF /* ManagedEventBuilder.m */; };
+		69C37D19169BDF95009631DF /* EventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D18169BDF95009631DF /* EventBuilder.m */; };
 		69C37D1C169BF180009631DF /* EventStoreCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D1B169BF180009631DF /* EventStoreCommunicatorTests.m */; };
 		69C37D77169FF22E009631DF /* EventTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D76169FF22D009631DF /* EventTests.m */; };
 		69C37D7A169FF54A009631DF /* FilterManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D79169FF54A009631DF /* FilterManagerTests.m */; };
+		69C37D8616A0445A009631DF /* EventMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D8516A04458009631DF /* EventMock.m */; };
 		69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C491671625F1DE00F28C45 /* EventDetailsViewController.m */; };
 		69C9E21B1687C60200D65004 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E21A1687C60200D65004 /* TabBarController.m */; };
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
@@ -191,11 +192,13 @@
 		69C37D10169BBA92009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m"; sourceTree = "<group>"; };
 		69C37D14169BDF62009631DF /* EventStoreCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventStoreCommunicator.h; sourceTree = "<group>"; };
 		69C37D15169BDF62009631DF /* EventStoreCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreCommunicator.m; sourceTree = "<group>"; };
-		69C37D17169BDF95009631DF /* ManagedEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedEventBuilder.h; sourceTree = "<group>"; };
-		69C37D18169BDF95009631DF /* ManagedEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedEventBuilder.m; sourceTree = "<group>"; };
+		69C37D17169BDF95009631DF /* EventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBuilder.h; sourceTree = "<group>"; };
+		69C37D18169BDF95009631DF /* EventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventBuilder.m; sourceTree = "<group>"; };
 		69C37D1B169BF180009631DF /* EventStoreCommunicatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreCommunicatorTests.m; sourceTree = "<group>"; };
 		69C37D76169FF22D009631DF /* EventTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTests.m; sourceTree = "<group>"; };
 		69C37D79169FF54A009631DF /* FilterManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterManagerTests.m; sourceTree = "<group>"; };
+		69C37D8416A04458009631DF /* EventMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMock.h; sourceTree = "<group>"; };
+		69C37D8516A04458009631DF /* EventMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMock.m; sourceTree = "<group>"; };
 		69C491661625F1DE00F28C45 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		69C491671625F1DE00F28C45 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		69C9E2191687C60200D65004 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
@@ -487,11 +490,40 @@
 				69C37BDD168F71C4009631DF /* EventStore.m */,
 				69C37D14169BDF62009631DF /* EventStoreCommunicator.h */,
 				69C37D15169BDF62009631DF /* EventStoreCommunicator.m */,
-				69C37D17169BDF95009631DF /* ManagedEventBuilder.h */,
-				69C37D18169BDF95009631DF /* ManagedEventBuilder.m */,
+				69C37D17169BDF95009631DF /* EventBuilder.h */,
+				69C37D18169BDF95009631DF /* EventBuilder.m */,
 				69C37BFA168F841F009631DF /* Models */,
 			);
 			name = EventKit;
+			sourceTree = "<group>";
+		};
+		69C37D7C169FFF43009631DF /* EventKit */ = {
+			isa = PBXGroup;
+			children = (
+				69C37D8716A0445E009631DF /* Mocks */,
+				69C37BFD168F8F28009631DF /* EventStoreTests.m */,
+				69C37D76169FF22D009631DF /* EventTests.m */,
+				69C37D1B169BF180009631DF /* EventStoreCommunicatorTests.m */,
+			);
+			name = EventKit;
+			sourceTree = "<group>";
+		};
+		69C37D8016A037C3009631DF /* FilterManager */ = {
+			isa = PBXGroup;
+			children = (
+				69528C0D1643152C00A96B65 /* FilterManager.h */,
+				69528C0E1643152C00A96B65 /* FilterManager.m */,
+			);
+			name = FilterManager;
+			sourceTree = "<group>";
+		};
+		69C37D8716A0445E009631DF /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				69C37D8416A04458009631DF /* EventMock.h */,
+				69C37D8516A04458009631DF /* EventMock.m */,
+			);
+			name = Mocks;
 			sourceTree = "<group>";
 		};
 		69C491641625F1A600F28C45 /* Event Details */ = {
@@ -527,9 +559,7 @@
 		69C9E21F168A532700D65004 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
-				69C37BFD168F8F28009631DF /* EventStoreTests.m */,
-				69C37D76169FF22D009631DF /* EventTests.m */,
-				69C37D1B169BF180009631DF /* EventStoreCommunicatorTests.m */,
+				69C37D7C169FFF43009631DF /* EventKit */,
 				69C37D79169FF54A009631DF /* FilterManagerTests.m */,
 			);
 			path = "Business Logic";
@@ -671,8 +701,7 @@
 			isa = PBXGroup;
 			children = (
 				69C37D7B169FFAE7009631DF /* EventKit */,
-				69528C0D1643152C00A96B65 /* FilterManager.h */,
-				69528C0E1643152C00A96B65 /* FilterManager.m */,
+				69C37D8016A037C3009631DF /* FilterManager */,
 				69C37BF9168F83F8009631DF /* Old */,
 			);
 			path = "Business Logic";
@@ -881,7 +910,7 @@
 				69C37D0E169BB8EF009631DF /* NSError+RIOUnderlyingError.m in Sources */,
 				69C37D11169BBA93009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m in Sources */,
 				69C37D16169BDF62009631DF /* EventStoreCommunicator.m in Sources */,
-				69C37D19169BDF95009631DF /* ManagedEventBuilder.m in Sources */,
+				69C37D19169BDF95009631DF /* EventBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +922,7 @@
 				69C37D1C169BF180009631DF /* EventStoreCommunicatorTests.m in Sources */,
 				69C37D77169FF22E009631DF /* EventTests.m in Sources */,
 				69C37D7A169FF54A009631DF /* FilterManagerTests.m in Sources */,
+				69C37D8616A0445A009631DF /* EventMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

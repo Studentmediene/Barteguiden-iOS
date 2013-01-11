@@ -1,5 +1,5 @@
 //
-//  ManagedEventStore.h
+//  EventStore.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 29.12.12.
@@ -24,6 +24,8 @@ typedef void (^EventSearchCallback)(id<Event> event, BOOL *stop);
 + (NSPredicate *)predicateForFavoritedEvents;
 + (NSPredicate *)predicateForPaidEvents;
 + (NSPredicate *)predicateForFreeEvents;
++ (NSPredicate *)predicateForEventsWithCategoryIDs:(NSArray *)categoryIDs;
++ (NSPredicate *)predicateForEventsAllowedForAge:(NSUInteger)age;
 + (NSPredicate *)predicateForTitleContainingText:(NSString *)text;
 + (NSPredicate *)predicateForPlaceNameContainingText:(NSString *)text;
 // TODO: Add predicates for categories, age limit and price

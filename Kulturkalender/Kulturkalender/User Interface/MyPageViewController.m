@@ -30,7 +30,7 @@
     NSPredicate *predicate = [super eventsPredicate];
     
     NSPredicate *filterPredicate = [self.filterManager predicate];
-    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, filterPredicate ]];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate, filterPredicate]];
     
     return predicate;
 }

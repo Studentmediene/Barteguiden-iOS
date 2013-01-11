@@ -6,13 +6,18 @@
 //  Copyright (c) 2013 Under Dusken. All rights reserved.
 //
 
+// Class under test
+#import "EventStoreCommunicator.h"
+
+// Collaborators
+
+
+// Test support
 #import <SenTestingKit/SenTestingKit.h>
 #define MOCKITO_SHORTHAND
 #import <OCMockito/OCMockito.h>
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
-
-#import "EventStoreCommunicator.h"
 
 
 @interface EventStoreCommunicatorTests : SenTestCase

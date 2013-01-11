@@ -22,20 +22,23 @@ typedef NS_ENUM(NSInteger, PriceFilter) {
 @protocol FilterManager <NSObject>
 
 // Category filter
-//- (NSArray *)selectedCategoryIDs;
-- (BOOL)isSelectedForCategoryID:(NSNumber *)categoryID;
-- (void)setSelected:(BOOL)selected forCategoryID:(NSNumber *)categoryID;
-- (void)toggleSelectedForCategoryID:(NSNumber *)categoryID;
+- (NSArray *)selectedCategoryIDs;
+- (BOOL)isSelectedForCategoryID:(NSString *)categoryID;
+- (void)setSelected:(BOOL)selected forCategoryID:(NSString *)categoryID;
+- (void)toggleSelectedForCategoryID:(NSString *)categoryID;
 
 // Age limit filter
 @property (nonatomic) AgeLimitFilter ageLimitFilter;
-@property (nonatomic, strong) NSNumber *myAge;
+@property (nonatomic) NSNumber *myAge;
 
 // Price filter
 @property (nonatomic) PriceFilter priceFilter;
 
-- (NSPredicate *)predicate;
+// Saving
 - (void)save;
+
+// TODO: Temp
+- (NSPredicate *)predicate;
 
 @end
 

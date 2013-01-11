@@ -1,5 +1,5 @@
 //
-//  ManagedEvent.h
+//  Event.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 17.11.12.

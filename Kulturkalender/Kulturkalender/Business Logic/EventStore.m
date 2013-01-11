@@ -1,5 +1,5 @@
 //
-//  ManagedEventStore.m
+//  EventStore.m
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 29.12.12.
@@ -87,6 +87,18 @@ static NSString * const kEventEntityName = @"Event";
 + (NSPredicate *)predicateForFreeEvents
 {
     return [NSPredicate predicateWithFormat:@"price == 0"];
+}
+
++ (NSPredicate *)predicateForEventsWithCategoryIDs:(NSArray *)categoryIDs
+{
+    // TODO: Not tested
+    return [NSPredicate predicateWithFormat:@"categoryID IN %@", categoryIDs];
+}
+
++ (NSPredicate *)predicateForEventsAllowedForAge:(NSUInteger)age
+{
+    // TODO: Not tested
+    return [NSPredicate predicateWithFormat:@"ageLimit <= %d", age];
 }
 
 + (NSPredicate *)predicateForTitleContainingText:(NSString *)text

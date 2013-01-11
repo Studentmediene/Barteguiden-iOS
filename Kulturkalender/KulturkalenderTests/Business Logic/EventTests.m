@@ -6,9 +6,14 @@
 //  Copyright (c) 2013 Under Dusken. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
-
+// Class under test
 #import "Event.h"
+
+// Collaborators
+
+
+// Test support
+#import <SenTestingKit/SenTestingKit.h>
 
 
 @interface EventTests : SenTestCase

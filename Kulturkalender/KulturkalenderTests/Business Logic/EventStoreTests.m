@@ -6,22 +6,26 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
-
+// Class under test
 #import "EventStore.h"
+
+// Collaborators
 #import "Event.h"
+
+// Test support
+#import <SenTestingKit/SenTestingKit.h>
 
 
 @interface EventStoreTests : SenTestCase
 @end
 
 @implementation EventStoreTests {
-    id<EventStore> _eventStore;
+    EventStore *_eventStore;
 }
 
 - (void)setUp
 {
-    _eventStore = [self eventStore];
+    [self setUpEventStore];
 }
 
 - (void)tearDown
@@ -69,18 +73,16 @@
 
 #pragma mark - Private methods
 
-- (EventStore *)eventStore
+- (void)setUpEventStore
 {
-    EventStore *eventStore = [[EventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
+    _eventStore = [[EventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
     
     // Import test data
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
     NSData *data = [NSData dataWithContentsOfURL:url];
     NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
     NSArray *events = values[@"events"];
-    [eventStore importEvents:events];
-    
-    return eventStore;
+    [_eventStore importEvents:events];
 }
 
 - (NSManagedObjectContext *)managedObjectContext

@@ -1,5 +1,5 @@
 //
-//  ManagedEventBuilder.h
+//  EventBuilder.h
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 08.01.13.
@@ -10,7 +10,7 @@
 
 @class Event;
 
-@interface ManagedEventBuilder : NSObject
+@interface EventBuilder : NSObject
 
 + (Event *)eventFromDictionary:(NSDictionary *)dictionary;
 
