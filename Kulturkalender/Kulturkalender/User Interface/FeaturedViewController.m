@@ -28,7 +28,7 @@
 {
     NSPredicate *predicate = [super eventsPredicate];
     
-    NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"featured == 1"];
+    NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"featuredState == 1"];
     predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, featuredPredicate ]];
     
     return predicate;

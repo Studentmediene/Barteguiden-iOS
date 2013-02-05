@@ -3,11 +3,11 @@
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ageLimit" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="categoryID" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="categoryID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="eventID" attributeType="String" syncable="YES"/>
-        <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="featured" attributeType="Boolean" syncable="YES"/>
+        <attribute name="favoriteState" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="featuredState" attributeType="Boolean" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" minValueString="0" maxValueString="90" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" minValueString="-180" maxValueString="180" syncable="YES"/>
@@ -30,7 +30,7 @@
         <attribute name="text" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="-299" positionY="-135" width="128" height="300"/>
+        <element name="Event" positionX="-299" positionY="-135" width="128" height="298"/>
         <element name="LocalizedDescription" positionX="-65" positionY="12" width="128" height="60"/>
         <element name="LocalizedFeatured" positionX="-56" positionY="138" width="128" height="60"/>
         <element name="LocalizedText" positionX="115" positionY="15" width="128" height="75"/>

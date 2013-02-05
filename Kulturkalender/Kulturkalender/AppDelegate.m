@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TabBarController.h"
 #import "EventKit.h"
+#import "EventStore.h"
 #import "EventManager.h"// TODO: Temp
 #import "FilterManager.h"// TODO: Temp
 
@@ -43,7 +44,7 @@
     
     // TODO: Move to applicationWillTerminate: instead?
     NSLog(@"Closing...");
-    [_eventManager save];
+    [_eventManager save]; // TODO: Temp
     [_filterManager save];
 //    [self save];
 }

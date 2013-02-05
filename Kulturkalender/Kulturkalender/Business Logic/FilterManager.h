@@ -19,7 +19,11 @@ typedef NS_ENUM(NSInteger, PriceFilter) {
     PriceFilterShowFreeEvents
 };
 
+
 @protocol FilterManager <NSObject>
+
+// Predicate
+- (NSPredicate *)predicate;
 
 // Category filter
 - (NSArray *)selectedCategoryIDs;
@@ -34,18 +38,18 @@ typedef NS_ENUM(NSInteger, PriceFilter) {
 // Price filter
 @property (nonatomic) PriceFilter priceFilter;
 
-// Saving
-- (void)save;
-
-// TODO: Temp
-- (NSPredicate *)predicate;
-
 @end
 
 
+@protocol EventStore;
+
 @interface FilterManager : NSObject <FilterManager>
 
+@property (nonatomic, strong) id<EventStore> eventStore;
+
 - (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults;
+
+- (void)save;
 
 // Defaults
 //- (void)registerDefaultSelectedCategoryIDs:(NSArray *)categoryIDs;

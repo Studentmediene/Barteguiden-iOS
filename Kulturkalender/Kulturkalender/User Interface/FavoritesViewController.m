@@ -32,7 +32,7 @@
 {
     // NOTE: Does not call [super eventsPredicate] to allow old events to show in this list
     
-    NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"favorite == 1"];
+    NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"favoriteState == 1"];
     
     return favoritesPredicate;
 }

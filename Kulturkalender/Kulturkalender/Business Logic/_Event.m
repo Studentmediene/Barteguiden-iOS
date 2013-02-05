@@ -18,8 +18,8 @@
 @dynamic categoryID;
 @dynamic endAt;
 @dynamic eventID;
-@dynamic favorite;
-@dynamic featured;
+@dynamic favoriteState;
+@dynamic featuredState;
 @dynamic imageID;
 @dynamic latitude;
 @dynamic longitude;

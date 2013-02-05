@@ -15,11 +15,11 @@
 
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSNumber * ageLimit;
-@property (nonatomic, retain) NSNumber * categoryID;
+@property (nonatomic, retain) NSString * categoryID;
 @property (nonatomic, retain) NSDate * endAt;
 @property (nonatomic, retain) NSString * eventID;
-@property (nonatomic, retain) NSNumber * favorite;
-@property (nonatomic, retain) NSNumber * featured;
+@property (nonatomic, retain) NSNumber * favoriteState;
+@property (nonatomic, retain) NSNumber * featuredState;
 @property (nonatomic, retain) NSString * imageID;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;

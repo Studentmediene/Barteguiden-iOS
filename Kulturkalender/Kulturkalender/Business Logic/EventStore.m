@@ -63,50 +63,53 @@ static NSString * const kEventEntityName = @"Event";
     
 }
 
-+ (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate
+
+#pragma mark - Predicates
+
+- (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate
 {
     // TIPS: @"(endAt != nil AND endAt >= %@) OR startAt >= %@"
     return nil;
 }
 
-+ (NSPredicate *)predicateForFeaturedEvents
+- (NSPredicate *)predicateForFeaturedEvents
 {
-    return [NSPredicate predicateWithFormat:@"featured == 1"];
+    return [NSPredicate predicateWithFormat:@"featuredState == 1"];
 }
 
-+ (NSPredicate *)predicateForFavoritedEvents
+- (NSPredicate *)predicateForFavoritedEvents
 {
-    return [NSPredicate predicateWithFormat:@"favorite == 1"];
+    return [NSPredicate predicateWithFormat:@"favoriteState == 1"];
 }
 
-+ (NSPredicate *)predicateForPaidEvents
+- (NSPredicate *)predicateForPaidEvents
 {
     return [NSPredicate predicateWithFormat:@"price > 0"];
 }
 
-+ (NSPredicate *)predicateForFreeEvents
+- (NSPredicate *)predicateForFreeEvents
 {
     return [NSPredicate predicateWithFormat:@"price == 0"];
 }
 
-+ (NSPredicate *)predicateForEventsWithCategoryIDs:(NSArray *)categoryIDs
+- (NSPredicate *)predicateForEventsWithCategoryIDs:(NSArray *)categoryIDs
 {
     // TODO: Not tested
     return [NSPredicate predicateWithFormat:@"categoryID IN %@", categoryIDs];
 }
 
-+ (NSPredicate *)predicateForEventsAllowedForAge:(NSUInteger)age
+- (NSPredicate *)predicateForEventsAllowedForAge:(NSUInteger)age
 {
     // TODO: Not tested
     return [NSPredicate predicateWithFormat:@"ageLimit <= %d", age];
 }
 
-+ (NSPredicate *)predicateForTitleContainingText:(NSString *)text
+- (NSPredicate *)predicateForTitleContainingText:(NSString *)text
 {
     return [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", text];
 }
 
-+ (NSPredicate *)predicateForPlaceNameContainingText:(NSString *)text
+- (NSPredicate *)predicateForPlaceNameContainingText:(NSString *)text
 {
     return [NSPredicate predicateWithFormat:@"placeName CONTAINS[cd] %@", text];
 }

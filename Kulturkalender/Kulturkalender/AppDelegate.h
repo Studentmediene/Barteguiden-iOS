@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol EventStore;
-@protocol EventManager;// TODO: Temp
-@protocol FilterManager;// TODO: Temp
+@class EventStore;
+@class EventManager;// TODO: Temp
+@class FilterManager;// TODO: Temp
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -20,9 +20,9 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, strong) id<EventStore> eventStore;
-@property (nonatomic, strong) id<EventManager> eventManager;// TODO: Temp
-@property (nonatomic, strong) id<FilterManager> filterManager;// TODO: Temp
+@property (nonatomic, strong) EventStore *eventStore;
+@property (nonatomic, strong) EventManager *eventManager;// TODO: Temp
+@property (nonatomic, strong) FilterManager *filterManager;// TODO: Temp
 
 - (void)save;
 - (NSURL *)applicationDocumentsDirectory;

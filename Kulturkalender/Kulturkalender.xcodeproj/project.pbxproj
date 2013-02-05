@@ -163,6 +163,8 @@
 		698F873D1624C05F001B9090 /* Filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Filter@2x.png"; sourceTree = "<group>"; };
 		69AEFE381624E7AB009F3567 /* Event+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+TableView.h"; sourceTree = "<group>"; };
 		69AEFE391624E7AB009F3567 /* Event+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+TableView.m"; sourceTree = "<group>"; };
+		69B016AC16B0CD87004374DC /* EventProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventProtocol.h; sourceTree = "<group>"; };
+		69B016AD16B0CD9E004374DC /* EventStoreProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventStoreProtocol.h; sourceTree = "<group>"; };
 		69B860DE168E6CEB002936B4 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		69B860E0168E6CF1002936B4 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		69BA0AD4162F3E13009726E7 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
@@ -331,13 +333,6 @@
 			name = Custom;
 			sourceTree = "<group>";
 		};
-		69884B9F163A0E2B0057D189 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Custom;
-			sourceTree = "<group>";
-		};
 		6988E1781613907B00C2915A /* Favorites Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +381,16 @@
 			name = Temp;
 			sourceTree = "<group>";
 		};
+		69B016AE16B0CE34004374DC /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				69C37BE1168F77AF009631DF /* EventKit.h */,
+				69B016AD16B0CD9E004374DC /* EventStoreProtocol.h */,
+				69B016AC16B0CD87004374DC /* EventProtocol.h */,
+			);
+			name = Public;
+			sourceTree = "<group>";
+		};
 		69BA0AD8162F44D3009726E7 /* Event Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +429,7 @@
 		69C37BFA168F841F009631DF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				69F52AB71608E70F0045B6F6 /* Kulturkalender.xcdatamodeld */,
 				69884B9E163A0E210057D189 /* Custom */,
 				69C37BEF168F82C7009631DF /* Generated */,
 			);
@@ -491,8 +497,7 @@
 		69C37D7B169FFAE7009631DF /* EventKit */ = {
 			isa = PBXGroup;
 			children = (
-				69F52AB71608E70F0045B6F6 /* Kulturkalender.xcdatamodeld */,
-				69C37BE1168F77AF009631DF /* EventKit.h */,
+				69B016AE16B0CE34004374DC /* Public */,
 				69C37BDC168F71C4009631DF /* EventStore.h */,
 				69C37BDD168F71C4009631DF /* EventStore.m */,
 				69C37D14169BDF62009631DF /* EventStoreCommunicator.h */,
@@ -610,7 +615,6 @@
 			children = (
 				69C37BFF168F8FE3009631DF /* Generated */,
 				69C37C00168F90E8009631DF /* GUI */,
-				69884B9F163A0E2B0057D189 /* Custom */,
 			);
 			name = Models;
 			sourceTree = "<group>";

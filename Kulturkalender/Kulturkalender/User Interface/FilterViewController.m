@@ -88,7 +88,7 @@ enum {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         
-        NSNumber *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
+        NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
         BOOL isSelected = [_filterManager isSelectedForCategoryID:categoryID];
         
         cell.textLabel.text = [Event stringForCategoryID:categoryID];
@@ -154,7 +154,7 @@ enum {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    NSNumber *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
+    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
     BOOL isSelected = [_filterManager isSelectedForCategoryID:categoryID];
     
     cell.accessoryType = (isSelected == YES) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
@@ -163,7 +163,7 @@ enum {
 - (void)setCategoryFilterForCell:(UITableViewCell *)cell
 {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSNumber *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
+    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
     [_filterManager toggleSelectedForCategoryID:categoryID];
     
     [self updateCategoryFilterSelectedCell];

@@ -17,16 +17,22 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        categoryIDs = @[ @0, @1, @2, @3, @4, @5, @6 ];
+        categoryIDs = @[ @"CATEGORY_CONCERTS",
+                         @"CATEGORY_NIGHTLIFE",
+                         @"CATEGORY_THEATRE",
+                         @"CATEGORY_DANCE",
+                         @"CATEGORY_ART_EXHIBITION",
+                         @"CATEGORY_SPORTS",
+                         @"CATEGORY_PRESENTATIONS"
+                         ];
     });
     
     return categoryIDs;
 }
 
-+ (NSString *)stringForCategoryID:(NSNumber *)categoryID
++ (NSString *)stringForCategoryID:(NSString *)categoryID
 {
-    NSString *categoryKey = [self categoryKeys][categoryID];
-    NSString *categoryString = NSLocalizedStringWithDefaultValue(categoryKey, tbl, bundle, @"Unknown", @"The category for an event");
+    NSString *categoryString = NSLocalizedStringWithDefaultValue(categoryID, tbl, bundle, @"Unknown", @"The category for an event");
     
     return categoryString;
 }
@@ -37,25 +43,25 @@
 }
 
 
-#pragma mark - Private methods
-
-+ (NSDictionary *)categoryKeys
-{
-    static NSDictionary *categories = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        categories = @{
-        @0 : @"CATEGORY_CONCERTS",
-        @1 : @"CATEGORY_NIGHTLIFE",
-        @2 : @"CATEGORY_THEATRE",
-        @3 : @"CATEGORY_DANCE",
-        @4 : @"CATEGORY_ART_EXHIBITION",
-        @5 : @"CATEGORY_SPORTS",
-        @6 : @"CATEGORY_PRESENTATIONS"
-        };
-    });
-    
-    return categories;
-}
+//#pragma mark - Private methods
+//
+//+ (NSDictionary *)categoryKeys
+//{
+//    static NSDictionary *categories = nil;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        categories = @{
+//        @0 : @"CATEGORY_CONCERTS",
+//        @1 : @"CATEGORY_NIGHTLIFE",
+//        @2 : @"CATEGORY_THEATRE",
+//        @3 : @"CATEGORY_DANCE",
+//        @4 : @"CATEGORY_ART_EXHIBITION",
+//        @5 : @"CATEGORY_SPORTS",
+//        @6 : @"CATEGORY_PRESENTATIONS"
+//        };
+//    });
+//    
+//    return categories;
+//}
 
 @end

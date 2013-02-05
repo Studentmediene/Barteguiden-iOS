@@ -44,7 +44,7 @@
 
 - (void)testPredicateForFeaturedEventsShouldOnlyMatchFeaturedEvents
 {
-    NSPredicate *predicate = [EventStore predicateForFeaturedEvents];
+    NSPredicate *predicate = [_eventStore predicateForFeaturedEvents];
     NSArray *result = [_eventStore eventsMatchingPredicate:predicate];
     STAssertEquals(result.count, 1U, @"Incorrect number of featured events.");
     

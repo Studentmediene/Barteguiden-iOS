@@ -9,7 +9,7 @@
 #ifndef Kulturkalender_EventKit_h
 #define Kulturkalender_EventKit_h
 
-#import "EventStore.h"
-#import "Event.h"
+#import "EventStoreProtocol.h"
+#import "EventProtocol.h"
 
 #endif

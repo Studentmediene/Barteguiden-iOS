@@ -7,6 +7,7 @@
 //
 
 #import "FilterManager.h"
+#import "EventKit.h"
 
 NSString * const kCategoryFilterSelectionKey = @"CategoryFilterSelection";
 NSString * const kAgeLimitFilterMyAgeKey = @"AgeLimitFilterMyAge";
@@ -25,6 +26,42 @@ NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
     }
     return self;
 }
+
+- (void)save
+{
+    [_userDefaults synchronize];
+}
+
+
+#pragma mark - Predicate
+
+//- (NSPredicate *)predicate
+//{
+//    NSMutableArray *predicates = [[NSMutableArray alloc] init];
+//    
+//    // Category filter
+//    NSPredicate *categoryPredicate = [self.eventStore predicateForEventsWithCategoryIDs:self.selectedCategoryIDs];
+//    [predicates addObject:categoryPredicate];
+//    
+//    // Age filter
+//    if (self.ageLimitFilter == AgeLimitFilterShowAllowedForMyAge && [self.myAge unsignedIntegerValue] > 0) {
+//        NSPredicate *ageLimitFilter = [self.eventStore predicateForEventsAllowedForAge:[self.myAge unsignedIntegerValue]];
+//        [predicates addObject:ageLimitFilter];
+//    }
+//    
+//    // Price filter
+//    if (self.priceFilter == PriceFilterShowPaidEvents) {
+//        NSPredicate *priceFilter = [self.eventStore predicateForPaidEvents];
+//        [predicates addObject:priceFilter];
+//    }
+//    else if (self.priceFilter == PriceFilterShowFreeEvents) {
+//        NSPredicate *priceFilter = [self.eventStore predicateForFreeEvents];
+//        [predicates addObject:priceFilter];
+//    }
+//    
+//    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
+//    return predicate;
+//}
 
 
 #pragma mark - Defaults
@@ -104,48 +141,6 @@ NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
     [_userDefaults setObject:@(priceFilter) forKey:kPriceFilterSelectionKey];
 }
 
-
-#pragma mark - Saving
-
-- (void)save
-{
-    // TODO: Remove?
-//    NSArray *selectedCategories = [_selectedCategories allObjects];
-//    [_userDefaults setObject:selectedCategories forKey:kCategoryFilterSelectionKey];
-    [_userDefaults synchronize];
-}
-
-// TODO: Temp
-
-//- (NSPredicate *)predicate
-//{
-//    // FIXME: Move method to MyPageViewController
-//
-//    NSMutableArray *predicates = [[NSMutableArray alloc] init];
-//
-//    // Category filter
-//    NSPredicate *categoryPredicate = [NSPredicate predicateWithFormat:@"categoryID IN %@", _selectedCategories];
-//    [predicates addObject:categoryPredicate];
-//
-//    // Age filter
-//    if (self.ageLimitFilter == AgeLimitFilterShowAllowedForMyAge && [self.myAge unsignedIntegerValue] > 0) {
-//        NSPredicate *ageLimitFilter = [NSPredicate predicateWithFormat:@"ageLimit <= %@", self.myAge];
-//        [predicates addObject:ageLimitFilter];
-//    }
-//
-//    // Price filter
-//    if (self.priceFilter == PriceFilterShowPaidEvents) {
-//        NSPredicate *priceFilter = [NSPredicate predicateWithFormat:@"price > 0"];
-//        [predicates addObject:priceFilter];
-//    }
-//    else if (self.priceFilter == PriceFilterShowFreeEvents) {
-//        NSPredicate *priceFilter = [NSPredicate predicateWithFormat:@"price == 0"];
-//        [predicates addObject:priceFilter];
-//    }
-//
-//    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
-//    return predicate;
-//}
 
 // TODO: Where to put this code?
 //// Register defaults

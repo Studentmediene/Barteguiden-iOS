@@ -12,7 +12,7 @@
 @interface Event (Category)
 
 + (NSArray *)categoryIDs;
-+ (NSString *)stringForCategoryID:(NSNumber *)categoryID;
++ (NSString *)stringForCategoryID:(NSString *)categoryID;
 
 - (NSString *)categoryString;
 
