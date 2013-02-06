@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EventKit.h"
-
 #import "EventsSearchDisplayControllerDelegate.h"
 
 @protocol EventStore;
 
-@interface AbstractEventsViewController : UITableViewController < EventsSearchDisplayControllerDelegate>
+@interface AbstractEventsViewController : UITableViewController <EventsSearchDisplayControllerDelegate>
 
 @property (nonatomic, strong) id<EventStore> eventStore;
 

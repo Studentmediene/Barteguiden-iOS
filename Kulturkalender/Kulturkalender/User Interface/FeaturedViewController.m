@@ -7,6 +7,8 @@
 //
 
 #import "FeaturedViewController.h"
+#import "EventKit.h"
+
 
 @implementation FeaturedViewController
 

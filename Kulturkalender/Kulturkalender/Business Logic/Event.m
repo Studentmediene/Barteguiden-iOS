@@ -7,6 +7,7 @@
 //
 
 #import "Event.h"
+#import "LocalizedText.h"
 
 @implementation Event
 
@@ -47,18 +48,35 @@
 
 - (CLLocationCoordinate2D)location
 {
-    CLLocationCoordinate2D location;
-    return location; // TODO: Fix
+    return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
 }
 
 - (NSString *)descriptionForLanguage:(NSString *)language
 {
-    return [NSString stringWithFormat:@"DESCRIPTION:%@", language]; // TODO: Fix
+    return [self localizedTextFromSet:self.localizedDescription withLanguage:language];
 }
 
 - (NSString *)featuredForLanguage:(NSString *)language
 {
-    return [NSString stringWithFormat:@"FEATURED:%@", language]; // TODO: Fix
+    return [self localizedTextFromSet:self.localizedFeatured withLanguage:language];
+}
+
+
+#pragma mark - Private methods
+
+- (NSString *)localizedTextFromSet:(NSSet *)set withLanguage:(NSString *)language
+{
+    NSSet *currentLocalizedTexts = [set objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+        LocalizedText *localizedText = obj;
+        if ([localizedText.language isEqualToString:language]) {
+            *stop = YES;
+            return YES;
+        }
+        
+        return NO;
+    }];
+    
+    return [[currentLocalizedTexts anyObject] text];
 }
 
 @end

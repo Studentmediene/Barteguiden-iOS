@@ -12,12 +12,14 @@
 
 // TODO: Update list
 typedef NS_ENUM(NSInteger, EventCategory) {
-    EventCategory1 = 0,
-    EventCategory2,
-    EventCategory3,
-    EventCategory4
+    EventCategoryConcerts = 0,
+    EventCategoryNightlife,
+    EventCategoryTheatre,
+    EventCategoryDance,
+    EventCategoryArtExhibition,
+    EventCategorySports,
+    EventCategoryPresentations
 };
-
 
 @protocol Event <NSObject>
 

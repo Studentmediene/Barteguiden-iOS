@@ -1,35 +1,37 @@
 //
-//  Event+Time.m
+//  EventFormatter+Time.m
 //  Kulturkalender
 //
 //  Created by Christian Rasmussen on 26.10.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "Event+Time.h"
-#import "EventConstants.h"
+#import "EventFormatter+Time.h"
+#import "EventFormatterConstants.h"
+#import "EventKit.h"
 
-@implementation Event (Time)
+
+@implementation EventFormatter (Time)
 
 - (NSString *)timeString
 {
     NSString *time = nil;
     
-    if (self.endAt == nil) {
+    if ([self.event endAt] == nil) {
         NSDateFormatter *dateFormatter = [self timeAndDateFormatter];
         
         NSString *format = @"Starts on %1$@";// TODO: Localize
-        NSString *startAt = [dateFormatter stringFromDate:self.startAt];
+        NSString *startAt = [dateFormatter stringFromDate:[self.event startAt]];
         time = [NSString stringWithFormat:format, startAt];
     }
     else {
         NSDateFormatter *startAtDateFormatter = [self timeAndDateFormatter];
-        BOOL isSameDay = [self isSameDayWithDate1:self.startAt date2:self.endAt];
+        BOOL isSameDay = [self isSameDayWithDate1:[self.event startAt] date2:[self.event endAt]];
         NSDateFormatter *endAtDateFormatter = (isSameDay == YES) ? [self onlyTimeFormatter] : [self timeAndDateFormatter];
         
         NSString *format = @"From %1$@ to %2$@";// TODO: Localize
-        NSString *startAt = [startAtDateFormatter stringFromDate:self.startAt];
-        NSString *endAt = [endAtDateFormatter stringFromDate:self.endAt];
+        NSString *startAt = [startAtDateFormatter stringFromDate:[self.event startAt]];
+        NSString *endAt = [endAtDateFormatter stringFromDate:[self.event endAt]];
         time = [NSString stringWithFormat:format, startAt, endAt];
     }
     
@@ -57,14 +59,12 @@
 - (NSDateFormatter *)timeAndDateFormatter
 {
     static NSDateFormatter *dateFormatter;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.locale = [NSLocale currentLocale];
+        dateFormatter.locale = self.locale;
         [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    });
+    }
     
     return dateFormatter;
 }
@@ -72,13 +72,11 @@
 - (NSDateFormatter *)onlyTimeFormatter
 {
     static NSDateFormatter *dateFormatter;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.locale = [NSLocale currentLocale];
+        dateFormatter.locale = self.locale;
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    });
+    }
     
     return dateFormatter;
 }

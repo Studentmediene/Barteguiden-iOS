@@ -8,6 +8,7 @@
 
 #import "EventDetailsViewController.h"
 #import "EventKit.h"
+#import "EventKitUI.h"
 
 #import "MapViewController.h"
 
@@ -61,12 +62,10 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 
 - (void)toggleFavorite:(id)sender
 {
-//    BOOL isFavorite = ([self.event.favorite boolValue] == NO);
-    BOOL isFavorite = (self.event.favorite == NO);
+    BOOL newFavorite = ([self.event isFavorite] == NO);
 
-    self.event.favorite = @(isFavorite);
-
-    self.favoriteButton.selected = isFavorite;
+    self.event.favorite = newFavorite;
+    self.favoriteButton.selected = newFavorite;
 
 }
 
@@ -152,20 +151,20 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 
 - (void)updateViewInfo
 {
+    EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:self.event];
     self.titleLabel.text = [self.event title];
-//    self.timeLabel.text = [self.event startAt];
-    self.categoryLabel.text = [NSString stringWithFormat:@"%d", [self.event category]];
-    self.priceLabel.text = [self.event.price stringValue];
-    self.ageLimitLabel.text = [[self.event ageLimit] stringValue];
-    self.descriptionLabel.text = [self.event descriptionForLanguage:@"no"];
+//    self.timeLabel.text = [self.event startAt]; // TODO: Fix
+    self.categoryLabel.text = [eventFormatter categoryString];
+    self.priceLabel.text = [eventFormatter priceString];
+    self.ageLimitLabel.text = [eventFormatter ageLimitString];
+    self.descriptionLabel.text = [eventFormatter currentLocalizedDescription];
     
-    self.featuredLabel.text = [self.event featuredForLanguage:@"no"];
+    self.featuredLabel.text = [eventFormatter currentLocalizedFeatured];
     
-    self.placeNameLabel.text = self.event.placeName;
-    self.addressLabel.text = self.event.address;
+    self.placeNameLabel.text = [self.event placeName];
+    self.addressLabel.text = [self.event address];
     
-//    self.favoriteButton.selected = self.event.favorite;
-//    self.favoriteButton.selected = [self.event.favorite boolValue];
+    self.favoriteButton.selected = self.event.favorite;
 }
 
 - (void)storeChanged:(NSNotification *)note

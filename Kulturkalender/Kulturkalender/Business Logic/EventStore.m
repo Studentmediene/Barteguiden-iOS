@@ -137,10 +137,10 @@ static NSString * const kEventEntityName = @"Event";
     fetchRequest.fetchBatchSize = 20;
     fetchRequest.predicate = predicate;
     
-    // TODO: Do I need sort descriptors?
-//    NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES];
-//    NSArray *sortDescriptors = @[ startAtSortDescriptor ];
-//    [fetchRequest setSortDescriptors:sortDescriptors];
+    // Set sort descriptor
+    NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES];
+    NSArray *sortDescriptors = @[ startAtSortDescriptor ];
+    [fetchRequest setSortDescriptors:sortDescriptors];
     
     return fetchRequest;
 }

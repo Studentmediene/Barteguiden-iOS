@@ -7,6 +7,8 @@
 //
 
 #import "FavoritesViewController.h"
+#import "EventKit.h"
+
 
 @implementation FavoritesViewController
 

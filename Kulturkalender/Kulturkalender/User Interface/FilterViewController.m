@@ -150,7 +150,7 @@ enum {
 
 #pragma mark - Category filter
 
-// TODO Fix
+// TODO: Fix
 - (void)updateCategoryFilterSelectedCell
 {
 //    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -164,7 +164,7 @@ enum {
 
 - (void)setCategoryFilterForCell:(UITableViewCell *)cell
 {
-    // TODO Fix
+    // TODO: Fix
 //    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 //    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
 //    [_filterManager toggleSelectedForCategoryID:categoryID];

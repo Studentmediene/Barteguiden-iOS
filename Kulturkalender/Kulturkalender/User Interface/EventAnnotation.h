@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
+
 @interface EventAnnotation : NSObject <MKAnnotation>
 
 @property (nonatomic, strong) NSNumber *latitude;

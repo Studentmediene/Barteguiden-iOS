@@ -7,8 +7,12 @@
 //
 
 #import "AbstractEventsViewController.h"
+#import "EventKit.h"
+#import "EventKitUI.h"
 #import "EventDetailsViewController.h"
 #import "EventCell.h"
+
+#import "NSArray+RIOClassifier.h"
 
 
 @implementation AbstractEventsViewController
@@ -106,19 +110,28 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     id<Event> event = [self.result objectAtIndex:indexPath.row]; // TODO: Fix
+    EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:event];
     
     EventCell *eventCell = (EventCell *)cell;
     
 //    NSString *imageName = event.imageID ?: @"EmptyPoster";
 //    eventCell.thumbnailImageView.image = [UIImage imageNamed:imageName];
     eventCell.titleLabel.text = [event title];
-    eventCell.detailLabel.text = @"Time and date"; // TODO: Fix
-    eventCell.priceLabel.text = [event.price stringValue]; // TODO: Fix
+    eventCell.detailLabel.text = [eventFormatter timeAndLocationString];
+    eventCell.priceLabel.text = [eventFormatter priceString];
 }
 
 - (void)reloadPredicate
 {
     self.result = [self.eventStore eventsMatchingPredicate:[self eventsPredicate]];
+    
+    // TODO: How to sort the sections?
+    NSDictionary *dict = [self.result classifyObjectsUsingBlock:^id<NSCopying>(id obj) {
+        EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:obj];
+        return [eventFormatter dateSectionName];
+    }];
+    NSLog(@"%@", dict);
+    
     [self.tableView reloadData];
 }
 
