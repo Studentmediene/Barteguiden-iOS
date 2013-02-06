@@ -7,7 +7,6 @@
 //
 
 #import "FilterViewController.h"
-#import "EventManager.h"
 #import "FilterManager.h"
 
 enum {
@@ -71,7 +70,8 @@ enum {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == kCategorySectionIndex) {
-        return [[Event categoryIDs] count];
+        // TODO: Fix
+        return 0;//[[Event categoryIDs] count];
     }
     
     return [super tableView:tableView numberOfRowsInSection:section];
@@ -88,11 +88,12 @@ enum {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         
-        NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-        BOOL isSelected = [_filterManager isSelectedForCategoryID:categoryID];
-        
-        cell.textLabel.text = [Event stringForCategoryID:categoryID];
-        cell.accessoryType = (isSelected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+        // TODO: Fix
+//        NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
+//        BOOL isSelected = [_filterManager isSelectedForCategoryID:categoryID];
+//        
+//        cell.textLabel.text = [Event stringForCategoryID:categoryID];
+//        cell.accessoryType = (isSelected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         
         return cell;
     }
@@ -149,24 +150,26 @@ enum {
 
 #pragma mark - Category filter
 
+// TODO Fix
 - (void)updateCategoryFilterSelectedCell
 {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//    
+//    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
+//    BOOL isSelected = [_filterManager isSelectedForCategoryID:categoryID];
     
-    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-    BOOL isSelected = [_filterManager isSelectedForCategoryID:categoryID];
-    
-    cell.accessoryType = (isSelected == YES) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+//    cell.accessoryType = (isSelected == YES) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 - (void)setCategoryFilterForCell:(UITableViewCell *)cell
 {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-    [_filterManager toggleSelectedForCategoryID:categoryID];
-    
-    [self updateCategoryFilterSelectedCell];
+    // TODO Fix
+//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
+//    [_filterManager toggleSelectedForCategoryID:categoryID];
+//    
+//    [self updateCategoryFilterSelectedCell];
 }
 
 

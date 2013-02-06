@@ -36,3 +36,8 @@ typedef void (^EventSearchCallback)(id<Event> event, BOOL *stop);
 - (BOOL)save:(NSError **)error;
 
 @end
+
+// Notifications
+//extern NSString * const EventStoreChangedNotification;
+//extern NSString * const EventStoreWillRefreshNotification;
+//extern NSString * const EventStoreDidRefreshNotification;

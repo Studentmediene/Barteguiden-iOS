@@ -8,6 +8,7 @@
 
 #import "EventsSearchDisplayController.h"
 #import "EventsSearchDisplayControllerDelegate.h"
+#import "EventKit.h"
 
 @implementation EventsSearchDisplayController {
     NSString *_searchString;
@@ -57,7 +58,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id event = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
+    id<Event> event = [self.result objectAtIndex:[tableView indexPathForSelectedRow].row]; // TODO: Fix
     
     [self.delegate navigateToEvent:event];
 }
@@ -70,8 +71,10 @@
     NSPredicate *predicate = [self.delegate eventsPredicate];
     
     if ([_searchString length] > 0) {
-        NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"(title CONTAINS[cd] %@) OR (placeName CONTAINS[cd] %@)", _searchString, _searchString];
-        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, searchPredicate ]];
+        NSPredicate *titlePredicate = [self.eventStore predicateForTitleContainingText:_searchString];
+        NSPredicate *placeNamePredicate = [self.eventStore predicateForPlaceNameContainingText:_searchString];
+        NSPredicate *searchPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:@[titlePredicate, placeNamePredicate]];
+        predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate, searchPredicate]];
     }
     
     return predicate;

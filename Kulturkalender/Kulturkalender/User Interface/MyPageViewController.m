@@ -35,11 +35,6 @@
     return predicate;
 }
 
-- (NSString *)cacheName
-{
-    return @"MyPageCache";
-}
-
 
 #pragma mark - Unwind segues
 

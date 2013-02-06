@@ -7,7 +7,8 @@
 //
 
 #import "TabBarController.h"
-#import "EventManager.h"
+#import "EventKit.h"
+
 #import "FilterManager.h"
 #import "AbstractEventsViewController.h"
 #import "MyPageViewController.h"
@@ -27,10 +28,10 @@
         
         if ([rootViewController isKindOfClass:[AbstractEventsViewController class]]) {
             AbstractEventsViewController *abstractEventsViewController = (AbstractEventsViewController *)rootViewController;
-            abstractEventsViewController.eventManager = self.eventManager;
+            abstractEventsViewController.eventStore = self.eventStore;
             
             EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)abstractEventsViewController.searchDisplayController.delegate;
-            eventsSearchDisplayController.eventManager = self.eventManager;
+            eventsSearchDisplayController.eventStore = self.eventStore;
         }
         
         if ([rootViewController isKindOfClass:[MyPageViewController class]]) {

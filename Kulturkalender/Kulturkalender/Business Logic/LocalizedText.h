@@ -1,14 +1,18 @@
 //
-//  LocalizedText.h
+//  _LocalizedText.h
 //  Kulturkalender
 //
-//  Created by Christian Rasmussen on 11.10.12.
+//  Created by Christian Rasmussen on 29.12.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "_LocalizedText.h"
+#import <CoreData/CoreData.h>
 
-@interface LocalizedText : _LocalizedText
+
+@interface LocalizedText : NSManagedObject
+
+@property (nonatomic, retain) NSString * language;
+@property (nonatomic, retain) NSString * text;
 
 @end

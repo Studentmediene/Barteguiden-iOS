@@ -7,8 +7,8 @@
 //
 
 #import "_Event.h"
-#import "_LocalizedDescription.h"
-#import "_LocalizedFeatured.h"
+#import "LocalizedDescription.h"
+#import "LocalizedFeatured.h"
 
 
 @implementation _Event

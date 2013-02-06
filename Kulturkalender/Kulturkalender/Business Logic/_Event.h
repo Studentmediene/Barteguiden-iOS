@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class _LocalizedDescription, _LocalizedFeatured;
+@class LocalizedDescription, LocalizedFeatured;
 
 @interface _Event : NSManagedObject
 
@@ -34,13 +34,13 @@
 
 @interface _Event (CoreDataGeneratedAccessors)
 
-- (void)addLocalizedDescriptionObject:(_LocalizedDescription *)value;
-- (void)removeLocalizedDescriptionObject:(_LocalizedDescription *)value;
+- (void)addLocalizedDescriptionObject:(LocalizedDescription *)value;
+- (void)removeLocalizedDescriptionObject:(LocalizedDescription *)value;
 - (void)addLocalizedDescription:(NSSet *)values;
 - (void)removeLocalizedDescription:(NSSet *)values;
 
-- (void)addLocalizedFeaturedObject:(_LocalizedFeatured *)value;
-- (void)removeLocalizedFeaturedObject:(_LocalizedFeatured *)value;
+- (void)addLocalizedFeaturedObject:(LocalizedFeatured *)value;
+- (void)removeLocalizedFeaturedObject:(LocalizedFeatured *)value;
 - (void)addLocalizedFeatured:(NSSet *)values;
 - (void)removeLocalizedFeatured:(NSSet *)values;
 

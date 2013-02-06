@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "EventKit.h"
 
-// Notifications
-//extern NSString * const EventStoreChangedNotification;
-
 
 @interface EventStore : NSObject <EventStore>
 

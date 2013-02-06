@@ -7,10 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "TabBarController.h"
 #import "EventKit.h"
 #import "EventStore.h"
-#import "EventManager.h"// TODO: Temp
+#import "TabBarController.h"
 #import "FilterManager.h"// TODO: Temp
 
 @implementation AppDelegate
@@ -23,15 +22,20 @@
 {
     _eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     
-    // TODO: Temp
-    _eventManager = [[EventManager alloc] initWithManagedObjectContext:self.managedObjectContext];
+    // Import test data
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
+//    NSData *data = [NSData dataWithContentsOfURL:url];
+//    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+//    NSArray *events = values[@"events"];
+//    [_eventStore importEvents:events];
+//    [self.managedObjectContext save:NULL];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     _filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaults];
     
     // Inject dependencies
     TabBarController *tabBarController = (TabBarController *)self.window.rootViewController;
-    tabBarController.eventManager = _eventManager;
+    tabBarController.eventStore = _eventStore;
     tabBarController.filterManager = _filterManager;
     
     return YES;
@@ -44,7 +48,6 @@
     
     // TODO: Move to applicationWillTerminate: instead?
     NSLog(@"Closing...");
-    [_eventManager save]; // TODO: Temp
     [_filterManager save];
 //    [self save];
 }
@@ -64,7 +67,6 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     NSLog(@"Refreshing...");
-    [_eventManager refresh];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

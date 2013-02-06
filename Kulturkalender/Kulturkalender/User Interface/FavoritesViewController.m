@@ -7,7 +7,6 @@
 //
 
 #import "FavoritesViewController.h"
-#import "EventManager.h"
 
 @implementation FavoritesViewController
 
@@ -32,14 +31,9 @@
 {
     // NOTE: Does not call [super eventsPredicate] to allow old events to show in this list
     
-    NSPredicate *favoritesPredicate = [NSPredicate predicateWithFormat:@"favoriteState == 1"];
+    NSPredicate *favoritesPredicate = [self.eventStore predicateForFavoritedEvents];
     
     return favoritesPredicate;
-}
-
-- (NSString *)cacheName
-{
-    return @"FavoritesCache";
 }
 
 
@@ -58,7 +52,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Remove favorite flag
-        Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        id<Event> event = [self.result objectAtIndex:indexPath.row]; // TODO: Fix
         event.favorite = @NO;
     }
 }

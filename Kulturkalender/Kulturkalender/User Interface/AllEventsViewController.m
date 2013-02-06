@@ -39,25 +39,20 @@ enum {
     
     switch ([self.priceFilterSegmentedControl selectedSegmentIndex]) {
         case kPaidEventsSegmentedControllIndex: {
-            NSPredicate *paidPredicate = [NSPredicate predicateWithFormat:@"price > 0"];
-            predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, paidPredicate ]];
+            NSPredicate *paidPredicate = [self.eventStore predicateForPaidEvents];
+            predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate, paidPredicate]];
             
             break;
         }
         case kFreeEventsSegmentedControllIndex: {
-            NSPredicate *freePredicate = [NSPredicate predicateWithFormat:@"price == 0"];
-            predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, freePredicate ]];
+            NSPredicate *freePredicate = [self.eventStore predicateForFreeEvents];
+            predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate, freePredicate]];
             
             break;
         }
     }
     
     return predicate;
-}
-
-- (NSString *)cacheName
-{
-    return @"AllEventsCache";
 }
 
 

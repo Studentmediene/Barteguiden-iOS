@@ -7,15 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventKit.h"
+
 #import "EventsSearchDisplayControllerDelegate.h"
 
-@protocol EventManager;
+@protocol EventStore;
 
-@interface AbstractEventsViewController : UITableViewController <NSFetchedResultsControllerDelegate, EventsSearchDisplayControllerDelegate>
+@interface AbstractEventsViewController : UITableViewController < EventsSearchDisplayControllerDelegate>
 
-@property (nonatomic, strong) id<EventManager> eventManager;
+@property (nonatomic, strong) id<EventStore> eventStore;
 
-@property (nonatomic, strong, readonly) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSArray *result;
 
 - (void)reloadPredicate;
 - (NSPredicate *)eventsPredicate;

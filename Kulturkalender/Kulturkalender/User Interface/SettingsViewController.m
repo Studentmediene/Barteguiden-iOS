@@ -7,7 +7,6 @@
 //
 
 #import "SettingsViewController.h"
-#import "EventManager.h"
 
 @implementation SettingsViewController
 
@@ -42,7 +41,7 @@
 - (IBAction)triggerRefresh:(id)sender
 {
 //    NSLog(@"Refreshing (Not working)");
-//    [self.eventManager refresh];
+//    [self.eventStore refresh];
 }
 
 

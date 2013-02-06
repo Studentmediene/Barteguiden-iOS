@@ -10,11 +10,12 @@
 #import <EventKit/EventKit.h>
 #import <EventKitUI/EventKitUI.h>
 
-@class Event;
+
+@protocol Event;
 
 @interface EventDetailsViewController : UITableViewController <UIActionSheetDelegate, EKEventEditViewDelegate>
 
-@property (nonatomic, strong) Event *event;
+@property (nonatomic, strong) id<Event> event;
 
 @property (nonatomic, strong) EKEventStore *eventStore;
 

@@ -7,7 +7,8 @@
 //
 
 #import "EventDetailsViewController.h"
-#import "EventManager.h"
+#import "EventKit.h"
+
 #import "MapViewController.h"
 
 const float kAlertOffset = -30*60; // 30 minutes before event
@@ -50,8 +51,8 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 {
     if ([segue.identifier isEqualToString:@"MapSegue"])
     {
-        MapViewController *mapViewController = [segue destinationViewController];
-        mapViewController.annotation = self.event.annotation;
+//        MapViewController *mapViewController = [segue destinationViewController];
+//        mapViewController.annotation = self.event.annotation;
     }
 }
 
@@ -151,14 +152,14 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 
 - (void)updateViewInfo
 {
-    self.titleLabel.text = self.event.title;
-    self.timeLabel.text = self.event.timeString;
-    self.categoryLabel.text = self.event.categoryString;
-    self.priceLabel.text = self.event.priceString;
-    self.ageLimitLabel.text = self.event.ageLimitString;
-    self.descriptionLabel.text = self.event.currentLocalizedDescription;
+    self.titleLabel.text = [self.event title];
+//    self.timeLabel.text = [self.event startAt];
+    self.categoryLabel.text = [NSString stringWithFormat:@"%d", [self.event category]];
+    self.priceLabel.text = [self.event.price stringValue];
+    self.ageLimitLabel.text = [[self.event ageLimit] stringValue];
+    self.descriptionLabel.text = [self.event descriptionForLanguage:@"no"];
     
-    self.featuredLabel.text = self.event.currentLocalizedFeatured;
+    self.featuredLabel.text = [self.event featuredForLanguage:@"no"];
     
     self.placeNameLabel.text = self.event.placeName;
     self.addressLabel.text = self.event.address;

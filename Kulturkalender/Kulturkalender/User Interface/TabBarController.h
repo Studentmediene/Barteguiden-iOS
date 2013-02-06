@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol EventManager;
+@protocol EventStore;
 @protocol FilterManager;
 
 @interface TabBarController : UITabBarController
 
-@property (nonatomic, strong) id<EventManager> eventManager;
+@property (nonatomic, strong) id<EventStore> eventStore;
 @property (nonatomic, strong) id<FilterManager> filterManager;
-
-@property (nonatomic, weak) IBOutlet id test;
 
 @end

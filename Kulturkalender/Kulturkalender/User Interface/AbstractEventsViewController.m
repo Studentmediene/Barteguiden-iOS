@@ -7,15 +7,8 @@
 //
 
 #import "AbstractEventsViewController.h"
-#import "EventManager.h"
 #import "EventDetailsViewController.h"
 #import "EventCell.h"
-
-@interface AbstractEventsViewController ()
-
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-
-@end
 
 
 @implementation AbstractEventsViewController
@@ -28,6 +21,8 @@
 //    self.tableView.conten
     self.tableView.contentOffset = CGPointMake(0, -44);//self.searchDisplayController.searchBar.frame.size.height);
 //    self.tableView.contentInset = UIEdgeInsetsMake(-44,0,0,0);
+    
+    [self reloadPredicate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,15 +30,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:EventManagerDidRefreshNotification];
-}
-
-
-#pragma mark - Abstract methods
-
-- (NSString *)cacheName
-{
-    return nil;
+    // TODO: Fix
+//    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:EventStoreDidRefreshNotification];
 }
 
 
@@ -51,13 +39,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    return 1; // TODO: Fix
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+    return [self.result count]; // TODO: Fix
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,8 +58,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo name];
+    return @"DAY"; // TODO: Fix
 }
 
 
@@ -85,61 +71,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id event = [self.fetchedResultsController objectAtIndexPath:[tableView indexPathForSelectedRow]];
+    id<Event> event = [self.result objectAtIndex:indexPath.row]; // TODO: Fix
     
     [self navigateToEvent:event];
-}
-
-
-#pragma mark - NSFetchedResultsControllerDelegate
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
-    switch (type)
-    {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-    }
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
-{
-    UITableView *tableView = self.tableView;
-    
-    switch (type)
-    {
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-    }
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView endUpdates];
 }
 
 
@@ -148,6 +82,7 @@
 - (NSPredicate *)eventsPredicate
 {
     // Date predicate
+    // TODO: Fix this predicate
     NSDate *now = [NSDate date];
     NSString *format = @"(endAt != nil AND endAt >= %@) OR startAt >= %@";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:format, now, now];
@@ -159,7 +94,7 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Kulturkalender" bundle:nil];
     EventDetailsViewController *eventDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
-    //    eventDetailsViewController.delegate = self;
+//    eventDetailsViewController.delegate = self;
     eventDetailsViewController.event = event;
     
     [self.navigationController pushViewController:eventDetailsViewController animated:YES];
@@ -168,78 +103,22 @@
 
 #pragma mark - Private methods
 
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (_fetchedResultsController == nil)
-    {
-        [self setUpFetchedResultsController];
-        [self performFetch];
-    }
-    
-    return _fetchedResultsController;
-}
-
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    id<Event> event = [self.result objectAtIndex:indexPath.row]; // TODO: Fix
     
     EventCell *eventCell = (EventCell *)cell;
     
-    NSString *imageName = event.imageID ?: @"EmptyPoster";
-    eventCell.thumbnailImageView.image = [UIImage imageNamed:imageName];
-    eventCell.titleLabel.text = event.title;
-    eventCell.detailLabel.text = event.timeAndLocationString;
-    eventCell.priceLabel.text = event.priceString;
-}
-
-- (void)setUpFetchedResultsController
-{
-    // Set up the fetch request
-    NSManagedObjectContext *managedObjectContext = [self.eventManager managedObjectContext];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
-    fetchRequest.includesSubentities = YES;
-    fetchRequest.fetchBatchSize = 20;
-    
-    // Set predicate
-    [fetchRequest setPredicate:[self eventsPredicate]];
-    
-    // Set sort descriptor
-    NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES];
-    NSArray *sortDescriptors = @[ startAtSortDescriptor ];
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Set a default cache name
-    NSString *cacheName = nil;
-//    NSString *cacheName = [self cacheName];
-    // TODO: Fix cache name
-    
-    // Create the fetched results controller
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:cacheName];
-    self.fetchedResultsController.delegate = self;
-}
-
-- (void)performFetch
-{
-    // Perform fetch and handle error
-    NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error])
-    {
-	    /*
-	     Replace this implementation with code to handle the error appropriately.
-         
-	     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-	     */
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
+//    NSString *imageName = event.imageID ?: @"EmptyPoster";
+//    eventCell.thumbnailImageView.image = [UIImage imageNamed:imageName];
+    eventCell.titleLabel.text = [event title];
+    eventCell.detailLabel.text = @"Time and date"; // TODO: Fix
+    eventCell.priceLabel.text = [event.price stringValue]; // TODO: Fix
 }
 
 - (void)reloadPredicate
 {
-    [NSFetchedResultsController deleteCacheWithName:[self cacheName]];
-    [self.fetchedResultsController.fetchRequest setPredicate:[self eventsPredicate]];
-    [self performFetch];
+    self.result = [self.eventStore eventsMatchingPredicate:[self eventsPredicate]];
     [self.tableView reloadData];
 }
 

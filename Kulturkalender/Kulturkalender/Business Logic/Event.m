@@ -12,88 +12,53 @@
 
 - (NSString *)eventIdentifier
 {
-    return nil;
-}
-
-- (NSString *)title
-{
-    return nil;
-}
-
-- (NSDate *)startAt
-{
-    return nil;
-}
-
-- (NSDate *)endAt
-{
-    return nil;
+    return self.eventID;
 }
 
 - (BOOL)isFeatured
 {
-    return YES;
+    return [self.featuredState boolValue];
 }
 
 - (BOOL)isFavorite
 {
-    return YES;
+    return [self.favoriteState boolValue];
 }
 
 - (void)setFavorite:(BOOL)favorite
 {
-    
+    self.favoriteState = @(favorite);
 }
 
 - (EventCategory)category
 {
-    return 0;
-}
-
-- (NSDecimalNumber *)price
-{
-    return [NSDecimalNumber zero];
-}
-
-- (NSNumber *)ageLimit
-{
-    return @0;
+    return 0; // TODO: Fix
 }
 
 - (UIImage *)thumbnailImage
 {
-    return nil;
+    return nil; // TODO: Fix
 }
 
 - (UIImage *)originalImage
 {
-    return nil;
-}
-
-- (NSString *)placeName
-{
-    return nil;
-}
-
-- (NSString *)address
-{
-    return nil;
+    return nil; // TODO: Fix
 }
 
 - (CLLocationCoordinate2D)location
 {
     CLLocationCoordinate2D location;
-    return location;
+    return location; // TODO: Fix
 }
 
 - (NSString *)descriptionForLanguage:(NSString *)language
 {
-    return nil;
+    return [NSString stringWithFormat:@"DESCRIPTION:%@", language]; // TODO: Fix
 }
 
 - (NSString *)featuredForLanguage:(NSString *)language
 {
-    return nil;
+    return [NSString stringWithFormat:@"FEATURED:%@", language]; // TODO: Fix
 }
 
 @end

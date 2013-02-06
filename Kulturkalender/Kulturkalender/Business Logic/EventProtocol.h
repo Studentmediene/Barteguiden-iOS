@@ -12,7 +12,7 @@
 
 // TODO: Update list
 typedef NS_ENUM(NSInteger, EventCategory) {
-    EventCategory1,
+    EventCategory1 = 0,
     EventCategory2,
     EventCategory3,
     EventCategory4
@@ -26,7 +26,6 @@ typedef NS_ENUM(NSInteger, EventCategory) {
 @property (nonatomic, readonly) NSDate *startAt;
 @property (nonatomic, readonly) NSDate *endAt;
 
-// TODO: Remove comment
 @property (nonatomic, readonly, getter=isFeatured) BOOL featured;
 @property (nonatomic, getter=isFavorite) BOOL favorite;
 

@@ -28,15 +28,10 @@
 {
     NSPredicate *predicate = [super eventsPredicate];
     
-    NSPredicate *featuredPredicate = [NSPredicate predicateWithFormat:@"featuredState == 1"];
-    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ predicate, featuredPredicate ]];
+    NSPredicate *featuredPredicate = [self.eventStore predicateForFeaturedEvents];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate, featuredPredicate]];
     
     return predicate;
-}
-
-- (NSString *)cacheName
-{
-    return @"FeaturedCache";
 }
 
 @end
