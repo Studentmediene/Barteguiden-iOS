@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <CoreData/CoreData.h>
 #import "EventKit.h"
 #import "EventStore.h"
 #import "TabBarController.h"

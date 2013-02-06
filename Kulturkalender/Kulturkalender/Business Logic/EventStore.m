@@ -7,6 +7,7 @@
 //
 
 #import "EventStore.h"
+#import <CoreData/CoreData.h>
 #import "EventBuilder.h"
 
 
