@@ -15,7 +15,8 @@
 
 @property (nonatomic, strong) id<EventStore> eventStore;
 
-@property (nonatomic, strong) NSArray *result;
+@property (nonatomic, strong) NSArray *sections;
+@property (nonatomic, strong) NSDictionary *items;
 
 - (void)reloadPredicate;
 - (NSPredicate *)eventsPredicate;

@@ -7,11 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import <CoreData/CoreData.h>
-#import "EventKit.h"
-#import "EventStore.h"
+#import "CoreDataEventKit.h"
+#import "FilterManager.h"
 #import "TabBarController.h"
-#import "FilterManager.h"// TODO: Temp
+
 
 @implementation AppDelegate
 

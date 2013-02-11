@@ -11,8 +11,6 @@
 
 @interface EventFormatter (Price)
 
-+ (NSString *)stringForPrice:(NSDecimalNumber *)price;
-
 - (NSString *)priceString;
 
 @end

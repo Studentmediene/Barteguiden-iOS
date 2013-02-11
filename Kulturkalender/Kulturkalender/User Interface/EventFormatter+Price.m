@@ -7,7 +7,7 @@
 //
 
 #import "EventFormatter+Price.h"
-#import "EventFormatterConstants.h"
+#import "EventConstants.h"
 #import "EventKit.h"
 
 
@@ -15,10 +15,13 @@
 
 - (NSString *)priceString
 {
-    return [[self class] stringForPrice:[self.event price]];
+    return [self stringForPrice:[self.event price]];
 }
 
-+ (NSString *)stringForPrice:(NSDecimalNumber *)price
+
+#pragma mark - Private methods
+
+- (NSString *)stringForPrice:(NSDecimalNumber *)price
 {
     NSString *priceString = nil;
     
@@ -26,12 +29,24 @@
         priceString = NSLocalizedStringFromTable(@"PRICE_FREE_EVENT", tbl, @"Free event");
     }
     else {
-        // TODO: Replace with currency formatter?
-        NSString *format = NSLocalizedStringFromTable(@"PRICE_PAID_EVENT", tbl, @"Format for paid event");
-        priceString = [NSString stringWithFormat:format, price];
+        priceString = [[self currencyFormatter] stringFromNumber:price];
     }
     
     return priceString;
+}
+
+- (NSNumberFormatter *)currencyFormatter
+{
+    static NSNumberFormatter *currencyFormatter;
+    if (currencyFormatter == nil) {
+        currencyFormatter = [[NSNumberFormatter alloc] init];
+        currencyFormatter.positiveSuffix = @"kr";
+        currencyFormatter.groupingSeparator = @" ";
+        currencyFormatter.groupingSize = 3;
+        currencyFormatter.usesGroupingSeparator = YES;
+    }
+    
+    return currencyFormatter;
 }
 
 @end

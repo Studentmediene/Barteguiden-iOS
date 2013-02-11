@@ -11,8 +11,6 @@
 
 @interface EventFormatter (AgeLimit)
 
-+ (NSString *)stringForAgeLimit:(NSNumber *)ageLimit;
-
 - (NSString *)ageLimitString;
 
 @end

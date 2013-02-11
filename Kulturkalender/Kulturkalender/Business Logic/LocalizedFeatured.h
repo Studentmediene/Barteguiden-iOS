@@ -10,10 +10,10 @@
 #import <CoreData/CoreData.h>
 #import "LocalizedText.h"
 
-@class _Event;
+@class Event;
 
 @interface LocalizedFeatured : LocalizedText
 
-@property (nonatomic, retain) _Event *event;
+@property (nonatomic, retain) Event *event;
 
 @end

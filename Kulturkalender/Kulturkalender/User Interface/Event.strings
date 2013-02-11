@@ -6,6 +6,7 @@
   Copyright (c) 2012 Under Dusken. All rights reserved.
 */
 
+"CATEGORY_UNKNOWN" = "Unknown";
 "CATEGORY_CONCERTS" = "Concerts";
 "CATEGORY_NIGHTLIFE" = "Nightlife";
 "CATEGORY_THEATRE" = "Theatre";

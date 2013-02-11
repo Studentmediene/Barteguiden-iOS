@@ -12,7 +12,7 @@
 #import "EventDetailsViewController.h"
 #import "EventCell.h"
 
-#import "NSArray+RIOClassifier.h"
+#import "NSArray+RIOClassifier.h" // TODO: Temp?
 
 
 @implementation AbstractEventsViewController
@@ -22,7 +22,6 @@
     [super viewDidLoad];
     
     // Hide search bar as default
-//    self.tableView.conten
     self.tableView.contentOffset = CGPointMake(0, -44);//self.searchDisplayController.searchBar.frame.size.height);
 //    self.tableView.contentInset = UIEdgeInsetsMake(-44,0,0,0);
     
@@ -43,12 +42,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1; // TODO: Fix
+    return [self.sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.result count]; // TODO: Fix
+    NSString *sectionName = [self.sections objectAtIndex:section];
+    NSArray *events = [self.items objectForKey:sectionName];
+    return [events count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,7 +63,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"DAY"; // TODO: Fix
+    return [self.sections objectAtIndex:section];
 }
 
 
@@ -75,7 +76,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id<Event> event = [self.result objectAtIndex:indexPath.row]; // TODO: Fix
+    NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
+    id<Event> event = [[self.items objectForKey:sectionName] objectAtIndex:indexPath.row];
     
     [self navigateToEvent:event];
 }
@@ -109,11 +111,12 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    id<Event> event = [self.result objectAtIndex:indexPath.row]; // TODO: Fix
-    EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:event];
+    NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
+    id<Event> event = [[self.items objectForKey:sectionName] objectAtIndex:indexPath.row];
     
     EventCell *eventCell = (EventCell *)cell;
     
+    EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:event];
 //    NSString *imageName = event.imageID ?: @"EmptyPoster";
 //    eventCell.thumbnailImageView.image = [UIImage imageNamed:imageName];
     eventCell.titleLabel.text = [event title];
@@ -123,14 +126,8 @@
 
 - (void)reloadPredicate
 {
-    self.result = [self.eventStore eventsMatchingPredicate:[self eventsPredicate]];
-    
-    // TODO: How to sort the sections?
-    NSDictionary *dict = [self.result classifyObjectsUsingBlock:^id<NSCopying>(id obj) {
-        EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:obj];
-        return [eventFormatter dateSectionName];
-    }];
-    NSLog(@"%@", dict);
+    NSArray *result = [self.eventStore eventsMatchingPredicate:[self eventsPredicate]];
+    [self updateSectionsAndItemsWithResult:result];
     
     [self.tableView reloadData];
 }
@@ -148,6 +145,24 @@
     }
 
     return cell;
+}
+
+- (void)updateSectionsAndItemsWithResult:(NSArray *)result
+{
+    NSMutableArray *sections = [[NSMutableArray alloc] init];
+    NSDictionary *items = [result classifyObjectsUsingBlock:^id<NSCopying>(id obj) {
+        EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:obj];
+        NSString *sectionName = [eventFormatter dateSectionName];
+        
+        if ([sectionName isEqual:[sections lastObject]] == NO) {
+            [sections addObject:sectionName];
+        }
+        
+        return sectionName;
+    }];
+    
+    self.sections = [sections copy];
+    self.items = [items copy];
 }
 
 @end

@@ -30,7 +30,6 @@ typedef void (^EventSearchCallback)(id<Event> event, BOOL *stop);
 - (NSPredicate *)predicateForEventsAllowedForAge:(NSUInteger)age;
 - (NSPredicate *)predicateForTitleContainingText:(NSString *)text;
 - (NSPredicate *)predicateForPlaceNameContainingText:(NSString *)text;
-// TODO: Add predicates for categories, age limit and price
 
 // Saving Changes
 - (BOOL)save:(NSError **)error;

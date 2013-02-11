@@ -7,7 +7,7 @@
 //
 
 #import "EventFormatter+TableView.h"
-#import "EventFormatterConstants.h"
+#import "EventConstants.h"
 #import "EventKit.h"
 #import "EventFormatter+Location.h"
 
@@ -45,7 +45,7 @@
     static NSDateFormatter *dateFormatter;
     if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.locale = self.locale;
+        dateFormatter.locale = [NSLocale currentLocale];
         [dateFormatter setDateStyle:NSDateFormatterFullStyle];
     }
     
@@ -57,7 +57,7 @@
     static NSDateFormatter *dateFormatter;
     if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.locale = self.locale;
+        dateFormatter.locale = [NSLocale currentLocale];
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     }
     

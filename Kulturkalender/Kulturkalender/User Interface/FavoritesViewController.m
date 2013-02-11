@@ -54,7 +54,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Remove favorite flag
-        id<Event> event = [self.result objectAtIndex:indexPath.row]; // TODO: Fix
+        NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
+        id<Event> event = [[self.items objectForKey:sectionName] objectAtIndex:indexPath.row];
         event.favorite = @NO;
     }
 }

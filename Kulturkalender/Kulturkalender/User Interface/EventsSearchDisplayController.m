@@ -58,7 +58,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id<Event> event = [self.result objectAtIndex:[tableView indexPathForSelectedRow].row]; // TODO: Fix
+    NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
+    id<Event> event = [[self.items objectForKey:sectionName] objectAtIndex:[tableView indexPathForSelectedRow].row];
     
     [self.delegate navigateToEvent:event];
 }

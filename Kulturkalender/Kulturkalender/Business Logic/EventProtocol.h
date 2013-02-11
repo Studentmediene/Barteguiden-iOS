@@ -10,7 +10,6 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-// TODO: Update list
 typedef NS_ENUM(NSInteger, EventCategory) {
     EventCategoryConcerts = 0,
     EventCategoryNightlife,

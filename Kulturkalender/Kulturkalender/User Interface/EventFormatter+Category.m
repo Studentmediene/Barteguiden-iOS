@@ -7,7 +7,7 @@
 //
 
 #import "EventFormatter+Category.h"
-#import "EventFormatterConstants.h"
+#import "EventConstants.h"
 #import "EventKit.h"
 
 
@@ -15,61 +15,39 @@
 
 - (NSString *)categoryString
 {
-    // TODO: Fix implementation
-    return [NSString stringWithFormat:@"CATEGORY:%d", [self.event category]];
+    return [self categoryStringForCategory:[self.event category]];
 }
 
-//+ (NSArray *)categoryIDs
-//{
-//    static NSArray *categoryIDs = nil;
-//    
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        categoryIDs = @[ @"CATEGORY_CONCERTS",
-//                         @"CATEGORY_NIGHTLIFE",
-//                         @"CATEGORY_THEATRE",
-//                         @"CATEGORY_DANCE",
-//                         @"CATEGORY_ART_EXHIBITION",
-//                         @"CATEGORY_SPORTS",
-//                         @"CATEGORY_PRESENTATIONS"
-//                         ];
-//    });
-//    
-//    return categoryIDs;
-//}
-//
-//+ (NSString *)stringForCategoryID:(NSString *)categoryID
-//{
-//    NSString *categoryString = NSLocalizedStringFromTable(categoryID, tbl, @"The category for an event");
-//    
-//    return categoryString;
-//}
-//
-//- (NSString *)categoryString
-//{
-//    return [[self class] stringForCategoryID:[self.event categoryID]];
-//}
 
+#pragma mark - Private methods
 
-//#pragma mark - Private methods
-//
-//+ (NSDictionary *)categoryKeys
-//{
-//    static NSDictionary *categories = nil;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        categories = @{
-//        @0 : @"CATEGORY_CONCERTS",
-//        @1 : @"CATEGORY_NIGHTLIFE",
-//        @2 : @"CATEGORY_THEATRE",
-//        @3 : @"CATEGORY_DANCE",
-//        @4 : @"CATEGORY_ART_EXHIBITION",
-//        @5 : @"CATEGORY_SPORTS",
-//        @6 : @"CATEGORY_PRESENTATIONS"
-//        };
-//    });
-//    
-//    return categories;
-//}
+- (NSString *)categoryStringForCategory:(EventCategory)category
+{
+    NSString *categoryKey = [self categoryKeyForCategory:category];
+    NSString *categoryString = NSLocalizedStringFromTable(categoryKey, tbl, @"The category for an event");
+    return categoryString;
+}
+
+- (NSString *)categoryKeyForCategory:(EventCategory)category
+{
+    switch (category) {
+        case EventCategoryConcerts:
+            return @"CATEGORY_CONCERTS";
+        case EventCategoryNightlife:
+            return @"CATEGORY_NIGHTLIFE";
+        case EventCategoryTheatre:
+            return @"CATEGORY_THEATRE";
+        case EventCategoryDance:
+            return @"CATEGORY_DANCE";
+        case EventCategoryArtExhibition:
+            return @"CATEGORY_ART_EXHIBITION";
+        case EventCategorySports:
+            return @"CATEGORY_SPORTS";
+        case EventCategoryPresentations:
+            return @"CATEGORY_PRESENTATIONS";
+        default:
+            return @"CATEGORY_UNKNOWN";
+    }
+}
 
 @end

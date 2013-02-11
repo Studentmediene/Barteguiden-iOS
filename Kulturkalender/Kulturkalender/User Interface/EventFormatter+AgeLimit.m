@@ -7,7 +7,7 @@
 //
 
 #import "EventFormatter+AgeLimit.h"
-#import "EventFormatterConstants.h"
+#import "EventConstants.h"
 #import "EventKit.h"
 
 
@@ -19,25 +19,25 @@ static int const kNoAgeLimit = 0;
 
 - (NSString *)ageLimitString
 {
-    return [[self class] stringForAgeLimit:[self.event ageLimit]];
+    return [self stringForAgeLimit:[self.event ageLimit]];
 }
 
-+ (NSString *)stringForAgeLimit:(NSNumber *)ageLimit
+
+#pragma mark - Private methods
+
+- (NSString *)stringForAgeLimit:(NSNumber *)ageLimit
 {
-    // TODO: Fix implementation
-    return [ageLimit stringValue];
-//    NSString *priceString = nil;
-//    
-//    if ([price isEqualToNumber:[NSDecimalNumber zero]]) {
-//        priceString = NSLocalizedStringFromTable(@"PRICE_FREE_EVENT", tbl, @"Free event");
-//    }
-//    else {
-//        // TODO: Replace with currency formatter?
-//        NSString *format = NSLocalizedStringFromTable(@"PRICE_PAID_EVENT", tbl, @"Format for paid event");
-//        priceString = [NSString stringWithFormat:format, price];
-//    }
-//    
-//    return priceString;
+    NSString *ageLimitString = nil;
+    
+    if ([ageLimit unsignedIntegerValue] == kNoAgeLimit) {
+        ageLimitString = NSLocalizedStringFromTable(@"AGE_LIMIT_NO_AGE_LIMIT", tbl, @"No age limit");
+    }
+    else {
+        NSString *format = NSLocalizedStringFromTable(@"AGE_LIMIT_ARBITRARY_AGE_LIMIT", tbl, @"Arbitrary age limit");
+        ageLimitString = [NSString stringWithFormat:format, ageLimit];
+    }
+    
+    return ageLimitString;
 }
 
 @end

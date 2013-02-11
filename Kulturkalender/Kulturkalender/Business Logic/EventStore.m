@@ -140,7 +140,7 @@ static NSString * const kEventEntityName = @"Event";
     
     // Set sort descriptor
     NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES];
-    NSArray *sortDescriptors = @[ startAtSortDescriptor ];
+    NSArray *sortDescriptors = @[startAtSortDescriptor];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     return fetchRequest;

@@ -9,15 +9,6 @@
 #import "NSArray+RIOClassifier.h"
 
 
-#define SuppressPerformSelectorLeakWarning(Stuff) \
-do { \
-_Pragma("clang diagnostic push") \
-_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
-Stuff; \
-_Pragma("clang diagnostic pop") \
-} while (0)
-
-
 @implementation NSArray (RIOClassifier)
 
 - (NSDictionary *)classifyObjectsUsingBlock:(id<NSCopying> (^)(id obj))block
@@ -42,12 +33,10 @@ _Pragma("clang diagnostic pop") \
     return [classifiedObjects copy];
 }
 
-- (NSDictionary *)classifyObjectsUsingSelector:(SEL)selector
+- (NSDictionary *)classifyObjectsUsingKeyPath:(NSString *)keyPath
 {
     return [self classifyObjectsUsingBlock:^id<NSCopying>(id obj) {
-        id<NSCopying> key = nil;
-        SuppressPerformSelectorLeakWarning(key = [obj performSelector:selector]);
-        return key;
+        return [obj valueForKeyPath:keyPath];
     }];
 }
 

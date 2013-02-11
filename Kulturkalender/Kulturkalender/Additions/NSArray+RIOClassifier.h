@@ -11,6 +11,6 @@
 @interface NSArray (RIOClassifier)
 
 - (NSDictionary *)classifyObjectsUsingBlock:(id<NSCopying> (^)(id obj))block;
-- (NSDictionary *)classifyObjectsUsingSelector:(SEL)selector;
+- (NSDictionary *)classifyObjectsUsingKeyPath:(NSString *)keyPath;
 
 @end

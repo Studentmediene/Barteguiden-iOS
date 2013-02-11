@@ -71,7 +71,7 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 
 - (void)shareEvent:(id)sender
 {
-    NSArray *activityItems = @[ [UIImage imageNamed:@"EmptyPoster.png"], @"Test" ];
+    NSArray *activityItems = @[[UIImage imageNamed:@"EmptyPoster.png"], @"Test"];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMessage, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
     [self presentViewController:activityViewController animated:YES completion:NULL];
@@ -152,8 +152,9 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 - (void)updateViewInfo
 {
     EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:self.event];
+    
     self.titleLabel.text = [self.event title];
-//    self.timeLabel.text = [self.event startAt]; // TODO: Fix
+    self.timeLabel.text = [eventFormatter timeString];
     self.categoryLabel.text = [eventFormatter categoryString];
     self.priceLabel.text = [eventFormatter priceString];
     self.ageLimitLabel.text = [eventFormatter ageLimitString];
@@ -164,7 +165,7 @@ const float kAlertOffset = -30*60; // 30 minutes before event
     self.placeNameLabel.text = [self.event placeName];
     self.addressLabel.text = [self.event address];
     
-    self.favoriteButton.selected = self.event.favorite;
+    self.favoriteButton.selected = [self.event isFavorite];
 }
 
 - (void)storeChanged:(NSNotification *)note

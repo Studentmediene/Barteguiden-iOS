@@ -91,10 +91,10 @@
     STAssertEqualObjects(result, (@{@1: @[@1001, @1002], @2: @[@2001]}), @"Mismatching dictionary");
 }
 
-- (void)testClassifyObjectsUsingStringValueAsSelectorShouldReturnDictionaryWithThreeGroupsContainingThemselves
+- (void)testClassifyObjectsUsingStringValueAsKeyPathShouldReturnDictionaryWithThreeGroupsContainingThemselves
 {
     NSArray *objects = @[@1, @2, @3];
-    NSDictionary *result = [objects classifyObjectsUsingSelector:@selector(stringValue)];
+    NSDictionary *result = [objects classifyObjectsUsingKeyPath:@"stringValue"];
     STAssertEqualObjects(result, (@{@"1": @[@1], @"2": @[@2], @"3": @[@3]}), @"Mismatching dictionary");
 }
 

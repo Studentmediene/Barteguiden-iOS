@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, PriceFilter) {
 
 // Age limit filter
 @property (nonatomic) AgeLimitFilter ageLimitFilter;
-@property (nonatomic) NSNumber *myAge;
+@property (nonatomic, strong) NSNumber *myAge;
 
 // Price filter
 @property (nonatomic) PriceFilter priceFilter;

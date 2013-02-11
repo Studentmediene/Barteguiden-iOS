@@ -7,7 +7,7 @@
 //
 
 #import "LocalizedDescription.h"
-#import "_Event.h"
+#import "Event.h"
 
 
 @implementation LocalizedDescription

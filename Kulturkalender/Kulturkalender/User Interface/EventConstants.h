@@ -10,7 +10,7 @@
 #define Kulturkalender_EventConstants_h
 
 // Localization
-static NSString * const tbl = @"EventFormatter";
+static NSString * const tbl = @"Event";
 
 // Entity names
 //static NSString * const kEventEntityName = @"Event";

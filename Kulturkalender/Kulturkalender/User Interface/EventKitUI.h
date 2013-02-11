@@ -9,6 +9,8 @@
 #ifndef Kulturkalender_EventKitUI_h
 #define Kulturkalender_EventKitUI_h
 
+#import "EventResultsController.h"
+#import "EventResultsControllerDelegate.h"
 #import "EventFormatter.h"
 #import "EventFormatter+TableView.h"
 #import "EventFormatter+Category.h"
