@@ -33,5 +33,16 @@
 			<Anchor>//api/name/setImageWithURL:placeholder:</Anchor>
 		</Token>
 		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIImageView/setImageWithURL:key:placeholder:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>UIImageView+JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)setImageWithURL:(NSURL *)url key:(NSString *)key placeholder:(UIImage *)placeholderImage</Declaration>
+			
+			
+			<Anchor>//api/name/setImageWithURL:key:placeholder:</Anchor>
+		</Token>
+		
 	</File>
 </Tokens>

@@ -1,4 +1,4 @@
-platform :ios
+platform :ios, '6.1'
 xcodeproj 'Kulturkalender/Kulturkalender.xcodeproj'
 
 pod 'KSReachability'

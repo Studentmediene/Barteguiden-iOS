@@ -41,27 +41,61 @@ static char kJMImageURLObjectKey;
     [self setImageWithURL:url placeholder:nil];
 }
 - (void) setImageWithURL:(NSURL *)url placeholder:(UIImage *)placeholderImage {
+    [self setImageWithURL:url key:nil placeholder:placeholderImage];
+}
+- (void) setImageWithURL:(NSURL *)url key:(NSString*)key placeholder:(UIImage *)placeholderImage {
     self.jm_imageURL = url;
+    self.image = placeholderImage;
 
-	UIImage *i = [[JMImageCache sharedCache] cachedImageForURL:url];
+    [self setNeedsDisplay];
+    [self setNeedsLayout];
 
-	if(i) {
-        self.image = i;
-        self.jm_imageURL = nil;
-	} else {
-        self.image = placeholderImage;
+    __weak UIImageView *safeSelf = self;
 
-        __block UIImageView *safeSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *i;
 
-        [[JMImageCache sharedCache] imageForURL:url completionBlock:^(UIImage *image) {
-            if ([url isEqual:safeSelf.jm_imageURL]) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    safeSelf.image = image;
-                    safeSelf.jm_imageURL = nil;
-                });
-            }
-        }];
-    }
+        if (key) {
+            i = [[JMImageCache sharedCache] cachedImageForKey:key];
+        } else {
+            i = [[JMImageCache sharedCache] cachedImageForURL:url];
+        }
+
+        if(i) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                safeSelf.jm_imageURL = nil;
+
+                safeSelf.image = i;
+
+                [safeSelf setNeedsLayout];
+                [safeSelf setNeedsDisplay];
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                safeSelf.image = placeholderImage;
+
+                [safeSelf setNeedsDisplay];
+                [safeSelf setNeedsLayout];
+            });
+
+            [[JMImageCache sharedCache] imageForURL:url key:key completionBlock:^(UIImage *image) {
+                if ([url isEqual:safeSelf.jm_imageURL]) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if(image) {
+                            safeSelf.image = image;
+                        } else {
+                            safeSelf.image = placeholderImage;
+                        }
+
+                        safeSelf.jm_imageURL = nil;
+
+                        [safeSelf setNeedsLayout];
+                        [safeSelf setNeedsDisplay];
+                    });
+                }
+            }];
+        }
+    });
 }
 
 @end

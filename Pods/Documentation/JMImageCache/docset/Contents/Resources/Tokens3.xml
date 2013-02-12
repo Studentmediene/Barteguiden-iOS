@@ -22,5 +22,16 @@
 			<Anchor>//api/name/cache:didDownloadImage:forURL:</Anchor>
 		</Token>
 		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/JMImageCacheDelegate/cache:didDownloadImage:forURL:key:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)cache:(JMImageCache *)c didDownloadImage:(UIImage *)i forURL:(NSURL *)url key:(NSString *)key</Declaration>
+			
+			
+			<Anchor>//api/name/cache:didDownloadImage:forURL:key:</Anchor>
+		</Token>
+		
 	</File>
 </Tokens>

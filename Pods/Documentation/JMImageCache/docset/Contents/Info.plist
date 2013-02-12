@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.cocoapods.JMImageCache-0.2.1</string>
+	<string>org.cocoapods.JMImageCache-0.4.0</string>
 	<key>CFBundleName</key>
-	<string>JMImageCache 0.2.1 Documentation</string>
+	<string>JMImageCache 0.4.0 Documentation</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -15,10 +15,10 @@
 	
 	
 	<key>DocSetDescription</key>
-	<string>NSCache based remote-image caching and downloading mechanism for iOS. Is block based and uses a simple UIImageView category to handle loading images with placeholders.</string>
+	<string>NSCache based remote-image caching and downloading mechanism for iOS. Is block based and uses a simple UIImageView category to handle loading images with placeholders. With fix to the placeholder behaviour</string>
 	
 	<key>DocSetFeedName</key>
-	<string>JMImageCache 0.2.1 Documentation</string>
+	<string>JMImageCache 0.4.0 Documentation</string>
 	
 	<key>DocSetMinimumXcodeVersion</key>
 	<string>3.0</string>
