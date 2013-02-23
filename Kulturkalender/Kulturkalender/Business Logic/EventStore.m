@@ -8,61 +8,118 @@
 
 #import "EventStore.h"
 #import <CoreData/CoreData.h>
+#import "Event.h"
 #import "EventBuilder.h"
+#import "NSError+RIOUnderlyingError.h"
 
 
 static NSString * const kEventEntityName = @"Event";
 
 
-@implementation EventStore {
-    NSManagedObjectContext *_managedObjectContext;
-}
+@interface EventStore ()
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
+@end
+
+
+@implementation EventStore
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     self = [super init];
     if (self) {
         _managedObjectContext = managedObjectContext;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextObjectsDidChangeNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:self.managedObjectContext];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextObjectsDidChangeNotification object:self.managedObjectContext];
 }
 
 - (void)importEvents:(NSArray *)events
 {
     for (NSDictionary *event in events) {
-        [EventBuilder insertNewEventWithJSONObject:event inManagedObjectContext:_managedObjectContext];
+        [EventBuilder insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
     }
+}
+
+- (NSURL *)baseURL
+{
+    return [NSURL URLWithString:@"http://kk.skohorn.net/"];
+}
+
+- (NSURL *)URLForEventChanges
+{
+    return [NSURL URLWithString:@"events/changes"];
+//    return [NSURL URLWithString:@"events/changes" relativeToURL:[self baseURL]];
+}
+
+- (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size
+{
+//    NSString *path = [NSString stringWithFormat:@"events/%@.png?size=%dx%d", eventID, (int)size.width, (int)size.height];
+    NSString *path = [NSString stringWithFormat:@"img/%@.png", eventID];
+    return [NSURL URLWithString:path relativeToURL:[self baseURL]];
+}
+
+
+#pragma mark - Notifications
+
+- (void)managedObjectContextObjectsDidChangeNotification:(NSNotification *)note
+{
+    [self notifyEventStoreChangedWithInserted:note.userInfo[NSInsertedObjectsKey] updated:note.userInfo[NSUpdatedObjectsKey] deleted:note.userInfo[NSDeletedObjectsKey]];
 }
 
 
 #pragma mark - Accessing Events
 
-- (id<Event>)eventWithIdentifier:(NSString *)identifier
+- (id<Event>)eventWithIdentifier:(NSString *)identifier error:(NSError **)error
 {
+    // Set up fetch request
     NSPredicate *predicate = [self predicateForEventIdentifier:identifier];
     NSFetchRequest *fetchRequest = [self fetchRequestWithPredicate:predicate];
     fetchRequest.fetchLimit = 1;
     
-    NSArray *result = [_managedObjectContext executeFetchRequest:fetchRequest error:nil]; // TODO: Fix error handling
-    if (result.count > 0) {
-        return result[0];
+    // Fetch events and forward any errors
+    NSArray *events = [self executeFetchRequest:fetchRequest error:error];
+    if (events == nil) {
+        return nil;
+    }
+    
+    [self setDelegateOnEvents:events];
+    
+    // Retrieve single event
+    if ([events count] > 0) {
+        return events[0];
     }
     
     return nil;
 }
 
-- (NSArray *)eventsMatchingPredicate:(NSPredicate *)predicate
+- (NSArray *)eventsMatchingPredicate:(NSPredicate *)predicate error:(NSError **)error
 {
+    // Set up fetch request
     NSFetchRequest *fetchRequest = [self fetchRequestWithPredicate:predicate];
     
-    NSArray *result = [_managedObjectContext executeFetchRequest:fetchRequest error:nil]; // TODO: Fix error handling
-    return result;
+    // Fetch events and forward any errors
+    NSArray *events = [self executeFetchRequest:fetchRequest error:error];
+    if (events == nil) {
+        return nil;
+    }
+    
+    [self setDelegateOnEvents:events];
+    
+    return events;
 }
 
-- (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(EventSearchCallback)block
-{
-    
-}
+// TODO: Implement
+//- (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(EventSearchCallback)block
+//{
+//}
 
 
 #pragma mark - Predicates
@@ -118,9 +175,28 @@ static NSString * const kEventEntityName = @"Event";
 
 #pragma mark - Saving changes
 
-- (BOOL)save:(NSError *__autoreleasing *)error
+- (BOOL)save:(NSError **)error
 {
-    return ([_managedObjectContext hasChanges] && ![_managedObjectContext save:error]);
+    NSError *underlyingError = nil;
+    if ([self.managedObjectContext hasChanges] && [self.managedObjectContext save:&underlyingError] == NO) {
+        if (error != NULL) {
+            *error = [NSError errorWithDomain:EventStoreErrorDomain code:EventStoreSaveFailed underlyingError:underlyingError];
+        }
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
+
+#pragma mark - EventDelegate
+
+- (void)eventDidChange:(Event *)event
+{
+    NSLog(@"%@%@", NSStringFromSelector(_cmd), event);
+    NSSet *updated = [NSSet setWithObject:event];
+    [self notifyEventStoreChangedWithInserted:nil updated:updated deleted:nil];
 }
 
 
@@ -135,7 +211,7 @@ static NSString * const kEventEntityName = @"Event";
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEventEntityName];
     fetchRequest.includesSubentities = YES;
-    fetchRequest.fetchBatchSize = 20;
+    fetchRequest.fetchBatchSize = 20; // TODO: Is it needed?
     fetchRequest.predicate = predicate;
     
     // Set sort descriptor
@@ -146,13 +222,57 @@ static NSString * const kEventEntityName = @"Event";
     return fetchRequest;
 }
 
+- (NSArray *)executeFetchRequest:(NSFetchRequest *)fetchRequest error:(NSError **)error
+{
+    NSError *underlyingError = nil;
+    NSArray *result = [self.managedObjectContext executeFetchRequest:fetchRequest error:&underlyingError];
+    if (result == nil && error != NULL) {
+        *error = [NSError errorWithDomain:EventStoreErrorDomain code:EventStoreFetchRequestFailed underlyingError:underlyingError];
+    }
+    
+    return result;
+}
+
+- (void)setDelegateOnEvents:(NSArray *)events
+{
+    __weak typeof(self) bself = self;
+    [events enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Event *event = (Event *)obj;
+        event.delegate = bself;
+    }];
+}
+
+- (void)notifyEventStoreChangedWithInserted:(NSSet *)inserted updated:(NSSet *)updated deleted:(NSSet *)deleted
+{
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    [self addEvents:inserted toUserInfo:userInfo forKey:EventStoreInsertedEventsKey];
+    [self addEvents:updated toUserInfo:userInfo forKey:EventStoreUpdatedEventsKey];
+    [self addEvents:deleted toUserInfo:userInfo forKey:EventStoreDeletedEventsKey];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreChangedNotification object:self userInfo:[userInfo copy]];
+}
+
+- (void)addEvents:(NSSet *)changes toUserInfo:(NSMutableDictionary *)userInfo forKey:(NSString *)key
+{
+    NSMutableSet *events = [NSMutableSet set];
+    [changes enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        if ([obj isKindOfClass:[Event class]]) {
+            [events addObject:obj];
+        }
+        
+        // TODO: Should I add other entities as well?
+    }];
+    
+    if ([events count] > 0) {
+        userInfo[key] = [events copy];
+    }
+}
 
 #pragma mark - TODO: From EventManager
 
 //- (void)refresh
 //{
 //    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreWillRefreshNotification object:self];
-//    
 //    
 //    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 //    //    NSURL *url = [NSURL URLWithString:@"https://dl.dropbox.com/u/10851469/Under%20Dusken/Kulturkalender/Data.json"];
@@ -195,20 +315,6 @@ static NSString * const kEventEntityName = @"Event";
 //    
 //    //    NSLog(@"");
 //    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidRefreshNotification object:self];
-//}
-//
-//- (void)save
-//{
-//    NSError *error = nil;
-//    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-//    if (managedObjectContext != nil) {
-//        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-//            // Replace this implementation with code to handle the error appropriately.
-//            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//            abort();
-//        }
-//    }
 //}
 
 @end

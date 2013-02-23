@@ -11,6 +11,5 @@
 
 #import "EventStore.h"
 #import "Event.h"
-#import "Event+Protocol.h"
 
 #endif

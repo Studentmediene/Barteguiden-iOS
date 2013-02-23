@@ -127,7 +127,7 @@
                                                         <attributedString key="attributedTitle"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="addToCalendar:" destination="QhT-Ab-EcC" eventType="touchUpInside" id="xK6-i0-Imd"/>
+                                                        <action selector="promptDateActions:" destination="QhT-Ab-EcC" eventType="touchUpInside" id="wbw-Ij-B7n"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIZ-Dz-n0Z">
@@ -917,6 +917,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addToCalendar:"/>
+                <relationship kind="action" name="promptDateActions:"/>
                 <relationship kind="action" name="shareEvent:"/>
                 <relationship kind="action" name="toggleFavorite:"/>
                 <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
@@ -978,9 +979,6 @@
         </class>
         <class className="TabBarController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="test"/>
-            </relationships>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>

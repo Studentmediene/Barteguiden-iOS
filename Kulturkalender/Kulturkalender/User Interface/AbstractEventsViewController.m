@@ -9,10 +9,9 @@
 #import "AbstractEventsViewController.h"
 #import "EventKit.h"
 #import "EventKitUI.h"
+
 #import "EventDetailsViewController.h"
 #import "EventCell.h"
-
-#import "NSArray+RIOClassifier.h" // TODO: Temp?
 
 
 @implementation AbstractEventsViewController
@@ -20,6 +19,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.eventResultsController = [[EventResultsController alloc] initWithEventStore:self.eventStore sectionNameBlock:^NSString *(id<Event> event) {
+        EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:event];
+        NSString *sectionName = [eventFormatter dateSectionName];
+        
+        return sectionName;
+    }];
+    self.eventResultsController.delegate = self;
+    NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES];
+    self.eventResultsController.sortDescriptors = @[startAtSortDescriptor];
     
     // Hide search bar as default
     self.tableView.contentOffset = CGPointMake(0, -44);//self.searchDisplayController.searchBar.frame.size.height);
@@ -32,9 +41,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-    // TODO: Fix
-//    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:EventStoreDidRefreshNotification];
 }
 
 
@@ -42,14 +48,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.sections count];
+    return [self.eventResultsController.sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSString *sectionName = [self.sections objectAtIndex:section];
-    NSArray *events = [self.items objectForKey:sectionName];
-    return [events count];
+    id<EventResultsSectionInfo> sectionInfo = self.eventResultsController.sections[section];
+    return [sectionInfo numberOfEvents];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,7 +68,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [self.sections objectAtIndex:section];
+    id<EventResultsSectionInfo> sectionInfo = self.eventResultsController.sections[section];
+    return [sectionInfo name];
 }
 
 
@@ -76,10 +82,61 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
-    id<Event> event = [[self.items objectForKey:sectionName] objectAtIndex:indexPath.row];
+    id<Event> event = [self.eventResultsController eventForIndexPath:indexPath];
     
     [self navigateToEvent:event];
+}
+
+#pragma mark - EventResultsControllerDelegate
+
+- (void)eventResultsControllerWillChangeContent:(EventResultsController *)controller
+{
+    [self.tableView beginUpdates];
+}
+
+- (void)eventResultsController:(EventResultsController *)controller didChangeSection:(id<EventResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(EventResultsChangeType)type
+{
+    switch (type)
+    {
+        case EventResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+            
+        case EventResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)eventResultsController:(EventResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(EventResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+    switch (type)
+    {
+        case EventResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+            
+        case EventResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+            
+        case EventResultsChangeUpdate:
+            [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+            
+        case EventResultsChangeMove:
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+    }
+}
+
+- (void)eventResultsControllerDidChangeContent:(EventResultsController *)controller
+{
+    [self.tableView endUpdates];
 }
 
 
@@ -111,14 +168,13 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
-    id<Event> event = [[self.items objectForKey:sectionName] objectAtIndex:indexPath.row];
+    id<Event> event = [self.eventResultsController eventForIndexPath:indexPath];
     
     EventCell *eventCell = (EventCell *)cell;
     
     EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:event];
-//    NSString *imageName = event.imageID ?: @"EmptyPoster";
-//    eventCell.thumbnailImageView.image = [UIImage imageNamed:imageName];
+    UIImage *image = [event imageWithSize:CGSizeMake(0, 0)] ?: [UIImage imageNamed:@"EmptyPoster"];
+    eventCell.thumbnailImageView.image = image;
     eventCell.titleLabel.text = [event title];
     eventCell.detailLabel.text = [eventFormatter timeAndLocationString];
     eventCell.priceLabel.text = [eventFormatter priceString];
@@ -126,9 +182,8 @@
 
 - (void)reloadPredicate
 {
-    NSArray *result = [self.eventStore eventsMatchingPredicate:[self eventsPredicate]];
-    [self updateSectionsAndItemsWithResult:result];
-    
+    self.eventResultsController.predicate = [self eventsPredicate];
+    [self.eventResultsController performFetch:NULL];
     [self.tableView reloadData];
 }
 
@@ -145,24 +200,6 @@
     }
 
     return cell;
-}
-
-- (void)updateSectionsAndItemsWithResult:(NSArray *)result
-{
-    NSMutableArray *sections = [[NSMutableArray alloc] init];
-    NSDictionary *items = [result classifyObjectsUsingBlock:^id<NSCopying>(id obj) {
-        EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:obj];
-        NSString *sectionName = [eventFormatter dateSectionName];
-        
-        if ([sectionName isEqual:[sections lastObject]] == NO) {
-            [sections addObject:sectionName];
-        }
-        
-        return sectionName;
-    }];
-    
-    self.sections = [sections copy];
-    self.items = [items copy];
 }
 
 @end

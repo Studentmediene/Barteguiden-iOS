@@ -11,14 +11,15 @@
 
 @protocol Event;
 
-typedef void (^EventSearchCallback)(id<Event> event, BOOL *stop);
+//typedef void (^EventSearchCallback)(id<Event> event, BOOL *stop);
+
 
 @protocol EventStore <NSObject>
 
 // Access Events
-- (id<Event>)eventWithIdentifier:(NSString *)identifier;
-- (NSArray *)eventsMatchingPredicate:(NSPredicate *)predicate;
-- (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(EventSearchCallback)block;
+- (id<Event>)eventWithIdentifier:(NSString *)identifier error:(NSError **)error;
+- (NSArray *)eventsMatchingPredicate:(NSPredicate *)predicate error:(NSError **)error;
+//- (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(EventSearchCallback)block;
 
 // Predicates
 - (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
@@ -36,7 +37,18 @@ typedef void (^EventSearchCallback)(id<Event> event, BOOL *stop);
 
 @end
 
+// Errors
+extern NSString * const EventStoreErrorDomain;
+
+typedef NS_ENUM(NSInteger, EventStoreErrorCode) {
+    EventStoreFetchRequestFailed = 0,
+    EventStoreSaveFailed = 1
+};
+
 // Notifications
-//extern NSString * const EventStoreChangedNotification;
-//extern NSString * const EventStoreWillRefreshNotification;
-//extern NSString * const EventStoreDidRefreshNotification;
+extern NSString * const EventStoreChangedNotification;
+
+// User info keys
+extern NSString * const EventStoreInsertedEventsKey;
+extern NSString * const EventStoreUpdatedEventsKey;
+extern NSString * const EventStoreDeletedEventsKey;

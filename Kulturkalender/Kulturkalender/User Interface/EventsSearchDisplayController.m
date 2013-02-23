@@ -9,6 +9,7 @@
 #import "EventsSearchDisplayController.h"
 #import "EventsSearchDisplayControllerDelegate.h"
 #import "EventKit.h"
+#import "EventKitUI.h"
 
 @implementation EventsSearchDisplayController {
     NSString *_searchString;
@@ -58,8 +59,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
-    id<Event> event = [[self.items objectForKey:sectionName] objectAtIndex:[tableView indexPathForSelectedRow].row];
+    id<Event> event = [self.eventResultsController eventForIndexPath:indexPath];
     
     [self.delegate navigateToEvent:event];
 }

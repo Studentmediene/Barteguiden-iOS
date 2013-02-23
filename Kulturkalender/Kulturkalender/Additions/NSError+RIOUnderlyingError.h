@@ -10,7 +10,8 @@
 
 @interface NSError (RIOUnderlyingError)
 
-- (NSError *)errorWithDomain:(NSString *)domain code:(NSInteger)code underlyingError:(NSError *)underlyingError;
++ (instancetype)errorWithDomain:(NSString *)domain code:(NSInteger)code underlyingError:(NSError *)underlyingError;
+- (instancetype)initWithDomain:(NSString *)domain code:(NSInteger)code underlyingError:(NSError *)underlyingError;
 
 - (NSError *)underlyingError;
 

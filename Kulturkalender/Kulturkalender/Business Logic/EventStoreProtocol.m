@@ -8,6 +8,14 @@
 
 #import "EventStoreProtocol.h"
 
+
+// Errors
+NSString * const EventStoreErrorDomain = @"EventStoreErrorDomain";
+
 // Notifications
-//NSString * const EventStoreWillRefreshNotification = @"EventStoreWillRefreshNotification";
-//NSString * const EventStoreDidRefreshNotification = @"EventStoreDidRefreshNotification";
+NSString * const EventStoreChangedNotification = @"EventStoreChangedNotification";
+
+// User info keys
+NSString * const EventStoreInsertedEventsKey = @"inserted";
+NSString * const EventStoreUpdatedEventsKey = @"updated";
+NSString * const EventStoreDeletedEventsKey = @"deleted";

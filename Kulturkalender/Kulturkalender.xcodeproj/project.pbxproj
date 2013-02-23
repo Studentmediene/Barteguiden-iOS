@@ -18,9 +18,11 @@
 		694B5E1816371D3D00631278 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B5E1716371D3D00631278 /* MapKit.framework */; };
 		694B5E1B1637203E00631278 /* EventFormatter+Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 694B5E1A1637203D00631278 /* EventFormatter+Location.m */; };
 		694B5E1D163720E400631278 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B5E1C163720E300631278 /* CoreLocation.framework */; };
+		694C4E9B16D84960009F787D /* NSArray+RIOClassifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C4E9A16D84960009F787D /* NSArray+RIOClassifier.m */; };
 		69528C0F1643152C00A96B65 /* FilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69528C0E1643152C00A96B65 /* FilterManager.m */; };
 		6956C67616419E5300E10586 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67516419E5300E10586 /* FilterViewController.m */; };
 		6956C67A16422A0500E10586 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67916422A0500E10586 /* SettingsViewController.m */; };
+		696CB68C16D81ABB0090E7C9 /* EventResultsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 696CB68B16D81ABB0090E7C9 /* EventResultsSection.m */; };
 		6973DB181648611A0077805B /* Star-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6973DB141648611A0077805B /* Star-Selected.png */; };
 		6973DB191648611A0077805B /* Star-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6973DB151648611A0077805B /* Star-Normal.png */; };
 		6973DB1A1648611A0077805B /* Star-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6973DB161648611A0077805B /* Star-Normal@2x.png */; };
@@ -30,7 +32,7 @@
 		69884B9A163A0D200057D189 /* EventFormatter+LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B99163A0D1F0057D189 /* EventFormatter+LocalizedText.m */; };
 		698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F870C16247B96001B9090 /* EventsSearchDisplayController.m */; };
 		698F871016249719001B9090 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = 698F870F16249719001B9090 /* Example.json */; };
-		698F87191624A182001B9090 /* Event+Protocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F87181624A182001B9090 /* Event+Protocol.m */; };
+		698F87191624A182001B9090 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F87181624A182001B9090 /* Event.m */; };
 		698F87261624B24A001B9090 /* Star.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F87241624B24A001B9090 /* Star.png */; };
 		698F87271624B24A001B9090 /* Star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F87251624B24A001B9090 /* Star@2x.png */; };
 		698F872A1624B2FF001B9090 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F87281624B2FF001B9090 /* Settings.png */; };
@@ -55,7 +57,7 @@
 		69C37BDE168F71C4009631DF /* EventStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BDD168F71C4009631DF /* EventStore.m */; };
 		69C37BE5168F82BC009631DF /* LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BE4168F82BC009631DF /* LocalizedText.m */; };
 		69C37BE8168F82BC009631DF /* LocalizedDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BE7168F82BC009631DF /* LocalizedDescription.m */; };
-		69C37BEB168F82BC009631DF /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BEA168F82BC009631DF /* Event.m */; };
+		69C37BEB168F82BC009631DF /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BEA168F82BC009631DF /* _Event.m */; };
 		69C37BEE168F82BD009631DF /* LocalizedFeatured.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BED168F82BD009631DF /* LocalizedFeatured.m */; };
 		69C37BFE168F8F28009631DF /* EventStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BFD168F8F28009631DF /* EventStoreTests.m */; };
 		69C37D0E169BB8EF009631DF /* NSError+RIOUnderlyingError.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D0D169BB8EF009631DF /* NSError+RIOUnderlyingError.m */; };
@@ -66,7 +68,6 @@
 		69C37D77169FF22E009631DF /* EventTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D76169FF22D009631DF /* EventTests.m */; };
 		69C37D7A169FF54A009631DF /* FilterManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D79169FF54A009631DF /* FilterManagerTests.m */; };
 		69C37D8616A0445A009631DF /* EventMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D8516A04458009631DF /* EventMock.m */; };
-		69C37D8A16A7FE61009631DF /* NSArray+RIOClassifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D8916A7FE61009631DF /* NSArray+RIOClassifier.m */; };
 		69C37D8E16A81230009631DF /* RIOClassifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D8D16A81230009631DF /* RIOClassifierTests.m */; };
 		69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C491671625F1DE00F28C45 /* EventDetailsViewController.m */; };
 		69C9E21B1687C60200D65004 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E21A1687C60200D65004 /* TabBarController.m */; };
@@ -123,12 +124,17 @@
 		694B5E191637203D00631278 /* EventFormatter+Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+Location.h"; sourceTree = "<group>"; };
 		694B5E1A1637203D00631278 /* EventFormatter+Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventFormatter+Location.m"; sourceTree = "<group>"; };
 		694B5E1C163720E300631278 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		694C4E9916D84960009F787D /* NSArray+RIOClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RIOClassifier.h"; sourceTree = "<group>"; };
+		694C4E9A16D84960009F787D /* NSArray+RIOClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RIOClassifier.m"; sourceTree = "<group>"; };
 		69528C0D1643152C00A96B65 /* FilterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterManager.h; sourceTree = "<group>"; };
 		69528C0E1643152C00A96B65 /* FilterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterManager.m; sourceTree = "<group>"; };
 		6956C67416419E5300E10586 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		6956C67516419E5300E10586 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		6956C67816422A0500E10586 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		6956C67916422A0500E10586 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		696CB68916D81AAA0090E7C9 /* EventResultsSectionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResultsSectionInfo.h; sourceTree = "<group>"; };
+		696CB68A16D81ABB0090E7C9 /* EventResultsSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventResultsSection.h; sourceTree = "<group>"; };
+		696CB68B16D81ABB0090E7C9 /* EventResultsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResultsSection.m; sourceTree = "<group>"; };
 		6973DB141648611A0077805B /* Star-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-Selected.png"; sourceTree = "<group>"; };
 		6973DB151648611A0077805B /* Star-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-Normal.png"; sourceTree = "<group>"; };
 		6973DB161648611A0077805B /* Star-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star-Normal@2x.png"; sourceTree = "<group>"; };
@@ -143,8 +149,8 @@
 		698F870C16247B96001B9090 /* EventsSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsSearchDisplayController.m; sourceTree = "<group>"; };
 		698F870E16247C7F001B9090 /* EventsSearchDisplayControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsSearchDisplayControllerDelegate.h; sourceTree = "<group>"; };
 		698F870F16249719001B9090 /* Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Example.json; sourceTree = "<group>"; };
-		698F87171624A182001B9090 /* Event+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Protocol.h"; sourceTree = "<group>"; };
-		698F87181624A182001B9090 /* Event+Protocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Protocol.m"; sourceTree = "<group>"; };
+		698F87171624A182001B9090 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		698F87181624A182001B9090 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		698F87241624B24A001B9090 /* Star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star.png; sourceTree = "<group>"; };
 		698F87251624B24A001B9090 /* Star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Star@2x.png"; sourceTree = "<group>"; };
 		698F87281624B2FF001B9090 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 		69AFC61F16C828D70072C7DE /* EventFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventFormatter.m; sourceTree = "<group>"; };
 		69B016AC16B0CD87004374DC /* EventProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventProtocol.h; sourceTree = "<group>"; };
 		69B016AD16B0CD9E004374DC /* EventStoreProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventStoreProtocol.h; sourceTree = "<group>"; };
+		69B7141C16CDD5CB00BEEADD /* EventDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDelegate.h; sourceTree = "<group>"; };
 		69B7815716C1E02700ADD13A /* EventStoreProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreProtocol.m; sourceTree = "<group>"; };
 		69B7815C16C208B900ADD13A /* EventKitUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventKitUI.h; sourceTree = "<group>"; };
 		69B7815E16C2090B00ADD13A /* EventFormatter+Price.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+Price.h"; sourceTree = "<group>"; };
@@ -183,8 +190,8 @@
 		69C37BE4168F82BC009631DF /* LocalizedText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedText.m; sourceTree = "<group>"; };
 		69C37BE6168F82BC009631DF /* LocalizedDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedDescription.h; sourceTree = "<group>"; };
 		69C37BE7168F82BC009631DF /* LocalizedDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedDescription.m; sourceTree = "<group>"; };
-		69C37BE9168F82BC009631DF /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		69C37BEA168F82BC009631DF /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		69C37BE9168F82BC009631DF /* _Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Event.h; sourceTree = "<group>"; };
+		69C37BEA168F82BC009631DF /* _Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Event.m; sourceTree = "<group>"; };
 		69C37BEC168F82BD009631DF /* LocalizedFeatured.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedFeatured.h; sourceTree = "<group>"; };
 		69C37BED168F82BD009631DF /* LocalizedFeatured.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedFeatured.m; sourceTree = "<group>"; };
 		69C37BFD168F8F28009631DF /* EventStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreTests.m; sourceTree = "<group>"; };
@@ -201,8 +208,6 @@
 		69C37D79169FF54A009631DF /* FilterManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterManagerTests.m; sourceTree = "<group>"; };
 		69C37D8416A04458009631DF /* EventMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMock.h; sourceTree = "<group>"; };
 		69C37D8516A04458009631DF /* EventMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMock.m; sourceTree = "<group>"; };
-		69C37D8816A7FE61009631DF /* NSArray+RIOClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RIOClassifier.h"; sourceTree = "<group>"; };
-		69C37D8916A7FE61009631DF /* NSArray+RIOClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RIOClassifier.m"; sourceTree = "<group>"; };
 		69C37D8D16A81230009631DF /* RIOClassifierTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIOClassifierTests.m; sourceTree = "<group>"; };
 		69C491661625F1DE00F28C45 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		69C491671625F1DE00F28C45 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
@@ -398,6 +403,9 @@
 				69AFC61716C5DB2A0072C7DE /* EventResultsController.h */,
 				69AFC61816C5DB2A0072C7DE /* EventResultsController.m */,
 				69AFC61A16C5E0C40072C7DE /* EventResultsControllerDelegate.h */,
+				696CB68A16D81ABB0090E7C9 /* EventResultsSection.h */,
+				696CB68B16D81ABB0090E7C9 /* EventResultsSection.m */,
+				696CB68916D81AAA0090E7C9 /* EventResultsSectionInfo.h */,
 			);
 			name = EventResultsController;
 			sourceTree = "<group>";
@@ -436,8 +444,8 @@
 		69C37BEF168F82C7009631DF /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				69C37BE9168F82BC009631DF /* Event.h */,
-				69C37BEA168F82BC009631DF /* Event.m */,
+				69C37BE9168F82BC009631DF /* _Event.h */,
+				69C37BEA168F82BC009631DF /* _Event.m */,
 				69C37BE3168F82BC009631DF /* LocalizedText.h */,
 				69C37BE4168F82BC009631DF /* LocalizedText.m */,
 				69C37BEC168F82BD009631DF /* LocalizedFeatured.h */,
@@ -452,8 +460,9 @@
 			isa = PBXGroup;
 			children = (
 				69F52AB71608E70F0045B6F6 /* Kulturkalender.xcdatamodeld */,
-				698F87171624A182001B9090 /* Event+Protocol.h */,
-				698F87181624A182001B9090 /* Event+Protocol.m */,
+				698F87171624A182001B9090 /* Event.h */,
+				698F87181624A182001B9090 /* Event.m */,
+				69B7141C16CDD5CB00BEEADD /* EventDelegate.h */,
 				69C37BEF168F82C7009631DF /* Generated */,
 			);
 			name = Models;
@@ -464,10 +473,10 @@
 			children = (
 				69C37D0F169BBA92009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.h */,
 				69C37D10169BBA92009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m */,
+				694C4E9916D84960009F787D /* NSArray+RIOClassifier.h */,
+				694C4E9A16D84960009F787D /* NSArray+RIOClassifier.m */,
 				69C37D0C169BB8EF009631DF /* NSError+RIOUnderlyingError.h */,
 				69C37D0D169BB8EF009631DF /* NSError+RIOUnderlyingError.m */,
-				69C37D8816A7FE61009631DF /* NSArray+RIOClassifier.h */,
-				69C37D8916A7FE61009631DF /* NSArray+RIOClassifier.m */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -871,7 +880,7 @@
 				69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */,
 				69D7FC50161DF10900E38D56 /* MyPageViewController.m in Sources */,
 				698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */,
-				698F87191624A182001B9090 /* Event+Protocol.m in Sources */,
+				698F87191624A182001B9090 /* Event.m in Sources */,
 				69AEFE3A1624E7AB009F3567 /* EventFormatter+TableView.m in Sources */,
 				69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */,
 				69BA0ADC162F4513009726E7 /* EventCell.m in Sources */,
@@ -889,17 +898,18 @@
 				69C37BDE168F71C4009631DF /* EventStore.m in Sources */,
 				69C37BE5168F82BC009631DF /* LocalizedText.m in Sources */,
 				69C37BE8168F82BC009631DF /* LocalizedDescription.m in Sources */,
-				69C37BEB168F82BC009631DF /* Event.m in Sources */,
+				69C37BEB168F82BC009631DF /* _Event.m in Sources */,
 				69C37BEE168F82BD009631DF /* LocalizedFeatured.m in Sources */,
 				69C37D0E169BB8EF009631DF /* NSError+RIOUnderlyingError.m in Sources */,
 				69C37D11169BBA93009631DF /* NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.m in Sources */,
 				69C37D16169BDF62009631DF /* EventStoreCommunicator.m in Sources */,
 				69C37D19169BDF95009631DF /* EventBuilder.m in Sources */,
-				69C37D8A16A7FE61009631DF /* NSArray+RIOClassifier.m in Sources */,
 				69B7815816C1E02700ADD13A /* EventStoreProtocol.m in Sources */,
 				69B7816016C2091A00ADD13A /* EventFormatter+Price.m in Sources */,
 				69AFC61916C5DB2A0072C7DE /* EventResultsController.m in Sources */,
 				69AFC62016C828D70072C7DE /* EventFormatter.m in Sources */,
+				696CB68C16D81ABB0090E7C9 /* EventResultsSection.m in Sources */,
+				694C4E9B16D84960009F787D /* NSArray+RIOClassifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,20 +10,29 @@
 
 
 @protocol EventStore;
-@protocol EventResultsController;
 @protocol Event;
+@protocol EventResultsControllerDelegate;
+
+typedef NSString * (^EventSectionNameBlock)(id<Event> event);
+
 
 @interface EventResultsController : NSObject
 
-@property (nonatomic, weak) id<EventResultsController> delegate;
-@property (nonatomic, strong) NSString *sectionNameKeyPath;
+@property (nonatomic, weak) id<EventResultsControllerDelegate> delegate;
+@property (nonatomic, readonly) EventSectionNameBlock sectionNameBlock;
 @property (nonatomic, strong) NSPredicate *predicate;
+@property (nonatomic, strong) NSArray *sortDescriptors;
 
-- (instancetype)initWithEventStore:(id<EventStore>)eventStore sectionNameKeyPath:(NSString *)section;
+- (instancetype)initWithEventStore:(id<EventStore>)eventStore sectionNameBlock:(EventSectionNameBlock)sectionNameBlock;
+- (void)performFetch:(NSError **)error;
 
-- (NSUInteger)numberOfSections;
-- (NSUInteger)numberOfItemsInSection:(NSUInteger)section;
-- (NSString *)titleForSection:(NSUInteger)section;
+// Accessing Results
+- (NSArray *)fetchedEvents;
 - (id<Event>)eventForIndexPath:(NSIndexPath *)indexPath;
+- (NSIndexPath *)indexPathForEvent:(id<Event>)event;
+
+// Querying Section Information
+@property (nonatomic, readonly) NSArray *sections;
+//- (NSInteger)sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)sectionIndex;
 
 @end

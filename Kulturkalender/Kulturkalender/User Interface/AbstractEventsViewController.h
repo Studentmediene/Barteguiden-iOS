@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "EventsSearchDisplayControllerDelegate.h"
+#import "EventKitUI.h"
 
 @protocol EventStore;
+@class EventResultsController;
 
-@interface AbstractEventsViewController : UITableViewController <EventsSearchDisplayControllerDelegate>
+@interface AbstractEventsViewController : UITableViewController <EventsSearchDisplayControllerDelegate, EventResultsControllerDelegate>
 
 @property (nonatomic, strong) id<EventStore> eventStore;
 
-@property (nonatomic, strong) NSArray *sections;
-@property (nonatomic, strong) NSDictionary *items;
+@property (nonatomic, strong) EventResultsController *eventResultsController;
 
 - (void)reloadPredicate;
 - (NSPredicate *)eventsPredicate;

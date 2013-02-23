@@ -8,6 +8,7 @@
 
 #import "FavoritesViewController.h"
 #import "EventKit.h"
+#import "EventKitUI.h"
 
 
 @implementation FavoritesViewController
@@ -54,8 +55,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Remove favorite flag
-        NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
-        id<Event> event = [[self.items objectForKey:sectionName] objectAtIndex:indexPath.row];
+        id<Event> event = [self.eventResultsController eventForIndexPath:indexPath];
         event.favorite = @NO;
     }
 }

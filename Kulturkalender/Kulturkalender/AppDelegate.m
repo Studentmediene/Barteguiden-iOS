@@ -22,14 +22,6 @@
 {
     _eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     
-    // Import test data
-//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
-//    NSData *data = [NSData dataWithContentsOfURL:url];
-//    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-//    NSArray *events = values[@"events"];
-//    [_eventStore importEvents:events];
-//    [self.managedObjectContext save:NULL];
-    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     _filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaults];
     
@@ -38,7 +30,20 @@
     tabBarController.eventStore = _eventStore;
     tabBarController.filterManager = _filterManager;
     
+    [self performSelector:@selector(importData) withObject:nil afterDelay:2.0];
+    
     return YES;
+}
+
+// TODO: Temp
+- (void)importData
+{
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+    NSArray *events = values[@"events"];
+    [self.eventStore importEvents:events];
+    [self.managedObjectContext save:NULL];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -151,7 +156,7 @@
 - (void)save
 {
     NSError *error = nil;
-    if ([self.eventStore save:&error]) {
+    if ([self.eventStore save:&error] == NO) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);

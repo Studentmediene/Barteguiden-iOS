@@ -1,34 +1,125 @@
 //
-//  Event.m
+//  Event+Protocol.m
 //  Kulturkalender
 //
-//  Created by Christian Rasmussen on 29.12.12.
+//  Created by Christian Rasmussen on 17.11.12.
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
 #import "Event.h"
-#import "LocalizedDescription.h"
-#import "LocalizedFeatured.h"
+#import "EventDelegate.h"
+#import "LocalizedText.h"
 
 
 @implementation Event
 
-@dynamic address;
-@dynamic ageLimit;
-@dynamic categoryID;
-@dynamic endAt;
-@dynamic eventID;
-@dynamic favoriteState;
-@dynamic featuredState;
-@dynamic imageID;
-@dynamic latitude;
-@dynamic longitude;
-@dynamic placeName;
-@dynamic price;
-@dynamic startAt;
-@dynamic title;
-@dynamic url;
-@dynamic localizedDescription;
-@dynamic localizedFeatured;
+@synthesize delegate=_delegate;
+@synthesize imageCache=_imageCache;
+
+- (JMImageCache *)imageCache
+{
+    if (_imageCache == nil) {
+        _imageCache = [JMImageCache sharedCache];
+    }
+    
+    return _imageCache;
+}
+
+
+- (NSString *)eventIdentifier
+{
+    return self.eventID;
+}
+
+- (BOOL)isFeatured
+{
+    return [self.featuredState boolValue];
+}
+
+- (BOOL)isFavorite
+{
+    return [self.favoriteState boolValue];
+}
+
+- (void)setFavorite:(BOOL)favorite
+{
+    self.favoriteState = @(favorite);
+}
+
+- (EventCategory)category
+{
+    NSDictionary *categories = [self categories];
+    NSNumber *category = categories[self.categoryID];
+    if (category != nil) {
+        return [category integerValue];
+    }
+    
+    return EventCategoryUnknown;
+}
+
+- (CLLocationCoordinate2D)location
+{
+    return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
+}
+
+- (UIImage *)imageWithSize:(CGSize)size
+{
+    NSURL *url = [NSURL URLWithString:@"http://kk.skohorn.net/img/img1.png"];
+    UIImage *image = [self.imageCache imageForURL:url delegate:self];
+    return image;
+}
+
+- (NSString *)descriptionForLanguage:(NSString *)language
+{
+    return [self localizedTextFromSet:self.localizedDescription withLanguage:language];
+}
+
+- (NSString *)featuredForLanguage:(NSString *)language
+{
+    return [self localizedTextFromSet:self.localizedFeatured withLanguage:language];
+}
+
+
+#pragma mark - JMImageCacheDelegate
+
+- (void)cache:(JMImageCache *)c didDownloadImage:(UIImage *)i forURL:(NSURL *)url
+{
+    NSLog(@"Image downloaded");
+    [self.delegate eventDidChange:self];
+}
+
+
+#pragma mark - Private methods
+
+- (NSString *)localizedTextFromSet:(NSSet *)set withLanguage:(NSString *)language
+{
+    NSSet *currentLocalizedTexts = [set objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+        LocalizedText *localizedText = obj;
+        if ([localizedText.language isEqualToString:language]) {
+            *stop = YES;
+            return YES;
+        }
+        
+        return NO;
+    }];
+    
+    return [[currentLocalizedTexts anyObject] text];
+}
+
+- (NSDictionary *)categories
+{
+    static NSDictionary *categories;
+    if (categories == nil) {
+        categories = @{@"CATEGORY_CONCERTS": @(EventCategoryConcerts),
+                       @"CATEGORY_NIGHTLIFE": @(EventCategoryNightlife),
+                       @"CATEGORY_THEATRE": @(EventCategoryTheatre),
+                       @"CATEGORY_DANCE": @(EventCategoryDance),
+                       @"CATEGORY_ART_EXHIBITION": @(EventCategoryArtExhibition),
+                       @"CATEGORY_SPORTS": @(EventCategorySports),
+                       @"CATEGORY_PRESENTATIONS": @(EventCategoryPresentations)};
+    }
+    
+    return categories;
+}
 
 @end

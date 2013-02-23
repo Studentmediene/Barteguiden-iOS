@@ -22,7 +22,8 @@ const float kAlertOffset = -30*60; // 30 minutes before event
     
 	EKEventStore *eventStore = [[EKEventStore alloc] init];
     [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-        NSLog(@"granted:%d error:%@", granted, error);
+        // TODO: 
+//        NSLog(@"granted:%d error:%@", granted, error);
     }];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(storeChanged:) name:EKEventStoreChangedNotification object:eventStore];
     
@@ -77,7 +78,7 @@ const float kAlertOffset = -30*60; // 30 minutes before event
     [self presentViewController:activityViewController animated:YES completion:NULL];
 }
 
-- (void)promptDateActions:(id)sender
+- (IBAction)promptDateActions:(id)sender
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     

@@ -11,6 +11,8 @@
 
 #import "EventResultsController.h"
 #import "EventResultsControllerDelegate.h"
+#import "EventResultsSectionInfo.h"
+
 #import "EventFormatter.h"
 #import "EventFormatter+TableView.h"
 #import "EventFormatter+Category.h"

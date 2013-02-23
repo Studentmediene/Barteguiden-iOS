@@ -10,7 +10,12 @@
 
 @implementation NSError (RIOUnderlyingError)
 
-- (NSError *)errorWithDomain:(NSString *)domain code:(NSInteger)code underlyingError:(NSError *)underlyingError;
++ (instancetype)errorWithDomain:(NSString *)domain code:(NSInteger)code underlyingError:(NSError *)underlyingError
+{
+    return [[[self class] alloc] initWithDomain:domain code:code underlyingError:underlyingError];
+}
+
+- (instancetype)initWithDomain:(NSString *)domain code:(NSInteger)code underlyingError:(NSError *)underlyingError;
 {
     NSDictionary *userInfo = nil;
     if (underlyingError) {
@@ -23,8 +28,7 @@
 
 - (NSError *)underlyingError
 {
-    NSError *underlyingError = self.userInfo[NSUnderlyingErrorKey];
-    return underlyingError;
+    return self.userInfo[NSUnderlyingErrorKey];
 }
 
 @end
