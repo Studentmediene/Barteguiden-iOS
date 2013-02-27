@@ -20,7 +20,7 @@
 #import "EventFormatter+Price.h"
 #import "EventFormatter+Time.h"
 #import "EventFormatter+LocalizedText.h"
-#import "EventFormatter+Location.h"
+
 #import "EventAnnotation.h"
 
 #endif

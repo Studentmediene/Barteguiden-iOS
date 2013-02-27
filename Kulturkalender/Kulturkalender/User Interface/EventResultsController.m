@@ -49,6 +49,7 @@
 {
     NSArray *events = [self.eventStore eventsMatchingPredicate:self.predicate error:error];
     _fetchedEvents = [NSMutableArray arrayWithArray:events];
+    NSLog(@"Fetched events:%d", [events count]);
     
     [self sortFetchedEvents];
     [self generateSections];
@@ -93,7 +94,9 @@
     NSSet *updated = [self filteredEventsFromUserInfo:note.userInfo forKey:EventStoreUpdatedEventsKey];
     NSSet *deleted = [self filteredEventsFromUserInfo:note.userInfo forKey:EventStoreDeletedEventsKey];
     
-    [self updateFetchedObjectsForInserted:inserted updated:updated deleted:deleted];
+    NSLog(@"Inserted events:%d updated:%d deleted:%d", [inserted count], [updated count], [deleted count]);
+    
+    [self updateFetchedEventsForInserted:inserted updated:updated deleted:deleted];
 }
 
 - (NSSet *)filteredEventsFromUserInfo:(NSDictionary *)userInfo forKey:(NSString *)key
@@ -126,7 +129,7 @@
     }
     
     EventResultsSection *section = _sections[sectionIndex];
-    NSUInteger itemIndex = [section.events indexOfObject:event];
+    NSUInteger itemIndex = [self indexOfEvent:event inSection:section];
     if (itemIndex == NSNotFound) {
         return nil;
     }
@@ -143,9 +146,9 @@
 }
 
 
-#pragma mark - Update fetched objects
+#pragma mark - Update fetched events
 
-- (void)updateFetchedObjectsForInserted:(NSSet *)inserted updated:(NSSet *)updated deleted:(NSSet *)deleted
+- (void)updateFetchedEventsForInserted:(NSSet *)inserted updated:(NSSet *)updated deleted:(NSSet *)deleted
 {
     // Pre-update
     NSSet *newSections = [self namesOfNewSectionsForInsertedEvents:inserted];
@@ -154,10 +157,13 @@
     NSDictionary *indexPathsForUpdatedEvents = [self indexPathsForEvents:updated];
     NSDictionary *indexPathsForDeletedEvents = [self indexPathsForEvents:deleted];
     
+    // TODO: Store the previous _fetchedEvents and and calculate set complements
+    
     // Update fetched events
     [self addInsertedEventsToFetchedEvents:inserted];
     [self removeDeletedEventsFromFetchedEvents:deleted];
     
+//    [self filterFetchedEvents];
     [self sortFetchedEvents];
     [self generateSections];
     
@@ -178,6 +184,16 @@
     }
     
     [self notifyDidChangeContent];
+}
+
+- (void)addInsertedEventsToFetchedEvents:(NSSet *)events
+{
+    [_fetchedEvents addObjectsFromArray:[events allObjects]];
+}
+
+- (void)removeDeletedEventsFromFetchedEvents:(NSSet *)events
+{
+    [_fetchedEvents removeObjectsInArray:[events allObjects]];
 }
 
 - (NSDictionary *)indexPathsForEvents:(NSSet *)events
@@ -207,19 +223,6 @@
     }
     
     return [indices copy];
-}
-
-
-#pragma mark - Update fetched events
-
-- (void)addInsertedEventsToFetchedEvents:(NSSet *)events
-{
-    [_fetchedEvents addObjectsFromArray:[events allObjects]];
-}
-
-- (void)removeDeletedEventsFromFetchedEvents:(NSSet *)events
-{
-    [_fetchedEvents removeObjectsInArray:[events allObjects]];
 }
 
 - (NSSet *)namesOfNewSectionsForInsertedEvents:(NSSet *)events
@@ -346,6 +349,12 @@
     }
     
     return NSNotFound;
+}
+
+- (NSUInteger)indexOfEvent:(id<Event>)event inSection:(EventResultsSection *)section
+{
+    NSArray *events = [section events];
+    return [events indexOfObject:event];
 }
 
 @end

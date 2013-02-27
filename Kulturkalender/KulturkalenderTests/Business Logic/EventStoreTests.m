@@ -12,6 +12,8 @@
 
 // Collaborators
 #import "Event.h"
+#import "EventStoreCommunicatorMock.h"
+#import "EventBuilder.h" // TODO: Create mock instead?
 
 // Test support
 #import <SenTestingKit/SenTestingKit.h>
@@ -36,17 +38,18 @@
 
 #pragma mark - Tests
 
+// TODO: Remove comments
 - (void)testEventWithIdentifierReturnsNotNil
 {
     NSString *identifier = @"1234-5678";
-    id<Event> event = [_eventStore eventWithIdentifier:identifier];
+    id<Event> event = [_eventStore eventWithIdentifier:identifier error:NULL];
     STAssertNotNil(event, @"No event was returned.");
 }
 
 - (void)testPredicateForFeaturedEventsShouldOnlyMatchFeaturedEvents
 {
     NSPredicate *predicate = [_eventStore predicateForFeaturedEvents];
-    NSArray *result = [_eventStore eventsMatchingPredicate:predicate];
+    NSArray *result = [_eventStore eventsMatchingPredicate:predicate error:NULL];
     STAssertEquals(result.count, 1U, @"Incorrect number of featured events.");
     
     // TODO: Check all returned IDs
@@ -59,7 +62,7 @@
 
 - (void)testNilPredicateShouldMatchAllEvents
 {
-    NSArray *result = [_eventStore eventsMatchingPredicate:nil];
+    NSArray *result = [_eventStore eventsMatchingPredicate:nil error:NULL];
     STAssertEquals(result.count, 4U, @"Incorrect number of events.");
 }
 
@@ -67,7 +70,7 @@
 - (void)testTitleOfEventIsValid
 {
     NSString *identifier = @"1234-5678";
-    id<Event> event = [_eventStore eventWithIdentifier:identifier];
+    id<Event> event = [_eventStore eventWithIdentifier:identifier error:NULL];
     STAssertEqualObjects(event.title, @"Tirsdagskviss", @"Incorrect title.");
 }
 
@@ -77,13 +80,11 @@
 - (void)setUpEventStore
 {
     _eventStore = [[EventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
-    
-    // Import test data
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-    NSArray *events = values[@"events"];
-    [_eventStore importEvents:events];
+    EventStoreCommunicator *communicator = [[EventStoreCommunicatorMock alloc] init];
+    communicator.delegate = _eventStore;
+    _eventStore.communicator = communicator;
+    _eventStore.builder = [[EventBuilder alloc] init];
+    [_eventStore refresh];
 }
 
 - (NSManagedObjectContext *)managedObjectContext

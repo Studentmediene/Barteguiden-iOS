@@ -9,7 +9,6 @@
 #import "EventFormatter+TableView.h"
 #import "EventConstants.h"
 #import "EventKit.h"
-#import "EventFormatter+Location.h"
 
 
 @implementation EventFormatter (TableView)

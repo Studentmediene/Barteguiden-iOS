@@ -18,7 +18,7 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
 
 @implementation EventBuilder
 
-+ (Event *)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+- (Event *)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     NSDateFormatter *dateFormatter = [[self class] jsonDateFormatter];
     

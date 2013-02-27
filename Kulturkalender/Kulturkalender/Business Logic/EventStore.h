@@ -9,14 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "EventKit.h"
 #import "EventDelegate.h"
+#import "EventStoreCommunicatorDelegate.h"
 
 
-@interface EventStore : NSObject <EventStore, EventDelegate>
+@class EventStoreCommunicator;
+@class EventBuilder;
+
+@interface EventStore : NSObject <EventStore, EventDelegate, EventStoreCommunicatorDelegate>
+
+@property (nonatomic, strong) EventStoreCommunicator *communicator;
+@property (nonatomic, strong) EventBuilder *builder;
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
-- (void)importEvents:(NSArray *)events;
-
-- (NSURL *)URLForEventChanges;
-- (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size;
+- (void)refresh;
 
 @end

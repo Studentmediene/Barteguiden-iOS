@@ -7,25 +7,43 @@
 //
 
 #import "EventAnnotation.h"
+#import "EventKit.h"
+
+
+@interface EventAnnotation ()
+
+@property (nonatomic, strong) id<Event> event;
+
+@end
 
 
 @implementation EventAnnotation
+
+- (id)initWithEvent:(id<Event>)event
+{
+    self = [super init];
+    if (self) {
+        _event = event;
+    }
+    return self;
+}
+
 
 #pragma mark - MKAnnotation
 
 - (CLLocationCoordinate2D)coordinate
 {
-    return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
+    return [self.event location];
 }
 
 - (NSString *)title
 {
-    return self.placeName;
+    return [self.event placeName];
 }
 
 - (NSString *)subtitle
 {
-    return self.address;
+    return [self.event address];
 }
 
 @end

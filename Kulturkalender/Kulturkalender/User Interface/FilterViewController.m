@@ -90,7 +90,7 @@ enum {
         
         // TODO: Fix
 //        NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-//        BOOL isSelected = [_filterManager isSelectedForCategoryID:categoryID];
+//        BOOL isSelected = [self.filterManager isSelectedForCategoryID:categoryID];
 //        
 //        cell.textLabel.text = [Event stringForCategoryID:categoryID];
 //        cell.accessoryType = (isSelected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
@@ -157,7 +157,7 @@ enum {
 //    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
 //    
 //    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-//    BOOL isSelected = [_filterManager isSelectedForCategoryID:categoryID];
+//    BOOL isSelected = [self.filterManager isSelectedForCategoryID:categoryID];
     
 //    cell.accessoryType = (isSelected == YES) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
@@ -167,7 +167,7 @@ enum {
     // TODO: Fix
 //    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 //    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-//    [_filterManager toggleSelectedForCategoryID:categoryID];
+//    [self.filterManager toggleSelectedForCategoryID:categoryID];
 //    
 //    [self updateCategoryFilterSelectedCell];
 }
@@ -177,17 +177,17 @@ enum {
 
 - (void)updateAgeLimitFilterCells
 {
-    self.ageLimitAllEventsCell.accessoryType = (_filterManager.ageLimitFilter == AgeLimitFilterShowAllEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-    self.ageLimitAllowedForMyAgeCell.accessoryType = (_filterManager.ageLimitFilter == AgeLimitFilterShowAllowedForMyAge) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.ageLimitAllEventsCell.accessoryType = (self.filterManager.ageLimitFilter == AgeLimitFilterShowAllEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.ageLimitAllowedForMyAgeCell.accessoryType = (self.filterManager.ageLimitFilter == AgeLimitFilterShowAllowedForMyAge) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 - (void)setAgeLimitFilterForCell:(UITableViewCell *)cell
 {
     if (cell == self.ageLimitAllEventsCell) {
-        _filterManager.ageLimitFilter = AgeLimitFilterShowAllEvents;
+        self.filterManager.ageLimitFilter = AgeLimitFilterShowAllEvents;
     }
     else if (cell == self.ageLimitAllowedForMyAgeCell) {
-        _filterManager.ageLimitFilter = AgeLimitFilterShowAllowedForMyAge;
+        self.filterManager.ageLimitFilter = AgeLimitFilterShowAllowedForMyAge;
     }
     
     [self updateAgeLimitFilterCells];
@@ -195,15 +195,15 @@ enum {
 
 - (void)updateMyAgeTextField
 {
-    if ([_filterManager.myAge unsignedIntegerValue] > 0) {
-        self.myAgeTextField.text = [_filterManager.myAge stringValue];
+    if ([self.filterManager.myAge unsignedIntegerValue] > 0) {
+        self.myAgeTextField.text = [self.filterManager.myAge stringValue];
     }
 }
 
 - (void)setMyAge
 {
     NSNumber *myAge = [NSNumber numberWithUnsignedInteger:[self.myAgeTextField.text integerValue]];
-    [_filterManager setMyAge:myAge];
+    [self.filterManager setMyAge:myAge];
 }
 
 
@@ -211,21 +211,21 @@ enum {
 
 - (void)updatePriceFilterCells
 {
-    self.priceFilterAllEventsCell.accessoryType = (_filterManager.priceFilter == PriceFilterShowAllEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-    self.priceFilterPaidEvents.accessoryType = (_filterManager.priceFilter == PriceFilterShowPaidEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-    self.priceFilterFreeEvents.accessoryType = (_filterManager.priceFilter == PriceFilterShowFreeEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.priceFilterAllEventsCell.accessoryType = (self.filterManager.priceFilter == PriceFilterShowAllEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.priceFilterPaidEvents.accessoryType = (self.filterManager.priceFilter == PriceFilterShowPaidEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.priceFilterFreeEvents.accessoryType = (self.filterManager.priceFilter == PriceFilterShowFreeEvents) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 - (void)setPriceFilterForCell:(UITableViewCell *)cell
 {
     if (cell == self.priceFilterAllEventsCell) {
-        _filterManager.priceFilter = PriceFilterShowAllEvents;
+        self.filterManager.priceFilter = PriceFilterShowAllEvents;
     }
     else if (cell == self.priceFilterPaidEvents) {
-        _filterManager.priceFilter = PriceFilterShowPaidEvents;
+        self.filterManager.priceFilter = PriceFilterShowPaidEvents;
     }
     else if (cell == self.priceFilterFreeEvents) {
-        _filterManager.priceFilter = PriceFilterShowFreeEvents;
+        self.filterManager.priceFilter = PriceFilterShowFreeEvents;
     }
     
     [self updatePriceFilterCells];

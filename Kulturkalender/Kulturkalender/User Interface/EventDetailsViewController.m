@@ -53,8 +53,8 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 {
     if ([segue.identifier isEqualToString:@"MapSegue"])
     {
-//        MapViewController *mapViewController = [segue destinationViewController];
-//        mapViewController.annotation = self.event.annotation;
+        MapViewController *mapViewController = [segue destinationViewController];
+        mapViewController.annotation = [[EventAnnotation alloc] initWithEvent:self.event];
     }
 }
 
@@ -172,7 +172,11 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 - (void)storeChanged:(NSNotification *)note
 {
     NSLog(@"Store changed:%@", note);
+    // TODO: Test if this works
     // TIPS: If you are currently modifying an event and you do not want to refetch it unless it is absolutely necessary to do so, you can call the refresh method on the event. If the method returns YES, you can continue to use the event; otherwise, you need to refetch it.
+    if ([(NSSet *)note.userInfo[EventStoreUpdatedEventsKey] containsObject:self.event]) {
+        [self updateViewInfo];
+    }
 }
 
 @end

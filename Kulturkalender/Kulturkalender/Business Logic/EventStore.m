@@ -9,6 +9,7 @@
 #import "EventStore.h"
 #import <CoreData/CoreData.h>
 #import "Event.h"
+#import "EventStoreCommunicator.h"
 #import "EventBuilder.h"
 #import "NSError+RIOUnderlyingError.h"
 
@@ -30,6 +31,9 @@ static NSString * const kEventEntityName = @"Event";
     self = [super init];
     if (self) {
         _managedObjectContext = managedObjectContext;
+        _communicator = [[EventStoreCommunicator alloc] init];
+        _communicator.delegate = self;
+        _builder = [[EventBuilder alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextObjectsDidChangeNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:self.managedObjectContext];
     }
@@ -41,29 +45,28 @@ static NSString * const kEventEntityName = @"Event";
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextObjectsDidChangeNotification object:self.managedObjectContext];
 }
 
-- (void)importEvents:(NSArray *)events
+- (void)refresh
 {
-    for (NSDictionary *event in events) {
-        [EventBuilder insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreWillRefreshNotification object:self];
+    
+    [self.communicator downloadEventChanges];
+}
+
+
+#pragma mark - EventStoreCommunicatorDelegate
+
+- (void)communicator:(EventStoreCommunicator *)communicator didReceiveEventChangesWithInserted:(NSArray *)inserted updated:(NSArray *)updated deleted:(NSArray *)deleted
+{
+    for (NSDictionary *event in inserted) {
+        [self.builder insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
     }
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidRefreshNotification object:self];
 }
 
-- (NSURL *)baseURL
+- (void)communicator:(EventStoreCommunicator *)communicator didFailWithError:(NSError *)error
 {
-    return [NSURL URLWithString:@"http://kk.skohorn.net/"];
-}
-
-- (NSURL *)URLForEventChanges
-{
-    return [NSURL URLWithString:@"events/changes"];
-//    return [NSURL URLWithString:@"events/changes" relativeToURL:[self baseURL]];
-}
-
-- (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size
-{
-//    NSString *path = [NSString stringWithFormat:@"events/%@.png?size=%dx%d", eventID, (int)size.width, (int)size.height];
-    NSString *path = [NSString stringWithFormat:@"img/%@.png", eventID];
-    return [NSURL URLWithString:path relativeToURL:[self baseURL]];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidFailToRefreshNotification object:self userInfo:@{EventStoreRefreshErrorKey: error}];
 }
 
 
@@ -71,7 +74,11 @@ static NSString * const kEventEntityName = @"Event";
 
 - (void)managedObjectContextObjectsDidChangeNotification:(NSNotification *)note
 {
-    [self notifyEventStoreChangedWithInserted:note.userInfo[NSInsertedObjectsKey] updated:note.userInfo[NSUpdatedObjectsKey] deleted:note.userInfo[NSDeletedObjectsKey]];
+    NSSet *inserted = note.userInfo[NSInsertedObjectsKey];
+    NSSet *updated = note.userInfo[NSUpdatedObjectsKey];
+    NSSet *deleted = note.userInfo[NSDeletedObjectsKey];
+    
+    [self notifyEventStoreChangedWithInserted:inserted updated:updated deleted:deleted];
 }
 
 
@@ -104,6 +111,7 @@ static NSString * const kEventEntityName = @"Event";
 {
     // Set up fetch request
     NSFetchRequest *fetchRequest = [self fetchRequestWithPredicate:predicate];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
     
     // Fetch events and forward any errors
     NSArray *events = [self executeFetchRequest:fetchRequest error:error];
@@ -199,6 +207,11 @@ static NSString * const kEventEntityName = @"Event";
     [self notifyEventStoreChangedWithInserted:nil updated:updated deleted:nil];
 }
 
+- (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size
+{
+    return [self.communicator URLForImageWithEventID:eventID size:size];
+}
+
 
 #pragma mark - Private methods
 
@@ -249,6 +262,14 @@ static NSString * const kEventEntityName = @"Event";
     [self addEvents:updated toUserInfo:userInfo forKey:EventStoreUpdatedEventsKey];
     [self addEvents:deleted toUserInfo:userInfo forKey:EventStoreDeletedEventsKey];
     
+    if (userInfo[EventStoreInsertedEventsKey] == nil && userInfo[EventStoreUpdatedEventsKey] == nil && userInfo[EventStoreDeletedEventsKey] == nil) {
+        return;
+    }
+    
+    // NOTE: Make sure that delegate is set on new events
+    [self setDelegateOnEvents:[userInfo[EventStoreInsertedEventsKey] allObjects]];
+    
+//    NSLog(@"%@", userInfo);
     [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreChangedNotification object:self userInfo:[userInfo copy]];
 }
 
@@ -267,54 +288,5 @@ static NSString * const kEventEntityName = @"Event";
         userInfo[key] = [events copy];
     }
 }
-
-#pragma mark - TODO: From EventManager
-
-//- (void)refresh
-//{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreWillRefreshNotification object:self];
-//    
-//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-//    //    NSURL *url = [NSURL URLWithString:@"https://dl.dropbox.com/u/10851469/Under%20Dusken/Kulturkalender/Data.json"];
-//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
-//    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:url];
-//    
-//    typeof(self) bself = self;
-//    [NSURLConnection sendAsynchronousRequest:URLRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-//        //        NSLog(@"%@", data);
-//        //        NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//        //        NSLog(@"%@", values);
-//        NSLog(@"%@", response);
-//        
-//        [bself refreshWithData:data];
-//        
-//        //    //http://stackoverflow.com/questions/9270447/how-to-use-sendasynchronousrequestqueuecompletionhandler
-//        //    if ([data length] > 0 && error == nil)
-//        //        [delegate receivedData:data];
-//        //    else if ([data length] == 0 && error == nil)
-//        //        [delegate emptyReply];
-//        //    else if (error != nil && error.code == ERROR_CODE_TIMEOUT)
-//        //        [delegate timedOut];
-//        //    else if (error != nil)
-//        //        [delegate downloadError:error];
-//    }];
-//}
-//- (void)refreshWithData:(NSData *)data
-//{
-//    // TODO: Asynchronous download of content
-//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
-//    data = [NSData dataWithContentsOfURL:url];
-//    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//    //    NSLog(@"%@", values);
-//    
-//    NSArray *events = values[@"events"];
-//    for (NSDictionary *event in events) {
-//        [Event insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
-//    }
-//    //    [self save];
-//    
-//    //    NSLog(@"");
-//    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidRefreshNotification object:self];
-//}
 
 @end

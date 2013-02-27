@@ -30,20 +30,7 @@
     tabBarController.eventStore = _eventStore;
     tabBarController.filterManager = _filterManager;
     
-    [self performSelector:@selector(importData) withObject:nil afterDelay:2.0];
-    
     return YES;
-}
-
-// TODO: Temp
-- (void)importData
-{
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    NSDictionary *values = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-    NSArray *events = values[@"events"];
-    [self.eventStore importEvents:events];
-    [self.managedObjectContext save:NULL];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -72,6 +59,7 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     NSLog(@"Refreshing...");
+    [self.eventStore refresh];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

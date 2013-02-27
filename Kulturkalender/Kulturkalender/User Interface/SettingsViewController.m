@@ -24,25 +24,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // TODO: Fix code
-    if (indexPath.section == 1) {
-        [self triggerRefresh:tableView];
-    }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-
-#pragma mark - IBAction
-
-- (IBAction)triggerRefresh:(id)sender
-{
-//    NSLog(@"Refreshing (Not working)");
-//    [self.eventStore refresh];
-}
-
 
 @end

@@ -64,9 +64,19 @@
 
 - (UIImage *)imageWithSize:(CGSize)size
 {
-    NSURL *url = [NSURL URLWithString:@"http://kk.skohorn.net/img/img1.png"];
+    if (self.imageID == nil) { // TODO: Remove check
+        return nil;
+    }
+    
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    CGSize scaledSize = CGSizeMake(size.width * scale, size.height * scale);
+    
+    NSURL *url = [self.delegate URLForImageWithEventID:self.imageID size:scaledSize];
+    
     UIImage *image = [self.imageCache imageForURL:url delegate:self];
-    return image;
+    UIImage *scaledImage = [[UIImage alloc] initWithCGImage:image.CGImage scale:scale orientation:UIImageOrientationUp];
+    
+    return scaledImage;
 }
 
 - (NSString *)descriptionForLanguage:(NSString *)language

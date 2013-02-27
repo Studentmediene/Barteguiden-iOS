@@ -10,11 +10,10 @@
 #import <MapKit/MapKit.h>
 
 
+@protocol Event;
+
 @interface EventAnnotation : NSObject <MKAnnotation>
 
-@property (nonatomic, strong) NSNumber *latitude;
-@property (nonatomic, strong) NSNumber *longitude;
-@property (nonatomic, strong) NSString *placeName;
-@property (nonatomic, strong) NSString *address;
+- (id)initWithEvent:(id<Event>)event;
 
 @end

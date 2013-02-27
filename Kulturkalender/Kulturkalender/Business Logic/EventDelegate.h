@@ -14,5 +14,6 @@
 @protocol EventDelegate <NSObject>
 
 - (void)eventDidChange:(Event *)event;
+- (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size;
 
 @end

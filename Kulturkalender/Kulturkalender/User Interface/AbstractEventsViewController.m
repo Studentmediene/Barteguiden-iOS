@@ -139,6 +139,11 @@
     [self.tableView endUpdates];
 }
 
+//- (void)eventResultsControllerDidChangeContent:(EventResultsController *)controller
+//{
+//    [self.tableView reloadData];
+//}
+
 
 #pragma mark - EventsSearchDisplayControllerDelegate
 
