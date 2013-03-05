@@ -11,29 +11,43 @@
 
 @interface EventResultsSection ()
 
-@property (nonatomic, strong) NSMutableArray *objects;
+@property (nonatomic, strong) NSMutableArray *events;
 
 @end
 
 
 @implementation EventResultsSection
 
-- (id)initWithObjects:(NSArray *)objects
+- (instancetype)initWithEvents:(NSArray *)events
 {
     self = [super init];
     if (self) {
-        _objects = [NSMutableArray arrayWithArray:objects];
+        _events = [NSMutableArray arrayWithArray:events];
     }
     return self;
 }
+
+- (instancetype)copyWithZone:(NSZone *)zone
+{
+    EventResultsSection *section = [[EventResultsSection alloc] initWithEvents:_events];
+    section.name = [_name copy];
+    
+    return section;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: 0x%x; name = %@, eventCount = %d>", self.class, (NSUInteger)self, _name, [_events count]];
+}
+
 
 #pragma mark - Adding Objects
 
 - (NSUInteger)addObject:(id)object usingSortDescriptors:(NSArray *)sortDescriptors;
 {
-    [self.objects addObject:object];
-    [self.objects sortUsingDescriptors:sortDescriptors];
-    return [self.objects indexOfObject:object];
+    [_events addObject:object];
+    [_events sortUsingDescriptors:sortDescriptors];
+    return [_events indexOfObject:object];
 }
 
 
@@ -41,12 +55,12 @@
 
 - (NSUInteger)numberOfEvents
 {
-    return [self.objects count];
+    return [_events count];
 }
 
 - (NSArray *)events
 {
-    return [self.objects copy];
+    return [_events copy];
 }
 
 

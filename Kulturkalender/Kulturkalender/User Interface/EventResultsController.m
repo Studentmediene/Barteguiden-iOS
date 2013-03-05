@@ -44,6 +44,33 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:EventStoreChangedNotification object:self.eventStore];
 }
+// TODO: Remove
+- (void)setPredicate:(NSPredicate *)predicate withAnimation:(BOOL)animation;
+{
+    NSLog(@"Transitioning to new predicate");
+    self.predicate = predicate;
+    
+    NSArray *oldFetchedEvents = [_fetchedEvents copy];
+    NSArray *newFetchedEvents = [self.eventStore eventsMatchingPredicate:predicate error:NULL];
+    
+    // Find deleted events
+    NSMutableSet *inserted = [NSMutableSet set];
+    for (id<Event> event in newFetchedEvents) {
+        if ([oldFetchedEvents containsObject:event] == NO) {
+            [inserted addObject:event];
+        }
+    }
+    
+    // Find inserted events
+    NSMutableSet *deleted = [NSMutableSet set];
+    for (id<Event> event in oldFetchedEvents) {
+        if ([newFetchedEvents containsObject:event] == NO) {
+            [deleted addObject:event];
+        }
+    }
+    
+    [self updateFetchedEventsForInserted:inserted updated:nil deleted:deleted];
+}
 
 - (void)performFetch:(NSError **)error
 {
@@ -67,7 +94,7 @@
     NSMutableArray *sections = [NSMutableArray array];
     
     __block NSString *lastSectionName = nil;
-    NSDictionary *sectionObjects = [self.fetchedEvents classifyObjectsUsingBlock:^id<NSCopying>(id obj) {
+    NSDictionary *sectionEvents = [self.fetchedEvents classifyObjectsUsingBlock:^id<NSCopying>(id obj) {
         NSString *sectionName = self.sectionNameBlock(obj);
         
         if ([sectionName isEqual:lastSectionName] == NO) {
@@ -80,7 +107,7 @@
     }];
     
     for (NSString *sectionName in sections) {
-        [self addSectionWithName:sectionName objects:sectionObjects[sectionName]];
+        [self addSectionWithName:sectionName events:sectionEvents[sectionName]];
     }
 }
 
@@ -90,19 +117,13 @@
 - (void)eventStoreChanged:(NSNotification *)note
 {
     // Get changed events
-    NSSet *inserted = [self filteredEventsFromUserInfo:note.userInfo forKey:EventStoreInsertedEventsKey];
-    NSSet *updated = [self filteredEventsFromUserInfo:note.userInfo forKey:EventStoreUpdatedEventsKey];
-    NSSet *deleted = [self filteredEventsFromUserInfo:note.userInfo forKey:EventStoreDeletedEventsKey];
+    NSSet *inserted = note.userInfo[EventStoreInsertedEventsKey];
+    NSSet *updated = note.userInfo[EventStoreUpdatedEventsKey];
+    NSSet *deleted = note.userInfo[EventStoreDeletedEventsKey];
     
     NSLog(@"Inserted events:%d updated:%d deleted:%d", [inserted count], [updated count], [deleted count]);
     
     [self updateFetchedEventsForInserted:inserted updated:updated deleted:deleted];
-}
-
-- (NSSet *)filteredEventsFromUserInfo:(NSDictionary *)userInfo forKey:(NSString *)key
-{
-    NSSet *events = userInfo[key];
-    return [events filteredSetUsingPredicate:self.predicate];
 }
 
 
@@ -121,20 +142,7 @@
 
 - (NSIndexPath *)indexPathForEvent:(id<Event>)event
 {
-    NSString *sectionName = self.sectionNameBlock(event);
-    
-    NSUInteger sectionIndex = [self indexOfSectionWithName:sectionName];
-    if (sectionIndex == NSNotFound) {
-        return nil;
-    }
-    
-    EventResultsSection *section = _sections[sectionIndex];
-    NSUInteger itemIndex = [self indexOfEvent:event inSection:section];
-    if (itemIndex == NSNotFound) {
-        return nil;
-    }
-    
-    return [NSIndexPath indexPathForRow:itemIndex inSection:sectionIndex];
+    return [self indexPathForEvent:event inSections:_sections];
 }
 
 
@@ -150,40 +158,71 @@
 
 - (void)updateFetchedEventsForInserted:(NSSet *)inserted updated:(NSSet *)updated deleted:(NSSet *)deleted
 {
+    NSArray *oldSections = [self deepCopySections:_sections];
+    
     // Pre-update
-    NSSet *newSections = [self namesOfNewSectionsForInsertedEvents:inserted];
+    inserted = [inserted filteredSetUsingPredicate:self.predicate];
+    [self moveUpdated:&updated toInserted:&inserted orDeleted:&deleted];
+    updated = [updated filteredSetUsingPredicate:self.predicate];
     
-    NSDictionary *indicesForDeletedSections = [self indicesOfSectionsWithEvents:deleted];
-    NSDictionary *indexPathsForUpdatedEvents = [self indexPathsForEvents:updated];
-    NSDictionary *indexPathsForDeletedEvents = [self indexPathsForEvents:deleted];
-    
-    // TODO: Store the previous _fetchedEvents and and calculate set complements
+    NSSet *newSections = [self sectionNamesThatDoesNotExistForEvents:inserted];
     
     // Update fetched events
     [self addInsertedEventsToFetchedEvents:inserted];
     [self removeDeletedEventsFromFetchedEvents:deleted];
     
-//    [self filterFetchedEvents];
     [self sortFetchedEvents];
     [self generateSections];
     
     // Post-update
-    NSSet *deletedSections = [self namesOfDeletedSectionsForDeletedEvents:deleted];
+    NSSet *deletedSections = [self sectionNamesThatDoesNotExistForEvents:deleted];
     
+    // Notify delegate
     [self notifyWillChangeContent];
     
     if ([self delegateRespondsToChangedSection] == YES) {
         [self notifyNewSections:newSections];
-        [self notifyDeletedSections:deletedSections withIndices:indicesForDeletedSections];
+        [self notifyDeletedSections:deletedSections withOldSections:oldSections];
     }
     
     if ([self delegateRespondsToChangedObject] == YES) {
         [self notifyNewItemsForInsertedEvents:inserted];
-        [self notifyUpdatedItemsForUpdatedEvents:updated withIndexPaths:indexPathsForUpdatedEvents];
-        [self notifyDeletedItemsForDeletedEvents:deleted withIndexPaths:indexPathsForDeletedEvents];
+        [self notifyUpdatedItemsForUpdatedEvents:updated withOldSections:oldSections];
+        [self notifyDeletedItemsForDeletedEvents:deleted withOldSections:oldSections];
     }
     
     [self notifyDidChangeContent];
+}
+
+- (void)moveUpdated:(NSSet **)updated toInserted:(NSSet **)inserted orDeleted:(NSSet **)deleted
+{
+    // Create mutable sets from immutable sets
+    NSMutableSet *mutableUpdated = [NSMutableSet setWithSet:*updated];
+    NSMutableSet *mutableInserted = [NSMutableSet setWithSet:*inserted];
+    NSMutableSet *mutableDeleted = [NSMutableSet setWithSet:*deleted];
+    
+    // Check if updated events should be moved
+    for (id<Event> event in *updated) {
+        // Should delete event?
+        if ([_fetchedEvents containsObject:event] == YES) {
+            if ([self.predicate evaluateWithObject:event] == NO) {
+                [mutableUpdated removeObject:event];
+                [mutableDeleted addObject:event];
+            }
+        }
+        // Should insert event?
+        else {
+            if ([self.predicate evaluateWithObject:event] == YES) {
+                [mutableUpdated removeObject:event];
+                [mutableInserted addObject:event];
+            }
+        }
+    }
+    
+    // Update
+    *inserted = [mutableInserted copy];
+    *updated = [mutableUpdated copy];
+    *deleted = [mutableDeleted copy];
 }
 
 - (void)addInsertedEventsToFetchedEvents:(NSSet *)events
@@ -196,65 +235,32 @@
     [_fetchedEvents removeObjectsInArray:[events allObjects]];
 }
 
-- (NSDictionary *)indexPathsForEvents:(NSSet *)events
+- (NSSet *)sectionNamesThatDoesNotExistForEvents:(NSSet *)events
 {
-    NSMutableDictionary *indexPaths = [NSMutableDictionary dictionary];
-    
-    for (id<Event> event in events) {
-        NSIndexPath *indexPath = [self indexPathForEvent:event];
-        if (indexPath != nil) {
-            [indexPaths setObject:indexPath forKey:[event eventIdentifier]];
-        }
-    }
-    
-    return [indexPaths copy];
-}
-
-- (NSDictionary *)indicesOfSectionsWithEvents:(NSSet *)events
-{
-    NSMutableDictionary *indices = [NSMutableDictionary dictionary];
-    
-    for (id<Event> event in events) {
-        NSString *sectionName = self.sectionNameBlock(event);
-        NSUInteger index = [self indexOfSectionWithName:sectionName];
-        if (index != NSNotFound) {
-            [indices setObject:@(index) forKey:sectionName];
-        }
-    }
-    
-    return [indices copy];
-}
-
-- (NSSet *)namesOfNewSectionsForInsertedEvents:(NSSet *)events
-{
-    NSMutableSet *newSections = [NSMutableSet set];
+    NSMutableSet *sectionNames = [NSMutableSet set];
     
     for (id<Event> event in events) {
         NSString *sectionName = self.sectionNameBlock(event);
         if ([self indexOfSectionWithName:sectionName] == NSNotFound) {
-            [newSections addObject:sectionName];
+            [sectionNames addObject:sectionName];
         }
     }
     
-    return [newSections copy];
-}
-
-- (NSSet *)namesOfDeletedSectionsForDeletedEvents:(NSSet *)events
-{
-    NSMutableSet *deletedSections = [NSMutableSet set];
-    
-    for (id<Event> event in events) {
-        NSString *sectionName = self.sectionNameBlock(event);
-        if ([self indexOfSectionWithName:sectionName] == NSNotFound) {
-            [deletedSections addObject:sectionName];
-        }
-    }
-    
-    return [deletedSections copy];
+    return [sectionNames copy];
 }
 
 
 #pragma mark - Notify delegate
+
+- (BOOL)delegateRespondsToChangedSection
+{
+    return [self.delegate respondsToSelector:@selector(eventResultsController:didChangeSection:atIndex:forChangeType:)];
+}
+
+- (BOOL)delegateRespondsToChangedObject
+{
+    return [self.delegate respondsToSelector:@selector(eventResultsController:didChangeObject:atIndexPath:forChangeType:newIndexPath:)];
+}
 
 - (void)notifyWillChangeContent
 {
@@ -270,31 +276,21 @@
     }
 }
 
-- (BOOL)delegateRespondsToChangedSection
-{
-    return [self.delegate respondsToSelector:@selector(eventResultsController:didChangeSection:atIndex:forChangeType:)];
-}
-
-- (BOOL)delegateRespondsToChangedObject
-{
-    return [self.delegate respondsToSelector:@selector(eventResultsController:didChangeObject:atIndexPath:forChangeType:newIndexPath:)];
-}
-
 - (void)notifyNewSections:(NSSet *)newSections
 {
     for (NSString *sectionName in newSections) {
-        NSUInteger index = [self indexOfSectionWithName:sectionName];
-        EventResultsSection *section = _sections[index];
-        [self.delegate eventResultsController:self didChangeSection:section atIndex:index forChangeType:EventResultsChangeInsert];
+        NSUInteger newIndex = [self indexOfSectionWithName:sectionName];
+        EventResultsSection *section = _sections[newIndex];
+        [self.delegate eventResultsController:self didChangeSection:section atIndex:newIndex forChangeType:EventResultsChangeInsert];
     }
 }
 
-- (void)notifyDeletedSections:(NSSet *)deletedSections withIndices:(NSDictionary *)indices
+- (void)notifyDeletedSections:(NSSet *)deletedSections withOldSections:(NSArray *)oldSections
 {
     for (NSString *sectionName in deletedSections) {
-        NSUInteger index = [[indices objectForKey:sectionName] unsignedIntegerValue];
-        EventResultsSection *section = _sections[index];
-        [self.delegate eventResultsController:self didChangeSection:section atIndex:index forChangeType:EventResultsChangeInsert];
+        NSUInteger oldIndex = [self indexOfSectionWithName:sectionName inSections:oldSections];
+        EventResultsSection *section = oldSections[oldIndex];
+        [self.delegate eventResultsController:self didChangeSection:section atIndex:oldIndex forChangeType:EventResultsChangeDelete];
     }
 }
 
@@ -306,43 +302,48 @@
     }
 }
 
-- (void)notifyUpdatedItemsForUpdatedEvents:(NSSet *)events withIndexPaths:(NSDictionary *)indexPaths
+- (void)notifyUpdatedItemsForUpdatedEvents:(NSSet *)events withOldSections:(NSArray *)oldSections
 {
     for (id<Event> event in events) {
-        NSIndexPath *indexPath = [indexPaths objectForKey:[event eventIdentifier]];
+        NSIndexPath *oldIndexPath = [self indexPathForEvent:event inSections:oldSections];
         NSIndexPath *newIndexPath = [self indexPathForEvent:event];
         
-        if ([indexPath isEqual:newIndexPath]) {
-            [self.delegate eventResultsController:self didChangeObject:event atIndexPath:indexPath forChangeType:EventResultsChangeUpdate newIndexPath:newIndexPath];
-        }
-        else {
-            [self.delegate eventResultsController:self didChangeObject:event atIndexPath:indexPath forChangeType:EventResultsChangeMove newIndexPath:newIndexPath];
-        }
+//        if ([indexPath isEqual:newIndexPath]) {
+            [self.delegate eventResultsController:self didChangeObject:event atIndexPath:oldIndexPath forChangeType:EventResultsChangeUpdate newIndexPath:newIndexPath];
+//        }
+//        else {
+//            [self.delegate eventResultsController:self didChangeObject:event atIndexPath:oldIndexPath forChangeType:EventResultsChangeMove newIndexPath:newIndexPath];
+//        }
     }
 }
 
-- (void)notifyDeletedItemsForDeletedEvents:(NSSet *)events withIndexPaths:(NSDictionary *)indexPaths
+- (void)notifyDeletedItemsForDeletedEvents:(NSSet *)events withOldSections:(NSArray *)oldSections
 {
     for (id<Event> event in events) {
-        NSIndexPath *indexPath = [indexPaths objectForKey:[event eventIdentifier]];
-            [self.delegate eventResultsController:self didChangeObject:event atIndexPath:indexPath forChangeType:EventResultsChangeDelete newIndexPath:nil];
+        NSIndexPath *oldIndexPath = [self indexPathForEvent:event inSections:oldSections];
+        [self.delegate eventResultsController:self didChangeObject:event atIndexPath:oldIndexPath forChangeType:EventResultsChangeDelete newIndexPath:nil];
     }
 }
 
 
 #pragma mark - Private methods
 
-- (void)addSectionWithName:(NSString *)sectionName objects:(NSArray *)objects
+- (void)addSectionWithName:(NSString *)sectionName events:(NSArray *)events
 {
-    EventResultsSection *section = [[EventResultsSection alloc] initWithObjects:objects];
+    EventResultsSection *section = [[EventResultsSection alloc] initWithEvents:events];
     section.name = sectionName;
     [_sections addObject:section];
 }
 
 - (NSUInteger)indexOfSectionWithName:(NSString *)sectionName
 {
-    for (NSUInteger i = 0, l = [_sections count]; i < l; i++) {
-        EventResultsSection *section = _sections[i];
+    return [self indexOfSectionWithName:sectionName inSections:_sections];
+}
+
+- (NSUInteger)indexOfSectionWithName:(NSString *)sectionName inSections:(NSArray *)sections
+{
+    for (NSUInteger i = 0, l = [sections count]; i < l; i++) {
+        EventResultsSection *section = sections[i];
         if ([section.name isEqualToString:sectionName]) {
             return i;
         }
@@ -355,6 +356,35 @@
 {
     NSArray *events = [section events];
     return [events indexOfObject:event];
+}
+
+- (NSIndexPath *)indexPathForEvent:(id<Event>)event inSections:(NSArray *)sections
+{
+    NSString *sectionName = self.sectionNameBlock(event);
+    
+    NSUInteger sectionIndex = [self indexOfSectionWithName:sectionName inSections:sections];
+    if (sectionIndex == NSNotFound) {
+        return nil;
+    }
+    
+    EventResultsSection *section = sections[sectionIndex];
+    NSUInteger itemIndex = [self indexOfEvent:event inSection:section];
+    if (itemIndex == NSNotFound) {
+        return nil;
+    }
+    
+    return [NSIndexPath indexPathForRow:itemIndex inSection:sectionIndex];
+}
+
+- (NSArray *)deepCopySections:(NSArray *)sections
+{
+    NSMutableArray *copiedSections = [NSMutableArray array];
+    
+    for (EventResultsSection *section in sections) {
+        [copiedSections addObject:[section copy]];
+    }
+    
+    return [copiedSections copy];
 }
 
 @end

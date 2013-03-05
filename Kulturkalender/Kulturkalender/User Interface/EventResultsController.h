@@ -25,6 +25,7 @@ typedef NSString * (^EventSectionNameBlock)(id<Event> event);
 
 - (instancetype)initWithEventStore:(id<EventStore>)eventStore sectionNameBlock:(EventSectionNameBlock)sectionNameBlock;
 - (void)performFetch:(NSError **)error;
+- (void)setPredicate:(NSPredicate *)predicate withAnimation:(BOOL)animation;
 
 // Accessing Results
 - (NSArray *)fetchedEvents;

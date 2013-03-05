@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1536</int>
+		<int key="IBDocument.SystemTarget">1552</int>
 		<string key="IBDocument.SystemVersion">12C3006</string>
-		<string key="IBDocument.InterfaceBuilderVersion">3079</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">2077</string>
+			<string key="NS.object.0">2083</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
@@ -47,6 +47,7 @@
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
 								<string key="NSFrameSize">{43, 56}</string>
 								<reference key="NSSuperview" ref="614931471"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="43670291"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -61,6 +62,7 @@
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
 								<string key="NSFrame">{{51, 7}, {192, 22}}</string>
 								<reference key="NSSuperview" ref="614931471"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="357599218"/>
 								<string key="NSHuggingPriority">{250, 250}</string>
 								<string key="NSAntiCompressionPriority">{1, 750}</string>
@@ -97,7 +99,7 @@
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
 								<string key="NSFrame">{{51, 28}, {239, 21}}</string>
 								<reference key="NSSuperview" ref="614931471"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSWindow"/>
 								<string key="NSAntiCompressionPriority">{1, 750}</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -128,6 +130,7 @@
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
 								<string key="NSFrame">{{251, 7}, {39, 21}}</string>
 								<reference key="NSSuperview" ref="614931471"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="411683404"/>
 								<string key="NSHuggingPriority">{1000, 1000}</string>
 								<string key="NSAntiCompressionPriority">{1000, 1000}</string>
@@ -158,6 +161,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrameSize">{300, 55}</string>
 						<reference key="NSSuperview" ref="1067689164"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="236181625"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -173,6 +177,7 @@
 				<object class="NSPSMatrix" key="NSFrameMatrix"/>
 				<string key="NSFrameSize">{320, 56}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="614931471"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUIAccessoryType">1</int>
@@ -461,21 +466,6 @@
 						<reference key="parent" ref="1067689164"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">14</int>
-						<reference key="object" ref="139294516"/>
-						<reference key="parent" ref="1067689164"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">19</int>
-						<reference key="object" ref="817710601"/>
-						<reference key="parent" ref="1067689164"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">22</int>
-						<reference key="object" ref="450678768"/>
-						<reference key="parent" ref="1067689164"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">23</int>
 						<reference key="object" ref="236181625"/>
 						<array class="NSMutableArray" key="children">
@@ -499,13 +489,8 @@
 						<reference key="parent" ref="1067689164"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">25</int>
-						<reference key="object" ref="788689965"/>
-						<reference key="parent" ref="236181625"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">34</int>
-						<reference key="object" ref="304701121"/>
+						<int key="objectID">77</int>
+						<reference key="object" ref="998619215"/>
 						<reference key="parent" ref="1067689164"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -514,28 +499,8 @@
 						<reference key="parent" ref="1067689164"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">68</int>
-						<reference key="object" ref="437081310"/>
-						<reference key="parent" ref="1067689164"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">71</int>
-						<reference key="object" ref="624146336"/>
-						<reference key="parent" ref="1067689164"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">69</int>
-						<reference key="object" ref="513320680"/>
-						<reference key="parent" ref="1067689164"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">89</int>
-						<reference key="object" ref="158606315"/>
-						<reference key="parent" ref="411683404"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">77</int>
-						<reference key="object" ref="998619215"/>
+						<int key="objectID">22</int>
+						<reference key="object" ref="450678768"/>
 						<reference key="parent" ref="1067689164"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -544,9 +509,49 @@
 						<reference key="parent" ref="1067689164"/>
 					</object>
 					<object class="IBObjectRecord">
+						<int key="objectID">71</int>
+						<reference key="object" ref="624146336"/>
+						<reference key="parent" ref="1067689164"/>
+					</object>
+					<object class="IBObjectRecord">
 						<int key="objectID">35</int>
 						<reference key="object" ref="525320838"/>
 						<reference key="parent" ref="1067689164"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">19</int>
+						<reference key="object" ref="817710601"/>
+						<reference key="parent" ref="1067689164"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">68</int>
+						<reference key="object" ref="437081310"/>
+						<reference key="parent" ref="1067689164"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">34</int>
+						<reference key="object" ref="304701121"/>
+						<reference key="parent" ref="1067689164"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">69</int>
+						<reference key="object" ref="513320680"/>
+						<reference key="parent" ref="1067689164"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">14</int>
+						<reference key="object" ref="139294516"/>
+						<reference key="parent" ref="1067689164"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">25</int>
+						<reference key="object" ref="788689965"/>
+						<reference key="parent" ref="236181625"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">89</int>
+						<reference key="object" ref="158606315"/>
+						<reference key="parent" ref="411683404"/>
 					</object>
 				</array>
 			</object>
@@ -616,7 +621,50 @@
 			<nil key="sourceID"/>
 			<int key="maxID">92</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">EventCell</string>
+					<string key="superclassName">UITableViewCell</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="detailLabel">UILabel</string>
+						<string key="priceLabel">UILabel</string>
+						<string key="thumbnailImageView">UIImageView</string>
+						<string key="titleLabel">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="detailLabel">
+							<string key="name">detailLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="priceLabel">
+							<string key="name">priceLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="thumbnailImageView">
+							<string key="name">thumbnailImageView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="titleLabel">
+							<string key="name">titleLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/EventCell.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSLayoutConstraint</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
@@ -626,6 +674,6 @@
 			<string key="NS.object.0">{43, 56}</string>
 		</object>
 		<bool key="IBDocument.UseAutolayout">YES</bool>
-		<string key="IBCocoaTouchPluginVersion">2077</string>
+		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

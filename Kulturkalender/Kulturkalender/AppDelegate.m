@@ -20,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[JMImageCache sharedCache] removeAllObjects]; // TODO: Remove line
+    
     _eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

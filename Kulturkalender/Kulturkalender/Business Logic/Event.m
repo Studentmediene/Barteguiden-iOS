@@ -68,6 +68,8 @@
         return nil;
     }
     
+    NSLog(@"Retrieving image for eventID:%@", self.eventIdentifier);
+    
     CGFloat scale = [[UIScreen mainScreen] scale];
     CGSize scaledSize = CGSizeMake(size.width * scale, size.height * scale);
     

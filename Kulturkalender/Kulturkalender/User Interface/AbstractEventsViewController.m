@@ -124,7 +124,7 @@
             break;
             
         case EventResultsChangeUpdate:
-            [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             break;
             
         case EventResultsChangeMove:
@@ -138,11 +138,6 @@
 {
     [self.tableView endUpdates];
 }
-
-//- (void)eventResultsControllerDidChangeContent:(EventResultsController *)controller
-//{
-//    [self.tableView reloadData];
-//}
 
 
 #pragma mark - EventsSearchDisplayControllerDelegate
@@ -187,6 +182,7 @@
 
 - (void)reloadPredicate
 {
+    NSLog(@"Reloading predicate");
     self.eventResultsController.predicate = [self eventsPredicate];
     [self.eventResultsController performFetch:NULL];
     [self.tableView reloadData];
@@ -198,7 +194,7 @@
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        NSLog(@"Generating new cell from nib");
+        NSLog(@"Generating new cell from nib"); // TODO: Use this to check that search field works
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EventCell" owner:self options:nil];
         cell = (UITableViewCell *)[nib objectAtIndex:0];
         [cell prepareForReuse];

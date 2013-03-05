@@ -202,7 +202,7 @@ static NSString * const kEventEntityName = @"Event";
 
 - (void)eventDidChange:(Event *)event
 {
-    NSLog(@"%@%@", NSStringFromSelector(_cmd), event);
+//    NSLog(@"%@%@", NSStringFromSelector(_cmd), event);
     NSSet *updated = [NSSet setWithObject:event];
     [self notifyEventStoreChangedWithInserted:nil updated:updated deleted:nil];
 }

@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "EventResultsSectionInfo.h"
 
-@interface EventResultsSection : NSObject <EventResultsSectionInfo>
+@interface EventResultsSection : NSObject <NSCopying, EventResultsSectionInfo>
 
 @property (nonatomic, strong) NSString *name;
 
-- (id)initWithObjects:(NSArray *)objects;
+- (instancetype)initWithEvents:(NSArray *)objects;
 
 - (NSUInteger)addObject:(id)object usingSortDescriptors:(NSArray *)sortDescriptors;
 
