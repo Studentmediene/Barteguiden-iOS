@@ -9,12 +9,14 @@
 #import "FilterViewController.h"
 #import "FilterManager.h"
 
+
 enum {
     kCategorySectionIndex = 0,
     kAgeLimitSectionIndex = 1,
     kMyAgeSectionIndex = 2,
     kPriceSectionIndex = 3
 };
+
 
 @implementation FilterViewController
 
@@ -40,13 +42,17 @@ enum {
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [self updateViewInfo];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    NSLog(@"disappear");
+    NSLog(@"Disappear");
     [self setMyAge];
+    
+    [super viewWillDisappear:animated];
 }
 
 

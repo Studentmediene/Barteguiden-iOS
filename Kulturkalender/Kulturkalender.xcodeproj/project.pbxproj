@@ -45,6 +45,7 @@
 		69AEFE3A1624E7AB009F3567 /* EventFormatter+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AEFE391624E7AB009F3567 /* EventFormatter+TableView.m */; };
 		69AFC61916C5DB2A0072C7DE /* EventResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AFC61816C5DB2A0072C7DE /* EventResultsController.m */; };
 		69AFC62016C828D70072C7DE /* EventFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AFC61F16C828D70072C7DE /* EventFormatter.m */; };
+		69B43FE916E6C1B000AA6850 /* PosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B43FE816E6C1B000AA6850 /* PosterViewController.m */; };
 		69B7815816C1E02700ADD13A /* EventStoreProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B7815716C1E02700ADD13A /* EventStoreProtocol.m */; };
 		69B7816016C2091A00ADD13A /* EventFormatter+Price.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B7815F16C2090F00ADD13A /* EventFormatter+Price.m */; };
 		69B860DF168E6CEB002936B4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B860DE168E6CEB002936B4 /* EventKit.framework */; };
@@ -170,6 +171,8 @@
 		69AFC61F16C828D70072C7DE /* EventFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventFormatter.m; sourceTree = "<group>"; };
 		69B016AC16B0CD87004374DC /* EventProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventProtocol.h; sourceTree = "<group>"; };
 		69B016AD16B0CD9E004374DC /* EventStoreProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventStoreProtocol.h; sourceTree = "<group>"; };
+		69B43FE716E6C1B000AA6850 /* PosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosterViewController.h; sourceTree = "<group>"; };
+		69B43FE816E6C1B000AA6850 /* PosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosterViewController.m; sourceTree = "<group>"; };
 		69B7141C16CDD5CB00BEEADD /* EventDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDelegate.h; sourceTree = "<group>"; };
 		69B7815716C1E02700ADD13A /* EventStoreProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreProtocol.m; sourceTree = "<group>"; };
 		69B7815C16C208B900ADD13A /* EventKitUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventKitUI.h; sourceTree = "<group>"; };
@@ -420,6 +423,14 @@
 			name = Public;
 			sourceTree = "<group>";
 		};
+		69B43FE316E6908900AA6850 /* SettingsManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SettingsManager;
+			path = "../../KulturkalenderTests/Business Logic";
+			sourceTree = "<group>";
+		};
 		69B7815116C1DC1A00ADD13A /* EventKitUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +553,8 @@
 			children = (
 				69C491661625F1DE00F28C45 /* EventDetailsViewController.h */,
 				69C491671625F1DE00F28C45 /* EventDetailsViewController.m */,
+				69B43FE716E6C1B000AA6850 /* PosterViewController.h */,
+				69B43FE816E6C1B000AA6850 /* PosterViewController.m */,
 				694B5E0A163717A600631278 /* MapViewController.h */,
 				694B5E0B163717A600631278 /* MapViewController.m */,
 			);
@@ -714,6 +727,7 @@
 			children = (
 				69C37D7B169FFAE7009631DF /* EventKit */,
 				69C37D8016A037C3009631DF /* FilterManager */,
+				69B43FE316E6908900AA6850 /* SettingsManager */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -921,6 +935,7 @@
 				69AFC62016C828D70072C7DE /* EventFormatter.m in Sources */,
 				696CB68C16D81ABB0090E7C9 /* EventResultsSection.m in Sources */,
 				694C4E9B16D84960009F787D /* NSArray+RIOClassifier.m in Sources */,
+				69B43FE916E6C1B000AA6850 /* PosterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

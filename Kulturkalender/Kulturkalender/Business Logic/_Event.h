@@ -14,10 +14,12 @@
 @interface _Event : NSManagedObject
 
 @property (nonatomic, retain) NSString * address;
-@property (nonatomic, retain) NSNumber * ageLimit;
+@property (nonatomic, retain) NSNumber * ageLimitNumber;
+@property (nonatomic, retain) NSString * calendarEventID;
 @property (nonatomic, retain) NSString * categoryID;
 @property (nonatomic, retain) NSDate * endAt;
 @property (nonatomic, retain) NSString * eventID;
+@property (nonatomic, retain) NSString * eventURL;
 @property (nonatomic, retain) NSNumber * favoriteState;
 @property (nonatomic, retain) NSNumber * featuredState;
 @property (nonatomic, retain) NSString * imageID;
@@ -27,7 +29,6 @@
 @property (nonatomic, retain) NSDecimalNumber * price;
 @property (nonatomic, retain) NSDate * startAt;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSSet *localizedDescription;
 @property (nonatomic, retain) NSSet *localizedFeatured;
 @end

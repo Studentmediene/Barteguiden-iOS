@@ -117,9 +117,9 @@
 - (void)eventStoreChanged:(NSNotification *)note
 {
     // Get changed events
-    NSSet *inserted = note.userInfo[EventStoreInsertedEventsKey];
-    NSSet *updated = note.userInfo[EventStoreUpdatedEventsKey];
-    NSSet *deleted = note.userInfo[EventStoreDeletedEventsKey];
+    NSSet *inserted = note.userInfo[EventStoreInsertedEventsUserInfoKey];
+    NSSet *updated = note.userInfo[EventStoreUpdatedEventsUserInfoKey];
+    NSSet *deleted = note.userInfo[EventStoreDeletedEventsUserInfoKey];
     
     NSLog(@"Inserted events:%d updated:%d deleted:%d", [inserted count], [updated count], [deleted count]);
     

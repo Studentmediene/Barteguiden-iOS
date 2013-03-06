@@ -167,7 +167,7 @@ static NSString * const kEventEntityName = @"Event";
 - (NSPredicate *)predicateForEventsAllowedForAge:(NSUInteger)age
 {
     // TODO: Not tested
-    return [NSPredicate predicateWithFormat:@"ageLimit <= %d", age];
+    return [NSPredicate predicateWithFormat:@"ageLimitNumber <= %d", age];
 }
 
 - (NSPredicate *)predicateForTitleContainingText:(NSString *)text
@@ -258,16 +258,16 @@ static NSString * const kEventEntityName = @"Event";
 - (void)notifyEventStoreChangedWithInserted:(NSSet *)inserted updated:(NSSet *)updated deleted:(NSSet *)deleted
 {
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-    [self addEvents:inserted toUserInfo:userInfo forKey:EventStoreInsertedEventsKey];
-    [self addEvents:updated toUserInfo:userInfo forKey:EventStoreUpdatedEventsKey];
-    [self addEvents:deleted toUserInfo:userInfo forKey:EventStoreDeletedEventsKey];
+    [self addEvents:inserted toUserInfo:userInfo forKey:EventStoreInsertedEventsUserInfoKey];
+    [self addEvents:updated toUserInfo:userInfo forKey:EventStoreUpdatedEventsUserInfoKey];
+    [self addEvents:deleted toUserInfo:userInfo forKey:EventStoreDeletedEventsUserInfoKey];
     
-    if (userInfo[EventStoreInsertedEventsKey] == nil && userInfo[EventStoreUpdatedEventsKey] == nil && userInfo[EventStoreDeletedEventsKey] == nil) {
+    if (userInfo[EventStoreInsertedEventsUserInfoKey] == nil && userInfo[EventStoreUpdatedEventsUserInfoKey] == nil && userInfo[EventStoreDeletedEventsUserInfoKey] == nil) {
         return;
     }
     
     // NOTE: Make sure that delegate is set on new events
-    [self setDelegateOnEvents:[userInfo[EventStoreInsertedEventsKey] allObjects]];
+    [self setDelegateOnEvents:[userInfo[EventStoreInsertedEventsUserInfoKey] allObjects]];
     
 //    NSLog(@"%@", userInfo);
     [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreChangedNotification object:self userInfo:[userInfo copy]];

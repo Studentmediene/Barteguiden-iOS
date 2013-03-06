@@ -49,6 +49,6 @@ typedef NS_ENUM(NSInteger, EventStoreErrorCode) {
 extern NSString * const EventStoreChangedNotification;
 
 // User info keys
-extern NSString * const EventStoreInsertedEventsKey;
-extern NSString * const EventStoreUpdatedEventsKey;
-extern NSString * const EventStoreDeletedEventsKey;
+extern NSString * const EventStoreInsertedEventsUserInfoKey;
+extern NSString * const EventStoreUpdatedEventsUserInfoKey;
+extern NSString * const EventStoreDeletedEventsUserInfoKey;

@@ -10,9 +10,9 @@
 
 @interface EventCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UIImageView *thumbnailImageView;
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UILabel *detailLabel;
-@property (nonatomic, strong) IBOutlet UILabel *priceLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *thumbnailImageView;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *detailLabel;
+@property (nonatomic, weak) IBOutlet UILabel *priceLabel;
 
 @end

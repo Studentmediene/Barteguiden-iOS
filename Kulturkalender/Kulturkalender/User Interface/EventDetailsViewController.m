@@ -10,9 +10,15 @@
 #import "EventKit.h"
 #import "EventKitUI.h"
 
+#import "PosterViewController.h"
 #import "MapViewController.h"
 
-const float kAlertOffset = -30*60; // 30 minutes before event
+
+const NSInteger kActionSheetCancelButtonIndex = 1;
+
+static NSString * const kPosterSegue = @"Poster";
+static NSString * const kMapSegue = @"MapSegue";
+
 
 @implementation EventDetailsViewController
 
@@ -20,14 +26,16 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 {
     [super viewDidLoad];
     
-	EKEventStore *eventStore = [[EKEventStore alloc] init];
-    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-        // TODO: 
-//        NSLog(@"granted:%d error:%@", granted, error);
-    }];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(storeChanged:) name:EKEventStoreChangedNotification object:eventStore];
+    self.calendarStore = [[EKEventStore alloc] init]; // TODO: Inject instead?
+    [self requestAccessToCalendar];
     
-    self.eventStore = eventStore;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarStoreChanged:) name:EKEventStoreChangedNotification object:self.calendarStore];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     [self updateViewInfo];
 }
@@ -36,22 +44,51 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:EventStoreChangedNotification object:self.eventStore];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:EKEventStoreChangedNotification object:self.calendarStore];
 }
 
 
-#pragma mark - UITableViewDelegate
+#pragma mark - Notification callbacks
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)eventStoreChanged:(NSNotification *)note
 {
-    
+    // TODO: Check if it is the correct calendar event that is updated?
+    // TIPS: If you are currently modifying an event and you do not want to refetch it unless it is absolutely necessary to do so, you can call the refresh method on the event. If the method returns YES, you can continue to use the event; otherwise, you need to refetch it.
+    [self updateViewInfo];
+}
+
+- (void)calendarStoreChanged:(NSNotification *)note
+{
+    // TODO: Check if it is the correct calendar event that is updated?
+    [self updateViewInfo];
 }
 
 
 #pragma mark - Storyboard
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    // FIXME: This has not been tested
+    if ([identifier isEqualToString:kPosterSegue])
+    {
+        if ([self.event imageWithSize:CGSizeZero] == nil) {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"MapSegue"])
+    if ([segue.identifier isEqualToString:kPosterSegue])
+    {
+        PosterViewController *posterViewController = [segue destinationViewController];
+        posterViewController.poster = [self.event imageWithSize:CGSizeZero];
+    }
+    else if ([segue.identifier isEqualToString:kMapSegue])
     {
         MapViewController *mapViewController = [segue destinationViewController];
         mapViewController.annotation = [[EventAnnotation alloc] initWithEvent:self.event];
@@ -67,12 +104,12 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 
     self.event.favorite = newFavorite;
     self.favoriteButton.selected = newFavorite;
-
 }
 
 - (void)shareEvent:(id)sender
 {
-    NSArray *activityItems = @[[UIImage imageNamed:@"EmptyPoster.png"], @"Test"];
+    NSString *eventAd = [NSString stringWithFormat:@"Join me at %@!", [self.event title]];
+    NSArray *activityItems = @[eventAd];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMessage, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
     [self presentViewController:activityViewController animated:YES completion:NULL];
@@ -80,33 +117,49 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 
 - (IBAction)promptDateActions:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    // TODO: Fix localization
+    NSString *createEventTitle = NSLocalizedString(@"Add to Calendar", nil);
+    NSString *deleteEventTitle = NSLocalizedString(@"Remove from Calendar", nil);
+    NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
+    NSString *actionTitle = ([self isAddedToCalendar] == NO) ? createEventTitle : deleteEventTitle;
     
-    // TODO: Localize
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Create Event", @"Show in Calendar", @"Copy", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:actionTitle, nil];
     [actionSheet showInView:self.view];
 }
 
 - (void)addToCalendar:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-    
-    EKEvent *calendarEvent = [EKEvent eventWithEventStore:self.eventStore];
-    calendarEvent.calendar = [self.eventStore defaultCalendarForNewEvents];
+    EKEvent *calendarEvent = [EKEvent eventWithEventStore:self.calendarStore];
+    calendarEvent.calendar = [self.calendarStore defaultCalendarForNewEvents];
     calendarEvent.title = self.event.title;
     calendarEvent.location = self.event.placeName;
     calendarEvent.startDate = self.event.startAt;
     calendarEvent.endDate = self.event.endAt;
     
+    const float kAlertOffset = -30*60; // TODO: Get from settings
     EKAlarm *alarm = [EKAlarm alarmWithRelativeOffset:kAlertOffset];
     [calendarEvent addAlarm:alarm];
     
 	EKEventEditViewController *eventEditViewController = [[EKEventEditViewController alloc] init];
     eventEditViewController.event = calendarEvent;
-	eventEditViewController.eventStore = self.eventStore;
+	eventEditViewController.eventStore = self.calendarStore;
 	eventEditViewController.editViewDelegate = self;
     
 	[self presentViewController:eventEditViewController animated:YES completion:NULL];
+}
+
+- (void)removeFromCalendar:(id)sender
+{
+    EKEvent *calendarEvent = [self.calendarStore eventWithIdentifier:[self.event calendarEventID]];
+    [self removeCalendarEvent:calendarEvent];
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 
@@ -114,26 +167,32 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [self addToCalendar:actionSheet];
+    if (buttonIndex == kActionSheetCancelButtonIndex) {
+        return;
+    }
+    
+    if ([self isAddedToCalendar] == NO) {
+        [self addToCalendar:actionSheet];
+    }
+    else {
+        [self removeFromCalendar:actionSheet];
+    }
 }
+
 
 #pragma mark EKEventEditViewDelegate
 
 - (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action {
-	NSLog(@"%@", NSStringFromSelector(_cmd));
-    
 	switch (action) {
 		case EKEventEditViewActionCanceled: {
 			break;
         }
 		case EKEventEditViewActionSaved: {
-			[controller.eventStore saveEvent:controller.event span:EKSpanThisEvent error:nil];
-            
-            NSLog(@"Saved event:%@", controller.event.eventIdentifier);
+			[self addCalendarEvent:controller.event];
 			break;
         }
 		case EKEventEditViewActionDeleted: {
-			[controller.eventStore removeEvent:controller.event span:EKSpanThisEvent error:nil];
+			[self removeCalendarEvent:controller.event];
 			break;
         }
 	}
@@ -142,17 +201,52 @@ const float kAlertOffset = -30*60; // 30 minutes before event
 }
 
 - (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller {
+    // TODO: Return calendar from settings
     NSLog(@"%@", NSStringFromSelector(_cmd));
-	EKCalendar *calendarForEdit = [self.eventStore defaultCalendarForNewEvents];
+	EKCalendar *calendarForEdit = [self.calendarStore defaultCalendarForNewEvents];
 	return calendarForEdit;
 }
 
 
 #pragma mark - Private methods
 
+- (void)requestAccessToCalendar
+{
+    self.calendarStatusLabel.text = @"No access";
+    
+    __weak typeof(self) bself = self;
+    [self.calendarStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+        if (granted == YES) {
+            bself.calendarStatusLabel.text = @"Access";
+        }
+//        NSLog(@"granted:%d error:%@", granted, error);
+    }];
+}
+
+- (BOOL)isAddedToCalendar
+{
+    return ([[self.event calendarEventID] length] > 0);
+}
+
+- (void)addCalendarEvent:(EKEvent *)calendarEvent
+{
+    NSLog(@"Adding event to calendar:%@", calendarEvent.eventIdentifier);
+    [self.calendarStore saveEvent:calendarEvent span:EKSpanThisEvent error:NULL];
+    [self.event setCalendarEventID:calendarEvent.eventIdentifier];
+}
+
+- (void)removeCalendarEvent:(EKEvent *)calendarEvent
+{
+    NSLog(@"Removing event from calendar:%@", calendarEvent.eventIdentifier);
+    [self.calendarStore removeEvent:calendarEvent span:EKSpanThisEvent error:NULL];
+    [self.event setCalendarEventID:nil];
+}
+
 - (void)updateViewInfo
 {
     EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:self.event];
+    
+    self.posterButton.imageView.image = [self.event imageWithSize:CGSizeZero]; // TODO: Fix size
     
     self.titleLabel.text = [self.event title];
     self.timeLabel.text = [eventFormatter timeString];
@@ -167,16 +261,8 @@ const float kAlertOffset = -30*60; // 30 minutes before event
     self.addressLabel.text = [self.event address];
     
     self.favoriteButton.selected = [self.event isFavorite];
-}
-
-- (void)storeChanged:(NSNotification *)note
-{
-    NSLog(@"Store changed:%@", note);
-    // TODO: Test if this works
-    // TIPS: If you are currently modifying an event and you do not want to refetch it unless it is absolutely necessary to do so, you can call the refresh method on the event. If the method returns YES, you can continue to use the event; otherwise, you need to refetch it.
-    if ([(NSSet *)note.userInfo[EventStoreUpdatedEventsKey] containsObject:self.event]) {
-        [self updateViewInfo];
-    }
+    
+    self.calendarStatusLabel.text = ([self isAddedToCalendar] == YES) ? @"Is added" : @"Is NOT added"; // TODO: Temp
 }
 
 @end

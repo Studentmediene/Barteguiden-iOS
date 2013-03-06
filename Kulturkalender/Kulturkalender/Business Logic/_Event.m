@@ -14,10 +14,12 @@
 @implementation _Event
 
 @dynamic address;
-@dynamic ageLimit;
+@dynamic ageLimitNumber;
+@dynamic calendarEventID;
 @dynamic categoryID;
 @dynamic endAt;
 @dynamic eventID;
+@dynamic eventURL;
 @dynamic favoriteState;
 @dynamic featuredState;
 @dynamic imageID;
@@ -27,7 +29,6 @@
 @dynamic price;
 @dynamic startAt;
 @dynamic title;
-@dynamic url;
 @dynamic localizedDescription;
 @dynamic localizedFeatured;
 

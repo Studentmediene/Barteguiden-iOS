@@ -2,10 +2,12 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3006" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="ageLimit" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="ageLimitNumber" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="calendarEventID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="categoryID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="eventID" attributeType="String" syncable="YES"/>
+        <attribute name="eventID" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="eventURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favoriteState" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="featuredState" attributeType="Boolean" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,7 +17,6 @@
         <attribute name="price" attributeType="Decimal" minValueString="0" defaultValueString="0.0" syncable="YES"/>
         <attribute name="startAt" attributeType="Date" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="localizedDescription" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocalizedDescription" inverseName="event" inverseEntity="LocalizedDescription" syncable="YES"/>
         <relationship name="localizedFeatured" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocalizedFeatured" inverseName="event" inverseEntity="LocalizedFeatured" syncable="YES"/>
     </entity>
@@ -30,9 +31,9 @@
         <attribute name="text" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="0" positionY="0" width="128" height="298"/>
-        <element name="LocalizedDescription" positionX="216" positionY="216" width="128" height="60"/>
-        <element name="LocalizedFeatured" positionX="216" positionY="351" width="128" height="60"/>
-        <element name="LocalizedText" positionX="385" positionY="267" width="128" height="75"/>
+        <element name="Event" positionX="0" positionY="0" width="128" height="313"/>
+        <element name="LocalizedDescription" positionX="297" positionY="225" width="128" height="60"/>
+        <element name="LocalizedFeatured" positionX="313" positionY="351" width="128" height="60"/>
+        <element name="LocalizedText" positionX="286" positionY="24" width="128" height="75"/>
     </elements>
 </model>

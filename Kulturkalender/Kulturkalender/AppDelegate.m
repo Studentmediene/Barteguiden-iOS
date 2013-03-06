@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[JMImageCache sharedCache] removeAllObjects]; // TODO: Remove line
+//    [[JMImageCache sharedCache] removeAllObjects]; // TODO: Remove line
     
     _eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     

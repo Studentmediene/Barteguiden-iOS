@@ -14,12 +14,12 @@
 
 @property (nonatomic, strong) id<FilterManager> filterManager;
 
-@property (nonatomic, strong) IBOutlet UITableViewCell *ageLimitAllEventsCell;
-@property (nonatomic, strong) IBOutlet UITableViewCell *ageLimitAllowedForMyAgeCell;
-@property (nonatomic, strong) IBOutlet UITextField *myAgeTextField;
+@property (nonatomic, weak) IBOutlet UITableViewCell *ageLimitAllEventsCell;
+@property (nonatomic, weak) IBOutlet UITableViewCell *ageLimitAllowedForMyAgeCell;
+@property (nonatomic, weak) IBOutlet UITextField *myAgeTextField;
 
-@property (nonatomic, strong) IBOutlet UITableViewCell *priceFilterAllEventsCell;
-@property (nonatomic, strong) IBOutlet UITableViewCell *priceFilterPaidEvents;
-@property (nonatomic, strong) IBOutlet UITableViewCell *priceFilterFreeEvents;
+@property (nonatomic, weak) IBOutlet UITableViewCell *priceFilterAllEventsCell;
+@property (nonatomic, weak) IBOutlet UITableViewCell *priceFilterPaidEvents;
+@property (nonatomic, weak) IBOutlet UITableViewCell *priceFilterFreeEvents;
 
 @end

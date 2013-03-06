@@ -11,29 +11,35 @@
 #import <EventKitUI/EventKitUI.h>
 
 
+@protocol EventStore;
 @protocol Event;
 
 @interface EventDetailsViewController : UITableViewController <UIActionSheetDelegate, EKEventEditViewDelegate>
 
+@property (nonatomic, strong) id<EventStore> eventStore;
 @property (nonatomic, strong) id<Event> event;
 
-@property (nonatomic, strong) EKEventStore *eventStore;
+//@property (nonatomic, strong) id<SettingsManager> settingsManager;
+@property (nonatomic, strong) EKEventStore *calendarStore;
 
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UILabel *timeLabel;
-@property (nonatomic, strong) IBOutlet UILabel *categoryLabel;
-@property (nonatomic, strong) IBOutlet UILabel *priceLabel;
-@property (nonatomic, strong) IBOutlet UILabel *ageLimitLabel;
-@property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, weak) IBOutlet UIButton *posterButton;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *timeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
+@property (nonatomic, weak) IBOutlet UILabel *priceLabel;
+@property (nonatomic, weak) IBOutlet UILabel *ageLimitLabel;
+@property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
 
-@property (nonatomic, strong) IBOutlet UILabel *featuredLabel;
+@property (nonatomic, weak) IBOutlet UILabel *featuredLabel;
 
-@property (nonatomic, strong) IBOutlet UILabel *placeNameLabel;
-@property (nonatomic, strong) IBOutlet UILabel *addressLabel;
+@property (nonatomic, weak) IBOutlet UILabel *placeNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *addressLabel;
 
-@property (nonatomic, strong) IBOutlet UIButton *favoriteButton;
+@property (nonatomic, weak) IBOutlet UIButton *favoriteButton;
 
-//@property (nonatomic, strong) IBOutlet UIImageView *poster;
+@property (nonatomic, weak) IBOutlet UILabel *calendarStatusLabel; // TODO: Temp
+
+//@property (nonatomic, weak) IBOutlet UIImageView *poster;
 
 - (IBAction)toggleFavorite:(id)sender;
 - (IBAction)shareEvent:(id)sender;

@@ -13,8 +13,8 @@
 
 @interface MapViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet MKMapView *mapView;
-
 @property (nonatomic, strong) id<MKAnnotation> annotation;
+
+@property (nonatomic, weak) IBOutlet MKMapView *mapView;
 
 @end

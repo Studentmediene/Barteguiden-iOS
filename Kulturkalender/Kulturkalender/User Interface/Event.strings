@@ -16,7 +16,7 @@
 "CATEGORY_PRESENTATIONS" = "Presentations";
 
 "AGE_LIMIT_NO_AGE_LIMIT" = "No age Limit";
-"AGE_LIMIT_ARBITRARY_AGE_LIMIT" = "%1$@ and Above";
+"AGE_LIMIT_ARBITRARY_AGE_LIMIT" = "%1$u and Above";
 
 "PRICE_FREE_EVENT" = "Free";
 "PRICE_PAID_EVENT" = "%1$@kr";

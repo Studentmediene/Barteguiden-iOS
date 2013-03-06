@@ -25,10 +25,9 @@
     return _imageCache;
 }
 
-
-- (NSString *)eventIdentifier
+- (NSUInteger)ageLimit
 {
-    return self.eventID;
+    return [self.ageLimitNumber unsignedIntegerValue];
 }
 
 - (BOOL)isFeatured
@@ -62,13 +61,18 @@
     return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
 }
 
+- (NSURL *)URL
+{
+    return [NSURL URLWithString:self.eventURL];
+}
+
 - (UIImage *)imageWithSize:(CGSize)size
 {
     if (self.imageID == nil) { // TODO: Remove check
         return nil;
     }
     
-    NSLog(@"Retrieving image for eventID:%@", self.eventIdentifier);
+    NSLog(@"Retrieving image for eventID:%@", self.eventID);
     
     CGFloat scale = [[UIScreen mainScreen] scale];
     CGSize scaledSize = CGSizeMake(size.width * scale, size.height * scale);

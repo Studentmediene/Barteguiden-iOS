@@ -10,7 +10,7 @@
 
 @interface AllEventsViewController : AbstractEventsViewController
 
-@property (nonatomic, strong) IBOutlet UISegmentedControl *priceFilterSegmentedControl;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *priceFilterSegmentedControl;
 
 - (IBAction)changePriceFilter:(id)sender;
 

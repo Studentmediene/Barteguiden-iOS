@@ -25,11 +25,11 @@ static int const kNoAgeLimit = 0;
 
 #pragma mark - Private methods
 
-- (NSString *)stringForAgeLimit:(NSNumber *)ageLimit
+- (NSString *)stringForAgeLimit:(NSUInteger)ageLimit
 {
     NSString *ageLimitString = nil;
     
-    if ([ageLimit unsignedIntegerValue] == kNoAgeLimit) {
+    if (ageLimit == kNoAgeLimit) {
         ageLimitString = NSLocalizedStringFromTable(@"AGE_LIMIT_NO_AGE_LIMIT", tbl, @"No age limit");
     }
     else {
