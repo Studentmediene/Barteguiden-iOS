@@ -8,6 +8,7 @@
 
 #import "FilterViewController.h"
 #import "FilterManager.h"
+#import "EventKitUI.h"
 
 
 enum {
@@ -16,6 +17,8 @@ enum {
     kMyAgeSectionIndex = 2,
     kPriceSectionIndex = 3
 };
+
+const CGFloat kDefaultRowHeight = 44;
 
 
 @implementation FilterViewController
@@ -76,8 +79,7 @@ enum {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == kCategorySectionIndex) {
-        // TODO: Fix
-        return 0;//[[Event categoryIDs] count];
+        return [[self categories] count];
     }
     
     return [super tableView:tableView numberOfRowsInSection:section];
@@ -94,12 +96,11 @@ enum {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         
-        // TODO: Fix
-//        NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-//        BOOL isSelected = [self.filterManager isSelectedForCategoryID:categoryID];
-//        
-//        cell.textLabel.text = [Event stringForCategoryID:categoryID];
-//        cell.accessoryType = (isSelected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+        EventCategory category = [[[self categories] objectAtIndex:indexPath.row] integerValue];
+        BOOL isSelected = [self.filterManager isSelectedForCategory:category];
+        
+        cell.textLabel.text = [EventFormatter categoryStringForCategory:category];
+        cell.accessoryType = (isSelected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         
         return cell;
     }
@@ -137,7 +138,7 @@ enum {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    return kDefaultRowHeight;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -156,26 +157,24 @@ enum {
 
 #pragma mark - Category filter
 
-// TODO: Fix
 - (void)updateCategoryFilterSelectedCell
 {
-//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-//    
-//    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-//    BOOL isSelected = [self.filterManager isSelectedForCategoryID:categoryID];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-//    cell.accessoryType = (isSelected == YES) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    EventCategory category = [[[self categories] objectAtIndex:indexPath.row] unsignedIntegerValue];
+    BOOL isSelected = [self.filterManager isSelectedForCategory:category];
+    
+    cell.accessoryType = (isSelected == YES) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 - (void)setCategoryFilterForCell:(UITableViewCell *)cell
 {
-    // TODO: Fix
-//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//    NSString *categoryID = [[Event categoryIDs] objectAtIndex:indexPath.row];
-//    [self.filterManager toggleSelectedForCategoryID:categoryID];
-//    
-//    [self updateCategoryFilterSelectedCell];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    EventCategory category = [[[self categories] objectAtIndex:indexPath.row] unsignedIntegerValue];
+    [self.filterManager toggleSelectedForCategory:category];
+    
+    [self updateCategoryFilterSelectedCell];
 }
 
 
@@ -208,8 +207,8 @@ enum {
 
 - (void)setMyAge
 {
-    NSNumber *myAge = [NSNumber numberWithUnsignedInteger:[self.myAgeTextField.text integerValue]];
-    [self.filterManager setMyAge:myAge];
+    // TODO: Fix
+    [self.filterManager setMyAge:[self.myAgeTextField.text integerValue]];
 }
 
 
@@ -252,6 +251,15 @@ enum {
     [self updatePriceFilterCells];
 }
 
+- (NSArray *)categories
+{
+    static NSArray *categories = nil;
+    if (categories == nil) {
+        categories = @[@(EventCategoryConcerts), @(EventCategoryNightlife), @(EventCategoryTheatre), @(EventCategoryDance), @(EventCategoryArtExhibition), @(EventCategorySports), @(EventCategoryPresentations)];
+    }
+    
+    return categories;
+}
 
 
 @end

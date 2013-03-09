@@ -9,6 +9,10 @@
 #import "MyPageViewController.h"
 #import "EventKit.h"
 #import "FilterManager.h"
+#import "FilterViewController.h"
+
+
+static NSString * kFilterSegue = @"FilterSegue";
 
 
 @implementation MyPageViewController
@@ -38,7 +42,16 @@
 }
 
 
-#pragma mark - Unwind segues
+#pragma mark - Storyboard
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:kFilterSegue]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        FilterViewController *filterViewController = (FilterViewController *)[navigationController topViewController];
+        filterViewController.filterManager = self.filterManager;
+    }
+}
 
 - (IBAction)close:(UIStoryboardSegue *)segue
 {

@@ -19,13 +19,10 @@ static int const kNoAgeLimit = 0;
 
 - (NSString *)ageLimitString
 {
-    return [self stringForAgeLimit:[self.event ageLimit]];
+    return [[self class] stringForAgeLimit:[self.event ageLimit]];
 }
 
-
-#pragma mark - Private methods
-
-- (NSString *)stringForAgeLimit:(NSUInteger)ageLimit
++ (NSString *)stringForAgeLimit:(NSUInteger)ageLimit
 {
     NSString *ageLimitString = nil;
     

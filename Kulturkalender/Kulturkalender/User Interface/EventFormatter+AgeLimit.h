@@ -13,4 +13,6 @@
 
 - (NSString *)ageLimitString;
 
++ (NSString *)stringForAgeLimit:(NSUInteger)ageLimit;
+
 @end

@@ -27,7 +27,7 @@
 - (NSPredicate *)predicateForFavoritedEvents;
 - (NSPredicate *)predicateForPaidEvents;
 - (NSPredicate *)predicateForFreeEvents;
-- (NSPredicate *)predicateForEventsWithCategoryIDs:(NSArray *)categoryIDs;
+- (NSPredicate *)predicateForEventsWithCategories:(NSArray *)categories;
 - (NSPredicate *)predicateForEventsAllowedForAge:(NSUInteger)age;
 - (NSPredicate *)predicateForTitleContainingText:(NSString *)text;
 - (NSPredicate *)predicateForPlaceNameContainingText:(NSString *)text;

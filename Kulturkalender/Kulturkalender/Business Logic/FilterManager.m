@@ -71,8 +71,8 @@ NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
     NSMutableArray *predicates = [[NSMutableArray alloc] init];
     
     // Category filter
-    //    NSPredicate *categoryPredicate = [self.eventStore predicateForEventsWithCategoryIDs:self.selectedCategoryIDs];
-    //    [predicates addObject:categoryPredicate];
+    NSPredicate *categoryPredicate = [self.eventStore predicateForEventsWithCategories:[self selectedCategories]];
+    [predicates addObject:categoryPredicate];
     
     // Age filter
     if (self.ageLimitFilter == AgeLimitFilterShowAllowedForMyAge && self.myAge > 0) {
@@ -114,7 +114,7 @@ NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
 
 - (BOOL)isSelectedForCategory:(EventCategory)category
 {
-    return (self.categoryFilter & 1 << category);
+    return (self.categoryFilter & (1 << category)) > 0;
 }
 
 - (void)setSelected:(BOOL)selected forCategory:(EventCategory)category
@@ -178,6 +178,31 @@ NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
 - (void)setPriceFilter:(PriceFilter)priceFilter
 {
     [self.userDefaults setObject:@(priceFilter) forKey:kPriceFilterSelectionKey];
+}
+
+
+#pragma mark - Private methods
+
+- (NSArray *)selectedCategories
+{
+    NSMutableArray *selectedCategories = [NSMutableArray array];
+    for (NSNumber *category in [self categories]) {
+        if ([self isSelectedForCategory:[category unsignedIntegerValue]] == YES) {
+            [selectedCategories addObject:category];
+        }
+    }
+    
+    return selectedCategories;
+}
+
+- (NSArray *)categories
+{
+    static NSArray *categories = nil;
+    if (categories == nil) {
+        categories = @[@(EventCategoryConcerts), @(EventCategoryNightlife), @(EventCategoryTheatre), @(EventCategoryDance), @(EventCategoryArtExhibition), @(EventCategorySports), @(EventCategoryPresentations)];
+    }
+    
+    return categories;
 }
 
 @end

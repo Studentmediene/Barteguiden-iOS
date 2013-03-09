@@ -13,4 +13,6 @@
 
 - (NSString *)priceString;
 
++ (NSString *)stringForPrice:(NSDecimalNumber *)price;
+
 @end

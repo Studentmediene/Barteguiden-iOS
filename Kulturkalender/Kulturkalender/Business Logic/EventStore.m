@@ -198,10 +198,17 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     return [NSPredicate predicateWithFormat:@"%K == 0", kPriceKey];
 }
 
-- (NSPredicate *)predicateForEventsWithCategoryIDs:(NSArray *)categoryIDs
+- (NSPredicate *)predicateForEventsWithCategories:(NSArray *)categories
 {
+    NSMutableArray *categoryIDs = [NSMutableArray array];
+    for (NSNumber *category in categories) {
+        NSString *categoryID = [[self categoriesByIndex] objectForKey:category];
+        if (categoryID != nil) {
+            [categoryIDs addObject:categoryID];
+        }
+    }
     // TODO: Not tested
-    return [NSPredicate predicateWithFormat:@"$K IN %@", kCategoryIDKey, categoryIDs];
+    return [NSPredicate predicateWithFormat:@"%K IN %@", kCategoryIDKey, categoryIDs];
 }
 
 - (NSPredicate *)predicateForEventsAllowedForAge:(NSUInteger)age
@@ -325,6 +332,22 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     if ([events count] > 0) {
         userInfo[key] = [events copy];
     }
+}
+
+- (NSDictionary *)categoriesByIndex
+{
+    static NSDictionary *categories;
+    if (categories == nil) {
+        categories = @{@(EventCategoryConcerts): @"CONCERTS",
+                       @(EventCategoryNightlife): @"NIGHTLIFE",
+                       @(EventCategoryTheatre): @"THEATRE",
+                       @(EventCategoryDance): @"DANCE",
+                       @(EventCategoryArtExhibition): @"ART_EXHIBITION",
+                       @(EventCategorySports): @"SPORTS",
+                       @(EventCategoryPresentations): @"PRESENTATIONS"};
+    }
+    
+    return categories;
 }
 
 @end

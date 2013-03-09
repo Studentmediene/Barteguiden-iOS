@@ -15,13 +15,10 @@
 
 - (NSString *)priceString
 {
-    return [self stringForPrice:[self.event price]];
+    return [[self class] stringForPrice:[self.event price]];
 }
 
-
-#pragma mark - Private methods
-
-- (NSString *)stringForPrice:(NSDecimalNumber *)price
++ (NSString *)stringForPrice:(NSDecimalNumber *)price
 {
     NSString *priceString = nil;
     
@@ -35,7 +32,10 @@
     return priceString;
 }
 
-- (NSNumberFormatter *)currencyFormatter
+
+#pragma mark - Private methods
+
++ (NSNumberFormatter *)currencyFormatter
 {
     static NSNumberFormatter *currencyFormatter;
     if (currencyFormatter == nil) {

@@ -7,13 +7,13 @@
 //
 
 #import "EventFormatter.h"
+#import "EventKit.h"
 
 
 @interface EventFormatter (Category)
 
-//+ (NSArray *)categoryIDs;
-//+ (NSString *)stringForCategoryID:(NSString *)categoryID;
-
 - (NSString *)categoryString;
+
++ (NSString *)categoryStringForCategory:(EventCategory)category;
 
 @end

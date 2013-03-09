@@ -8,27 +8,26 @@
 
 #import "EventFormatter+Category.h"
 #import "EventConstants.h"
-#import "EventKit.h"
 
 
 @implementation EventFormatter (Category)
 
 - (NSString *)categoryString
 {
-    return [self categoryStringForCategory:[self.event category]];
+    return [[self class] categoryStringForCategory:[self.event category]];
+}
+
++ (NSString *)categoryStringForCategory:(EventCategory)category
+{
+    NSString *categoryKey = [[self class] categoryKeyForCategory:category];
+    NSString *categoryString = NSLocalizedStringFromTable(categoryKey, tbl, @"The category for an event");
+    return categoryString;
 }
 
 
 #pragma mark - Private methods
 
-- (NSString *)categoryStringForCategory:(EventCategory)category
-{
-    NSString *categoryKey = [self categoryKeyForCategory:category];
-    NSString *categoryString = NSLocalizedStringFromTable(categoryKey, tbl, @"The category for an event");
-    return categoryString;
-}
-
-- (NSString *)categoryKeyForCategory:(EventCategory)category
++ (NSString *)categoryKeyForCategory:(EventCategory)category
 {
     switch (category) {
         case EventCategoryConcerts:

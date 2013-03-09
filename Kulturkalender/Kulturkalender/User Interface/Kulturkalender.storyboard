@@ -484,7 +484,7 @@
                     <navigationItem key="navigationItem" title="My Page" id="RVb-Da-8bw">
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="8FG-HU-XVa">
                             <connections>
-                                <segue destination="pvR-GL-pHJ" kind="modal" id="z0Y-Yk-q9Z"/>
+                                <segue destination="pvR-GL-pHJ" kind="modal" identifier="FilterSegue" id="z0Y-Yk-q9Z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1157,7 +1157,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addToCalendar:"/>
-                <relationship kind="action" name="promptDateActions:"/>
                 <relationship kind="action" name="shareEvent:"/>
                 <relationship kind="action" name="toggleFavorite:"/>
                 <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
@@ -1189,7 +1188,6 @@
         <class className="FilterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FilterViewController.h"/>
             <relationships>
-                <relationship kind="action" name="myAgeTextFieldDidEndEditing:"/>
                 <relationship kind="outlet" name="ageLimitAllEventsCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="ageLimitAllowedForMyAgeCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="myAgeTextField" candidateClass="UITextField"/>

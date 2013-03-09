@@ -3,7 +3,7 @@
     {
       "eventID": "1",
       "title": "Tirsdagsquiz",
-      "categoryID": 0,
+      "categoryID": "CONCERTS",
       "ageLimit": 18,
       "price": 0,
       "featured": true,
@@ -39,7 +39,7 @@
     {
       "eventID": "2",
       "title": "Glassblåsing",
-      "categoryID": 1,
+      "categoryID": "NIGHTLIFE",
       "ageLimit": 18,
       "price": 120,
       "favorite": false,
@@ -52,7 +52,7 @@
     {
       "eventID": "3",
       "title": "Test",
-      "categoryID": 2,
+      "categoryID": "THEATRE",
       "ageLimit": 25,
       "price": 1000,
       "favorite": false,
@@ -65,7 +65,7 @@
     {
       "eventID": "4",
       "title": "LUKA2",
-      "categoryID": 1,
+      "categoryID": "CONCERTS",
       "ageLimit": 0,
       "price": 200,
       "favorite": true,
