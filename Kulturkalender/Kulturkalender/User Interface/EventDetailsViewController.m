@@ -26,6 +26,7 @@ static NSString * const kMapSegue = @"MapSegue";
 {
     [super viewDidLoad];
     
+    // TODO: Does not work to add events to calendar anymore :-/
     self.calendarStore = [[EKEventStore alloc] init]; // TODO: Inject instead?
     [self requestAccessToCalendar];
     
@@ -68,19 +69,6 @@ static NSString * const kMapSegue = @"MapSegue";
 
 #pragma mark - Storyboard
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    // FIXME: This has not been tested
-    if ([identifier isEqualToString:kPosterSegue])
-    {
-        if ([self.event imageWithSize:CGSizeZero] == nil) {
-            return NO;
-        }
-    }
-    
-    return YES;
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:kPosterSegue])
@@ -119,11 +107,18 @@ static NSString * const kMapSegue = @"MapSegue";
 {
     // TODO: Fix localization
     NSString *createEventTitle = NSLocalizedString(@"Add to Calendar", nil);
-    NSString *deleteEventTitle = NSLocalizedString(@"Remove from Calendar", nil);
+    NSString *deleteEventTitle = NSLocalizedString(@"Delete from Calendar", nil);
+    NSString *editEventTitle = NSLocalizedString(@"Edit in Calendar", nil);
     NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
-    NSString *actionTitle = ([self isAddedToCalendar] == NO) ? createEventTitle : deleteEventTitle;
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:actionTitle, nil];
+    UIActionSheet *actionSheet = nil;
+    if ([self isAddedToCalendar] == NO) {
+        actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:createEventTitle, nil];
+    }
+    else {
+        actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:deleteEventTitle otherButtonTitles:editEventTitle, nil];
+    }
+    
     [actionSheet showInView:self.view];
 }
 
@@ -246,7 +241,9 @@ static NSString * const kMapSegue = @"MapSegue";
 {
     EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:self.event];
     
-    self.posterButton.imageView.image = [self.event imageWithSize:CGSizeZero]; // TODO: Fix size
+    UIImage *image = [self.event imageWithSize:CGSizeZero];
+    self.posterButton.enabled = (image != nil) ? YES : NO;
+    self.posterButton.imageView.image = image ?: [UIImage imageNamed:@"EmptyPoster"]; // TODO: Fix size
     
     self.titleLabel.text = [self.event title];
     self.timeLabel.text = [eventFormatter timeString];
@@ -262,7 +259,7 @@ static NSString * const kMapSegue = @"MapSegue";
     
     self.favoriteButton.selected = [self.event isFavorite];
     
-    self.calendarStatusLabel.text = ([self isAddedToCalendar] == YES) ? @"Is added" : @"Is NOT added"; // TODO: Temp
+    self.calendarStatusLabel.text = ([self isAddedToCalendar] == YES) ? @"Is added to calendar" : @"Is NOT added to calendar"; // TODO: Temp
 }
 
 @end

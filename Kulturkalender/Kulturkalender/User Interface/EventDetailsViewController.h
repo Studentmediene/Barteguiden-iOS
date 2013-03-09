@@ -22,6 +22,8 @@
 //@property (nonatomic, strong) id<SettingsManager> settingsManager;
 @property (nonatomic, strong) EKEventStore *calendarStore;
 
+//@property (nonatomic, strong) UIActivityViewController *activityViewController;
+
 @property (nonatomic, weak) IBOutlet UIButton *posterButton;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
@@ -38,8 +40,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *favoriteButton;
 
 @property (nonatomic, weak) IBOutlet UILabel *calendarStatusLabel; // TODO: Temp
-
-//@property (nonatomic, weak) IBOutlet UIImageView *poster;
 
 - (IBAction)toggleFavorite:(id)sender;
 - (IBAction)shareEvent:(id)sender;

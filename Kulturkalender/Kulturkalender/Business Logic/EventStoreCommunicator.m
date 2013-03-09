@@ -10,9 +10,7 @@
 #import "EventStoreCommunicatorDelegate.h"
 
 
-static NSString * const kInsertedKey = @"inserted";
-static NSString * const kUpdatedKey = @"updated";
-static NSString * const kDeletedKey = @"deleted";
+static NSString * const kEventsKey = @"events";
 
 
 @interface EventStoreCommunicator ()
@@ -77,11 +75,9 @@ static NSString * const kDeletedKey = @"deleted";
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
     if (jsonObject != nil) {
-        NSArray *inserted = jsonObject[kInsertedKey];
-        NSArray *updated = jsonObject[kUpdatedKey];
-        NSArray *deleted = jsonObject[kDeletedKey];
+        NSArray *events = jsonObject[kEventsKey];
         
-        [self.delegate communicator:self didReceiveEventChangesWithInserted:inserted updated:updated deleted:deleted];
+        [self.delegate communicator:self didReceiveEvents:events];
     }
     else {
         [self.delegate communicator:self didFailWithError:error];

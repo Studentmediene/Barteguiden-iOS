@@ -201,8 +201,8 @@ enum {
 
 - (void)updateMyAgeTextField
 {
-    if ([self.filterManager.myAge unsignedIntegerValue] > 0) {
-        self.myAgeTextField.text = [self.filterManager.myAge stringValue];
+    if (self.filterManager.myAge > 0) {
+        self.myAgeTextField.text = [NSString stringWithFormat:@"%d", self.filterManager.myAge];
     }
 }
 

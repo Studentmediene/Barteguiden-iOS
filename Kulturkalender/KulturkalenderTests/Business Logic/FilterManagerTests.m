@@ -25,14 +25,14 @@
 
 
 @implementation FilterManagerTests {
-    FilterManager *_filterManager;
-    NSUserDefaults *_userDefaultsMock;
+    FilterManager *filterManager;
+    NSUserDefaults *userDefaultsMock;
 }
 
 - (void)setUp
 {
-    _userDefaultsMock = mock([NSUserDefaults class]);
-    _filterManager = [[FilterManager alloc] initWithUserDefaults:_userDefaultsMock];
+    userDefaultsMock = mock([NSUserDefaults class]);
+    filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaultsMock eventStore:nil];
 }
  
 - (void)tearDown
@@ -43,60 +43,139 @@
 #pragma mark - Defaults
 
 // TODO: Missing
+// TODO: Also test predicate?
 
 
 #pragma mark - Category filter
 
-//- (void)testIsSelectedForCategoryIDShouldABC
-//{
-//    
-//}
+- (void)testCategoryFilterShouldDefaultToNSUIntegerMax
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturnUnsignedInteger:NSUIntegerMax];
+    assertThatUnsignedInteger([filterManager categoryFilter], is(equalToUnsignedInteger(NSUIntegerMax)));
+}
+
+- (void)testCategoryFilterShouldReturnNumberStoredInUserDefaults
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@3];
+    assertThatUnsignedInteger([filterManager categoryFilter], is(equalToUnsignedInteger(3)));
+}
+
+- (void)testCategoryFilterShouldSaveNumberInUserDefaults
+{
+    [filterManager setCategoryFilter:7];
+    [verify(userDefaultsMock) setObject:@7 forKey:@"CategoryFilterSelection"];
+}
+
+- (void)testIsSelectedForCategoryShouldReturnNoForEmptyCategoryFilter
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@0];
+    assertThatBool([filterManager isSelectedForCategory:0], is(equalToBool(NO)));
+}
+
+- (void)testIsSelectedForCategoryShouldReturnYesForNightlife
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@2];
+    assertThatBool([filterManager isSelectedForCategory:1], is(equalToBool(YES)));
+}
+
+- (void)testIsSelectedForCategoryShouldReturnYesForDance
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@8];
+    assertThatBool([filterManager isSelectedForCategory:3], is(equalToBool(YES)));
+}
+
+- (void)testSetSelectedForCategoryShouldSelectNightlifeWhenNoneIsSelected
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@0];
+    [filterManager setSelected:YES forCategory:1];
+    [verify(userDefaultsMock) setObject:@(2) forKey:@"CategoryFilterSelection"];
+}
+
+- (void)testSetSelectedForCategoryShouldSelectNightlifeWhenConcertsIsAlreadySelected
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@1];
+    [filterManager setSelected:YES forCategory:1];
+    [verify(userDefaultsMock) setObject:@(3) forKey:@"CategoryFilterSelection"];
+}
+
+- (void)testSetSelectedForCategoryShouldSelectDanceWhenConcertsIsAlreadySelected
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@1];
+    [filterManager setSelected:YES forCategory:3];
+    [verify(userDefaultsMock) setObject:@(9) forKey:@"CategoryFilterSelection"];
+}
+
+- (void)testSetSelectedForCategoryShouldDeselectConcertsWhenThreeFirstCategoriesAreSelected
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@(7)];
+    [filterManager setSelected:NO forCategory:0];
+    [verify(userDefaultsMock) setObject:@(6) forKey:@"CategoryFilterSelection"];
+}
+
+- (void)testSetSelectedForCategoryShouldDeselectNightlifeWheThreeFirstCategoriesAreSelected
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@7];
+    [filterManager setSelected:NO forCategory:1];
+    [verify(userDefaultsMock) setObject:@(5) forKey:@"CategoryFilterSelection"];
+}
+
+- (void)testToggleSelectedForCategoryShouldSelectTheatreWhenNoneIsSelected
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@0];
+    [filterManager toggleSelectedForCategory:2];
+    [verify(userDefaultsMock) setObject:@(4) forKey:@"CategoryFilterSelection"];
+}
+
+- (void)testToggleSelectedForCategoryShouldDeselectTheatreWhenTheatreIsSelected
+{
+    [given([userDefaultsMock objectForKey:@"CategoryFilterSelection"]) willReturn:@4];
+    [filterManager toggleSelectedForCategory:2];
+    [verify(userDefaultsMock) setObject:@(0) forKey:@"CategoryFilterSelection"];
+}
 
 
 #pragma mark - Age limit filter
 
 - (void)testAgeLimitFilterShouldDefaultToZero
 {
-    [given([_userDefaultsMock objectForKey:@"AgeLimitFilterSelection"]) willReturn:nil];
-    
-    assertThatInteger([_filterManager ageLimitFilter], is(equalToInteger(0)));
+    [given([userDefaultsMock objectForKey:@"AgeLimitFilterSelection"]) willReturn:nil];
+    assertThatInteger([filterManager ageLimitFilter], is(equalToInteger(0)));
 }
 
 - (void)testAgeLimitFilterShouldReturnNumberStoredInUserDefaults
 {
-    [given([_userDefaultsMock objectForKey:@"AgeLimitFilterSelection"]) willReturn:@5];
-    
-    assertThatInteger([_filterManager ageLimitFilter], is(equalToInteger(5)));
+    [given([userDefaultsMock objectForKey:@"AgeLimitFilterSelection"]) willReturn:@5];
+    assertThatInteger([filterManager ageLimitFilter], is(equalToInteger(5)));
 }
 
 - (void)testSetAgeLimitFilterShouldSaveNumberInUserDefaults
 {
-    [_filterManager setAgeLimitFilter:6];
-    [verify(_userDefaultsMock) setObject:@6 forKey:@"AgeLimitFilterSelection"];
+    [filterManager setAgeLimitFilter:6];
+    [verify(userDefaultsMock) setObject:@6 forKey:@"AgeLimitFilterSelection"];
 }
 
-- (void)testMyAgeShouldDefaultToNil
+- (void)testMyAgeShouldDefaultToZero
 {
-    [given([_userDefaultsMock objectForKey:@"AgeLimitFilterMyAge"]) willReturn:nil];
-    assertThat([_filterManager myAge], is(equalTo(nil)));
+    [given([userDefaultsMock objectForKey:@"AgeLimitFilterMyAge"]) willReturn:nil];
+    assertThatUnsignedInteger([filterManager myAge], is(equalToUnsignedInteger(0)));
 }
 
 - (void)testMyAgeShouldReturnNumberStoredInUserDefaults
 {
-    [given([_userDefaultsMock objectForKey:@"AgeLimitFilterMyAge"]) willReturn:@5];
-    assertThat([_filterManager myAge], is(equalTo(@5)));
+    [given([userDefaultsMock objectForKey:@"AgeLimitFilterMyAge"]) willReturn:@5];
+    assertThatUnsignedInteger([filterManager myAge], is(equalToUnsignedInteger(5)));
 }
 
 - (void)testSetMyAgeShouldSaveNumberInUserDefaults
 {
-    [_filterManager setMyAge:@6];
-    [verify(_userDefaultsMock) setObject:@6 forKey:@"AgeLimitFilterMyAge"];
+    [filterManager setMyAge:6];
+    [verify(userDefaultsMock) setObject:@6 forKey:@"AgeLimitFilterMyAge"];
 }
 
-- (void)testSetMyAgeToZeroShouldSaveNilInUserDefaults
+- (void)testSetMyAgeToZeroShouldSaveZeroInUserDefaults
 {
-    [_filterManager setMyAge:@0];
-    [verify(_userDefaultsMock) setObject:nil forKey:@"AgeLimitFilterMyAge"];
+    [filterManager setMyAge:0];
+    [verify(userDefaultsMock) setObject:@(0) forKey:@"AgeLimitFilterMyAge"];
 }
 
 
@@ -104,20 +183,20 @@
 
 - (void)testPriceFilterShouldDefaultToZero
 {
-    [given([_userDefaultsMock objectForKey:@"PriceFilterSelection"]) willReturn:nil];
-    assertThatInteger([_filterManager priceFilter], is(equalToInteger(0)));
+    [given([userDefaultsMock objectForKey:@"PriceFilterSelection"]) willReturn:nil];
+    assertThatInteger([filterManager priceFilter], is(equalToInteger(0)));
 }
 
 - (void)testPriceFilterShouldReturnNumberStoredInUserDefaults
 {
-    [given([_userDefaultsMock objectForKey:@"PriceFilterSelection"]) willReturn:@5];
-    assertThatInteger([_filterManager priceFilter], is(equalToInteger(5)));
+    [given([userDefaultsMock objectForKey:@"PriceFilterSelection"]) willReturn:@5];
+    assertThatInteger([filterManager priceFilter], is(equalToInteger(5)));
 }
 
 - (void)testSetPriceFilterShouldSaveNumberInUserDefaults
 {
-    [_filterManager setPriceFilter:6];
-    [verify(_userDefaultsMock) setObject:@6 forKey:@"PriceFilterSelection"];
+    [filterManager setPriceFilter:6];
+    [verify(userDefaultsMock) setObject:@6 forKey:@"PriceFilterSelection"];
 }
 
 
@@ -125,8 +204,8 @@
 
 - (void)testSaveShouldPersistUserDefaults
 {
-    [_filterManager save];
-    [verify(_userDefaultsMock) synchronize];
+    [filterManager save];
+    [verify(userDefaultsMock) synchronize];
 }
 
 @end

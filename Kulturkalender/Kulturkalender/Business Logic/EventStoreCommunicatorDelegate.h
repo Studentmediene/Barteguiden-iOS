@@ -13,7 +13,7 @@
 
 @protocol EventStoreCommunicatorDelegate <NSObject>
 
-- (void)communicator:(EventStoreCommunicator *)communicator didReceiveEventChangesWithInserted:(NSArray *)inserted updated:(NSArray *)updated deleted:(NSArray *)deleted;
+- (void)communicator:(EventStoreCommunicator *)communicator didReceiveEvents:(NSArray *)events;
 - (void)communicator:(EventStoreCommunicator *)communicator didFailWithError:(NSError *)error;
 
 @end

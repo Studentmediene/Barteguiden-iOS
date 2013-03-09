@@ -20,12 +20,18 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
 
 - (Event *)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
-    NSDateFormatter *dateFormatter = [[self class] jsonDateFormatter];
+    Event *event = [NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:managedObjectContext];
+    [self updateEvent:event withJSONObject:jsonObject];
     
+    return event;
+}
+
+- (void)updateEvent:(Event *)event withJSONObject:(NSDictionary *)jsonObject
+{
     // TODO: Implement for the real server
     
-    // Create event
-    Event *event = [NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:managedObjectContext];
+    NSDateFormatter *dateFormatter = [[self class] jsonDateFormatter];
+    
     [event safeSetValuesForKeysWithDictionary:jsonObject dateFormatter:dateFormatter];
     event.featuredState = jsonObject[@"featured"];
     event.favoriteState = jsonObject[@"favorite"];
@@ -34,7 +40,7 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     NSMutableSet *descriptionSet = [[NSMutableSet alloc] init];
     NSArray *descriptions = jsonObject[@"localizedDescription"];
     for (NSDictionary *description in descriptions) {
-        NSManagedObject *managedDescription = [NSEntityDescription insertNewObjectForEntityForName:kLocalizedDescriptionEntityName inManagedObjectContext:managedObjectContext];
+        NSManagedObject *managedDescription = [NSEntityDescription insertNewObjectForEntityForName:kLocalizedDescriptionEntityName inManagedObjectContext:[event managedObjectContext]];
         [managedDescription safeSetValuesForKeysWithDictionary:description dateFormatter:dateFormatter];
         
         [descriptionSet addObject:managedDescription];
@@ -45,14 +51,12 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     NSMutableSet *featuredSet = [[NSMutableSet alloc] init];
     NSArray *featureds = jsonObject[@"localizedFeatured"];
     for (NSDictionary *featured in featureds) {
-        NSManagedObject *managedFeatured = [NSEntityDescription insertNewObjectForEntityForName:kLocalizedFeaturedEntityName inManagedObjectContext:managedObjectContext];
+        NSManagedObject *managedFeatured = [NSEntityDescription insertNewObjectForEntityForName:kLocalizedFeaturedEntityName inManagedObjectContext:[event managedObjectContext]];
         [managedFeatured safeSetValuesForKeysWithDictionary:featured dateFormatter:dateFormatter];
         
         [featuredSet addObject:managedFeatured];
     }
     event.localizedFeatured = featuredSet;
-    
-    return event;
 }
 
 

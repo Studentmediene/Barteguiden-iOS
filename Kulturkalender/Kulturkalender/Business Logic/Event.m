@@ -68,19 +68,20 @@
 
 - (UIImage *)imageWithSize:(CGSize)size
 {
-    if (self.imageID == nil) { // TODO: Remove check
-        return nil;
-    }
-    
     NSLog(@"Retrieving image for eventID:%@", self.eventID);
     
     CGFloat scale = [[UIScreen mainScreen] scale];
     CGSize scaledSize = CGSizeMake(size.width * scale, size.height * scale);
     
-    NSURL *url = [self.delegate URLForImageWithEventID:self.imageID size:scaledSize];
+    NSString *imageID = [NSString stringWithFormat:@"img%@", self.eventID];
+    NSURL *url = [self.delegate URLForImageWithEventID:imageID size:scaledSize];
     
     UIImage *image = [self.imageCache imageForURL:url delegate:self];
-    UIImage *scaledImage = [[UIImage alloc] initWithCGImage:image.CGImage scale:scale orientation:UIImageOrientationUp];
+    
+    UIImage *scaledImage = nil;
+    if (image != nil) {
+        scaledImage = [[UIImage alloc] initWithCGImage:image.CGImage scale:scale orientation:UIImageOrientationUp];
+    }
     
     return scaledImage;
 }

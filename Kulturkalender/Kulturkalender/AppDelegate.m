@@ -20,36 +20,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [[JMImageCache sharedCache] removeAllObjects]; // TODO: Remove line
+    [[JMImageCache sharedCache] removeAllObjects]; // TODO: Remove line
     
-    _eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
+    // Event store
+    self.eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     
+    // Filter manager
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    _filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaults];
+    self.filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaults eventStore:self.eventStore];
+    [self.filterManager registerDefaultSelectedCategoryIDs:CategoryFilterShowAllEvents];
+    [self.filterManager registerDefaultAgeLimitFilter:AgeLimitFilterShowAllEvents];
+    [self.filterManager registerDefaultMyAge:0];
+    [self.filterManager registerDefaultPriceFilter:PriceFilterShowAllEvents];
     
     // Inject dependencies
     TabBarController *tabBarController = (TabBarController *)self.window.rootViewController;
-    tabBarController.eventStore = _eventStore;
-    tabBarController.filterManager = _filterManager;
+    tabBarController.eventStore = self.eventStore;
+    tabBarController.filterManager = self.filterManager;
     
     return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    
-    // TODO: Move to applicationWillTerminate: instead?
-    NSLog(@"Closing...");
-    [_filterManager save];
-//    [self save];
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -64,9 +53,24 @@
     [self.eventStore refresh];
 }
 
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSLog(@"Closing...");
+    [self.filterManager save];
+    [self save];
+}
+
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Saves changes in the application's managed object context before the application terminates.
+    // TIPS: This method might not be called.
 }
 
 

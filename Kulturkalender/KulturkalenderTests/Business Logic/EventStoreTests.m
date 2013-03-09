@@ -41,7 +41,7 @@
 // TODO: Remove comments
 - (void)testEventWithIdentifierReturnsNotNil
 {
-    NSString *identifier = @"1234-5678";
+    NSString *identifier = @"1";
     id<Event> event = [_eventStore eventWithIdentifier:identifier error:NULL];
     STAssertNotNil(event, @"No event was returned.");
 }
@@ -69,9 +69,9 @@
 // TODO: Move to EventTests? Rename?
 - (void)testTitleOfEventIsValid
 {
-    NSString *identifier = @"1234-5678";
+    NSString *identifier = @"1";
     id<Event> event = [_eventStore eventWithIdentifier:identifier error:NULL];
-    STAssertEqualObjects(event.title, @"Tirsdagskviss", @"Incorrect title.");
+    STAssertEqualObjects(event.title, @"Tirsdagsquiz", @"Incorrect title.");
 }
 
 

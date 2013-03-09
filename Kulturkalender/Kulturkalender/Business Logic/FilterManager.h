@@ -7,6 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EventKit.h"
+
+@protocol EventStore;
+
+
+typedef NS_OPTIONS(NSUInteger, CategoryFilter) {
+    CategoryFilterShowNoneEvents    = 0,
+    CategoryFilterShowConcerts      = 1 << EventCategoryConcerts,
+    CategoryFilterShowNightlife     = 1 << EventCategoryNightlife,
+    CategoryFilterShowTheatre       = 1 << EventCategoryTheatre,
+    CategoryFilterShowDance         = 1 << EventCategoryDance,
+    CategoryFilterShowArtExhibition = 1 << EventCategoryArtExhibition,
+    CategoryFilterShowSports        = 1 << EventCategorySports,
+    CategoryFilterShowPresentations = 1 << EventCategoryPresentations,
+    CategoryFilterShowAllEvents     = NSUIntegerMax
+};
 
 typedef NS_ENUM(NSInteger, AgeLimitFilter) {
     AgeLimitFilterShowAllEvents = 0,
@@ -26,14 +42,14 @@ typedef NS_ENUM(NSInteger, PriceFilter) {
 - (NSPredicate *)predicate;
 
 // Category filter
-- (NSArray *)selectedCategoryIDs;
-- (BOOL)isSelectedForCategoryID:(NSString *)categoryID;
-- (void)setSelected:(BOOL)selected forCategoryID:(NSString *)categoryID;
-- (void)toggleSelectedForCategoryID:(NSString *)categoryID;
+@property (nonatomic) CategoryFilter categoryFilter;
+- (BOOL)isSelectedForCategory:(EventCategory)category;
+- (void)setSelected:(BOOL)selected forCategory:(EventCategory)category;
+- (void)toggleSelectedForCategory:(EventCategory)category;
 
 // Age limit filter
 @property (nonatomic) AgeLimitFilter ageLimitFilter;
-@property (nonatomic, strong) NSNumber *myAge;
+@property (nonatomic) NSUInteger myAge;
 
 // Price filter
 @property (nonatomic) PriceFilter priceFilter;
@@ -41,19 +57,16 @@ typedef NS_ENUM(NSInteger, PriceFilter) {
 @end
 
 
-@protocol EventStore;
-
 @interface FilterManager : NSObject <FilterManager>
 
-@property (nonatomic, strong) id<EventStore> eventStore;
-
-- (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults;
+- (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults eventStore:(id<EventStore>)eventStore;
 
 - (void)save;
 
 // Defaults
-//- (void)registerDefaultSelectedCategoryIDs:(NSArray *)categoryIDs;
-//- (void)registerDefaultAgeLimitFilter:(AgeLimitFilter)ageLimitFilter;
-//- (void)registerDefaultPriceFilter:(PriceFilter)priceFilter;
+- (void)registerDefaultSelectedCategoryIDs:(CategoryFilter)categoryFilter;
+- (void)registerDefaultAgeLimitFilter:(AgeLimitFilter)ageLimitFilter;
+- (void)registerDefaultMyAge:(NSUInteger)myAge;
+- (void)registerDefaultPriceFilter:(PriceFilter)priceFilter;
 
 @end

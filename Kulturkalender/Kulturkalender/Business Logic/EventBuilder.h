@@ -13,5 +13,6 @@
 @interface EventBuilder : NSObject
 
 - (Event *)insertNewEventWithJSONObject:(NSDictionary *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+- (void)updateEvent:(Event *)event withJSONObject:(NSDictionary *)jsonObject;
 
 @end

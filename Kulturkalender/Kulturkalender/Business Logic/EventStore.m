@@ -16,6 +16,27 @@
 
 static NSString * const kEventEntityName = @"Event";
 
+static NSString * const kEventIDKey = @"eventID";
+static NSString * const kTitleKey = @"title";
+static NSString * const kStartAtKey = @"startAt";
+static NSString * const kEndAtKey = @"endAt";
+
+static NSString * const kFeaturedKey = @"featuredState";
+static NSString * const kFavoriteKey = @"favoriteState";
+
+static NSString * const kCategoryIDKey = @"categoryID";
+static NSString * const kPriceKey = @"price";
+static NSString * const kAgeLimitKey = @"ageLimitNumber";
+
+static NSString * const kPlaceNameKey = @"placeName";
+static NSString * const kAddressKey = @"address";
+static NSString * const kLatitudeKey = @"latitude";
+static NSString * const kLongitudeKey = @"longitude";
+
+static NSString * const kURLKey = @"eventURL";
+
+static NSString * const kCalendarEventIDKey = @"calendarEventID";
+
 
 @interface EventStore ()
 
@@ -55,17 +76,36 @@ static NSString * const kEventEntityName = @"Event";
 
 #pragma mark - EventStoreCommunicatorDelegate
 
-- (void)communicator:(EventStoreCommunicator *)communicator didReceiveEventChangesWithInserted:(NSArray *)inserted updated:(NSArray *)updated deleted:(NSArray *)deleted
+- (void)communicator:(EventStoreCommunicator *)communicator didReceiveEvents:(NSArray *)events
 {
-    for (NSDictionary *event in inserted) {
-        [self.builder insertNewEventWithJSONObject:event inManagedObjectContext:self.managedObjectContext];
+    NSMutableSet *eventIDs = [NSMutableSet set];
+    
+    for (NSDictionary *jsonObject in events) {
+        NSString *eventID = jsonObject[kEventIDKey];
+        [eventIDs addObject:eventID];
+        
+        Event *event = (Event *)[self eventWithIdentifier:eventID error:NULL]; // TODO: Fix error handling
+        
+        if (event != nil) {
+            [self.builder updateEvent:event withJSONObject:jsonObject];
+        }
+        else {
+            [self.builder insertNewEventWithJSONObject:jsonObject inManagedObjectContext:self.managedObjectContext];
+        }
     }
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidRefreshNotification object:self];
+    // TODO: Do not delete favorited events
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT (%K IN %@)", kEventIDKey, eventIDs];
+    NSArray *deletedEvents = [self eventsMatchingPredicate:predicate error:NULL]; // TODO: Fix error handling
+    
+    for (Event *deletedEvent in deletedEvents) {
+        [self.managedObjectContext deleteObject:deletedEvent];
+    }
 }
 
 - (void)communicator:(EventStoreCommunicator *)communicator didFailWithError:(NSError *)error
 {
+    // TODO: Fix
 //    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidFailToRefreshNotification object:self userInfo:@{EventStoreRefreshErrorKey: error}];
 }
 
@@ -140,44 +180,44 @@ static NSString * const kEventEntityName = @"Event";
 
 - (NSPredicate *)predicateForFeaturedEvents
 {
-    return [NSPredicate predicateWithFormat:@"featuredState == 1"];
+    return [NSPredicate predicateWithFormat:@"%K == 1", kFeaturedKey];
 }
 
 - (NSPredicate *)predicateForFavoritedEvents
 {
-    return [NSPredicate predicateWithFormat:@"favoriteState == 1"];
+    return [NSPredicate predicateWithFormat:@"%K == 1", kFavoriteKey];
 }
 
 - (NSPredicate *)predicateForPaidEvents
 {
-    return [NSPredicate predicateWithFormat:@"price > 0"];
+    return [NSPredicate predicateWithFormat:@"%K > 0", kPriceKey];
 }
 
 - (NSPredicate *)predicateForFreeEvents
 {
-    return [NSPredicate predicateWithFormat:@"price == 0"];
+    return [NSPredicate predicateWithFormat:@"%K == 0", kPriceKey];
 }
 
 - (NSPredicate *)predicateForEventsWithCategoryIDs:(NSArray *)categoryIDs
 {
     // TODO: Not tested
-    return [NSPredicate predicateWithFormat:@"categoryID IN %@", categoryIDs];
+    return [NSPredicate predicateWithFormat:@"$K IN %@", kCategoryIDKey, categoryIDs];
 }
 
 - (NSPredicate *)predicateForEventsAllowedForAge:(NSUInteger)age
 {
     // TODO: Not tested
-    return [NSPredicate predicateWithFormat:@"ageLimitNumber <= %d", age];
+    return [NSPredicate predicateWithFormat:@"%K <= %d", kAgeLimitKey, age];
 }
 
 - (NSPredicate *)predicateForTitleContainingText:(NSString *)text
 {
-    return [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", text];
+    return [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@", kTitleKey, text];
 }
 
 - (NSPredicate *)predicateForPlaceNameContainingText:(NSString *)text
 {
-    return [NSPredicate predicateWithFormat:@"placeName CONTAINS[cd] %@", text];
+    return [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@", kPlaceNameKey, text];
 }
 
 
@@ -217,7 +257,7 @@ static NSString * const kEventEntityName = @"Event";
 
 - (NSPredicate *)predicateForEventIdentifier:(NSString *)identifier
 {
-    return [NSPredicate predicateWithFormat:@"eventID == %@", identifier];
+    return [NSPredicate predicateWithFormat:@"%K == %@", kEventIDKey, identifier];
 }
 
 - (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate
@@ -228,7 +268,7 @@ static NSString * const kEventEntityName = @"Event";
     fetchRequest.predicate = predicate;
     
     // Set sort descriptor
-    NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES];
+    NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:kStartAtKey ascending:YES];
     NSArray *sortDescriptors = @[startAtSortDescriptor];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
@@ -280,8 +320,6 @@ static NSString * const kEventEntityName = @"Event";
         if ([obj isKindOfClass:[Event class]]) {
             [events addObject:obj];
         }
-        
-        // TODO: Should I add other entities as well?
     }];
     
     if ([events count] > 0) {
