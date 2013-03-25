@@ -22,6 +22,14 @@
 {
     [[JMImageCache sharedCache] removeAllObjects]; // TODO: Remove line
     
+    UIColor *darkGray = [UIColor colorWithHue:0.67 saturation:0.2 brightness:0.15 alpha:1];
+    UIColor *gray = [UIColor colorWithHue:0 saturation:0 brightness:0.4 alpha:0.8];
+    [[UINavigationBar appearance] setTintColor:darkGray];
+    [[UITabBar appearance] setTintColor:darkGray];
+    [[UISearchBar appearance] setTintColor:darkGray];
+    [[UITableViewHeaderFooterView appearance] setTintColor:gray];
+//    [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setColor:[UIColor redColor]];
+    
     // Event store
     self.eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     

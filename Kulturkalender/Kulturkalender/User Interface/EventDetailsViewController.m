@@ -129,7 +129,6 @@ static NSString * const kMapSegue = @"MapSegue";
     calendarEvent.title = self.event.title;
     calendarEvent.location = self.event.placeName;
     calendarEvent.startDate = self.event.startAt;
-    calendarEvent.endDate = self.event.endAt;
     
     const float kAlertOffset = -30*60; // TODO: Get from settings
     EKAlarm *alarm = [EKAlarm alarmWithRelativeOffset:kAlertOffset];

@@ -19,7 +19,6 @@ static NSString * const kEventEntityName = @"Event";
 static NSString * const kEventIDKey = @"eventID";
 static NSString * const kTitleKey = @"title";
 static NSString * const kStartAtKey = @"startAt";
-static NSString * const kEndAtKey = @"endAt";
 
 static NSString * const kFeaturedKey = @"featuredState";
 static NSString * const kFavoriteKey = @"favoriteState";
@@ -81,7 +80,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     NSMutableSet *eventIDs = [NSMutableSet set];
     
     for (NSDictionary *jsonObject in events) {
-        NSString *eventID = jsonObject[kEventIDKey];
+        NSString *eventID = jsonObject[@"id"];
         [eventIDs addObject:eventID];
         
         Event *event = (Event *)[self eventWithIdentifier:eventID error:NULL]; // TODO: Fix error handling
@@ -105,6 +104,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 
 - (void)communicator:(EventStoreCommunicator *)communicator didFailWithError:(NSError *)error
 {
+    NSLog(@"FAILED:%@", error);
     // TODO: Fix
 //    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidFailToRefreshNotification object:self userInfo:@{EventStoreRefreshErrorKey: error}];
 }
@@ -174,7 +174,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 
 - (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate
 {
-    // TIPS: @"(endAt != nil AND endAt >= %@) OR startAt >= %@"
+    // TIPS: @"startAt >= %@"
     return nil;
 }
 
@@ -200,15 +200,8 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 
 - (NSPredicate *)predicateForEventsWithCategories:(NSArray *)categories
 {
-    NSMutableArray *categoryIDs = [NSMutableArray array];
-    for (NSNumber *category in categories) {
-        NSString *categoryID = [[self categoriesByIndex] objectForKey:category];
-        if (categoryID != nil) {
-            [categoryIDs addObject:categoryID];
-        }
-    }
     // TODO: Not tested
-    return [NSPredicate predicateWithFormat:@"%K IN %@", kCategoryIDKey, categoryIDs];
+    return [NSPredicate predicateWithFormat:@"%K IN %@", kCategoryIDKey, categories];
 }
 
 - (NSPredicate *)predicateForEventsAllowedForAge:(NSUInteger)age
@@ -332,22 +325,6 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     if ([events count] > 0) {
         userInfo[key] = [events copy];
     }
-}
-
-- (NSDictionary *)categoriesByIndex
-{
-    static NSDictionary *categories;
-    if (categories == nil) {
-        categories = @{@(EventCategoryConcerts): @"CONCERTS",
-                       @(EventCategoryNightlife): @"NIGHTLIFE",
-                       @(EventCategoryTheatre): @"THEATRE",
-                       @(EventCategoryDance): @"DANCE",
-                       @(EventCategoryArtExhibition): @"ART_EXHIBITION",
-                       @(EventCategorySports): @"SPORTS",
-                       @(EventCategoryPresentations): @"PRESENTATIONS"};
-    }
-    
-    return categories;
 }
 
 @end

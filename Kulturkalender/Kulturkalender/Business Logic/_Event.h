@@ -16,8 +16,7 @@
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSNumber * ageLimitNumber;
 @property (nonatomic, retain) NSString * calendarEventID;
-@property (nonatomic, retain) NSString * categoryID;
-@property (nonatomic, retain) NSDate * endAt;
+@property (nonatomic, retain) NSNumber * categoryID;
 @property (nonatomic, retain) NSString * eventID;
 @property (nonatomic, retain) NSString * eventURL;
 @property (nonatomic, retain) NSNumber * favoriteState;

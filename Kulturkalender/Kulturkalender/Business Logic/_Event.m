@@ -17,7 +17,6 @@
 @dynamic ageLimitNumber;
 @dynamic calendarEventID;
 @dynamic categoryID;
-@dynamic endAt;
 @dynamic eventID;
 @dynamic eventURL;
 @dynamic favoriteState;

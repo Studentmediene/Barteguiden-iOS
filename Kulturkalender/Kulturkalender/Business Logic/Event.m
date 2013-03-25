@@ -47,13 +47,7 @@
 
 - (EventCategory)category
 {
-    NSDictionary *categories = [self categoriesByKey];
-    NSNumber *category = categories[self.categoryID];
-    if (category != nil) {
-        return [category integerValue];
-    }
-    
-    return EventCategoryUnknown;
+    return [self.categoryID integerValue];
 }
 
 - (CLLocationCoordinate2D)location
@@ -121,22 +115,6 @@
     }];
     
     return [[currentLocalizedTexts anyObject] text];
-}
-
-- (NSDictionary *)categoriesByKey
-{
-    static NSDictionary *categories;
-    if (categories == nil) {
-        categories = @{@"CONCERTS": @(EventCategoryConcerts),
-                       @"NIGHTLIFE": @(EventCategoryNightlife),
-                       @"THEATRE": @(EventCategoryTheatre),
-                       @"DANCE": @(EventCategoryDance),
-                       @"ART_EXHIBITION": @(EventCategoryArtExhibition),
-                       @"SPORTS": @(EventCategorySports),
-                       @"PRESENTATIONS": @(EventCategoryPresentations)};
-    }
-    
-    return categories;
 }
 
 @end

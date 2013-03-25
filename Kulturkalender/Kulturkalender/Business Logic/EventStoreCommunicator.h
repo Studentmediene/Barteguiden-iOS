@@ -24,7 +24,7 @@
 - (void)notifyDidFailWithError:(NSError *)error;
 
 // API resources
-- (NSURL *)URLForEventChangesSince:(NSDate *)since;
+- (NSURL *)URLForEvents;
 - (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size;;
 
 @end

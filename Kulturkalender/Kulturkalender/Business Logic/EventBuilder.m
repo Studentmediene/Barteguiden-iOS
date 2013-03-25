@@ -8,6 +8,7 @@
 
 #import "EventBuilder.h"
 #import "Event.h"
+#import "LocalizedText.h"
 #import "NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.h"
 
 
@@ -33,30 +34,32 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     NSDateFormatter *dateFormatter = [[self class] jsonDateFormatter];
     
     [event safeSetValuesForKeysWithDictionary:jsonObject dateFormatter:dateFormatter];
-    event.featuredState = jsonObject[@"featured"];
-    event.favoriteState = jsonObject[@"favorite"];
     
-    // Add localized description
-    NSMutableSet *descriptionSet = [[NSMutableSet alloc] init];
-    NSArray *descriptions = jsonObject[@"localizedDescription"];
-    for (NSDictionary *description in descriptions) {
-        NSManagedObject *managedDescription = [NSEntityDescription insertNewObjectForEntityForName:kLocalizedDescriptionEntityName inManagedObjectContext:[event managedObjectContext]];
-        [managedDescription safeSetValuesForKeysWithDictionary:description dateFormatter:dateFormatter];
-        
-        [descriptionSet addObject:managedDescription];
-    }
-    event.localizedDescription = descriptionSet;
+    [event setValue:jsonObject[@"id"] forKey:@"eventID"];
+    event.featuredState = @(jsonObject[@"featured"] != nil);
     
-    // Add localized featured
-    NSMutableSet *featuredSet = [[NSMutableSet alloc] init];
-    NSArray *featureds = jsonObject[@"localizedFeatured"];
-    for (NSDictionary *featured in featureds) {
-        NSManagedObject *managedFeatured = [NSEntityDescription insertNewObjectForEntityForName:kLocalizedFeaturedEntityName inManagedObjectContext:[event managedObjectContext]];
-        [managedFeatured safeSetValuesForKeysWithDictionary:featured dateFormatter:dateFormatter];
-        
-        [featuredSet addObject:managedFeatured];
+    NSString *categoryString = jsonObject[@"categoryID"];
+    NSNumber *categoryID = [[self categoriesByKey] objectForKey:categoryString];
+    if (categoryID != nil) {
+        event.categoryID = categoryID;
     }
-    event.localizedFeatured = featuredSet;
+
+    event.localizedDescription = [self setWithLocalizedTextForEntityName:kLocalizedDescriptionEntityName withJSONObject:jsonObject[@"description"] inManagedObjectContext:event.managedObjectContext];
+    event.localizedFeatured = [self setWithLocalizedTextForEntityName:kLocalizedFeaturedEntityName withJSONObject:jsonObject[@"featured"] inManagedObjectContext:event.managedObjectContext];
+}
+
+- (NSSet *)setWithLocalizedTextForEntityName:(NSString *)entityName withJSONObject:(NSArray *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+    NSMutableSet *set = [[NSMutableSet alloc] init];
+    for (NSDictionary *text in jsonObject) {
+        LocalizedText *localizedText = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:managedObjectContext];
+        
+        [localizedText safeSetValuesForKeysWithDictionary:text dateFormatter:nil];
+        
+        [set addObject:localizedText];
+    }
+    
+    return set;
 }
 
 
@@ -71,6 +74,22 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     }
     
     return dateFormatter;
+}
+
+- (NSDictionary *)categoriesByKey
+{
+    static NSDictionary *categories;
+    if (categories == nil) {
+        categories = @{@"CONCERTS": @(EventCategoryConcerts),
+                       @"NIGHTLIFE": @(EventCategoryNightlife),
+                       @"THEATRE": @(EventCategoryTheatre),
+                       @"DANCE": @(EventCategoryDance),
+                       @"ART_EXHIBITION": @(EventCategoryArtExhibition),
+                       @"SPORTS": @(EventCategorySports),
+                       @"PRESENTATIONS": @(EventCategoryPresentations)};
+    }
+    
+    return categories;
 }
 
 @end

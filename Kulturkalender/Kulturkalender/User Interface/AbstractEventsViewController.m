@@ -147,8 +147,8 @@
     // Date predicate
     // TODO: Fix this predicate
     NSDate *now = [NSDate date];
-    NSString *format = @"(endAt != nil AND endAt >= %@) OR startAt >= %@";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:format, now, now];
+    NSString *format = @"startAt >= %@";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:format, now];
     
     return predicate;
 }

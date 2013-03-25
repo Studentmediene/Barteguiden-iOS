@@ -1,21 +1,18 @@
 {
   "events": [
     {
-      "eventID": "1",
+      "id": "1",
       "title": "Tirsdagsquiz",
       "categoryID": "CONCERTS",
       "ageLimit": 18,
       "price": 0,
-      "featured": true,
-      "favorite": true,
       "startAt": "2015-01-15T19:00:00+0200",
-      "endAt": "2015-01-15T23:00:00+0200",
       "placeName": "Samfundet",
       "address": "Elgeseter gate 1",
       "latitude": 63.422634,
       "longitude": 10.394697,
       "url": "http://samfundet.no/arrangement/vis/3386",
-      "localizedDescription": [
+      "description": [
         {
           "language": "nb",
           "text": "Det blir Tirsdagskviss i Edgar."
@@ -25,7 +22,7 @@
           "text": "It will be Tuesday quiz at Edgar."
         }
       ],
-      "localizedFeatured": [
+      "featured": [
         {
           "language": "nb",
           "text": "Redaksjonen liker denne hendelsen."
@@ -37,45 +34,37 @@
       ]
     },
     {
-      "eventID": "2",
+      "id": "2",
       "title": "Glassblåsing",
       "categoryID": "NIGHTLIFE",
       "ageLimit": 18,
       "price": 120,
-      "favorite": false,
-      "featured": false,
       "startAt": "2015-01-17T17:00:00+0200",
-      "endAt": "2015-01-17T20:00:00+0200",
       "placeName": "Trondheim Glassblåseri",
-      "localizedDescription": []
+      "description": []
     },
     {
-      "eventID": "3",
+      "id": "3",
       "title": "Test",
       "categoryID": "THEATRE",
       "ageLimit": 25,
       "price": 1000,
-      "favorite": false,
-      "featured": false,
       "startAt": "2015-01-19T21:00:00+0200",
-      "endAt": "2015-01-19T23:00:00+0200",
       "placeName": "Ukjent",
-      "localizedDescription": []
+      "description": []
     },
     {
-      "eventID": "4",
+      "id": "4",
       "title": "LUKA2",
       "categoryID": "CONCERTS",
       "ageLimit": 0,
       "price": 200,
-      "favorite": true,
-      "featured": false,
       "startAt": "2015-01-18T20:00:00+0200",
       "placeName": "Samfundet",
       "streetName": "Elgesetergate 1",
       "latitude": 63.430515,
       "longitude": 10.395053,
-      "localizedDescription": []
+      "description": []
     }
   ]
 }

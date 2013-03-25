@@ -26,7 +26,6 @@ typedef NS_ENUM(NSInteger, EventCategory) {
 @property (nonatomic, readonly) NSString *eventID;
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSDate *startAt;
-@property (nonatomic, readonly) NSDate *endAt;
 
 @property (nonatomic, readonly, getter = isFeatured) BOOL featured;
 @property (nonatomic, getter = isFavorite) BOOL favorite;
