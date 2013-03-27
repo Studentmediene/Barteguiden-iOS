@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface SettingsViewController : UITableViewController
+@interface SettingsViewController : UITableViewController <MFMailComposeViewControllerDelegate>
+
+@property (nonatomic, weak) IBOutlet UITableViewCell *tipsUsCell;
 
 @end

@@ -139,6 +139,9 @@ static NSString * const kMapSegue = @"MapSegue";
 	eventEditViewController.eventStore = self.calendarStore;
 	eventEditViewController.editViewDelegate = self;
     
+//    UIColor *tableViewBackgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];
+//    eventEditViewController.view.backgroundColor = tableViewBackgroundColor;
+    
 	[self presentViewController:eventEditViewController animated:YES completion:NULL];
 }
 
