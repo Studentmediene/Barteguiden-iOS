@@ -104,8 +104,12 @@ static NSString * const kEventsKey = @"events";
 - (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size
 {
     NSParameterAssert(eventID != nil);
-//    NSString *imagePath = [NSString stringWithFormat:@"events/%@.png?size=%dx%d", eventID, (int)size.width, (int)size.height];
+    
     NSString *imagePath = [NSString stringWithFormat:@"img/%@.png", eventID];
+    if (CGSizeEqualToSize(size, CGSizeZero) == NO) {
+        imagePath = [imagePath stringByAppendingFormat:@"?size=%.0fx%.0f", size.width, size.height];
+    }
+    
     return [NSURL URLWithString:imagePath relativeToURL:[self baseURL]];
 }
 

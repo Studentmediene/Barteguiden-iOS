@@ -174,8 +174,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 
 - (NSPredicate *)predicateForEventsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate
 {
-    // TIPS: @"startAt >= %@"
-    return nil;
+    return [NSPredicate predicateWithFormat:@"%K >= %@ AND %K <= %@", kStartAtKey, startDate, kStartAtKey, endDate];
 }
 
 - (NSPredicate *)predicateForFeaturedEvents

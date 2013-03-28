@@ -37,6 +37,7 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     
     [event setValue:jsonObject[@"id"] forKey:@"eventID"];
     event.featuredState = @(jsonObject[@"featured"] != nil);
+    event.ageLimitNumber = jsonObject[@"ageLimit"];
     
     NSString *categoryString = jsonObject[@"categoryID"];
     NSNumber *categoryID = [[self categoriesByKey] objectForKey:categoryString];

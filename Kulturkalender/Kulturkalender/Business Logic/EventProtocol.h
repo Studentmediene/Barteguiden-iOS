@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, EventCategory) {
 
 @property (nonatomic, copy) NSString *calendarEventID;
 
-//- (UIImage *)originalImage;
+- (UIImage *)originalImage;
 - (UIImage *)imageWithSize:(CGSize)size;
 
 - (NSString *)descriptionForLanguage:(NSString *)language;

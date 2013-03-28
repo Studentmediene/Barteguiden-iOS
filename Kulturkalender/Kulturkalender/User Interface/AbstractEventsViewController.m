@@ -14,6 +14,9 @@
 #import "EventCell.h"
 
 
+static CGSize const kThumbnailSize = {43, 56};
+
+
 @implementation AbstractEventsViewController
 
 - (void)viewDidLoad
@@ -144,13 +147,9 @@
 
 - (NSPredicate *)eventsPredicate
 {
-    // Date predicate
-    // TODO: Fix this predicate
-    NSDate *now = [NSDate date];
-    NSString *format = @"startAt >= %@";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:format, now];
+    NSPredicate *datePredicate = [self.eventStore predicateForEventsWithStartDate:[NSDate date] endDate:[NSDate distantFuture]];
     
-    return predicate;
+    return datePredicate;
 }
 
 - (void)navigateToEvent:(id)event
@@ -173,7 +172,7 @@
     EventCell *eventCell = (EventCell *)cell;
     
     EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:event];
-    UIImage *image = [event imageWithSize:CGSizeMake(0, 0)] ?: [UIImage imageNamed:@"EmptyPoster"];
+    UIImage *image = [event imageWithSize:kThumbnailSize] ?: [UIImage imageNamed:@"EmptyPoster"];
     eventCell.thumbnailImageView.image = image;
     eventCell.titleLabel.text = [event title];
     eventCell.detailLabel.text = [eventFormatter timeAndLocationString];

@@ -32,8 +32,8 @@
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    if (cell == self.tipsUsCell) {
-        [self tipsUs:cell];
+    if (cell == self.sendUsYourTipsCell) {
+        [self sendUsYourTips:cell];
         
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
@@ -42,7 +42,7 @@
 
 #pragma mark - Actions
 
-- (IBAction)tipsUs:(id)sender
+- (IBAction)sendUsYourTips:(id)sender
 {
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];

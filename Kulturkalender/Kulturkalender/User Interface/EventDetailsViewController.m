@@ -16,8 +16,10 @@
 
 const NSInteger kActionSheetCancelButtonIndex = 1;
 
-static NSString * const kPosterSegue = @"Poster";
+static NSString * const kPosterSegue = @"PosterSegue";
 static NSString * const kMapSegue = @"MapSegue";
+
+static CGSize const kThumbnailSize = {72, 72};
 
 
 @implementation EventDetailsViewController
@@ -29,6 +31,8 @@ static NSString * const kMapSegue = @"MapSegue";
     // TODO: Does not work to add events to calendar anymore :-/
     self.calendarStore = [[EKEventStore alloc] init]; // TODO: Inject instead?
     [self requestAccessToCalendar];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarStoreChanged:) name:EKEventStoreChangedNotification object:self.calendarStore];
@@ -74,7 +78,7 @@ static NSString * const kMapSegue = @"MapSegue";
     if ([segue.identifier isEqualToString:kPosterSegue])
     {
         PosterViewController *posterViewController = [segue destinationViewController];
-        posterViewController.poster = [self.event imageWithSize:CGSizeZero];
+        posterViewController.poster = [self.event originalImage];
     }
     else if ([segue.identifier isEqualToString:kMapSegue])
     {
@@ -99,44 +103,38 @@ static NSString * const kMapSegue = @"MapSegue";
     NSString *eventAd = [NSString stringWithFormat:@"Join me at %@!", [self.event title]];
     NSArray *activityItems = @[eventAd];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-    activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeMessage, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
     [self presentViewController:activityViewController animated:YES completion:NULL];
 }
 
-- (IBAction)promptDateActions:(id)sender
+- (IBAction)modifyCalendar:(id)sender
 {
-    // TODO: Fix localization
-    NSString *createEventTitle = NSLocalizedString(@"Add to Calendar", nil);
-    NSString *deleteEventTitle = NSLocalizedString(@"Delete from Calendar", nil);
-    NSString *editEventTitle = NSLocalizedString(@"Edit in Calendar", nil);
-    NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
-    
-    UIActionSheet *actionSheet = nil;
     if ([self isAddedToCalendar] == NO) {
-        actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:createEventTitle, nil];
+        [self addToCalendar:sender];
     }
     else {
-        actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:deleteEventTitle otherButtonTitles:editEventTitle, nil];
+        [self promptRemoveFromCalendar:sender];
     }
-    
-    [actionSheet showInView:self.view];
 }
 
-- (void)addToCalendar:(id)sender
+- (IBAction)addToCalendar:(id)sender
 {
+    const float kAlertOffset = -30*60; // TODO: Get from settings
+    const float kOneHourOffset = 60*60;
+    
     EKEvent *calendarEvent = [EKEvent eventWithEventStore:self.calendarStore];
     calendarEvent.calendar = [self.calendarStore defaultCalendarForNewEvents];
     calendarEvent.title = self.event.title;
     calendarEvent.location = self.event.placeName;
     calendarEvent.startDate = self.event.startAt;
+    calendarEvent.endDate = [[self.event startAt] dateByAddingTimeInterval:kOneHourOffset];
     
-    const float kAlertOffset = -30*60; // TODO: Get from settings
     EKAlarm *alarm = [EKAlarm alarmWithRelativeOffset:kAlertOffset];
     [calendarEvent addAlarm:alarm];
     
 	EKEventEditViewController *eventEditViewController = [[EKEventEditViewController alloc] init];
     eventEditViewController.event = calendarEvent;
-	eventEditViewController.eventStore = self.calendarStore;
+	eventEditViewController.eventStore = self.calendarStore; // TODO: Get from settings
 	eventEditViewController.editViewDelegate = self;
     
 //    UIColor *tableViewBackgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];
@@ -145,18 +143,27 @@ static NSString * const kMapSegue = @"MapSegue";
 	[self presentViewController:eventEditViewController animated:YES completion:NULL];
 }
 
-- (void)removeFromCalendar:(id)sender
+- (IBAction)promptRemoveFromCalendar:(id)sender
+{
+    // TODO: Fix localization
+    NSString *deleteTitle = NSLocalizedString(@"Remove from Calendar", nil);
+    NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:deleteTitle otherButtonTitles:nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+- (IBAction)removeFromCalendar:(id)sender
 {
     EKEvent *calendarEvent = [self.calendarStore eventWithIdentifier:[self.event calendarEventID]];
     [self removeCalendarEvent:calendarEvent];
 }
 
-
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (IBAction)visitWebsite:(id)sender
 {
-    
+    NSURL *url = [self.event URL];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 
@@ -168,10 +175,7 @@ static NSString * const kMapSegue = @"MapSegue";
         return;
     }
     
-    if ([self isAddedToCalendar] == NO) {
-        [self addToCalendar:actionSheet];
-    }
-    else {
+    if ([self isAddedToCalendar] == YES) {
         [self removeFromCalendar:actionSheet];
     }
 }
@@ -209,14 +213,8 @@ static NSString * const kMapSegue = @"MapSegue";
 
 - (void)requestAccessToCalendar
 {
-    self.calendarStatusLabel.text = @"No access";
-    
-    __weak typeof(self) bself = self;
     [self.calendarStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-        if (granted == YES) {
-            bself.calendarStatusLabel.text = @"Access";
-        }
-//        NSLog(@"granted:%d error:%@", granted, error);
+        NSLog(@"granted:%d error:%@", granted, error);
     }];
 }
 
@@ -243,25 +241,30 @@ static NSString * const kMapSegue = @"MapSegue";
 {
     EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:self.event];
     
-    UIImage *image = [self.event imageWithSize:CGSizeZero];
-    self.posterButton.enabled = (image != nil) ? YES : NO;
-    self.posterButton.imageView.image = image ?: [UIImage imageNamed:@"EmptyPoster"]; // TODO: Fix size
+    UIImage *image = [self.event imageWithSize:kThumbnailSize];
+    if (image != nil) {
+        [self.posterButton setImage:image forState:UIControlStateNormal];
+    }
     
     self.titleLabel.text = [self.event title];
+    self.locationLabel.text = [self.event placeName];
     self.timeLabel.text = [eventFormatter timeString];
     self.categoryLabel.text = [eventFormatter categoryString];
     self.priceLabel.text = [eventFormatter priceString];
-    self.ageLimitLabel.text = [eventFormatter ageLimitString];
+    
+    NSString *ageLimit = [NSString stringWithFormat:@"%d+", [self.event ageLimit]];
+    self.ageLimitLabel.text = ageLimit;
+    
     self.descriptionLabel.text = [eventFormatter currentLocalizedDescription];
-    
     self.featuredLabel.text = [eventFormatter currentLocalizedFeatured];
-    
-    self.placeNameLabel.text = [self.event placeName];
-    self.addressLabel.text = [self.event address];
     
     self.favoriteButton.selected = [self.event isFavorite];
     
-    self.calendarStatusLabel.text = ([self isAddedToCalendar] == YES) ? @"Is added to calendar" : @"Is NOT added to calendar"; // TODO: Temp
+    // TODO: Fix localization
+    NSString *addToCalendar = NSLocalizedString(@"Add to Calendar", nil);
+    NSString *removeFromCalendar = NSLocalizedString(@"Remove from Calendar", nil);
+    NSString *calendarButtonString = ([self isAddedToCalendar] == NO) ? addToCalendar : removeFromCalendar;
+    [self.modifyCalendarButton setTitle:calendarButtonString forState:UIControlStateNormal];
 }
 
 @end

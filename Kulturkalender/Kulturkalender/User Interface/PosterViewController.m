@@ -14,9 +14,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
+    NSLog(@"%@", NSStringFromCGSize(self.poster.size));
+    self.imageView.frame = CGRectMake(0, 0, self.poster.size.width, self.poster.size.height);
     self.imageView.image = self.poster;
+    self.scrollView.contentSize = self.poster.size;
 }
 
 - (void)didReceiveMemoryWarning

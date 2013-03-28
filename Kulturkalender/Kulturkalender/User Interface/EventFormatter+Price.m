@@ -40,7 +40,7 @@
     static NSNumberFormatter *currencyFormatter;
     if (currencyFormatter == nil) {
         currencyFormatter = [[NSNumberFormatter alloc] init];
-        currencyFormatter.positiveSuffix = @"kr";
+        currencyFormatter.positiveSuffix = @" kr";
         currencyFormatter.groupingSeparator = @" ";
         currencyFormatter.groupingSize = 3;
         currencyFormatter.usesGroupingSeparator = YES;

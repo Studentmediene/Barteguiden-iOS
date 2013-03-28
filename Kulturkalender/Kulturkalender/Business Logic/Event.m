@@ -9,6 +9,7 @@
 #import "Event.h"
 #import "EventDelegate.h"
 #import "LocalizedText.h"
+#import "UIImage+RIOScaleAndCrop.h" // TODO: Temp
 
 
 @implementation Event
@@ -60,9 +61,27 @@
     return [NSURL URLWithString:self.eventURL];
 }
 
+- (UIImage *)originalImage
+{
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    
+    NSString *imageID = [NSString stringWithFormat:@"img%@", self.eventID];
+    NSURL *url = [self.delegate URLForImageWithEventID:imageID size:CGSizeZero];
+    
+    UIImage *image = [self.imageCache imageForURL:url delegate:self];
+    
+    if (image != nil) {
+        UIImage *adjustedImage = [[UIImage alloc] initWithCGImage:image.CGImage scale:scale orientation:UIImageOrientationUp];
+        
+        return adjustedImage;
+    }
+    
+    return nil;
+}
+
 - (UIImage *)imageWithSize:(CGSize)size
 {
-    NSLog(@"Retrieving image for eventID:%@", self.eventID);
+    NSLog(@"Retrieving image for eventID:%@ (%.0fx%.0f)", self.eventID, size.width, size.height);
     
     CGFloat scale = [[UIScreen mainScreen] scale];
     CGSize scaledSize = CGSizeMake(size.width * scale, size.height * scale);
@@ -72,12 +91,14 @@
     
     UIImage *image = [self.imageCache imageForURL:url delegate:self];
     
-    UIImage *scaledImage = nil;
     if (image != nil) {
-        scaledImage = [[UIImage alloc] initWithCGImage:image.CGImage scale:scale orientation:UIImageOrientationUp];
+        UIImage *scaledAndCroppedImage = [image imageByScalingAndCroppingForSize:scaledSize];
+        UIImage *adjustedImage = [[UIImage alloc] initWithCGImage:scaledAndCroppedImage.CGImage scale:scale orientation:UIImageOrientationUp];
+        
+        return adjustedImage;
     }
     
-    return scaledImage;
+    return nil;
 }
 
 - (NSString *)descriptionForLanguage:(NSString *)language

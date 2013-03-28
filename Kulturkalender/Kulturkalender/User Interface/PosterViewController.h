@@ -14,5 +14,6 @@
 @property (nonatomic, strong) UIImage *poster;
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @end

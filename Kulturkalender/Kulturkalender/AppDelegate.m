@@ -24,9 +24,9 @@
     [[JMImageCache sharedCache] removeAllObjects]; // TODO: Remove line
     
     // Set background color of table views
-//    UIColor *tableViewBackgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];
-//    [[UITableView appearance] setBackgroundView:nil];
-//    [[UITableView appearance] setBackgroundColor:tableViewBackgroundColor];
+    UIColor *tableViewBackgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];
+    [[UITableView appearance] setBackgroundView:nil];
+    [[UITableView appearance] setBackgroundColor:tableViewBackgroundColor];
     
     // Set text color of navigation bar
 //    UIColor *navigationBarTextColor = [UIColor colorWithRed:196.0/255.0 green:196.0/255.0 blue:196.0/255.0 alpha:1];

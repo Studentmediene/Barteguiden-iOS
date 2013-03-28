@@ -11,6 +11,6 @@
 
 @interface SettingsViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
-@property (nonatomic, weak) IBOutlet UITableViewCell *tipsUsCell;
+@property (nonatomic, weak) IBOutlet UITableViewCell *sendUsYourTipsCell;
 
 @end

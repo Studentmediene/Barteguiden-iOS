@@ -17,11 +17,7 @@
 {
     NSDateFormatter *dateFormatter = [self timeAndDateFormatter];
     
-    NSString *format = @"Starts on %1$@";// TODO: Localize
-    NSString *startAt = [dateFormatter stringFromDate:[self.event startAt]];
-    NSString *time = [NSString stringWithFormat:format, startAt];
-    
-    return time;
+    return [dateFormatter stringFromDate:[self.event startAt]];
 }
 
 
