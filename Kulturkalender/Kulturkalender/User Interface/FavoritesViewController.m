@@ -56,7 +56,7 @@
     {
         // Remove favorite flag
         id<Event> event = [self.eventResultsController eventForIndexPath:indexPath];
-        event.favorite = @NO;
+        [event setFavorite:NO];
     }
 }
 
