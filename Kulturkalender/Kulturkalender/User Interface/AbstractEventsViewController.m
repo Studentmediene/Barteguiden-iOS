@@ -13,8 +13,10 @@
 #import "EventDetailsViewController.h"
 #import "EventCell.h"
 
+#import "HeaderView.h"
 
-static CGSize const kThumbnailSize = {43, 56};
+
+static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier";
 
 
 @implementation AbstractEventsViewController
@@ -38,6 +40,11 @@ static CGSize const kThumbnailSize = {43, 56};
 //    self.tableView.contentInset = UIEdgeInsetsMake(-44,0,0,0);
     
     [self reloadPredicate];
+    
+    self.tableView.separatorColor = [UIColor colorWithHue:216.0/360.0 saturation:5.0/100.0 brightness:83.0/100.0 alpha:1];
+    
+    
+    [self.tableView registerClass:[HeaderView class] forHeaderFooterViewReuseIdentifier:kHeaderReuseIdentifier];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,7 +87,7 @@ static CGSize const kThumbnailSize = {43, 56};
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 56;
+    return 55;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,6 +95,21 @@ static CGSize const kThumbnailSize = {43, 56};
     id<Event> event = [self.eventResultsController eventForIndexPath:indexPath];
     
     [self navigateToEvent:event];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 23.0; // TODO: Why 23 and not 24?
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    
+    
+    UIView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kHeaderReuseIdentifier];
+    
+    return sectionHeaderView;
+    
 }
 
 #pragma mark - EventResultsControllerDelegate
@@ -172,8 +194,6 @@ static CGSize const kThumbnailSize = {43, 56};
     EventCell *eventCell = (EventCell *)cell;
     
     EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:event];
-    UIImage *image = [event imageWithSize:kThumbnailSize] ?: [UIImage imageNamed:@"EmptyPoster"];
-    eventCell.thumbnailImageView.image = image;
     eventCell.titleLabel.text = [event title];
     eventCell.detailLabel.text = [eventFormatter timeAndLocationString];
     eventCell.priceLabel.text = [eventFormatter priceString];

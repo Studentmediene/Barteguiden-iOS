@@ -14,8 +14,6 @@
 #import "MapViewController.h"
 
 
-const NSInteger kActionSheetCancelButtonIndex = 1;
-
 static NSString * const kPosterSegue = @"PosterSegue";
 static NSString * const kMapSegue = @"MapSegue";
 
@@ -32,10 +30,29 @@ static CGSize const kThumbnailSize = {72, 72};
     self.calendarStore = [[EKEventStore alloc] init]; // TODO: Inject instead?
     [self requestAccessToCalendar];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Action"] style:UIBarButtonItemStyleBordered target:self action:@selector(shareEvent:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarStoreChanged:) name:EKEventStoreChangedNotification object:self.calendarStore];
+    
+    UIImage *modifyCalendarButtonImage = [UIImage imageNamed:@"TextHighlight"];
+    UIImage *stretchableModifyCalendarButtonImage = [modifyCalendarButtonImage stretchableImageWithLeftCapWidth:3 topCapHeight:3];
+    [self.calendarButton setBackgroundImage:stretchableModifyCalendarButtonImage forState:UIControlStateHighlighted];
+
+    // TODO: Use this code to make a border around age limit
+//    self.priceLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+//    self.priceLabel.layer.borderWidth = 2;
+//    self.priceLabel.layer.cornerRadius = 2;
+    
+    self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:30];
+    self.locationLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
+    self.priceLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
+    self.ageLimitLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
+    self.timeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
+    
+    self.descriptionTitleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
+    self.descriptionLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -147,11 +164,17 @@ static CGSize const kThumbnailSize = {72, 72};
 {
     // TODO: Fix localization
     NSString *deleteTitle = NSLocalizedString(@"Remove from Calendar", nil);
+    NSString *editTitle = NSLocalizedString(@"Edit in Calendar", nil);
     NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:deleteTitle otherButtonTitles:nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:deleteTitle otherButtonTitles:editTitle, nil];
     
     [actionSheet showInView:self.view];
+}
+
+- (IBAction)editInCalendar:(id)sender
+{
+    NSLog(@"Editing...");
 }
 
 - (IBAction)removeFromCalendar:(id)sender
@@ -171,12 +194,17 @@ static CGSize const kThumbnailSize = {72, 72};
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == kActionSheetCancelButtonIndex) {
+    if (buttonIndex == actionSheet.cancelButtonIndex) {
         return;
     }
     
     if ([self isAddedToCalendar] == YES) {
-        [self removeFromCalendar:actionSheet];
+        if (buttonIndex == actionSheet.destructiveButtonIndex) {
+            [self removeFromCalendar:actionSheet];
+        }
+        else {
+            [self editInCalendar:actionSheet];
+        }
     }
 }
 
@@ -241,30 +269,30 @@ static CGSize const kThumbnailSize = {72, 72};
 {
     EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:self.event];
     
-    UIImage *image = [self.event imageWithSize:kThumbnailSize];
-    if (image != nil) {
-        [self.posterButton setImage:image forState:UIControlStateNormal];
-    }
+//    UIImage *image = [self.event imageWithSize:kThumbnailSize];
+//    if (image != nil) {
+//        [self.posterButton setImage:image forState:UIControlStateNormal];
+//    }
     
     self.titleLabel.text = [self.event title];
     self.locationLabel.text = [self.event placeName];
     self.timeLabel.text = [eventFormatter timeString];
-    self.categoryLabel.text = [eventFormatter categoryString];
     self.priceLabel.text = [eventFormatter priceString];
     
     NSString *ageLimit = [NSString stringWithFormat:@"%d+", [self.event ageLimit]];
     self.ageLimitLabel.text = ageLimit;
     
     self.descriptionLabel.text = [eventFormatter currentLocalizedDescription];
-    self.featuredLabel.text = [eventFormatter currentLocalizedFeatured];
     
     self.favoriteButton.selected = [self.event isFavorite];
     
     // TODO: Fix localization
     NSString *addToCalendar = NSLocalizedString(@"Add to Calendar", nil);
     NSString *removeFromCalendar = NSLocalizedString(@"Remove from Calendar", nil);
-    NSString *calendarButtonString = ([self isAddedToCalendar] == NO) ? addToCalendar : removeFromCalendar;
-    [self.modifyCalendarButton setTitle:calendarButtonString forState:UIControlStateNormal];
+    NSString *calendarActionTitle = ([self isAddedToCalendar] == NO) ? addToCalendar : removeFromCalendar;
+    
+    self.calendarActionLabel.text = calendarActionTitle;
+    self.calendarImageView.image = ([self isAddedToCalendar] == NO) ? [UIImage imageNamed:@"Calendar-Normal"] : [UIImage imageNamed:@"Calendar-Selected"];
 }
 
 @end

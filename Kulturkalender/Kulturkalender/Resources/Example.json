@@ -48,14 +48,14 @@
       "title": "Test",
       "categoryID": "THEATRE",
       "ageLimit": 25,
-      "price": 1000,
-      "startAt": "2015-01-19T21:00:00+0200",
+      "price": 0,
+      "startAt": "2015-01-17T21:00:00+0200",
       "placeName": "Ukjent",
       "description": []
     },
     {
       "id": "4",
-      "title": "LUKA2",
+      "title": "LUKA",
       "categoryID": "CONCERTS",
       "ageLimit": 0,
       "price": 200,
@@ -65,6 +65,16 @@
       "latitude": 63.430515,
       "longitude": 10.395053,
       "description": []
-    }
+    },
+    {
+      "id": "5",
+      "title": "Test 2",
+      "categoryID": "NIGHTLIFE",
+      "ageLimit": 21,
+      "price": 1000,
+      "startAt": "2015-01-15T21:00:00+0200",
+      "placeName": "Studentersamfundet",
+      "description": []
+     }
   ]
 }

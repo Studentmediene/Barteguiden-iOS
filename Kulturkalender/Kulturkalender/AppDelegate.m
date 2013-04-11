@@ -23,24 +23,62 @@
 {
     [[JMImageCache sharedCache] removeAllObjects]; // TODO: Remove line
     
-    // Set background color of table views
-    UIColor *tableViewBackgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];
-    [[UITableView appearance] setBackgroundView:nil];
-    [[UITableView appearance] setBackgroundColor:tableViewBackgroundColor];
+    // Styles
+//    UIColor *darkText = [UIColor colorWithHue:0 saturation:0 brightness:20.0/100.0 alpha:1];
+    UIColor *mediumDarkText = [UIColor colorWithHue:0 saturation:0 brightness:33.0/100.0 alpha:1];
     
-    // Set text color of navigation bar
-//    UIColor *navigationBarTextColor = [UIColor colorWithRed:196.0/255.0 green:196.0/255.0 blue:196.0/255.0 alpha:1];
-//    [[UILabel appearanceWhenContainedIn:[UINavigationBar class], nil] setColor:navigationBarTextColor];
-//    [[UINavigationBar appearance] setTitleTextAttributes:@{ UITextAttributeTextColor: navigationBarTextColor}];
+    // Navigation bar
+    [[UINavigationBar  appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{
+                                UITextAttributeTextColor: mediumDarkText,
+                         UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                                     UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:20]}];
     
-    // TODO: More
-    UIColor *darkGray = [UIColor colorWithHue:0.67 saturation:0.2 brightness:0.15 alpha:1];
-    UIColor *gray = [UIColor colorWithHue:0 saturation:0 brightness:0.4 alpha:0.8];
-    [[UINavigationBar appearance] setTintColor:darkGray];
-    [[UITabBar appearance] setTintColor:darkGray];
-    [[UISearchBar appearance] setTintColor:darkGray];
-    [[UITableViewHeaderFooterView appearance] setTintColor:gray];
-//    [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setColor:[UIColor redColor]];
+    // Bar button item
+    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{
+                                UITextAttributeTextColor: mediumDarkText,
+                         UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                                     UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:12]} forState:UIControlStateNormal];
+    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{
+                                UITextAttributeTextColor: mediumDarkText,
+                         UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],
+                                     UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:12]} forState:UIControlStateHighlighted];
+    UIImage *barButtonItemImage = [UIImage imageNamed:@"BarButtonItem-Normal"];
+    UIImage *highlightedBarButtonItemImage = [UIImage imageNamed:@"BarButtonItem-Highlighted"];
+    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:barButtonItemImage forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:highlightedBarButtonItemImage forState:UIControlStateHighlighted style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
+    
+    // Back button
+    UIImage *backButtonImage = [UIImage imageNamed:@"BackButton-Normal"];
+    UIImage *highlightedBackButtonImage = [UIImage imageNamed:@"BackButton-Highlighted"];
+    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setBackButtonBackgroundImage:highlightedBackButtonImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setBackButtonTitlePositionAdjustment:UIOffsetMake(3, 0) forBarMetrics:UIBarMetricsDefault];
+    
+    // Table view section header
+    
+    
+    
+//    [[UIBarButtonItem appearance] setBackbutt];
+    
+//    // Set background color of table views
+//    UIColor *tableViewBackgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];
+//    [[UITableView appearance] setBackgroundView:nil];
+//    [[UITableView appearance] setBackgroundColor:tableViewBackgroundColor];
+//    
+//    // Set text color of navigation bar
+////    UIColor *navigationBarTextColor = [UIColor colorWithRed:196.0/255.0 green:196.0/255.0 blue:196.0/255.0 alpha:1];
+////    [[UILabel appearanceWhenContainedIn:[UINavigationBar class], nil] setColor:navigationBarTextColor];
+////    [[UINavigationBar appearance] setTitleTextAttributes:@{ UITextAttributeTextColor: navigationBarTextColor}];
+//    
+//    // TODO: More
+//    UIColor *darkGray = [UIColor colorWithHue:0.67 saturation:0.2 brightness:0.15 alpha:1];
+//    UIColor *gray = [UIColor colorWithHue:0 saturation:0 brightness:0.4 alpha:0.8];
+//    [[UINavigationBar appearance] setTintColor:darkGray];
+//    [[UITabBar appearance] setTintColor:darkGray];
+//    [[UISearchBar appearance] setTintColor:darkGray];
+//    [[UITableViewHeaderFooterView appearance] setTintColor:gray];
+////    [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setColor:[UIColor redColor]];
     
     // Event store
     self.eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
@@ -59,6 +97,11 @@
     tabBarController.filterManager = self.filterManager;
     
     return YES;
+}
+
+- (void)setUpTextAttributesForBarButtonItems
+{
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
