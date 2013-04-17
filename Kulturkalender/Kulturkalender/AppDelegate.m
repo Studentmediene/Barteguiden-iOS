@@ -182,7 +182,7 @@
     
     // Navigation bar
     UIColor *navigationBarText = [UIColor colorWithHue:0 saturation:0 brightness:(78.0/100.0) alpha:1];
-    [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:[UIImage imageNamed:@"NavigationBar2"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{
                                                                              UITextAttributeTextColor: navigationBarText,
                                                                       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
