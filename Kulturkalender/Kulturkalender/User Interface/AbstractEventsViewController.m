@@ -197,6 +197,7 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
     eventCell.titleLabel.text = [event title];
     eventCell.detailLabel.text = [eventFormatter timeAndLocationString];
     eventCell.priceLabel.text = [eventFormatter priceString];
+    eventCell.thumbnailImageView.image = [eventFormatter categoryImage];
 }
 
 - (void)reloadPredicate

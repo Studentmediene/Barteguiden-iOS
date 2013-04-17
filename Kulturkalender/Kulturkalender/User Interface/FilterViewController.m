@@ -99,6 +99,7 @@ const CGFloat kDefaultRowHeight = 44;
         EventCategory category = [[[self categories] objectAtIndex:indexPath.row] integerValue];
         BOOL isSelected = [self.filterManager isSelectedForCategory:category];
         
+        cell.imageView.image = [EventFormatter categoryImageForCategory:category];
         cell.textLabel.text = [EventFormatter categoryStringForCategory:category];
         cell.accessoryType = (isSelected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         

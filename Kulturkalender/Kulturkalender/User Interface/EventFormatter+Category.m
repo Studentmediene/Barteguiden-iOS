@@ -24,6 +24,30 @@
     return categoryString;
 }
 
+- (UIImage *)categoryImage
+{
+    return [[self class] categoryImageForCategory:[self.event category]];
+}
+
++ (UIImage *)categoryImageForCategory:(EventCategory)category
+{
+    NSString *categoryImageName = [[self class] categoryImageNameForCategory:category];
+    UIImage *categoryImage = [UIImage imageNamed:categoryImageName];
+    return categoryImage;
+}
+
+- (UIImage *)categoryBigImage
+{
+    return [[self class] categoryBigImageForCategory:[self.event category]];
+}
+
++ (UIImage *)categoryBigImageForCategory:(EventCategory)category
+{
+    NSString *categoryBigImageName = [[self class] categoryBigImageNameForCategory:category];
+    UIImage *categoryBigImage = [UIImage imageNamed:categoryBigImageName];
+    return categoryBigImage;
+}
+
 
 #pragma mark - Private methods
 
@@ -48,5 +72,36 @@
             return @"CATEGORY_UNKNOWN";
     }
 }
+
+
+#pragma mark - Private methods
+
++ (NSString *)categoryImageNameForCategory:(EventCategory)category
+{
+    switch (category) {
+        case EventCategoryConcerts:
+            return @"Concerts";
+//        case EventCategoryNightlife:
+//            return @"Nightlife";
+        case EventCategoryTheatre:
+            return @"Theatre";
+//        case EventCategoryDance:
+//            return @"Dance";
+//        case EventCategoryArtExhibition:
+//            return @"ArtExhibition";
+//        case EventCategorySports:
+//            return @"Sports";
+        case EventCategoryPresentations:
+            return @"Presentations";
+        default:
+            return @"Movies"; // TODO: Change to Other
+    }
+}
+
++ (NSString *)categoryBigImageNameForCategory:(EventCategory)category
+{
+    return [[self categoryImageNameForCategory:category] stringByAppendingString:@"-Big"];
+}
+
 
 @end

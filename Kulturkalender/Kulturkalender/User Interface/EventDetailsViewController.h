@@ -29,6 +29,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *priceLabel;
 @property (nonatomic, weak) IBOutlet UILabel *ageLimitLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *categoryImageView;
 
 @property (nonatomic, weak) IBOutlet UIImageView *calendarImageView;
 @property (nonatomic, weak) IBOutlet UILabel *calendarActionLabel;

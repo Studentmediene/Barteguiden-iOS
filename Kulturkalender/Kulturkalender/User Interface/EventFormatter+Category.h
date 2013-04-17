@@ -13,7 +13,10 @@
 @interface EventFormatter (Category)
 
 - (NSString *)categoryString;
-
 + (NSString *)categoryStringForCategory:(EventCategory)category;
+- (UIImage *)categoryImage;
++ (UIImage *)categoryImageForCategory:(EventCategory)category;
+- (UIImage *)categoryBigImage;
++ (UIImage *)categoryBigImageForCategory:(EventCategory)category;
 
 @end

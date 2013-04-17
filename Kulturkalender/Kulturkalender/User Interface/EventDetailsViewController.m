@@ -278,6 +278,7 @@ static CGSize const kThumbnailSize = {72, 72};
     self.locationLabel.text = [self.event placeName];
     self.timeLabel.text = [eventFormatter timeString];
     self.priceLabel.text = [eventFormatter priceString];
+    self.categoryImageView.image = [eventFormatter categoryBigImage];
     
     NSString *ageLimit = [NSString stringWithFormat:@"%d+", [self.event ageLimit]];
     self.ageLimitLabel.text = ageLimit;

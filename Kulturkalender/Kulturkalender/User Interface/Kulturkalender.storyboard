@@ -137,12 +137,7 @@
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Concerts.png" translatesAutoresizingMaskIntoConstraints="NO" id="ERR-bM-bto">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="RKK-fF-xJc"/>
-                                            <constraint firstAttribute="width" constant="40" id="hRb-d5-gvF"/>
-                                        </constraints>
-                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Concerts-Big.png" translatesAutoresizingMaskIntoConstraints="NO" id="ERR-bM-bto"/>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="18+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qc-TU-tKd">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="xVQ-h9-2vh"/>
@@ -211,7 +206,11 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Location.png" translatesAutoresizingMaskIntoConstraints="NO" id="r5z-an-beK"/>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Calendar-Normal.png" highlightedImage="Calendar-Selected.png" translatesAutoresizingMaskIntoConstraints="NO" id="OUn-lb-j8j"/>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="A8d-GZ-0dO"/>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="AgeLimitBorder.png" translatesAutoresizingMaskIntoConstraints="NO" id="rzx-k2-XDn"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="AgeLimitBorder.png" translatesAutoresizingMaskIntoConstraints="NO" id="rzx-k2-XDn">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="9H4-rP-Dh9"/>
+                                        </constraints>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wn9-Mc-SV1">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="194" id="2r7-Ds-efF"/>
@@ -238,7 +237,9 @@
                                     <constraint firstItem="5mh-xZ-ZLe" firstAttribute="baseline" secondItem="8qc-TU-tKd" secondAttribute="baseline" type="default" id="C4U-nX-fhe"/>
                                     <constraint firstItem="rzx-k2-XDn" firstAttribute="trailing" secondItem="8qc-TU-tKd" secondAttribute="trailing" type="default" id="CVo-ri-838"/>
                                     <constraint firstAttribute="trailing" secondItem="HgR-2A-5C5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="EMk-r2-jgZ"/>
+                                    <constraint firstItem="Cpu-AF-hUp" firstAttribute="centerX" secondItem="dhy-Fb-6Wj" secondAttribute="centerX" type="default" id="F9e-bM-3gk"/>
                                     <constraint firstAttribute="trailing" secondItem="5mh-xZ-ZLe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="FFH-dW-ea5"/>
+                                    <constraint firstItem="5mh-xZ-ZLe" firstAttribute="top" secondItem="8qc-TU-tKd" secondAttribute="top" type="default" id="FPB-Yb-Jih"/>
                                     <constraint firstItem="8qc-TU-tKd" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GgG-fR-wlX"/>
                                     <constraint firstItem="rzx-k2-XDn" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="HL9-iA-JMb"/>
                                     <constraint firstItem="tEx-3z-SJo" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="I7w-wz-A1q"/>
@@ -246,6 +247,7 @@
                                     <constraint firstItem="Wn9-Mc-SV1" firstAttribute="bottom" secondItem="WGS-Ft-bsU" secondAttribute="bottom" type="default" id="Khs-eU-7gY"/>
                                     <constraint firstItem="Wn9-Mc-SV1" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="212" id="PkT-Fr-6JL"/>
                                     <constraint firstItem="HgR-2A-5C5" firstAttribute="top" secondItem="Cpu-AF-hUp" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Ptk-J4-qV0"/>
+                                    <constraint firstItem="rzx-k2-XDn" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="152" id="Sof-0v-e7B"/>
                                     <constraint firstItem="5PD-4a-E3h" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" type="default" id="UUV-Ti-is3"/>
                                     <constraint firstItem="WGS-Ft-bsU" firstAttribute="leading" secondItem="OUn-lb-j8j" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="UrM-nz-cTx"/>
                                     <constraint firstAttribute="trailing" secondItem="FaH-RS-vXI" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="YAj-n1-buc"/>
@@ -263,20 +265,17 @@
                                     <constraint firstItem="HgR-2A-5C5" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jYR-Xp-Q2h"/>
                                     <constraint firstItem="tEx-3z-SJo" firstAttribute="top" secondItem="59J-XQ-EPQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="k8y-1e-tI7"/>
                                     <constraint firstItem="7Th-fI-DFR" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kPx-U1-KPM"/>
-                                    <constraint firstItem="8qc-TU-tKd" firstAttribute="top" secondItem="5mh-xZ-ZLe" secondAttribute="top" type="default" id="khj-Ok-ksY"/>
                                     <constraint firstItem="5PD-4a-E3h" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" type="default" id="lgj-1P-iHv"/>
                                     <constraint firstItem="5mh-xZ-ZLe" firstAttribute="centerY" secondItem="ERR-bM-bto" secondAttribute="centerY" type="default" id="mF7-xN-6kD"/>
                                     <constraint firstItem="7Th-fI-DFR" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="20" symbolic="YES" type="default" id="mkH-iW-ayN"/>
                                     <constraint firstItem="5gZ-6h-74k" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="211" id="nQY-QV-dWH"/>
                                     <constraint firstItem="r5z-an-beK" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nu1-dr-a2R"/>
-                                    <constraint firstItem="7Th-fI-DFR" firstAttribute="centerX" secondItem="dhy-Fb-6Wj" secondAttribute="centerX" type="default" id="oSh-XS-Lh0"/>
                                     <constraint firstItem="Cpu-AF-hUp" firstAttribute="top" secondItem="A8d-GZ-0dO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sJY-vi-iAv"/>
                                     <constraint firstItem="96o-qw-xEw" firstAttribute="leading" secondItem="r5z-an-beK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="tFw-kJ-J7A"/>
                                     <constraint firstItem="59J-XQ-EPQ" firstAttribute="top" secondItem="HgR-2A-5C5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="tvW-N6-Ku5"/>
                                     <constraint firstItem="Wn9-Mc-SV1" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="16" id="wuQ-nS-xSg"/>
                                     <constraint firstItem="5gZ-6h-74k" firstAttribute="leading" secondItem="OUn-lb-j8j" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="x7t-2C-FRK"/>
                                     <constraint firstItem="A8d-GZ-0dO" firstAttribute="top" secondItem="FaH-RS-vXI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="x9l-e4-HSW"/>
-                                    <constraint firstItem="rzx-k2-XDn" firstAttribute="centerY" secondItem="8qc-TU-tKd" secondAttribute="centerY" type="default" id="xBf-Rg-FD9"/>
                                     <constraint firstItem="5mh-xZ-ZLe" firstAttribute="leading" secondItem="ERR-bM-bto" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="zvR-1j-ne2"/>
                                 </constraints>
                             </scrollView>
@@ -297,6 +296,7 @@
                         <outlet property="calendarActionLabel" destination="WGS-Ft-bsU" id="B2X-3I-IpA"/>
                         <outlet property="calendarButton" destination="Wn9-Mc-SV1" id="O5a-bR-jbL"/>
                         <outlet property="calendarImageView" destination="OUn-lb-j8j" id="guf-OM-uwu"/>
+                        <outlet property="categoryImageView" destination="ERR-bM-bto" id="5FW-Oz-TE8"/>
                         <outlet property="descriptionLabel" destination="HgR-2A-5C5" id="Cmc-aF-SeG"/>
                         <outlet property="descriptionTitleLabel" destination="Cpu-AF-hUp" id="lxM-XO-tAF"/>
                         <outlet property="favoriteButton" destination="FaH-RS-vXI" id="nSl-32-tiw"/>
@@ -1103,11 +1103,11 @@
     <resources>
         <image name="ActionButton-Highlighted.png" width="300" height="45"/>
         <image name="ActionButton-Normal.png" width="300" height="45"/>
-        <image name="AgeLimitBorder.png" width="40" height="22"/>
+        <image name="AgeLimitBorder.png" width="40" height="21"/>
         <image name="AllEvents.png" width="30" height="30"/>
         <image name="Calendar-Normal.png" width="24" height="28"/>
         <image name="Calendar-Selected.png" width="24" height="28"/>
-        <image name="Concerts.png" width="25" height="25"/>
+        <image name="Concerts-Big.png" width="40" height="40"/>
         <image name="Favorite-Normal.png" width="40" height="36"/>
         <image name="Favorite-Selected.png" width="40" height="36"/>
         <image name="Favorites.png" width="30" height="30"/>
@@ -1143,6 +1143,7 @@
                 <relationship kind="outlet" name="calendarActionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="calendarButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="calendarImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="categoryImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="descriptionTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="favoriteButton" candidateClass="UIButton"/>
@@ -1167,6 +1168,7 @@
         <class className="FilterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FilterViewController.h"/>
             <relationships>
+                <relationship kind="action" name="myAgeTextFieldDidEndEditing:"/>
                 <relationship kind="outlet" name="ageLimitAllEventsCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="ageLimitAllowedForMyAgeCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="myAgeTextField" candidateClass="UITextField"/>
@@ -1193,6 +1195,7 @@
         <class className="SettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="sendUsYourTips:"/>
                 <relationship kind="outlet" name="sendUsYourTipsCell" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
