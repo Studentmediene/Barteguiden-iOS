@@ -1,544 +1,777 @@
 {
-    "events" : [
-                {
-                "id" : "3611",
-                "url" : "http://www.samfundet.no/arrangement/vis/3611",
-                "title" : "CV- og jobbsøkerkurs med Effect Bemanning",
-                "startAt" : " 2013-03-19T18:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Ønsker du å gjøre veien til drømmejobben kortere?"
-                                 }]
-                },
-                {
-                "id" : "3387",
-                "url" : "http://www.samfundet.no/arrangement/vis/3387",
-                "title" : "Tirsdagsquiz",
-                "startAt" : " 2013-03-19T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Som vanlig holder vi vår populære tirsdagsquiz i alltid like koselige Edgar Kafé!"
-                                 }]
-                },
-                {
-                "id" : "2877",
-                "url" : "http://www.samfundet.no/arrangement/vis/2877",
-                "title" : "IMPROschmimpro",
-                "startAt" : " 2013-03-19T20:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Sprunget ut av Samfundets Internteaters eitranes kreative dynamikk kommer IMPROschmimpro!"
-                                 }]
-                },
-                {
-                "id" : "3419",
-                "url" : "http://www.samfundet.no/arrangement/vis/3419",
-                "title" : "Filmquiz",
-                "startAt" : " 2013-03-21T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Filmklubben inviterer til tidenes mest utsøkte filmquiz!"
-                                 }]
-                },
-                {
-                "id" : "3422",
-                "url" : "http://www.samfundet.no/arrangement/vis/3422",
-                "title" : "Café nordsør [AVLYST]",
-                "startAt" : " 2013-04-02T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Café Nord-Sør arrangerer debattmøte"
-                                 }]
-                },
-                {
-                "id" : "3475",
-                "url" : "http://www.samfundet.no/arrangement/vis/3475",
-                "title" : "Musikkquiz",
-                "startAt" : " 2013-04-05T20:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Start helgen med musikkquiz på Samfundet! Kom og flott deg med kredible kunnskaper i hyggelige omgivelser med hyggelige medmennesker og hyggelig lyd i ørene."
-                                 }]
-                },
-                {
-                "id" : "3516",
-                "url" : "http://www.samfundet.no/arrangement/vis/3516",
-                "title" : "...And You Will Know Us by the Trail of Dead (US)",
-                "startAt" : " 2013-04-05T22:00:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "De mektige Austin-rockerne er herved ute med sitt åttende album \u201dLost Songs\u201d, og med det ønsker vi dem velkommen tilbake til Samfundets storstue!"
-                                 }]
-                },
-                {
-                "id" : "3449",
-                "url" : "http://www.samfundet.no/arrangement/vis/3449",
-                "title" : "The Terrifieds",
-                "startAt" : " 2013-04-05T23:59:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Kristopher Schau har gjort en del fete ting. De syv Dødssyndende, Hurra Torpedo,  Fuck for Forest, Cumshots. For å nevne noe. Men det du kanskje ikke visste er at han også spiller i et band som heter The Terrifieds. Og ja, de kommer til Knaus. Når spør du? Den 5. april selvfølgelig."
-                                 }]
-                },
-                {
-                "id" : "3462",
-                "url" : "http://www.samfundet.no/arrangement/vis/3462",
-                "title" : "Byttedag",
-                "startAt" : " 2013-04-06T15:00:00+200",
-                "categoryID" : "SPORTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Har du lyst på noe å fylle klesskapet med? Eller er det allerede stappfullt? På lørdag 6. april er det bytte- og gi bort dag i Biblioteket, der du kan finne deg en ny hatt, kanskje en frakk eller en annen skatt."
-                                 }]
-                },
-                {
-                "id" : "3501",
-                "url" : "http://www.samfundet.no/arrangement/vis/3501",
-                "title" : "Festmøte: Mafia",
-                "startAt" : " 2013-04-06T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "I\u2019m gonna make him an offer he can't refuse.(Don, The Godfather)"
-                                 }]
-                },
-                {
-                "id" : "3457",
-                "url" : "http://www.samfundet.no/arrangement/vis/3457",
-                "title" : "Gudenes natteliv",
-                "startAt" : " 2013-04-06T21:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Nok en gang inviterer NTNUI og Studentersamfundet til årets sprekeste fest i Det runde røde. Det braker løs med \u201cGudenes natteliv\u201d lørdag 6. april. Finn frem klær i NTNUI sine farger; gult, svart eller grønt, og gjør deg klar for en kveld du sent vil glemme."
-                                 }]
-                },
-                {
-                "id" : "3406",
-                "url" : "http://www.samfundet.no/arrangement/vis/3406",
-                "title" : "The Sweetest Thrill",
-                "startAt" : " 2013-04-06T23:59:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Når to av Bergens mest lovande undergrunnsmusikarar møtest i studio eller på scena\nblir det både interessant, og ikkje minst - veldig høglydt."
-                                 }]
-                },
-                {
-                "id" : "3434",
-                "url" : "http://www.samfundet.no/arrangement/vis/3434",
-                "title" : "Søndagsfilm: Castaway On The Moon",
-                "startAt" : " 2013-04-07T19:00:00+200",
-                "categoryID" : "ART_EXHIBITION",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Castaway on the Moon er en kjærlighetskomedie om to ensomme sjeler som finner hverandre i en verden ingen av dem trives i."
-                                 }]
-                },
-                {
-                "id" : "3502",
-                "url" : "http://www.samfundet.no/arrangement/vis/3502",
-                "title" : "ISFiT-Presidentvalg",
-                "startAt" : " 2013-04-10T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "I kveld starter ISFiT 2015! Storsalen velger hvem som skal lede\nverdens største internasjonale studentfestival. I kveld blir det\nklart hvem som blir president for neste ISFiT, og hvilket tema\nfestivalen skal ha."
-                                 }]
-                },
-                {
-                "id" : "3401",
-                "url" : "http://www.samfundet.no/arrangement/vis/3401",
-                "title" : "BOKSTAVELIG TALT: LITTERÆR DISKUSJON",
-                "startAt" : " 2013-04-10T19:00:00+200",
-                "categoryID" : "SPORTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Dragvolls ypperste litteraturvitere åpner sin kollokviegruppe for hvermann og diskuterer grenseoverskridelse i nordisk litteratur. Kveldens bok: Happy Sally av Sara Stridsberg"
-                                 }]
-                },
-                {
-                "id" : "3552",
-                "url" : "http://www.samfundet.no/arrangement/vis/3552",
-                "title" : "Sagstuen",
-                "startAt" : " 2013-04-11T20:00:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Nysgjerrighet og inspirasjon sørget for at bandet Sagstuen så dagens lys høsten 2009. Bandet består av fire venner og medstudenter ved NMH. Musikken bærer preg av ulike sjangre, og vokalen er jazzet, men samtidig rå og rocka."
-                                 }]
-                },
-                {
-                "id" : "3378",
-                "url" : "http://www.samfundet.no/arrangement/vis/3378",
-                "title" : "Candisskonsert",
-                "startAt" : " 2013-04-12T20:00:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Grip sjansen til å få med deg vakre toner, morsomme sanger og sprell fra flotte jenter med rosa snekkerbukser!"
-                                 }]
-                },
-                {
-                "id" : "3476",
-                "url" : "http://www.samfundet.no/arrangement/vis/3476",
-                "title" : "Musikkquiz",
-                "startAt" : " 2013-04-12T20:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Start helgen med musikkquiz på Samfundet! Kom og flott deg med kredible kunnskaper i hyggelige omgivelser med hyggelige medmennesker og hyggelig lyd i ørene."
-                                 }]
-                },
-                {
-                "id" : "3509",
-                "url" : "http://www.samfundet.no/arrangement/vis/3509",
-                "title" : "Cold Mailman",
-                "startAt" : " 2013-04-12T22:00:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Med Ivar Bowitz i spissen leverer bodøværingene i Cold Mailman noe av landets hyggeligste indiepop. Ta med deg en god venn og la de varme deg i Klubben denne høstkvelden!"
-                                 }]
-                },
-                {
-                "id" : "3450",
-                "url" : "http://www.samfundet.no/arrangement/vis/3450",
-                "title" : "Honeytraps",
-                "startAt" : " 2013-04-12T23:59:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "I 2010 var Honeytraps på Knaus for første gang, i fjor vår var de der igjen, og nok en gang blir det dansehysteri på Knaus. Den 12. april kommer Oslo-guttene endelig tilbake til Trondheim."
-                                 }]
-                },
-                {
-                "id" : "3503",
-                "url" : "http://www.samfundet.no/arrangement/vis/3503",
-                "title" : "Samfundsmøte: Blinkskudd",
-                "startAt" : " 2013-04-13T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Norges mest kjente krigsfotograf, Harald Henden, kommer til Samfundet for å fortelle om hvordan det er å arbeide som fotograf i krigssoner."
-                                 }]
-                },
-                {
-                "id" : "3429",
-                "url" : "http://www.samfundet.no/arrangement/vis/3429",
-                "title" : "BigBang",
-                "startAt" : " 2013-04-13T22:00:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Om du enda ikke har danset med Øystein Greni og Bigbang til megahiten \"Girl In Oslo\", er det på høy tid! Ikke nok med det, 1. mars slipper de sitt niende studialbum \u201dThe Oslo Bowl\u201d, og 13. april kommer de tilbake til Samfundet for å rocke Storsalen."
-                                 }]
-                },
-                {
-                "id" : "3605",
-                "url" : "http://www.samfundet.no/arrangement/vis/3605",
-                "title" : "Audrey Horne",
-                "startAt" : " 2013-04-13T23:00:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Audrey Horne kom ut med nytt album \"YOUNGBLOOD\" 25. Januar, og lørdag den 13. April kommer de for å spille på Samfundet! Konserten går av stabelen på Klubben etter BigBang er ferdig i Storsalen, så her har du en helaften å bry deg på!"
-                                 }]
-                },
-                {
-                "id" : "3416",
-                "url" : "http://www.samfundet.no/arrangement/vis/3416",
-                "title" : "Thor.",
-                "startAt" : " 2013-04-13T23:59:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Thor gir deg lyden av neo-psychadelia med et teppe av synther og fengende popvibber."
-                                 }]
-                },
-                {
-                "id" : "3441",
-                "url" : "http://www.samfundet.no/arrangement/vis/3441",
-                "title" : "Søndagsfilm: Fitzcarraldo",
-                "startAt" : " 2013-04-14T19:00:00+200",
-                "categoryID" : "ART_EXHIBITION",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Bygge et operahus i jungelen for å kultivere indianerne? Ja, hvorfor ikke?"
-                                 }]
-                },
-                {
-                "id" : "3431",
-                "url" : "http://www.samfundet.no/arrangement/vis/3431",
-                "title" : "Bokstavelig Talt: Debutantaften",
-                "startAt" : " 2013-04-16T19:00:00+200",
-                "categoryID" : "SPORTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Bokstavelig Talt: Debutantaften"
-                                 }]
-                },
-                {
-                "id" : "3504",
-                "url" : "http://www.samfundet.no/arrangement/vis/3504",
-                "title" : "Generalforsamling",
-                "startAt" : " 2013-04-17T20:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "En gang i året avholder Studentersamfundet generalforsamling. Her møter Samfundets medlemmer, og vi godkjenner regnskap og årsmelding."
-                                 }]
-                },
-                {
-                "id" : "3432",
-                "url" : "http://www.samfundet.no/arrangement/vis/3432",
-                "title" : "Filmquiz",
-                "startAt" : " 2013-04-18T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Filmklubben inviterer til tidenes mest utsøkte filmquiz!"
-                                 }]
-                },
-                {
-                "id" : "3477",
-                "url" : "http://www.samfundet.no/arrangement/vis/3477",
-                "title" : "Musikkquiz",
-                "startAt" : " 2013-04-19T20:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Start helgen med musikkquiz på Samfundet! Kom og flott deg med kredible kunnskaper i hyggelige omgivelser med hyggelige medmennesker og hyggelig lyd i ørene."
-                                 }]
-                },
-                {
-                "id" : "3397",
-                "url" : "http://www.samfundet.no/arrangement/vis/3397",
-                "title" : "Årabrot + Okkultokrati",
-                "startAt" : " 2013-04-19T22:00:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Det er åpent for en sint og beinhard kveld når Årabrot og Okkultokrati kommer til Samfundet for å snu Klubben på hodet."
-                                 }]
-                },
-                {
-                "id" : "3451",
-                "url" : "http://www.samfundet.no/arrangement/vis/3451",
-                "title" : "Spurv",
-                "startAt" : " 2013-04-19T23:59:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Spurv fra Oslo spiller noe som best kan beskrives som instrumental poesi  det er post rock med en dybde som setter seg rett i hjerterota. 19. april kommer de for å forhekse Knaus."
-                                 }]
-                },
-                {
-                "id" : "3505",
-                "url" : "http://www.samfundet.no/arrangement/vis/3505",
-                "title" : "Samfundsmøte: Medias søkelys med Geir Lippestad",
-                "startAt" : " 2013-04-20T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "<Missing>"
-                                 }]
-                },
-                {
-                "id" : "3421",
-                "url" : "http://www.samfundet.no/arrangement/vis/3421",
-                "title" : "Hellsongs",
-                "startAt" : " 2013-04-20T22:00:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "20 april kommer endelig svenske Hellsongs til Samfundet! Trioen er kjent for sine rolige popversjoner av metall- og hard rock-låter som alle fra pop-elskende jenter til skjeggete, røffe menn kan like."
-                                 }]
-                },
-                {
-                "id" : "3424",
-                "url" : "http://www.samfundet.no/arrangement/vis/3424",
-                "title" : "Verdensrommet",
-                "startAt" : " 2013-04-20T23:59:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "I april gjester guttene i Verdensrommet Knaus, med sin deilige \u201cdouble-punch of space pop\u201d songwriter-musikk."
-                                 }]
-                },
-                {
-                "id" : "3442",
-                "url" : "http://www.samfundet.no/arrangement/vis/3442",
-                "title" : "Søndagsfilm: Scabbard Samurai",
-                "startAt" : " 2013-04-21T19:00:00+200",
-                "categoryID" : "ART_EXHIBITION",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "KLIKK DEG INN HER"
-                                 }]
-                },
-                {
-                "id" : "3461",
-                "url" : "http://www.samfundet.no/arrangement/vis/3461",
-                "title" : "Bydagen 2013: Barnas dag!",
-                "startAt" : " 2013-04-24T10:00:00+200",
-                "categoryID" : "SPORTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Vi forvandler Samfundet til et lekeslott for de minste, med hoppeslott i Storsalen, eventyrlesing i Biblioteket, og ansiktsmaling på Selskapssiden. Og hvem vet, kanskje kommer det en liten overraskelse også?"
-                                 }]
-                },
-                {
-                "id" : "3453",
-                "url" : "http://www.samfundet.no/arrangement/vis/3453",
-                "title" : "BOKSTAVELIG TALT: LITTERÆR DISKUSJON",
-                "startAt" : " 2013-04-24T19:00:00+200",
-                "categoryID" : "SPORTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Dragvolls ypperste litteraturvitere åpner sin kollokviegruppe for hvermann og diskuterer grenseoverskridelse i nordisk litteratur. Kveldens bok: Happy Sally av Sara Stridsberg"
-                                 }]
-                },
-                {
-                "id" : "3398",
-                "url" : "http://www.samfundet.no/arrangement/vis/3398",
-                "title" : "DANSESHOW MED NTNUI DANS OG STORBANDSKONSERT MED KJELLERBANDET",
-                "startAt" : " 2013-04-25T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "NTNUI dans sin årlige danseoppvisning finner i år sted i Storsalen på Studentersamfundet, etterfulgt av Storbandskonsert med Kjellerbandet. Det er dermed duket for en helaften med dans og morro, enten du kommer som tilskuer eller du også selv vil riste på rockefoten."
-                                 }]
-                },
-                {
-                "id" : "3478",
-                "url" : "http://www.samfundet.no/arrangement/vis/3478",
-                "title" : "Musikkquiz",
-                "startAt" : " 2013-04-26T20:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Start helgen med musikkquiz på Samfundet! Kom og flott deg med kredible kunnskaper i hyggelige omgivelser med hyggelige medmennesker og hyggelig lyd i ørene."
-                                 }]
-                },
-                {
-                "id" : "3395",
-                "url" : "http://www.samfundet.no/arrangement/vis/3395",
-                "title" : "Gode Ord Dør Sist",
-                "startAt" : " 2013-04-26T22:00:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Gode Ord Dør Sist (G.O.D.S) har satt Trondheim på rapkartet med sin hverdagspoesi og livets opp- og nedturer. Fra GODSterminalene på lamon har denne gjengen eksportert fete beats og lettbeint hip hop siden 1995, så du kommer til å møte en rutinert gjeng om du tar deg en tur til Klubben denne kvelden!"
-                                 }]
-                },
-                {
-                "id" : "3452",
-                "url" : "http://www.samfundet.no/arrangement/vis/3452",
-                "title" : "Yodok",
-                "startAt" : " 2013-04-26T23:59:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Den 26. april kommer til å bli en kveld med høyt volum og hypnotiserende toner."
-                                 }]
-                },
-                {
-                "id" : "3507",
-                "url" : "http://www.samfundet.no/arrangement/vis/3507",
-                "title" : "Samfundsmøte: Høyreekstreme Europa",
-                "startAt" : " 2013-04-27T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Mer informasjon kommer straks!"
-                                 }]
-                },
-                {
-                "id" : "3427",
-                "url" : "http://www.samfundet.no/arrangement/vis/3427",
-                "title" : "Heyerdahl",
-                "startAt" : " 2013-04-27T22:00:00+200",
-                "categoryID" : "CONCERTS",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "I april får vi besøk av det relativt ferske Oslobandet Heyerdahl på Klubben. Det blir spennende rytmer fra allerede godt etablerte og dyktige musikere."
-                                 }]
-                },
-                {
-                "id" : "3443",
-                "url" : "http://www.samfundet.no/arrangement/vis/3443",
-                "title" : "Søndagsfilm: Sunset Boulevard",
-                "startAt" : " 2013-04-28T19:00:00+200",
-                "categoryID" : "ART_EXHIBITION",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Noir-klassiker med Hollywood, hvis gullalder er lagt bak seg, som kulisser av en av de smarteste studioregissørene som har levd."
-                                 }]
-                },
-                {
-                "id" : "3508",
-                "url" : "http://www.samfundet.no/arrangement/vis/3508",
-                "title" : "Festmøte: 17.mai",
-                "startAt" : " 2013-05-17T19:00:00+200",
-                "categoryID" : "NIGHTLIFE",
-                "placeName" : "Studentersamfundet",
-                "description" : [{
-                                 "language": "no",
-                                 "text": "Symfoniorkester, nasjonalsang, jordbær og champagne. 17. mai er den store festdagen på Studentersamfundet og den feires som den bør. Det er kake, det er taler, det er bunadspiker, vin og sang. Det er høytid i Storsalen."
-                                 }]
-                }
-                ]
+  "events" : [
+    {
+      "id" : "3611",
+      "url" : "http://www.samfundet.no/arrangement/vis/3611",
+      "title" : "CV- og jobbsøkerkurs med Effect Bemanning",
+      "startAt" : " 2013-03-19T18:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Ønsker du å gjøre veien til drømmejobben kortere?"
+      }]
+    },
+    {
+      "id" : "3387",
+      "url" : "http://www.samfundet.no/arrangement/vis/3387",
+      "title" : "Tirsdagsquiz",
+      "startAt" : " 2013-03-19T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "OTHER",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Som vanlig holder vi vår populære tirsdagsquiz i alltid like koselige Edgar Kafé!"
+      }]
+    },
+    {
+      "id" : "2877",
+      "url" : "http://www.samfundet.no/arrangement/vis/2877",
+      "title" : "IMPROschmimpro",
+      "startAt" : " 2013-03-19T20:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Sprunget ut av Samfundets Internteaters eitranes kreative dynamikk kommer IMPROschmimpro!"
+      }]
+    },
+    {
+      "id" : "3419",
+      "url" : "http://www.samfundet.no/arrangement/vis/3419",
+      "title" : "Filmquiz",
+      "startAt" : " 2013-03-21T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "OTHER",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Filmklubben inviterer til tidenes mest utsøkte filmquiz!"
+      }]
+    },
+    {
+      "id" : "3422",
+      "url" : "http://www.samfundet.no/arrangement/vis/3422",
+      "title" : "Café nordsør [AVLYST]",
+      "startAt" : " 2013-04-02T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Café Nord-Sør arrangerer debattmøte"
+      }]
+    },
+    {
+      "id" : "3475",
+      "url" : "http://www.samfundet.no/arrangement/vis/3475",
+      "title" : "Musikkquiz",
+      "startAt" : " 2013-04-05T20:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "OTHER",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Start helgen med musikkquiz på Samfundet! Kom og flott deg med kredible kunnskaper i hyggelige omgivelser med hyggelige medmennesker og hyggelig lyd i ørene."
+      }]
+    },
+    {
+      "id" : "3516",
+      "url" : "http://www.samfundet.no/arrangement/vis/3516",
+      "title" : "...And You Will Know Us by the Trail of Dead (US)",
+      "startAt" : " 2013-04-05T22:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "De mektige Austin-rockerne er herved ute med sitt åttende album \u201dLost Songs\u201d, og med det ønsker vi dem velkommen tilbake til Samfundets storstue!"
+      }]
+    },
+    {
+      "id" : "3449",
+      "url" : "http://www.samfundet.no/arrangement/vis/3449",
+      "title" : "The Terrifieds",
+      "startAt" : " 2013-04-05T23:59:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Kristopher Schau har gjort en del fete ting. De syv Dødssyndende, Hurra Torpedo,  Fuck for Forest, Cumshots. For å nevne noe. Men det du kanskje ikke visste er at han også spiller i et band som heter The Terrifieds. Og ja, de kommer til Knaus. Når spør du? Den 5. april selvfølgelig."
+      }]
+    },
+    {
+      "id" : "3462",
+      "url" : "http://www.samfundet.no/arrangement/vis/3462",
+      "title" : "Byttedag",
+      "startAt" : " 2013-04-06T15:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "OTHER",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Har du lyst på noe å fylle klesskapet med? Eller er det allerede stappfullt? På lørdag 6. april er det bytte- og gi bort dag i Biblioteket, der du kan finne deg en ny hatt, kanskje en frakk eller en annen skatt."
+      }]
+    },
+    {
+      "id" : "3501",
+      "url" : "http://www.samfundet.no/arrangement/vis/3501",
+      "title" : "Festmøte: Mafia",
+      "startAt" : " 2013-04-06T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "I\u2019m gonna make him an offer he can't refuse.(Don, The Godfather)"
+      }]
+    },
+    {
+      "id" : "3457",
+      "url" : "http://www.samfundet.no/arrangement/vis/3457",
+      "title" : "Gudenes natteliv",
+      "startAt" : " 2013-04-06T21:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "OTHER",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Nok en gang inviterer NTNUI og Studentersamfundet til årets sprekeste fest i Det runde røde. Det braker løs med \u201cGudenes natteliv\u201d lørdag 6. april. Finn frem klær i NTNUI sine farger; gult, svart eller grønt, og gjør deg klar for en kveld du sent vil glemme."
+      }]
+    },
+    {
+      "id" : "3406",
+      "url" : "http://www.samfundet.no/arrangement/vis/3406",
+      "title" : "The Sweetest Thrill",
+      "startAt" : " 2013-04-06T23:59:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Når to av Bergens mest lovande undergrunnsmusikarar møtest i studio eller på scena\nblir det både interessant, og ikkje minst - veldig høglydt."
+      }]
+    },
+    {
+      "id" : "3434",
+      "url" : "http://www.samfundet.no/arrangement/vis/3434",
+      "title" : "Søndagsfilm: Castaway On The Moon",
+      "startAt" : " 2013-04-07T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "NIGHTLIFE",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Castaway on the Moon er en kjærlighetskomedie om to ensomme sjeler som finner hverandre i en verden ingen av dem trives i."
+      }]
+    },
+    {
+      "id" : "3502",
+      "url" : "http://www.samfundet.no/arrangement/vis/3502",
+      "title" : "ISFiT-Presidentvalg",
+      "startAt" : " 2013-04-10T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "I kveld starter ISFiT 2015! Storsalen velger hvem som skal lede\nverdens største internasjonale studentfestival. I kveld blir det\nklart hvem som blir president for neste ISFiT, og hvilket tema\nfestivalen skal ha."
+      }]
+    },
+    {
+      "id" : "3401",
+      "url" : "http://www.samfundet.no/arrangement/vis/3401",
+      "title" : "BOKSTAVELIG TALT: LITTERÆR DISKUSJON",
+      "startAt" : " 2013-04-10T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Dragvolls ypperste litteraturvitere åpner sin kollokviegruppe for hvermann og diskuterer grenseoverskridelse i nordisk litteratur. Kveldens bok: Happy Sally av Sara Stridsberg"
+      }]
+    },
+    {
+      "id" : "3552",
+      "url" : "http://www.samfundet.no/arrangement/vis/3552",
+      "title" : "Sagstuen",
+      "startAt" : " 2013-04-11T20:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Nysgjerrighet og inspirasjon sørget for at bandet Sagstuen så dagens lys høsten 2009. Bandet består av fire venner og medstudenter ved NMH. Musikken bærer preg av ulike sjangre, og vokalen er jazzet, men samtidig rå og rocka."
+      }]
+    },
+    {
+      "id" : "3378",
+      "url" : "http://www.samfundet.no/arrangement/vis/3378",
+      "title" : "Candisskonsert",
+      "startAt" : " 2013-04-12T20:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Grip sjansen til å få med deg vakre toner, morsomme sanger og sprell fra flotte jenter med rosa snekkerbukser!"
+      }]
+    },
+    {
+      "id" : "3476",
+      "url" : "http://www.samfundet.no/arrangement/vis/3476",
+      "title" : "Musikkquiz",
+      "startAt" : " 2013-04-12T20:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "OTHER",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Start helgen med musikkquiz på Samfundet! Kom og flott deg med kredible kunnskaper i hyggelige omgivelser med hyggelige medmennesker og hyggelig lyd i ørene."
+      }]
+    },
+    {
+      "id" : "3509",
+      "url" : "http://www.samfundet.no/arrangement/vis/3509",
+      "title" : "Cold Mailman",
+      "startAt" : " 2013-04-12T22:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Med Ivar Bowitz i spissen leverer bodøværingene i Cold Mailman noe av landets hyggeligste indiepop. Ta med deg en god venn og la de varme deg i Klubben denne høstkvelden!"
+      }]
+    },
+    {
+      "id" : "3450",
+      "url" : "http://www.samfundet.no/arrangement/vis/3450",
+      "title" : "Honeytraps",
+      "startAt" : " 2013-04-12T23:59:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "I 2010 var Honeytraps på Knaus for første gang, i fjor vår var de der igjen, og nok en gang blir det dansehysteri på Knaus. Den 12. april kommer Oslo-guttene endelig tilbake til Trondheim."
+      }]
+    },
+    {
+      "id" : "3503",
+      "url" : "http://www.samfundet.no/arrangement/vis/3503",
+      "title" : "Samfundsmøte: Blinkskudd",
+      "startAt" : " 2013-04-13T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Norges mest kjente krigsfotograf, Harald Henden, kommer til Samfundet for å fortelle om hvordan det er å arbeide som fotograf i krigssoner."
+      }]
+    },
+    {
+      "id" : "3429",
+      "url" : "http://www.samfundet.no/arrangement/vis/3429",
+      "title" : "BigBang",
+      "startAt" : " 2013-04-13T22:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Om du enda ikke har danset med Øystein Greni og Bigbang til megahiten \"Girl In Oslo\", er det på høy tid! Ikke nok med det, 1. mars slipper de sitt niende studialbum \u201dThe Oslo Bowl\u201d, og 13. april kommer de tilbake til Samfundet for å rocke Storsalen."
+      }]
+    },
+    {
+      "id" : "3605",
+      "url" : "http://www.samfundet.no/arrangement/vis/3605",
+      "title" : "Audrey Horne",
+      "startAt" : " 2013-04-13T23:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Audrey Horne kom ut med nytt album \"YOUNGBLOOD\" 25. Januar, og lørdag den 13. April kommer de for å spille på Samfundet! Konserten går av stabelen på Klubben etter BigBang er ferdig i Storsalen, så her har du en helaften å bry deg på!"
+      }]
+    },
+    {
+      "id" : "3416",
+      "url" : "http://www.samfundet.no/arrangement/vis/3416",
+      "title" : "Thor.",
+      "startAt" : " 2013-04-13T23:59:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Thor gir deg lyden av neo-psychadelia med et teppe av synther og fengende popvibber."
+      }]
+    },
+    {
+      "id" : "3441",
+      "url" : "http://www.samfundet.no/arrangement/vis/3441",
+      "title" : "Søndagsfilm: Fitzcarraldo",
+      "startAt" : " 2013-04-14T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "NIGHTLIFE",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Bygge et operahus i jungelen for å kultivere indianerne? Ja, hvorfor ikke?"
+      }]
+    },
+    {
+      "id" : "3431",
+      "url" : "http://www.samfundet.no/arrangement/vis/3431",
+      "title" : "Bokstavelig Talt: Debutantaften",
+      "startAt" : " 2013-04-16T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Bokstavelig Talt: Debutantaften"
+      }]
+    },
+    {
+      "id" : "3504",
+      "url" : "http://www.samfundet.no/arrangement/vis/3504",
+      "title" : "Generalforsamling",
+      "startAt" : " 2013-04-17T20:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "En gang i året avholder Studentersamfundet generalforsamling. Her møter Samfundets medlemmer, og vi godkjenner regnskap og årsmelding."
+      }]
+    },
+    {
+      "id" : "3432",
+      "url" : "http://www.samfundet.no/arrangement/vis/3432",
+      "title" : "Filmquiz",
+      "startAt" : " 2013-04-18T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "OTHER",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Filmklubben inviterer til tidenes mest utsøkte filmquiz!"
+      }]
+    },
+    {
+      "id" : "3477",
+      "url" : "http://www.samfundet.no/arrangement/vis/3477",
+      "title" : "Musikkquiz",
+      "startAt" : " 2013-04-19T20:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "OTHER",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Start helgen med musikkquiz på Samfundet! Kom og flott deg med kredible kunnskaper i hyggelige omgivelser med hyggelige medmennesker og hyggelig lyd i ørene."
+      }]
+    },
+    {
+      "id" : "3397",
+      "url" : "http://www.samfundet.no/arrangement/vis/3397",
+      "title" : "Årabrot + Okkultokrati",
+      "startAt" : " 2013-04-19T22:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Det er åpent for en sint og beinhard kveld når Årabrot og Okkultokrati kommer til Samfundet for å snu Klubben på hodet."
+      }]
+    },
+    {
+      "id" : "3451",
+      "url" : "http://www.samfundet.no/arrangement/vis/3451",
+      "title" : "Spurv",
+      "startAt" : " 2013-04-19T23:59:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Spurv fra Oslo spiller noe som best kan beskrives som instrumental poesi  det er post rock med en dybde som setter seg rett i hjerterota. 19. april kommer de for å forhekse Knaus."
+      }]
+    },
+    {
+      "id" : "3505",
+      "url" : "http://www.samfundet.no/arrangement/vis/3505",
+      "title" : "Samfundsmøte: Medias søkelys med Geir Lippestad",
+      "startAt" : " 2013-04-20T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "<Missing>"
+      }]
+    },
+    {
+      "id" : "3421",
+      "url" : "http://www.samfundet.no/arrangement/vis/3421",
+      "title" : "Hellsongs",
+      "startAt" : " 2013-04-20T22:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "20 april kommer endelig svenske Hellsongs til Samfundet! Trioen er kjent for sine rolige popversjoner av metall- og hard rock-låter som alle fra pop-elskende jenter til skjeggete, røffe menn kan like."
+      }]
+    },
+    {
+      "id" : "3424",
+      "url" : "http://www.samfundet.no/arrangement/vis/3424",
+      "title" : "Verdensrommet",
+      "startAt" : " 2013-04-20T23:59:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "I april gjester guttene i Verdensrommet Knaus, med sin deilige \u201cdouble-punch of space pop\u201d songwriter-musikk."
+      }]
+    },
+    {
+      "id" : "3442",
+      "url" : "http://www.samfundet.no/arrangement/vis/3442",
+      "title" : "Søndagsfilm: Scabbard Samurai",
+      "startAt" : " 2013-04-21T19:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "NIGHTLIFE",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "KLIKK DEG INN HER"
+      }]
+    },
+    {
+      "id" : "3461",
+      "url" : "http://www.samfundet.no/arrangement/vis/3461",
+      "title" : "Bydagen 2013: Barnas dag!",
+      "startAt" : " 2013-04-24T10:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "OTHER",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Vi forvandler Samfundet til et lekeslott for de minste, med hoppeslott i Storsalen, eventyrlesing i Biblioteket, og ansiktsmaling på Selskapssiden. Og hvem vet, kanskje kommer det en liten overraskelse også?"
+      }]
+    },
+    {
+      "id" : "3453",
+      "url" : "http://www.samfundet.no/arrangement/vis/3453",
+      "title" : "BOKSTAVELIG TALT: LITTERÆR DISKUSJON",
+      "startAt" : " 2013-04-24T19:00:00+200",
+      "ageLimit" : 0,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Dragvolls ypperste litteraturvitere åpner sin kollokviegruppe for hvermann og diskuterer grenseoverskridelse i nordisk litteratur. Kveldens bok: Happy Sally av Sara Stridsberg"
+      }]
+    },
+    {
+      "id" : "3398",
+      "url" : "http://www.samfundet.no/arrangement/vis/3398",
+      "title" : "DANSESHOW MED NTNUI DANS OG STORBANDSKONSERT MED KJELLERBANDET",
+      "startAt" : " 2013-04-25T19:00:00+200",
+      "ageLimit" : 0,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "NTNUI dans sin årlige danseoppvisning finner i år sted i Storsalen på Studentersamfundet, etterfulgt av Storbandskonsert med Kjellerbandet. Det er dermed duket for en helaften med dans og morro, enten du kommer som tilskuer eller du også selv vil riste på rockefoten."
+      }]
+    },
+    {
+      "id" : "3478",
+      "url" : "http://www.samfundet.no/arrangement/vis/3478",
+      "title" : "Musikkquiz",
+      "startAt" : " 2013-04-26T20:00:00+200",
+      "ageLimit" : 18,
+      "price" : 0,
+      "categoryID" : "OTHER",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Start helgen med musikkquiz på Samfundet! Kom og flott deg med kredible kunnskaper i hyggelige omgivelser med hyggelige medmennesker og hyggelig lyd i ørene."
+      }]
+    },
+    {
+      "id" : "3395",
+      "url" : "http://www.samfundet.no/arrangement/vis/3395",
+      "title" : "Gode Ord Dør Sist",
+      "startAt" : " 2013-04-26T22:00:00+200",
+      "ageLimit" : 18,
+      "price" : 100,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Gode Ord Dør Sist (G.O.D.S) har satt Trondheim på rapkartet med sin hverdagspoesi og livets opp- og nedturer. Fra GODSterminalene på lamon har denne gjengen eksportert fete beats og lettbeint hip hop siden 1995, så du kommer til å møte en rutinert gjeng om du tar deg en tur til Klubben denne kvelden!"
+      }]
+    },
+    {
+      "id" : "3452",
+      "url" : "http://www.samfundet.no/arrangement/vis/3452",
+      "title" : "Yodok",
+      "startAt" : " 2013-04-26T23:59:00+200",
+      "ageLimit" : 21,
+      "price" : 50,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Den 26. april kommer til å bli en kveld med høyt volum og hypnotiserende toner."
+      }],
+              "featured" : [{
+                               "language": "en",
+                               "text": "Symfoniorkester, nasjonalsang, jordbær og champagne. 17. mai er den store festdagen på Studentersamfundet og den feires som den bør. Det er kake, det er taler, det er bunadspiker, vin og sang. Det er høytid i Storsalen."
+                               }]
+    },
+    {
+      "id" : "3507",
+      "url" : "http://www.samfundet.no/arrangement/vis/3507",
+      "title" : "Samfundsmøte: Høyreekstreme Europa",
+      "startAt" : " 2013-04-27T19:00:00+200",
+      "ageLimit" : 0,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Mer informasjon kommer straks!"
+      }]
+    },
+    {
+      "id" : "3427",
+      "url" : "http://www.samfundet.no/arrangement/vis/3427",
+      "title" : "Heyerdahl",
+      "startAt" : " 2013-04-27T22:00:00+200",
+      "ageLimit" : 18,
+      "price" : 200,
+      "categoryID" : "CONCERTS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "I april får vi besøk av det relativt ferske Oslobandet Heyerdahl på Klubben. Det blir spennende rytmer fra allerede godt etablerte og dyktige musikere."
+      }]
+    },
+    {
+      "id" : "3443",
+      "url" : "http://www.samfundet.no/arrangement/vis/3443",
+      "title" : "Søndagsfilm: Sunset Boulevard",
+      "startAt" : " 2013-04-28T19:00:00+200",
+      "ageLimit" : 15,
+      "price" : 0,
+      "categoryID" : "NIGHTLIFE",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Noir-klassiker med Hollywood, hvis gullalder er lagt bak seg, som kulisser av en av de smarteste studioregissørene som har levd."
+      }]
+    },
+    {
+      "id" : "3508",
+      "url" : "http://www.samfundet.no/arrangement/vis/3508",
+      "title" : "Festmøte: 17.mai",
+      "startAt" : " 2013-05-17T19:00:00+200",
+      "ageLimit" : 0,
+      "price" : 0,
+      "categoryID" : "PRESENTATIONS",
+      "placeName" : "Studentersamfundet",
+      "address": "Elgeseter gate 1",
+      "latitude": 63.422634,
+      "longitude": 10.394697,
+      "description" : [{
+            "language": "en",
+            "text": "Symfoniorkester, nasjonalsang, jordbær og champagne. 17. mai er den store festdagen på Studentersamfundet og den feires som den bør. Det er kake, det er taler, det er bunadspiker, vin og sang. Det er høytid i Storsalen."
+      }],
+              "featured" : [{
+                               "language": "en",
+                               "text": "Symfoniorkester, nasjonalsang, jordbær og champagne. 17. mai er den store festdagen på Studentersamfundet og den feires som den bør. Det er kake, det er taler, det er bunadspiker, vin og sang. Det er høytid i Storsalen."
+                               }]
+    }
+  ]
 }

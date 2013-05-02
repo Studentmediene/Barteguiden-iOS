@@ -10,14 +10,9 @@
 #import "CoreDataEventKit.h"
 #import "FilterManager.h"
 #import "TabBarController.h"
-#import "AbstractEventsViewController.h"
 
 
 @implementation AppDelegate
-
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,6 +20,7 @@
     
     // Event store
     self.eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidFailNotification:) name:EventStoreDidFailNotification object:self.eventStore];
     
     // Filter manager
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -40,11 +36,6 @@
     tabBarController.filterManager = self.filterManager;
     
     return YES;
-}
-
-- (void)setUpTextAttributesForBarButtonItems
-{
-    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -70,8 +61,8 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     NSLog(@"Closing...");
+    [self.eventStore save:NULL];
     [self.filterManager save];
-    [self save];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -80,10 +71,24 @@
 }
 
 
-#pragma mark - Core Data stack
+#pragma mark - Notifications
 
-// Returns the managed object context for the application.
-// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+- (void)eventStoreDidFailNotification:(NSNotification *)note
+{
+    // From -save:
+    // Replace this implementation with code to handle the error appropriately.
+    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//    abort();
+    
+    NSError *error = [note userInfo][EventStoreErrorUserInfoKey];
+    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    abort();
+}
+
+
+#pragma mark - CoreData stack
+
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (_managedObjectContext != nil) {
@@ -98,8 +103,6 @@
     return _managedObjectContext;
 }
 
-// Returns the managed object model for the application.
-// If the model doesn't already exist, it is created from the application's model.
 - (NSManagedObjectModel *)managedObjectModel
 {
     if (_managedObjectModel != nil) {
@@ -110,8 +113,6 @@
     return _managedObjectModel;
 }
 
-// Returns the persistent store coordinator for the application.
-// If the coordinator doesn't already exist, it is created and the application's store added to it.
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     if (_persistentStoreCoordinator != nil) {
@@ -122,11 +123,11 @@
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if ([_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error] == nil) {
         /*
          Replace this implementation with code to handle the error appropriately.
          
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
          
          Typical reasons for an error here include:
          * The persistent store is not accessible;
@@ -148,21 +149,11 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }    
+    }
     
     return _persistentStoreCoordinator;
 }
 
-- (void)save
-{
-    NSError *error = nil;
-    if ([self.eventStore save:&error] == NO) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-}
 
 #pragma mark - Application's Documents directory
 
@@ -181,25 +172,14 @@
     //    UIColor *darkText = [UIColor colorWithHue:0 saturation:0 brightness:(20.0/100.0) alpha:1];
     
     // Navigation bar
-    UIColor *navigationBarText = [UIColor colorWithHue:0 saturation:0 brightness:(78.0/100.0) alpha:1];
+//    UIColor *navigationBarText = [UIColor colorWithHue:0 saturation:0 brightness:(78.0/100.0) alpha:1];
+    UIColor *navigationBarText = [UIColor colorWithHue:0 saturation:0 brightness:(100.0/100.0) alpha:1];
     [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{
-                                                                             UITextAttributeTextColor: navigationBarText,
-                                                                      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
-                                                                       UITextAttributeTextShadowColor: [UIColor blackColor],
-                                                                                  UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:20]}];
+    [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: navigationBarText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:20]}];
     
     // Bar button item
-    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{
-                                                                              UITextAttributeTextColor: navigationBarText,
-                                                                       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
-                                                                        UITextAttributeTextShadowColor: [UIColor blackColor],
-                                                                                   UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:12]} forState:UIControlStateNormal];
-    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{
-                                                                              UITextAttributeTextColor: navigationBarText,
-                                                                       UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
-                                                                        UITextAttributeTextShadowColor: [UIColor blackColor],
-                                                                                   UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:12]} forState:UIControlStateHighlighted];
+    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: navigationBarText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:12]} forState:UIControlStateNormal];
+    [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: navigationBarText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:12]} forState:UIControlStateHighlighted];
     [[UIBarButtonItem  appearanceWhenContainedIn:[TabBarController class], nil] setTintColor:[UIColor blackColor]];
     
     // Segmented control

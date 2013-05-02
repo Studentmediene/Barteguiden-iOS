@@ -14,8 +14,10 @@ NSString * const EventStoreErrorDomain = @"EventStoreErrorDomain";
 
 // Notifications
 NSString * const EventStoreChangedNotification = @"EventStoreChangedNotification";
+NSString * const EventStoreDidFailNotification = @"EventStoreDidFailNotification";
 
 // User info keys
 NSString * const EventStoreInsertedEventsUserInfoKey = @"EventStoreInsertedEventsUserInfoKey";
 NSString * const EventStoreUpdatedEventsUserInfoKey = @"EventStoreUpdatedEventsUserInfoKey";
 NSString * const EventStoreDeletedEventsUserInfoKey = @"EventStoreDeletedEventsUserInfoKey";
+NSString * const EventStoreErrorUserInfoKey = @"EventStoreErrorUserInfoKey";

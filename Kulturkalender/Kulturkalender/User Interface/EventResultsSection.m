@@ -43,7 +43,7 @@
 
 #pragma mark - Adding Objects
 
-- (NSUInteger)addObject:(id)object usingSortDescriptors:(NSArray *)sortDescriptors;
+- (NSUInteger)addObject:(id)object usingSortDescriptors:(NSArray *)sortDescriptors
 {
     [_events addObject:object];
     [_events sortUsingDescriptors:sortDescriptors];

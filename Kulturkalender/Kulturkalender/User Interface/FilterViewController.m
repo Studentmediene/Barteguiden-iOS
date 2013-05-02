@@ -256,7 +256,8 @@ const CGFloat kDefaultRowHeight = 44;
 {
     static NSArray *categories = nil;
     if (categories == nil) {
-        categories = @[@(EventCategoryConcerts), @(EventCategoryNightlife), @(EventCategoryTheatre), @(EventCategoryDance), @(EventCategoryArtExhibition), @(EventCategorySports), @(EventCategoryPresentations)];
+        categories = @[@(EventCategoryConcerts), @(EventCategoryNightlife), @(EventCategoryTheatre), @(EventCategoryPresentations), @(EventCategoryOther)];
+//        categories = @[@(EventCategoryConcerts), @(EventCategoryNightlife), @(EventCategoryTheatre), @(EventCategoryDance), @(EventCategoryArtExhibition), @(EventCategorySports), @(EventCategoryPresentations), @(EventCategoryOther)];
     }
     
     return categories;

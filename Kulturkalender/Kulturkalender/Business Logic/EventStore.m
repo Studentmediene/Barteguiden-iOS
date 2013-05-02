@@ -51,6 +51,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     self = [super init];
     if (self) {
         _managedObjectContext = managedObjectContext;
+        
         _communicator = [[EventStoreCommunicator alloc] init];
         _communicator.delegate = self;
         _builder = [[EventBuilder alloc] init];
@@ -105,7 +106,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 - (void)communicator:(EventStoreCommunicator *)communicator didFailWithError:(NSError *)error
 {
     NSLog(@"FAILED:%@", error);
-    // TODO: Fix
+    // TODO: Use notification to notify about error
 //    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidFailToRefreshNotification object:self userInfo:@{EventStoreRefreshErrorKey: error}];
 }
 
@@ -225,7 +226,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 - (BOOL)save:(NSError **)error
 {
     NSError *underlyingError = nil;
-    if ([self.managedObjectContext hasChanges] && [self.managedObjectContext save:&underlyingError] == NO) {
+    if ([self.managedObjectContext hasChanges] == YES && [self.managedObjectContext save:&underlyingError] == NO) {
         if (error != NULL) {
             *error = [NSError errorWithDomain:EventStoreErrorDomain code:EventStoreSaveFailed underlyingError:underlyingError];
         }
@@ -324,6 +325,15 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     if ([events count] > 0) {
         userInfo[key] = [events copy];
     }
+}
+
+- (void)notifyDidFail:(NSError *)error
+{
+    NSDictionary *userInfo = nil;
+    if (error != nil) {
+        userInfo = @{EventStoreErrorUserInfoKey: error};
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidFailNotification object:self userInfo:userInfo];
 }
 
 @end

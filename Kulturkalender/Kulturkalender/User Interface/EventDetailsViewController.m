@@ -9,6 +9,7 @@
 #import "EventDetailsViewController.h"
 #import "EventKit.h"
 #import "EventKitUI.h"
+#import "UIImage+RIODarkenAndBlur.h"
 
 #import "PosterViewController.h"
 #import "MapViewController.h"
@@ -17,7 +18,7 @@
 static NSString * const kPosterSegue = @"PosterSegue";
 static NSString * const kMapSegue = @"MapSegue";
 
-static CGSize const kThumbnailSize = {72, 72};
+static CGSize const kThumbnailSize = {320, 200};
 
 
 @implementation EventDetailsViewController
@@ -269,16 +270,21 @@ static CGSize const kThumbnailSize = {72, 72};
 {
     EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:self.event];
     
-//    UIImage *image = [self.event imageWithSize:kThumbnailSize];
-//    if (image != nil) {
-//        [self.posterButton setImage:image forState:UIControlStateNormal];
-//    }
-    
     self.titleLabel.text = [self.event title];
     self.locationLabel.text = [self.event placeName];
     self.timeLabel.text = [eventFormatter timeString];
     self.priceLabel.text = [eventFormatter priceString];
     self.categoryImageView.image = [eventFormatter categoryBigImage];
+    
+    UIImage *posterImage = [self.event imageWithSize:kThumbnailSize];
+    if (posterImage != nil) {
+        posterImage = [UIImage darkenedAndBlurredImageForImage:posterImage withDarkenScale:0.7 blurRadius:0];
+    }
+    else {
+        posterImage = [UIImage imageNamed:@"MissingPoster"]; // TODO: Use another placeholder
+    }
+    
+    self.posterImageView.image = posterImage;
     
     NSString *ageLimit = [NSString stringWithFormat:@"%d+", [self.event ageLimit]];
     self.ageLimitLabel.text = ageLimit;
@@ -295,5 +301,7 @@ static CGSize const kThumbnailSize = {72, 72};
     self.calendarActionLabel.text = calendarActionTitle;
     self.calendarImageView.image = ([self isAddedToCalendar] == NO) ? [UIImage imageNamed:@"Calendar-Normal"] : [UIImage imageNamed:@"Calendar-Selected"];
 }
+
+
 
 @end

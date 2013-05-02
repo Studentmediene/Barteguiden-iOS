@@ -46,7 +46,7 @@
     {
       "id": "3",
       "title": "Test",
-      "categoryID": "THEATRE",
+      "categoryID": "OTHER",
       "ageLimit": 25,
       "price": 0,
       "startAt": "2015-01-17T21:00:00+0200",

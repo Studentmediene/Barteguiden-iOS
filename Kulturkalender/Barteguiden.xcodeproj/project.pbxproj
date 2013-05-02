@@ -50,6 +50,11 @@
 		697E8F01171F5DC300974244 /* Other-Big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697E8EFD171F5DC300974244 /* Other-Big@2x.png */; };
 		697E8F02171F5DC300974244 /* Other.png in Resources */ = {isa = PBXBuildFile; fileRef = 697E8EFE171F5DC300974244 /* Other.png */; };
 		697E8F03171F5DC300974244 /* Other@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697E8EFF171F5DC300974244 /* Other@2x.png */; };
+		697E8F0D1726BD0A00974244 /* Samfundet.json in Resources */ = {isa = PBXBuildFile; fileRef = 697E8F0C1726BD0A00974244 /* Samfundet.json */; };
+		697E8F391731F42800974244 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697E8F381731F42800974244 /* CoreImage.framework */; };
+		697E8F3C1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 697E8F3B1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m */; };
+		697E8F3F1732004800974244 /* MissingPoster.png in Resources */ = {isa = PBXBuildFile; fileRef = 697E8F3D1732004800974244 /* MissingPoster.png */; };
+		697E8F401732004800974244 /* MissingPoster@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697E8F3E1732004800974244 /* MissingPoster@2x.png */; };
 		69884B7C1639FB670057D189 /* Event.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69884B7B1639FB670057D189 /* Event.strings */; };
 		69884B97163A0CE70057D189 /* EventFormatter+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B96163A0CE70057D189 /* EventFormatter+Time.m */; };
 		69884B9A163A0D200057D189 /* EventFormatter+LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B99163A0D1F0057D189 /* EventFormatter+LocalizedText.m */; };
@@ -76,7 +81,6 @@
 		69B43FE916E6C1B000AA6850 /* PosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B43FE816E6C1B000AA6850 /* PosterViewController.m */; };
 		69B7815816C1E02700ADD13A /* EventStoreProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B7815716C1E02700ADD13A /* EventStoreProtocol.m */; };
 		69B7816016C2091A00ADD13A /* EventFormatter+Price.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B7815F16C2090F00ADD13A /* EventFormatter+Price.m */; };
-		69B84F2316FFCEAE006DB348 /* Samfundet.json in Resources */ = {isa = PBXBuildFile; fileRef = 69B84F2216FFCEAE006DB348 /* Samfundet.json */; };
 		69B84F271703930C006DB348 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B84F261703930C006DB348 /* MessageUI.framework */; };
 		69B860DF168E6CEB002936B4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B860DE168E6CEB002936B4 /* EventKit.framework */; };
 		69B860E1168E6CF1002936B4 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B860E0168E6CF1002936B4 /* EventKitUI.framework */; };
@@ -88,8 +92,6 @@
 		69B9F70E1715FAD800184F5B /* BarButtonItem-Highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F70A1715FAD800184F5B /* BarButtonItem-Highlighted@2x.png */; };
 		69B9F70F1715FAD800184F5B /* BarButtonItem-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F70B1715FAD800184F5B /* BarButtonItem-Normal@2x.png */; };
 		69B9F7101715FAD800184F5B /* BarButtonItem-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F70C1715FAD800184F5B /* BarButtonItem-Normal.png */; };
-		69B9F723171600BC00184F5B /* Poster.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F721171600BC00184F5B /* Poster.png */; };
-		69B9F724171600BC00184F5B /* Poster@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F722171600BC00184F5B /* Poster@2x.png */; };
 		69B9F727171602D300184F5B /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F725171602D300184F5B /* Location.png */; };
 		69B9F728171602D300184F5B /* Location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F726171602D300184F5B /* Location@2x.png */; };
 		69B9F733171606B100184F5B /* Separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F731171606B100184F5B /* Separator.png */; };
@@ -218,6 +220,12 @@
 		697E8EFD171F5DC300974244 /* Other-Big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Other-Big@2x.png"; sourceTree = "<group>"; };
 		697E8EFE171F5DC300974244 /* Other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Other.png; sourceTree = "<group>"; };
 		697E8EFF171F5DC300974244 /* Other@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Other@2x.png"; sourceTree = "<group>"; };
+		697E8F0C1726BD0A00974244 /* Samfundet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Samfundet.json; sourceTree = "<group>"; };
+		697E8F381731F42800974244 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		697E8F3A1731F8CE00974244 /* UIImage+RIODarkenAndBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RIODarkenAndBlur.h"; sourceTree = "<group>"; };
+		697E8F3B1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RIODarkenAndBlur.m"; sourceTree = "<group>"; };
+		697E8F3D1732004800974244 /* MissingPoster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MissingPoster.png; sourceTree = "<group>"; };
+		697E8F3E1732004800974244 /* MissingPoster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MissingPoster@2x.png"; sourceTree = "<group>"; };
 		69884B7B1639FB670057D189 /* Event.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Event.strings; sourceTree = "<group>"; };
 		69884B87163A05810057D189 /* EventConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventConstants.h; sourceTree = "<group>"; };
 		69884B95163A0CE60057D189 /* EventFormatter+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+Time.h"; sourceTree = "<group>"; };
@@ -262,7 +270,6 @@
 		69B7815C16C208B900ADD13A /* EventKitUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventKitUI.h; sourceTree = "<group>"; };
 		69B7815E16C2090B00ADD13A /* EventFormatter+Price.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+Price.h"; sourceTree = "<group>"; };
 		69B7815F16C2090F00ADD13A /* EventFormatter+Price.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventFormatter+Price.m"; sourceTree = "<group>"; };
-		69B84F2216FFCEAE006DB348 /* Samfundet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Samfundet.json; sourceTree = "<group>"; };
 		69B84F261703930C006DB348 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		69B860DE168E6CEB002936B4 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		69B860E0168E6CF1002936B4 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
@@ -274,8 +281,6 @@
 		69B9F70A1715FAD800184F5B /* BarButtonItem-Highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarButtonItem-Highlighted@2x.png"; sourceTree = "<group>"; };
 		69B9F70B1715FAD800184F5B /* BarButtonItem-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarButtonItem-Normal@2x.png"; sourceTree = "<group>"; };
 		69B9F70C1715FAD800184F5B /* BarButtonItem-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarButtonItem-Normal.png"; sourceTree = "<group>"; };
-		69B9F721171600BC00184F5B /* Poster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster.png; sourceTree = "<group>"; };
-		69B9F722171600BC00184F5B /* Poster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Poster@2x.png"; sourceTree = "<group>"; };
 		69B9F725171602D300184F5B /* Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Location.png; sourceTree = "<group>"; };
 		69B9F726171602D300184F5B /* Location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Location@2x.png"; sourceTree = "<group>"; };
 		69B9F731171606B100184F5B /* Separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Separator.png; sourceTree = "<group>"; };
@@ -371,6 +376,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				697E8F391731F42800974244 /* CoreImage.framework in Frameworks */,
 				69B84F271703930C006DB348 /* MessageUI.framework in Frameworks */,
 				69B860E1168E6CF1002936B4 /* EventKitUI.framework in Frameworks */,
 				69B860DF168E6CEB002936B4 /* EventKit.framework in Frameworks */,
@@ -470,7 +476,7 @@
 		69AEFE371624E77C009F3567 /* Temp */ = {
 			isa = PBXGroup;
 			children = (
-				69B84F2216FFCEAE006DB348 /* Samfundet.json */,
+				697E8F0C1726BD0A00974244 /* Samfundet.json */,
 				698F870F16249719001B9090 /* Example.json */,
 			);
 			name = Temp;
@@ -595,6 +601,8 @@
 				692E3E56171F5ABC00325CBE /* Action@2x.png */,
 				69B9F725171602D300184F5B /* Location.png */,
 				69B9F726171602D300184F5B /* Location@2x.png */,
+				697E8F3D1732004800974244 /* MissingPoster.png */,
+				697E8F3E1732004800974244 /* MissingPoster@2x.png */,
 				69B9F7351716115F00184F5B /* Calendar-Normal.png */,
 				69B9F7381716115F00184F5B /* Calendar-Normal@2x.png */,
 				69B9F7441716203B00184F5B /* Calendar-Selected.png */,
@@ -603,8 +611,6 @@
 				692E3E4E171F372400325CBE /* Favorite-Normal@2x.png */,
 				692E3E4F171F372400325CBE /* Favorite-Selected.png */,
 				692E3E50171F372400325CBE /* Favorite-Selected@2x.png */,
-				69B9F721171600BC00184F5B /* Poster.png */,
-				69B9F722171600BC00184F5B /* Poster@2x.png */,
 				69B9F731171606B100184F5B /* Separator.png */,
 				69B9F732171606B100184F5B /* Separator@2x.png */,
 				691DC320171C521B00844DED /* AgeLimitBorder.png */,
@@ -687,6 +693,8 @@
 				69C37D0D169BB8EF009631DF /* NSError+RIOUnderlyingError.m */,
 				69B1D9891703D5FE0066B032 /* UIImage+RIOScaleAndCrop.h */,
 				69B1D98A1703D5FE0066B032 /* UIImage+RIOScaleAndCrop.m */,
+				697E8F3A1731F8CE00974244 /* UIImage+RIODarkenAndBlur.h */,
+				697E8F3B1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -858,6 +866,7 @@
 				69B860DE168E6CEB002936B4 /* EventKit.framework */,
 				69B860E0168E6CF1002936B4 /* EventKitUI.framework */,
 				69B84F261703930C006DB348 /* MessageUI.framework */,
+				697E8F381731F42800974244 /* CoreImage.framework */,
 				FBB8DEFF9AB94CCB94DFF519 /* libPods.a */,
 				BB79CD5E306B4CFEAE997893 /* libPods-KulturkalenderTests.a */,
 			);
@@ -1015,7 +1024,6 @@
 				698F871016249719001B9090 /* Example.json in Resources */,
 				69BA0AD5162F3E13009726E7 /* EventCell.xib in Resources */,
 				69884B7C1639FB670057D189 /* Event.strings in Resources */,
-				69B84F2316FFCEAE006DB348 /* Samfundet.json in Resources */,
 				69B1D9831703BDE30066B032 /* ActionButton-Normal.png in Resources */,
 				69B1D9841703BDE30066B032 /* ActionButton-Normal@2x.png in Resources */,
 				69B1D9871703BF9A0066B032 /* ActionButton-Highlighted.png in Resources */,
@@ -1031,8 +1039,6 @@
 				69B9F70E1715FAD800184F5B /* BarButtonItem-Highlighted@2x.png in Resources */,
 				69B9F70F1715FAD800184F5B /* BarButtonItem-Normal@2x.png in Resources */,
 				69B9F7101715FAD800184F5B /* BarButtonItem-Normal.png in Resources */,
-				69B9F723171600BC00184F5B /* Poster.png in Resources */,
-				69B9F724171600BC00184F5B /* Poster@2x.png in Resources */,
 				69B9F727171602D300184F5B /* Location.png in Resources */,
 				69B9F728171602D300184F5B /* Location@2x.png in Resources */,
 				69B9F733171606B100184F5B /* Separator.png in Resources */,
@@ -1087,6 +1093,9 @@
 				697E8F01171F5DC300974244 /* Other-Big@2x.png in Resources */,
 				697E8F02171F5DC300974244 /* Other.png in Resources */,
 				697E8F03171F5DC300974244 /* Other@2x.png in Resources */,
+				697E8F0D1726BD0A00974244 /* Samfundet.json in Resources */,
+				697E8F3F1732004800974244 /* MissingPoster.png in Resources */,
+				697E8F401732004800974244 /* MissingPoster@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1192,6 +1201,7 @@
 				69B43FE916E6C1B000AA6850 /* PosterViewController.m in Sources */,
 				69B1D98B1703D5FE0066B032 /* UIImage+RIOScaleAndCrop.m in Sources */,
 				69B9F7611716332000184F5B /* HeaderView.m in Sources */,
+				697E8F3C1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1303,6 +1313,11 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Kulturkalender/Barteguiden-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-parameter",
+				);
 				PRODUCT_NAME = Barteguiden;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -1318,6 +1333,12 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Kulturkalender/Barteguiden-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-parameter",
+					"-DNS_BLOCK_ASSERTIONS=1",
+				);
 				PRODUCT_NAME = Barteguiden;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
@@ -1328,13 +1349,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAAEBFA7E9A449CB9EBF4F42 /* Pods-KulturkalenderTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kulturkalender.app/Kulturkalender";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Barteguiden.app/Barteguiden";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
+				GCC_PREFIX_HEADER = "Kulturkalender/Barteguiden-Prefix.pch";
 				INFOPLIST_FILE = "KulturkalenderTests/BarteguidenTests-Info.plist";
 				PRODUCT_NAME = BarteguidenTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1346,13 +1367,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAAEBFA7E9A449CB9EBF4F42 /* Pods-KulturkalenderTests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Kulturkalender.app/Kulturkalender";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Barteguiden.app/Barteguiden";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kulturkalender/Kulturkalender-Prefix.pch";
+				GCC_PREFIX_HEADER = "Kulturkalender/Barteguiden-Prefix.pch";
 				INFOPLIST_FILE = "KulturkalenderTests/BarteguidenTests-Info.plist";
 				PRODUCT_NAME = BarteguidenTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";

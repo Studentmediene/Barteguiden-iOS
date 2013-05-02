@@ -42,13 +42,16 @@ extern NSString * const EventStoreErrorDomain;
 
 typedef NS_ENUM(NSInteger, EventStoreErrorCode) {
     EventStoreFetchRequestFailed = 0,
-    EventStoreSaveFailed = 1
+    EventStoreAddPersistentStoreCoordinatorFailed = 1,
+    EventStoreSaveFailed = 2
 };
 
 // Notifications
 extern NSString * const EventStoreChangedNotification;
+extern NSString * const EventStoreDidFailNotification;
 
 // User info keys
 extern NSString * const EventStoreInsertedEventsUserInfoKey;
 extern NSString * const EventStoreUpdatedEventsUserInfoKey;
 extern NSString * const EventStoreDeletedEventsUserInfoKey;
+extern NSString * const EventStoreErrorUserInfoKey;

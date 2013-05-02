@@ -11,8 +11,8 @@
 
 
 typedef NS_ENUM(NSInteger, EventCategory) {
-    EventCategoryUnknown = -1,
-    EventCategoryConcerts = 0,
+    EventCategoryOther = 0,
+    EventCategoryConcerts,
     EventCategoryNightlife,
     EventCategoryTheatre,
     EventCategoryDance,

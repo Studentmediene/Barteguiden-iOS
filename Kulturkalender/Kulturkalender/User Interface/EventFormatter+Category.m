@@ -57,7 +57,7 @@
         case EventCategoryConcerts:
             return @"CATEGORY_CONCERTS";
         case EventCategoryNightlife:
-            return @"CATEGORY_NIGHTLIFE";
+            return @"Movies"; // TODO: Change back to CATEGORY_NIGHTLIFE
         case EventCategoryTheatre:
             return @"CATEGORY_THEATRE";
         case EventCategoryDance:
@@ -81,8 +81,8 @@
     switch (category) {
         case EventCategoryConcerts:
             return @"Concerts";
-//        case EventCategoryNightlife:
-//            return @"Nightlife";
+        case EventCategoryNightlife:
+            return @"Movies";  // TODO: Change to Other
         case EventCategoryTheatre:
             return @"Theatre";
 //        case EventCategoryDance:
@@ -94,7 +94,7 @@
         case EventCategoryPresentations:
             return @"Presentations";
         default:
-            return @"Movies"; // TODO: Change to Other
+            return @"Other";
     }
 }
 

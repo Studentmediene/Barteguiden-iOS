@@ -12,6 +12,8 @@
 #import "EventStoreCommunicatorDelegate.h"
 
 
+@protocol EventStoreDelegate;
+
 @class EventStoreCommunicator;
 @class EventBuilder;
 

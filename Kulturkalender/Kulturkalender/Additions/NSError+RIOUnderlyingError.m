@@ -15,7 +15,7 @@
     return [[[self class] alloc] initWithDomain:domain code:code underlyingError:underlyingError];
 }
 
-- (instancetype)initWithDomain:(NSString *)domain code:(NSInteger)code underlyingError:(NSError *)underlyingError;
+- (instancetype)initWithDomain:(NSString *)domain code:(NSInteger)code underlyingError:(NSError *)underlyingError
 {
     NSDictionary *userInfo = nil;
     if (underlyingError) {

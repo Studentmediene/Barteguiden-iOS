@@ -14,6 +14,7 @@
 
 typedef NS_OPTIONS(NSUInteger, CategoryFilter) {
     CategoryFilterShowNoneEvents    = 0,
+    CategoryFilterShowOther         = 1 << EventCategoryOther,
     CategoryFilterShowConcerts      = 1 << EventCategoryConcerts,
     CategoryFilterShowNightlife     = 1 << EventCategoryNightlife,
     CategoryFilterShowTheatre       = 1 << EventCategoryTheatre,

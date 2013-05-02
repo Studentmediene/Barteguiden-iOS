@@ -122,11 +122,7 @@
                                             <action selector="visitWebsite:" destination="B3q-rJ-UdF" eventType="touchUpInside" id="SUb-d0-Xyq"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Poster.png" translatesAutoresizingMaskIntoConstraints="NO" id="5PD-4a-E3h">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="g4R-Jd-51M"/>
-                                        </constraints>
-                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MissingPoster.png" translatesAutoresizingMaskIntoConstraints="NO" id="5PD-4a-E3h"/>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Th-fI-DFR">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="33" id="VjD-Po-A9f"/>
@@ -231,13 +227,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="5PD-4a-E3h" firstAttribute="trailing" secondItem="dhy-Fb-6Wj" secondAttribute="trailing" type="default" id="1Tc-t5-VM1"/>
                                     <constraint firstAttribute="trailing" secondItem="tEx-3z-SJo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="36Y-gI-KKJ"/>
                                     <constraint firstItem="A8d-GZ-0dO" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" type="default" id="8k2-t6-2gN"/>
                                     <constraint firstAttribute="trailing" secondItem="7Th-fI-DFR" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ANu-Wl-K94"/>
                                     <constraint firstItem="5mh-xZ-ZLe" firstAttribute="baseline" secondItem="8qc-TU-tKd" secondAttribute="baseline" type="default" id="C4U-nX-fhe"/>
                                     <constraint firstItem="rzx-k2-XDn" firstAttribute="trailing" secondItem="8qc-TU-tKd" secondAttribute="trailing" type="default" id="CVo-ri-838"/>
                                     <constraint firstAttribute="trailing" secondItem="HgR-2A-5C5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="EMk-r2-jgZ"/>
-                                    <constraint firstItem="Cpu-AF-hUp" firstAttribute="centerX" secondItem="dhy-Fb-6Wj" secondAttribute="centerX" type="default" id="F9e-bM-3gk"/>
                                     <constraint firstAttribute="trailing" secondItem="5mh-xZ-ZLe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="FFH-dW-ea5"/>
                                     <constraint firstItem="5mh-xZ-ZLe" firstAttribute="top" secondItem="8qc-TU-tKd" secondAttribute="top" type="default" id="FPB-Yb-Jih"/>
                                     <constraint firstItem="8qc-TU-tKd" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GgG-fR-wlX"/>
@@ -255,6 +251,7 @@
                                     <constraint firstItem="59J-XQ-EPQ" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZJe-Pb-1mH"/>
                                     <constraint firstAttribute="trailing" secondItem="59J-XQ-EPQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ZbE-9u-dsi"/>
                                     <constraint firstItem="WGS-Ft-bsU" firstAttribute="trailing" secondItem="5gZ-6h-74k" secondAttribute="trailing" type="default" id="aVe-BL-o2n"/>
+                                    <constraint firstItem="5PD-4a-E3h" firstAttribute="centerX" secondItem="dhy-Fb-6Wj" secondAttribute="centerX" type="default" id="ao9-da-L1m"/>
                                     <constraint firstItem="r5z-an-beK" firstAttribute="top" secondItem="7Th-fI-DFR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="asx-Fi-GqP"/>
                                     <constraint firstAttribute="bottom" secondItem="tEx-3z-SJo" secondAttribute="bottom" constant="-8" id="d1J-Ov-3Mz"/>
                                     <constraint firstItem="r5z-an-beK" firstAttribute="centerY" secondItem="96o-qw-xEw" secondAttribute="centerY" type="default" id="dmq-Pj-pLu"/>
@@ -296,11 +293,12 @@
                         <outlet property="calendarActionLabel" destination="WGS-Ft-bsU" id="B2X-3I-IpA"/>
                         <outlet property="calendarButton" destination="Wn9-Mc-SV1" id="O5a-bR-jbL"/>
                         <outlet property="calendarImageView" destination="OUn-lb-j8j" id="guf-OM-uwu"/>
-                        <outlet property="categoryImageView" destination="ERR-bM-bto" id="5FW-Oz-TE8"/>
+                        <outlet property="categoryImageView" destination="ERR-bM-bto" id="Aml-5g-WfB"/>
                         <outlet property="descriptionLabel" destination="HgR-2A-5C5" id="Cmc-aF-SeG"/>
                         <outlet property="descriptionTitleLabel" destination="Cpu-AF-hUp" id="lxM-XO-tAF"/>
                         <outlet property="favoriteButton" destination="FaH-RS-vXI" id="nSl-32-tiw"/>
                         <outlet property="locationLabel" destination="96o-qw-xEw" id="CIV-5a-UMc"/>
+                        <outlet property="posterImageView" destination="5PD-4a-E3h" id="Yuj-B3-Ivn"/>
                         <outlet property="priceLabel" destination="5mh-xZ-ZLe" id="rM4-P3-7e9"/>
                         <outlet property="timeLabel" destination="5gZ-6h-74k" id="fs2-30-ssB"/>
                         <outlet property="titleLabel" destination="7Th-fI-DFR" id="uL6-3I-SQZ"/>
@@ -369,11 +367,11 @@
             </objects>
             <point key="canvasLocation" x="713" y="953"/>
         </scene>
-        <!--Navigation Controller - My Page-->
+        <!--Navigation Controller - My Filter-->
         <scene sceneID="1xp-oc-uV0">
             <objects>
                 <navigationController definesPresentationContext="YES" id="UtO-4H-Skc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Page" image="MyPage.png" id="ck3-c0-mhk"/>
+                    <tabBarItem key="tabBarItem" title="My Filter" image="MyPage.png" id="ck3-c0-mhk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gQh-Ar-S9F">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -437,7 +435,7 @@
             </objects>
             <point key="canvasLocation" x="1272" y="953"/>
         </scene>
-        <!--My Page View Controller - My Page-->
+        <!--My Page View Controller - My Filter-->
         <scene sceneID="HSU-UA-U5r">
             <objects>
                 <tableViewController id="tvS-YH-KEM" customClass="MyPageViewController" sceneMemberID="viewController">
@@ -445,14 +443,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search My Page" id="Pie-Ue-OXU">
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Search My Filter" id="Pie-Ue-OXU">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <sections/>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Page" id="RVb-Da-8bw">
+                    <navigationItem key="navigationItem" title="My Filter" id="RVb-Da-8bw">
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="8FG-HU-XVa">
                             <connections>
                                 <segue destination="pvR-GL-pHJ" kind="modal" identifier="FilterSegue" id="z0Y-Yk-q9Z"/>
@@ -1112,8 +1110,8 @@
         <image name="Favorite-Selected.png" width="40" height="36"/>
         <image name="Favorites.png" width="30" height="30"/>
         <image name="Location.png" width="26" height="25"/>
+        <image name="MissingPoster.png" width="320" height="200"/>
         <image name="MyPage.png" width="30" height="30"/>
-        <image name="Poster.png" width="320" height="197"/>
         <image name="Separator.png" width="320" height="1"/>
         <image name="Settings.png" width="30" height="30"/>
     </resources>
@@ -1131,11 +1129,7 @@
         <class className="EventDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addToCalendar:"/>
-                <relationship kind="action" name="editInCalendar:"/>
                 <relationship kind="action" name="modifyCalendar:"/>
-                <relationship kind="action" name="promptRemoveFromCalendar:"/>
-                <relationship kind="action" name="removeFromCalendar:"/>
                 <relationship kind="action" name="shareEvent:"/>
                 <relationship kind="action" name="toggleFavorite:"/>
                 <relationship kind="action" name="visitWebsite:"/>
@@ -1148,6 +1142,7 @@
                 <relationship kind="outlet" name="descriptionTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="favoriteButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="posterImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
@@ -1168,7 +1163,6 @@
         <class className="FilterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FilterViewController.h"/>
             <relationships>
-                <relationship kind="action" name="myAgeTextFieldDidEndEditing:"/>
                 <relationship kind="outlet" name="ageLimitAllEventsCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="ageLimitAllowedForMyAgeCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="myAgeTextField" candidateClass="UITextField"/>
@@ -1185,9 +1179,6 @@
         </class>
         <class className="MyPageViewController" superclassName="AbstractEventsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MyPageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="close:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -1195,15 +1186,11 @@
         <class className="SettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="sendUsYourTips:"/>
                 <relationship kind="outlet" name="sendUsYourTipsCell" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
         <class className="TabBarController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarController.h"/>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

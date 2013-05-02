@@ -94,7 +94,7 @@ static NSString * const kEventsKey = @"events";
 
 - (NSURL *)URLForEvents
 {
-    return [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"]; // TODO: Remove
+    return [[NSBundle mainBundle] URLForResource:@"Samfundet" withExtension:@"json"]; // TODO: Remove
 //    return [NSURL URLWithString:@"https://dl.dropbox.com/u/10851469/Under%20Dusken/Kulturkalender/Data.json"]; // TODO: Remove
 //    NSTimeInterval timeInterval = [since timeIntervalSince1970];
 //    NSString *changesPath = [NSString stringWithFormat:@"api/events/changes?since=%.0f", timeInterval];
@@ -104,8 +104,7 @@ static NSString * const kEventsKey = @"events";
 - (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size
 {
     NSParameterAssert(eventID != nil);
-    
-    NSString *imagePath = [NSString stringWithFormat:@"img/%@.png", eventID];
+    NSString *imagePath = [NSString stringWithFormat:@"https://dl.dropboxusercontent.com/u/10851469/Under%%20Dusken/Kulturkalender/Images/%@.jpg", eventID];
     if (CGSizeEqualToSize(size, CGSizeZero) == NO) {
         imagePath = [imagePath stringByAppendingFormat:@"?size=%.0fx%.0f", size.width, size.height];
     }

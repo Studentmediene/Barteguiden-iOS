@@ -96,7 +96,7 @@
     // Persistent store coordinator
     NSError *error = nil;
     NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
-    if (![persistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:&error]) {
+    if ([persistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:&error] == nil) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }

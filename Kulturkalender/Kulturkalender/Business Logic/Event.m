@@ -65,7 +65,7 @@
 {
     CGFloat scale = [[UIScreen mainScreen] scale];
     
-    NSString *imageID = [NSString stringWithFormat:@"img%@", self.eventID];
+    NSString *imageID = [NSString stringWithFormat:@"%@", self.eventID];
     NSURL *url = [self.delegate URLForImageWithEventID:imageID size:CGSizeZero];
     
     UIImage *image = [self.imageCache imageForURL:url delegate:self];
@@ -86,7 +86,7 @@
     CGFloat scale = [[UIScreen mainScreen] scale];
     CGSize scaledSize = CGSizeMake(size.width * scale, size.height * scale);
     
-    NSString *imageID = [NSString stringWithFormat:@"img%@", self.eventID];
+    NSString *imageID = [NSString stringWithFormat:@"%@", self.eventID];
     NSURL *url = [self.delegate URLForImageWithEventID:imageID size:scaledSize];
     
     UIImage *image = [self.imageCache imageForURL:url delegate:self];

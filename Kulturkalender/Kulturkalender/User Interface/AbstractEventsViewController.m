@@ -169,7 +169,7 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 
 - (NSPredicate *)eventsPredicate
 {
-    NSPredicate *datePredicate = [self.eventStore predicateForEventsWithStartDate:[NSDate date] endDate:[NSDate distantFuture]];
+    NSPredicate *datePredicate = [self.eventStore predicateForEventsWithStartDate:[NSDate distantPast] endDate:[NSDate distantFuture]];
     
     return datePredicate;
 }

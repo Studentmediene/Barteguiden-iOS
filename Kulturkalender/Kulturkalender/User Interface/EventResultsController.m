@@ -45,7 +45,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:EventStoreChangedNotification object:self.eventStore];
 }
 // TODO: Remove
-- (void)setPredicate:(NSPredicate *)predicate withAnimation:(BOOL)animation;
+- (void)setPredicate:(NSPredicate *)predicate withAnimation:(BOOL)animation
 {
     NSLog(@"Transitioning to new predicate");
     self.predicate = predicate;
