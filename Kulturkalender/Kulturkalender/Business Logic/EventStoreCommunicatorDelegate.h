@@ -1,6 +1,6 @@
 //
 //  EventStoreCommunicatorDelegate.h
-//  Kulturkalender
+//  Barteguiden
 //
 //  Created by Christian Rasmussen on 25.02.13.
 //  Copyright (c) 2013 Under Dusken. All rights reserved.
