@@ -7,17 +7,20 @@
 //
 
 @protocol CalendarManagerDelegate;
-@class EKCalendar;
 @class EKEventStore;
+@class EKCalendar;
+@class EKAlarm;
 
 
 @protocol CalendarManager <NSObject>
 
-@property (nonatomic, strong) EKEventStore *calendarStore;
+@property (nonatomic, readonly) EKEventStore *calendarStore;
 
 // Settings
-@property (nonatomic) BOOL autoAddFavorites;
+@property (nonatomic, getter=shouldAutoAddFavorites) BOOL autoAddFavorites;
 @property (nonatomic, strong) EKCalendar *defaultCalendar;
-//@property (nonatomic, strong) <#type *object#>;
+@property (nonatomic, strong) EKAlarm *defaultAlert;
+
+- (void)setDefaultAlertTimeInterval:(NSTimeInterval)timeInterval;
 
 @end

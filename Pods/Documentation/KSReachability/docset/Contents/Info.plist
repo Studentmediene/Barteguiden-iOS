@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.cocoapods.KSReachability-1.0</string>
+	<string>org.cocoapods.KSReachability-1.3</string>
 	<key>CFBundleName</key>
-	<string>KSReachability 1.0 Documentation</string>
+	<string>KSReachability 1.3 Documentation</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -18,7 +18,7 @@
 	<string>A better iOS &amp; Mac reachability for a modern age.</string>
 	
 	<key>DocSetFeedName</key>
-	<string>KSReachability 1.0 Documentation</string>
+	<string>KSReachability 1.3 Documentation</string>
 	
 	<key>DocSetMinimumXcodeVersion</key>
 	<string>3.0</string>

@@ -10,13 +10,18 @@
 #import <EventKitUI/EventKitUI.h>
 #import <MessageUI/MessageUI.h>
 
+@protocol CalendarManager;
+
 
 @interface SettingsViewController : UITableViewController <EKCalendarChooserDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableViewCell *defaultCalendarCell;
 @property (nonatomic, weak) IBOutlet UITableViewCell *defaultAlertCell;
 @property (nonatomic, weak) IBOutlet UITableViewCell *sendUsYourTipsCell;
+@property (nonatomic, weak) IBOutlet UISwitch *autoAddFavoritesSwitch;
+@property (nonatomic, weak) IBOutlet UILabel *defaultCalendarLabel;
+@property (nonatomic, weak) IBOutlet UILabel *defaultAlertLabel;
 
-@property (nonatomic, strong) EKEventStore *calendarStore;
+@property (nonatomic, strong) id<CalendarManager> calendarManager;
 
 @end

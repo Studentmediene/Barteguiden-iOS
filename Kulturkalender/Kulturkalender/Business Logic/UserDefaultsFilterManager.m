@@ -9,10 +9,10 @@
 #import "UserDefaultsFilterManager.h"
 
 
-NSString * const kCategoryFilterSelectionKey = @"CategoryFilterSelection";
-NSString * const kAgeLimitFilterMyAgeKey = @"AgeLimitFilterMyAge";
-NSString * const kAgeLimitFilterSelectionKey = @"AgeLimitFilterSelection";
-NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
+static NSString * const kCategoryFilterSelectionKey = @"CategoryFilterSelection";
+static NSString * const kAgeLimitFilterMyAgeKey = @"AgeLimitFilterMyAge";
+static NSString * const kAgeLimitFilterSelectionKey = @"AgeLimitFilterSelection";
+static NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
 
 
 @interface UserDefaultsFilterManager ()

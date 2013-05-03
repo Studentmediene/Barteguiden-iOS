@@ -25,6 +25,6 @@
 
 // API resources
 - (NSURL *)URLForEvents;
-- (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size;;
+- (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size;
 
 @end

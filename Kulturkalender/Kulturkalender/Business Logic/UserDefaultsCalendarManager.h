@@ -13,4 +13,11 @@
 
 - (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults calendarStore:(EKEventStore *)calendarStore;
 
+- (void)save;
+
+// Defaults
+- (void)registerDefaultAutoAddFavorites:(BOOL)autoAddFavorites;
+- (void)registerDefaultDefaultCalendarIdentifier:(NSString *)defaultCalendarIdentifier;
+- (void)registerDefaultDefaultAlertTimeInterval:(NSTimeInterval)defaultAlertTimeInterval;
+
 @end

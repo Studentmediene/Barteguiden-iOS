@@ -130,8 +130,11 @@
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
 		69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */; };
 		69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */; };
-		69D7FC50161DF10900E38D56 /* MyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC4F161DF10900E38D56 /* MyPageViewController.m */; };
+		69D7FC50161DF10900E38D56 /* MyFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC4F161DF10900E38D56 /* MyFilterViewController.m */; };
 		69DCD8ED165729A800A6E6A8 /* EventAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCD8EC165729A800A6E6A8 /* EventAnnotation.m */; };
+		69F0E6F1173437DB0001DDD7 /* CalendarManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F0E6EF173437B10001DDD7 /* CalendarManagerTests.m */; };
+		69F0E6F2173440D20001DDD7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AA31608E70F0045B6F6 /* CoreData.framework */; };
+		69F0E6F3173440DB0001DDD7 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B860DE168E6CEB002936B4 /* EventKit.framework */; };
 		69F52A9E1608E70F0045B6F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9D1608E70F0045B6F6 /* UIKit.framework */; };
 		69F52AA01608E70F0045B6F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9F1608E70F0045B6F6 /* Foundation.framework */; };
 		69F52AA21608E70F0045B6F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AA11608E70F0045B6F6 /* CoreGraphics.framework */; };
@@ -146,7 +149,6 @@
 		69F52AC11608E70F0045B6F6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AC01608E70F0045B6F6 /* SenTestingKit.framework */; };
 		69F52AC21608E70F0045B6F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9D1608E70F0045B6F6 /* UIKit.framework */; };
 		69F52AC31608E70F0045B6F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9F1608E70F0045B6F6 /* Foundation.framework */; };
-		69F52AC41608E70F0045B6F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AA31608E70F0045B6F6 /* CoreData.framework */; };
 		69F52ACC1608E70F0045B6F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ACA1608E70F0045B6F6 /* InfoPlist.strings */; };
 		69F52ADB1608E7E20045B6F6 /* Kulturkalender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */; };
 		69F71BDF1716458900DB1C23 /* Favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F71BDB1716458900DB1C23 /* Favorites.png */; };
@@ -341,10 +343,11 @@
 		69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedViewController.m; sourceTree = "<group>"; };
 		69D7FC41161B57CF00E38D56 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
-		69D7FC4E161DF10900E38D56 /* MyPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageViewController.h; sourceTree = "<group>"; };
-		69D7FC4F161DF10900E38D56 /* MyPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageViewController.m; sourceTree = "<group>"; };
+		69D7FC4E161DF10900E38D56 /* MyFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFilterViewController.h; sourceTree = "<group>"; };
+		69D7FC4F161DF10900E38D56 /* MyFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFilterViewController.m; sourceTree = "<group>"; };
 		69DCD8EB165729A800A6E6A8 /* EventAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAnnotation.h; sourceTree = "<group>"; };
 		69DCD8EC165729A800A6E6A8 /* EventAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAnnotation.m; sourceTree = "<group>"; };
+		69F0E6EF173437B10001DDD7 /* CalendarManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarManagerTests.m; sourceTree = "<group>"; };
 		69F52A991608E70F0045B6F6 /* Barteguiden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barteguiden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F52A9D1608E70F0045B6F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		69F52A9F1608E70F0045B6F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -398,11 +401,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69F0E6F3173440DB0001DDD7 /* EventKit.framework in Frameworks */,
 				69F52AC11608E70F0045B6F6 /* SenTestingKit.framework in Frameworks */,
 				69F52AC21608E70F0045B6F6 /* UIKit.framework in Frameworks */,
 				69F52AC31608E70F0045B6F6 /* Foundation.framework in Frameworks */,
 				69C7EF4B16DB3DD50013D370 /* CoreGraphics.framework in Frameworks */,
-				69F52AC41608E70F0045B6F6 /* CoreData.framework in Frameworks */,
+				69F0E6F2173440D20001DDD7 /* CoreData.framework in Frameworks */,
 				EBD4B6477A3C4659A2CDD51C /* libPods-KulturkalenderTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,8 +443,8 @@
 		693EF27616123B4B00D10C03 /* My Filter Tab */ = {
 			isa = PBXGroup;
 			children = (
-				69D7FC4E161DF10900E38D56 /* MyPageViewController.h */,
-				69D7FC4F161DF10900E38D56 /* MyPageViewController.m */,
+				69D7FC4E161DF10900E38D56 /* MyFilterViewController.h */,
+				69D7FC4F161DF10900E38D56 /* MyFilterViewController.m */,
 				6956C67416419E5300E10586 /* FilterViewController.h */,
 				6956C67516419E5300E10586 /* FilterViewController.m */,
 			);
@@ -548,14 +552,14 @@
 			name = "Tab Bar";
 			sourceTree = "<group>";
 		};
-		69B43FE316E6908900AA6850 /* SettingsManager */ = {
+		69B43FE316E6908900AA6850 /* CalendarManager */ = {
 			isa = PBXGroup;
 			children = (
 				69C6F907173430AA00568238 /* CalendarManager.h */,
 				69C6F9031734282000568238 /* UserDefaultsCalendarManager.h */,
 				69C6F9041734282000568238 /* UserDefaultsCalendarManager.m */,
 			);
-			name = SettingsManager;
+			name = CalendarManager;
 			sourceTree = "<group>";
 		};
 		69B7815116C1DC1A00ADD13A /* EventKitUI */ = {
@@ -808,7 +812,8 @@
 			isa = PBXGroup;
 			children = (
 				69C37D7C169FFF43009631DF /* EventKit */,
-				69C37D79169FF54A009631DF /* FilterManagerTests.m */,
+				69F0E6F417344DD50001DDD7 /* FilterManager */,
+				69F0E6F517344DE20001DDD7 /* CalendarManager */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -836,6 +841,22 @@
 				6956C67916422A0500E10586 /* SettingsViewController.m */,
 			);
 			name = "Settings Tab";
+			sourceTree = "<group>";
+		};
+		69F0E6F417344DD50001DDD7 /* FilterManager */ = {
+			isa = PBXGroup;
+			children = (
+				69C37D79169FF54A009631DF /* FilterManagerTests.m */,
+			);
+			name = FilterManager;
+			sourceTree = "<group>";
+		};
+		69F0E6F517344DE20001DDD7 /* CalendarManager */ = {
+			isa = PBXGroup;
+			children = (
+				69F0E6EF173437B10001DDD7 /* CalendarManagerTests.m */,
+			);
+			name = CalendarManager;
 			sourceTree = "<group>";
 		};
 		69F52A8E1608E70F0045B6F6 = {
@@ -944,7 +965,7 @@
 			children = (
 				69C37D7B169FFAE7009631DF /* EventKit */,
 				69C37D8016A037C3009631DF /* FilterManager */,
-				69B43FE316E6908900AA6850 /* SettingsManager */,
+				69B43FE316E6908900AA6850 /* CalendarManager */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -1173,7 +1194,7 @@
 				69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */,
 				69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */,
 				69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */,
-				69D7FC50161DF10900E38D56 /* MyPageViewController.m in Sources */,
+				69D7FC50161DF10900E38D56 /* MyFilterViewController.m in Sources */,
 				698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */,
 				698F87191624A182001B9090 /* Event.m in Sources */,
 				69AEFE3A1624E7AB009F3567 /* EventFormatter+TableView.m in Sources */,
@@ -1223,6 +1244,7 @@
 				69C37D8616A0445A009631DF /* EventMock.m in Sources */,
 				69C37D8E16A81230009631DF /* RIOClassifierTests.m in Sources */,
 				69C7EF5716DDBA3A0013D370 /* EventStoreCommunicatorMock.m in Sources */,
+				69F0E6F1173437DB0001DDD7 /* CalendarManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

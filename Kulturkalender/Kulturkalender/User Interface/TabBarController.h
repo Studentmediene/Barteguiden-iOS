@@ -10,10 +10,12 @@
 
 @protocol EventStore;
 @protocol FilterManager;
+@protocol CalendarManager;
 
 @interface TabBarController : UITabBarController
 
 @property (nonatomic, strong) id<EventStore> eventStore;
 @property (nonatomic, strong) id<FilterManager> filterManager;
+@property (nonatomic, strong) id<CalendarManager> calendarManager;
 
 @end

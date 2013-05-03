@@ -13,7 +13,7 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/KSReachability/reachabilityToHost:</TokenIdentifier>
-			<Abstract>Reachability to a specific host.</Abstract>
+			<Abstract>Reachability to a specific host. Returns nil if an initialization error occurs.</Abstract>
 			<DeclaredIn>KSReachability.h</DeclaredIn>			
 			
 			<Declaration>+ (KSReachability *)reachabilityToHost:(NSString *)hostname</Declaration>
@@ -30,7 +30,7 @@ empty string, check reachability to the internet in general.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/KSReachability/reachabilityToLocalNetwork</TokenIdentifier>
-			<Abstract>Reachability to the local (wired or wifi) network.</Abstract>
+			<Abstract>Reachability to the local (wired or wifi) network. Returns nil if an initialization error occurs.</Abstract>
 			<DeclaredIn>KSReachability.h</DeclaredIn>			
 			
 			<Declaration>+ (KSReachability *)reachabilityToLocalNetwork</Declaration>
@@ -51,12 +51,26 @@ empty string, check reachability to the internet in general.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/KSReachability/onInitializationComplete</TokenIdentifier>
+			<Abstract>If non-nil, called when the KSReachability object has finished initializing.
+If initialization has already completed, calls on the next main thread run loop.
+This block will only be called once, and then discarded (released).
+Block will be invoked on the main thread.</Abstract>
+			<DeclaredIn>KSReachability.h</DeclaredIn>			
+			
+			<Declaration>@property (atomic, readwrite, copy) KSReachabilityCallback onInitializationComplete</Declaration>
+			
+			
+			<Anchor>//api/name/onInitializationComplete</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/KSReachability/onReachabilityChanged</TokenIdentifier>
 			<Abstract>If non-nil, called whenever reachability flags change.
 Block will be invoked on the main thread.</Abstract>
 			<DeclaredIn>KSReachability.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, readwrite, copy) void ( ^ onReachabilityChanged ) ( KSReachability *reachability ) onReachabilityChanged</Declaration>
+			<Declaration>@property (atomic, readwrite, copy) KSReachabilityCallback onReachabilityChanged</Declaration>
 			
 			
 			<Anchor>//api/name/onReachabilityChanged</Anchor>
@@ -76,7 +90,8 @@ Default = nil</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/KSReachability/flags</TokenIdentifier>
-			<Abstract>The current reachability flags.</Abstract>
+			<Abstract>The current reachability flags.
+This property will always report 0 while "initialized" property = NO.</Abstract>
 			<DeclaredIn>KSReachability.h</DeclaredIn>			
 			
 			<Declaration>@property (nonatomic, readonly, assign) SCNetworkReachabilityFlags flags</Declaration>
@@ -87,7 +102,8 @@ Default = nil</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/KSReachability/reachable</TokenIdentifier>
-			<Abstract>Whether the host is reachable or not.</Abstract>
+			<Abstract>Whether the host is reachable or not.
+This property will always report NO while "initialized" property = NO.</Abstract>
 			<DeclaredIn>KSReachability.h</DeclaredIn>			
 			
 			<Declaration>@property (nonatomic, readonly, assign) BOOL reachable</Declaration>
@@ -108,15 +124,14 @@ Default = nil</Abstract>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/KSReachability/updateFlags</TokenIdentifier>
-			<Abstract>Force updating of the reachability flags.
-This method will potentially block.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instp/KSReachability/initialized</TokenIdentifier>
+			<Abstract>If YES, this object's status properties are valid.</Abstract>
 			<DeclaredIn>KSReachability.h</DeclaredIn>			
 			
-			<Declaration>- (BOOL)updateFlags</Declaration>
+			<Declaration>@property (atomic, readonly, assign) BOOL initialized</Declaration>
 			
-			<ReturnValue><Abstract>YES if the flags were successfully updated.</Abstract></ReturnValue>
-			<Anchor>//api/name/updateFlags</Anchor>
+			
+			<Anchor>//api/name/initialized</Anchor>
 		</Token>
 		
 	</File>

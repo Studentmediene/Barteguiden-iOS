@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "MyPageViewController.h"
+#import "MyFilterViewController.h"
 #import "EventKit.h"
 #import "UserDefaultsFilterManager.h"
 #import "FilterViewController.h"
@@ -15,7 +15,7 @@
 static NSString * kFilterSegue = @"FilterSegue";
 
 
-@implementation MyPageViewController
+@implementation MyFilterViewController
 
 - (void)viewDidLoad
 {

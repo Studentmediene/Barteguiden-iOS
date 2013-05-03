@@ -10,7 +10,7 @@
 
 @protocol FilterManager;
 
-@interface MyPageViewController : AbstractEventsViewController
+@interface MyFilterViewController : AbstractEventsViewController
 
 @property (nonatomic, strong) id<FilterManager> filterManager;
 

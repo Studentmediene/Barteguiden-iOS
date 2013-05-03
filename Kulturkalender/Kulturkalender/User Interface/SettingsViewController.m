@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "CalendarManager.h"
 
 
 @implementation SettingsViewController
@@ -14,8 +15,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    self.calendarStore = [[EKEventStore alloc] init]; // TODO: Inject instead?
+    [self updateViewInfo];
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,8 +38,9 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
     if (cell == self.defaultCalendarCell) {
-        EKCalendarChooser *calendarChooser = [[EKCalendarChooser alloc] initWithSelectionStyle:EKCalendarChooserSelectionStyleSingle displayStyle:EKCalendarChooserDisplayWritableCalendarsOnly entityType:EKEntityTypeEvent eventStore:self.calendarStore];
-        calendarChooser.selectedCalendars = [NSSet setWithObject:[self.calendarStore defaultCalendarForNewEvents]];
+        EKCalendarChooser *calendarChooser = [[EKCalendarChooser alloc] initWithSelectionStyle:EKCalendarChooserSelectionStyleSingle displayStyle:EKCalendarChooserDisplayWritableCalendarsOnly entityType:EKEntityTypeEvent eventStore:self.calendarManager.calendarStore];
+        calendarChooser.delegate = self;
+        calendarChooser.selectedCalendars = [NSSet setWithObject:[self.calendarManager defaultCalendar]];
         calendarChooser.title = NSLocalizedString(@"Default Calendar", nil);
         [self.navigationController pushViewController:calendarChooser animated:YES];
     }
@@ -68,12 +75,30 @@
     }
 }
 
+#pragma mark - EKCalendarChooserDelegate
+
+- (void)calendarChooserSelectionDidChange:(EKCalendarChooser *)calendarChooser
+{
+    EKCalendar *selectedCalendar = [calendarChooser.selectedCalendars anyObject];
+    [self.calendarManager setDefaultCalendar:selectedCalendar];
+}
+
 
 #pragma mark - MFMailComposeViewControllerDelegate
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+#pragma mark - Private methods
+
+- (void)updateViewInfo
+{
+    self.autoAddFavoritesSwitch.on = YES;
+    self.defaultCalendarLabel.text = [[self.calendarManager defaultCalendar] title];
+    self.defaultAlertLabel.text = [[self.calendarManager defaultAlert] description];
 }
 
 @end

@@ -32,18 +32,27 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/reachability">&nbsp;&nbsp;&nbsp;&nbsp;reachability</option>
+	
+	
 	
 	
 	<option value="class_methods">Class Methods</option>
 	
-	<option value="//api/name/operationWithHost:allowWWAN:block:">&nbsp;&nbsp;&nbsp;&nbsp;+ operationWithHost:allowWWAN:block:</option>
+	<option value="//api/name/operationWithHost:allowWWAN:onReachabilityAchieved:">&nbsp;&nbsp;&nbsp;&nbsp;+ operationWithHost:allowWWAN:onReachabilityAchieved:</option>
+	
+	<option value="//api/name/operationWithReachability:allowWWAN:onReachabilityAchieved:">&nbsp;&nbsp;&nbsp;&nbsp;+ operationWithReachability:allowWWAN:onReachabilityAchieved:</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithHost:allowWWAN:block:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithHost:allowWWAN:block:</option>
+	<option value="//api/name/initWithHost:allowWWAN:onReachabilityAchieved:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithHost:allowWWAN:onReachabilityAchieved:</option>
+	
+	<option value="//api/name/initWithReachability:allowWWAN:onReachabilityAchieved:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithReachability:allowWWAN:onReachabilityAchieved:</option>
 	
 	
 	
@@ -67,11 +76,19 @@
 
 
 
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/reachability">reachability</a></span></li>
+	
+</ul></li>
+
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/operationWithHost:allowWWAN:block:">operationWithHost:allowWWAN:block:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/operationWithHost:allowWWAN:onReachabilityAchieved:">operationWithHost:allowWWAN:onReachabilityAchieved:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/operationWithReachability:allowWWAN:onReachabilityAchieved:">operationWithReachability:allowWWAN:onReachabilityAchieved:</a></span></li>
 	
 </ul></li>
 
@@ -79,7 +96,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithHost:allowWWAN:block:">initWithHost:allowWWAN:block:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithHost:allowWWAN:onReachabilityAchieved:">initWithHost:allowWWAN:onReachabilityAchieved:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithReachability:allowWWAN:onReachabilityAchieved:">initWithReachability:allowWWAN:onReachabilityAchieved:</a></span></li>
 	
 </ul></li>
 
@@ -138,17 +157,38 @@ host becomes reachable.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/operationWithHost:allowWWAN:block:">+&nbsp;operationWithHost:allowWWAN:block:</a></code>
-		<span class="tooltip"><p>Constructor.</p></span>
+		<code><a href="#//api/name/operationWithHost:allowWWAN:onReachabilityAchieved:">+&nbsp;operationWithHost:allowWWAN:onReachabilityAchieved:</a></code>
+		<span class="tooltip"><p>Constructor. Returns nil if an initialization error occurs.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithHost:allowWWAN:block:">&ndash;&nbsp;initWithHost:allowWWAN:block:</a></code>
-		<span class="tooltip"><p>Constructor.</p></span>
+		<code><a href="#//api/name/operationWithReachability:allowWWAN:onReachabilityAchieved:">+&nbsp;operationWithReachability:allowWWAN:onReachabilityAchieved:</a></code>
+		<span class="tooltip"><p>Constructor. Returns nil if an initialization error occurs.</p></span>
 	</span>
 	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithHost:allowWWAN:onReachabilityAchieved:">&ndash;&nbsp;initWithHost:allowWWAN:onReachabilityAchieved:</a></code>
+		<span class="tooltip"><p>Initializer. Returns nil if an initialization error occurs.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithReachability:allowWWAN:onReachabilityAchieved:">&ndash;&nbsp;initWithReachability:allowWWAN:onReachabilityAchieved:</a></code>
+		<span class="tooltip"><p>Initializer. Returns nil if an initialization error occurs.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reachability">&nbsp;&nbsp;reachability</a></code>
+		<span class="tooltip"><p>Access to internal <a href="#//api/name/reachability">reachability</a> instance. Use this to monitor for errors.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
 	
 </li>
 						</ul>
@@ -159,6 +199,49 @@ host becomes reachable.</p>
 					
 					
 					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/reachability" title="reachability"></a>
+	<h3 class="subsubtitle method-title">reachability</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Access to internal <a href="#//api/name/reachability">reachability</a> instance. Use this to monitor for errors.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, retain) KSReachability *reachability</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Access to internal <a href="#//api/name/reachability">reachability</a> instance. Use this to monitor for errors.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">KSReachability.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
 					
 					
 					<div class="section section-methods">
@@ -166,17 +249,17 @@ host becomes reachable.</p>
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/operationWithHost:allowWWAN:block:" title="operationWithHost:allowWWAN:block:"></a>
-	<h3 class="subsubtitle method-title">operationWithHost:allowWWAN:block:</h3>
+	<a name="//api/name/operationWithHost:allowWWAN:onReachabilityAchieved:" title="operationWithHost:allowWWAN:onReachabilityAchieved:"></a>
+	<h3 class="subsubtitle method-title">operationWithHost:allowWWAN:onReachabilityAchieved:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Constructor.</p>
+		<p>Constructor. Returns nil if an initialization error occurs.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>+ (KSReachableOperation *)operationWithHost:(NSString *)<em>hostname</em> allowWWAN:(BOOL)<em>allowWWAN</em> block:(void ( ^ ) ( ))<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (KSReachableOperation *)operationWithHost:(NSString *)<em>hostname</em> allowWWAN:(BOOL)<em>allowWWAN</em> onReachabilityAchieved:(dispatch_block_t)<em>onReachabilityAchieved</em></code></div>
 	
 	
 	<div class="method-subsection arguments-section parameters">
@@ -185,7 +268,7 @@ host becomes reachable.</p>
 		<dl class="argument-def parameter-def">
 			<dt><em>hostname</em></dt>
 			<dd><p>The name or IP address of the host to monitor. If nil or
-empty string, check reachability to the internet in general.
+empty string, check <a href="#//api/name/reachability">reachability</a> to the internet in general.
 If hostname is a URL string, it will use the host portion.</p></dd>
 		</dl>
 		
@@ -196,8 +279,10 @@ this operation.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>block</em></dt>
-			<dd><p>The block to invoke when the host becomes reachable.
+			<dt><em>onReachabilityAchieved</em></dt>
+			<dd><p>Invoke when the host becomes reachable.
+This will be invoked ONE TIME ONLY, no matter
+how many times <a href="#//api/name/reachability">reachability</a> changes.
 Block will be invoked on the main thread.</p></dd>
 		</dl>
 		
@@ -209,7 +294,69 @@ Block will be invoked on the main thread.</p></dd>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Constructor.</p>
+		<p>Constructor. Returns nil if an initialization error occurs.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">KSReachability.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/operationWithReachability:allowWWAN:onReachabilityAchieved:" title="operationWithReachability:allowWWAN:onReachabilityAchieved:"></a>
+	<h3 class="subsubtitle method-title">operationWithReachability:allowWWAN:onReachabilityAchieved:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Constructor. Returns nil if an initialization error occurs.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (KSReachableOperation *)operationWithReachability:(KSReachability *)<em>reachability</em> allowWWAN:(BOOL)<em>allowWWAN</em> onReachabilityAchieved:(dispatch_block_t)<em>onReachabilityAchieved</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>reachability</em></dt>
+			<dd><p>A <a href="#//api/name/reachability">reachability</a> instance. Note: This object will overwrite
+the onReachabilityChanged property.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>allowWWAN</em></dt>
+			<dd><p>If NO, a WWAN-only connection is not enough to trigger
+this operation.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>onReachabilityAchieved</em></dt>
+			<dd><p>Invoke when the host becomes reachable.
+This will be invoked ONE TIME ONLY, no matter
+how many times <a href="#//api/name/reachability">reachability</a> changes.
+Block will be invoked on the main thread.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Constructor. Returns nil if an initialization error occurs.</p>
 	</div>
 	
 	
@@ -235,17 +382,17 @@ Block will be invoked on the main thread.</p></dd>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithHost:allowWWAN:block:" title="initWithHost:allowWWAN:block:"></a>
-	<h3 class="subsubtitle method-title">initWithHost:allowWWAN:block:</h3>
+	<a name="//api/name/initWithHost:allowWWAN:onReachabilityAchieved:" title="initWithHost:allowWWAN:onReachabilityAchieved:"></a>
+	<h3 class="subsubtitle method-title">initWithHost:allowWWAN:onReachabilityAchieved:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Constructor.</p>
+		<p>Initializer. Returns nil if an initialization error occurs.</p>
 	</div>		
 	
 	
-	<div class="method-subsection method-declaration"><code>- (id)initWithHost:(NSString *)<em>hostname</em> allowWWAN:(BOOL)<em>allowWWAN</em> block:(void ( ^ ) ( ))<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithHost:(NSString *)<em>hostname</em> allowWWAN:(BOOL)<em>allowWWAN</em> onReachabilityAchieved:(dispatch_block_t)<em>onReachabilityAchieved</em></code></div>
 	
 	
 	<div class="method-subsection arguments-section parameters">
@@ -254,7 +401,7 @@ Block will be invoked on the main thread.</p></dd>
 		<dl class="argument-def parameter-def">
 			<dt><em>hostname</em></dt>
 			<dd><p>The name or IP address of the host to monitor. If nil or
-empty string, check reachability to the internet in general.
+empty string, check <a href="#//api/name/reachability">reachability</a> to the internet in general.
 If hostname is a URL string, it will use the host portion.</p></dd>
 		</dl>
 		
@@ -265,8 +412,10 @@ this operation.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>block</em></dt>
-			<dd><p>The block to invoke when the host becomes reachable.
+			<dt><em>onReachabilityAchieved</em></dt>
+			<dd><p>Invoke when the host becomes reachable.
+This will be invoked ONE TIME ONLY, no matter
+how many times <a href="#//api/name/reachability">reachability</a> changes.
 Block will be invoked on the main thread.</p></dd>
 		</dl>
 		
@@ -278,7 +427,69 @@ Block will be invoked on the main thread.</p></dd>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Constructor.</p>
+		<p>Initializer. Returns nil if an initialization error occurs.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">KSReachability.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithReachability:allowWWAN:onReachabilityAchieved:" title="initWithReachability:allowWWAN:onReachabilityAchieved:"></a>
+	<h3 class="subsubtitle method-title">initWithReachability:allowWWAN:onReachabilityAchieved:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializer. Returns nil if an initialization error occurs.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (id)initWithReachability:(KSReachability *)<em>reachability</em> allowWWAN:(BOOL)<em>allowWWAN</em> onReachabilityAchieved:(dispatch_block_t)<em>onReachabilityAchieved</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>reachability</em></dt>
+			<dd><p>A <a href="#//api/name/reachability">reachability</a> instance. Note: This object will overwrite
+the onReachabilityChanged property.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>allowWWAN</em></dt>
+			<dd><p>If NO, a WWAN-only connection is not enough to trigger
+this operation.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>onReachabilityAchieved</em></dt>
+			<dd><p>Invoke when the host becomes reachable.
+This will be invoked ONE TIME ONLY, no matter
+how many times <a href="#//api/name/reachability">reachability</a> changes.
+Block will be invoked on the main thread.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializer. Returns nil if an initialization error occurs.</p>
 	</div>
 	
 	
@@ -308,7 +519,7 @@ Block will be invoked on the main thread.</p></dd>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 Karl Stenerud. All rights reserved. (Last updated: 2012-11-24)</span><br />
+						<p><span class="copyright">&copy; 2013 Karl Stenerud. All rights reserved. (Last updated: 2013-05-03)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.4 (build 703)</a>.</span></p>
 						

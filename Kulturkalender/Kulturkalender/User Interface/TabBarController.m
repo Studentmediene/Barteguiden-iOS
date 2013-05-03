@@ -7,12 +7,15 @@
 //
 
 #import "TabBarController.h"
-#import "EventKit.h"
 
-#import "UserDefaultsFilterManager.h"
+#import "EventKit.h"
+#import "FilterManager.h"
+#import "CalendarManager.h"
+
 #import "AbstractEventsViewController.h"
-#import "MyPageViewController.h"
+#import "MyFilterViewController.h"
 #import "EventsSearchDisplayController.h"
+#import "SettingsViewController.h"
 
 @implementation TabBarController
 
@@ -34,9 +37,14 @@
             eventsSearchDisplayController.eventStore = self.eventStore;
         }
         
-        if ([rootViewController isKindOfClass:[MyPageViewController class]]) {
-            MyPageViewController *myPageViewController = (MyPageViewController *)rootViewController;
-            myPageViewController.filterManager = self.filterManager;
+        if ([rootViewController isKindOfClass:[MyFilterViewController class]]) {
+            MyFilterViewController *myFilterViewController = (MyFilterViewController *)rootViewController;
+            myFilterViewController.filterManager = self.filterManager;
+        }
+        
+        if ([rootViewController isKindOfClass:[SettingsViewController class]]) {
+            SettingsViewController *settingsViewController = (SettingsViewController *)rootViewController;
+            settingsViewController.calendarManager = self.calendarManager;
         }
     }
 }

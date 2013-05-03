@@ -444,10 +444,10 @@
             </objects>
             <point key="canvasLocation" x="1272" y="953"/>
         </scene>
-        <!--My Page View Controller - My Filter-->
+        <!--My Filter View Controller - My Filter-->
         <scene sceneID="HSU-UA-U5r">
             <objects>
-                <tableViewController id="tvS-YH-KEM" customClass="MyPageViewController" sceneMemberID="viewController">
+                <tableViewController id="tvS-YH-KEM" customClass="MyFilterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9cF-iU-uVm">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -862,8 +862,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="7UV-An-iUA"/>
                     <connections>
+                        <outlet property="autoAddFavoritesSwitch" destination="gzC-MT-QOy" id="vqX-qS-0ZK"/>
                         <outlet property="defaultAlertCell" destination="G9M-eV-VMJ" id="VMc-Vb-HjP"/>
+                        <outlet property="defaultAlertLabel" destination="C15-cN-xtE" id="UEW-W7-YgZ"/>
                         <outlet property="defaultCalendarCell" destination="wtC-2X-hoJ" id="BfV-3g-ivE"/>
+                        <outlet property="defaultCalendarLabel" destination="Mq3-IT-EsE" id="pF0-yZ-iXs"/>
                         <outlet property="sendUsYourTipsCell" destination="bEB-qN-nOC" id="BUv-FF-0fd"/>
                     </connections>
                 </tableViewController>
@@ -1148,8 +1151,8 @@
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
-        <class className="MyPageViewController" superclassName="AbstractEventsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyPageViewController.h"/>
+        <class className="MyFilterViewController" superclassName="AbstractEventsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyFilterViewController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -1158,8 +1161,11 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="sendUsYourTips:"/>
+                <relationship kind="outlet" name="autoAddFavoritesSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="defaultAlertCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="defaultAlertLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="defaultCalendarCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="defaultCalendarLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sendUsYourTipsCell" candidateClass="UITableViewCell"/>
             </relationships>
         </class>

@@ -7,9 +7,15 @@
 //
 
 #import "AppDelegate.h"
+
 #import <CoreData/CoreData.h>
 #import "CoreDataEventStore.h"
+
 #import "UserDefaultsFilterManager.h"
+
+#import <EventKit/EventKit.h>
+#import "UserDefaultsCalendarManager.h"
+
 #import "TabBarController.h"
 
 
@@ -19,22 +25,24 @@
 {
     [self setUpStyles];
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
     // Event store
     self.eventStore = [[CoreDataEventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidFailNotification:) name:EventStoreDidFailNotification object:self.eventStore];
     
     // Filter manager
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     self.filterManager = [[UserDefaultsFilterManager alloc] initWithUserDefaults:userDefaults eventStore:self.eventStore];
-    [self.filterManager registerDefaultSelectedCategoryIDs:CategoryFilterShowAllEvents];
-    [self.filterManager registerDefaultAgeLimitFilter:AgeLimitFilterShowAllEvents];
-    [self.filterManager registerDefaultMyAge:0];
-    [self.filterManager registerDefaultPriceFilter:PriceFilterShowAllEvents];
+    
+    // Calendar manager
+    EKEventStore *calendarStore = [[EKEventStore alloc] init];
+    self.calendarManager = [[UserDefaultsCalendarManager alloc] initWithUserDefaults:userDefaults calendarStore:calendarStore];
     
     // Inject dependencies
     TabBarController *tabBarController = (TabBarController *)self.window.rootViewController;
     tabBarController.eventStore = self.eventStore;
     tabBarController.filterManager = self.filterManager;
+    tabBarController.calendarManager = self.calendarManager;
     
     return YES;
 }

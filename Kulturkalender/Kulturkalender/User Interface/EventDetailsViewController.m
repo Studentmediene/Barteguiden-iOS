@@ -67,7 +67,10 @@ static CGSize const kThumbnailSize = {320, 200};
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
+}
+
+- (void)dealloc
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:EventStoreChangedNotification object:self.eventStore];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:EKEventStoreChangedNotification object:self.calendarStore];
 }
