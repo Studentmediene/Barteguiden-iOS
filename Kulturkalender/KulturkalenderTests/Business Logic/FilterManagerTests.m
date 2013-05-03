@@ -7,7 +7,7 @@
 //
 
 // Class under test
-#import "FilterManager.h"
+#import "UserDefaultsFilterManager.h"
 
 // Collaborators
 
@@ -25,14 +25,14 @@
 
 
 @implementation FilterManagerTests {
-    FilterManager *filterManager;
+    UserDefaultsFilterManager *filterManager;
     NSUserDefaults *userDefaultsMock;
 }
 
 - (void)setUp
 {
     userDefaultsMock = mock([NSUserDefaults class]);
-    filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaultsMock eventStore:nil];
+    filterManager = [[UserDefaultsFilterManager alloc] initWithUserDefaults:userDefaultsMock eventStore:nil];
 }
  
 - (void)tearDown

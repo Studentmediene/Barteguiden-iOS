@@ -7,7 +7,7 @@
 //
 
 #import "FilterViewController.h"
-#import "FilterManager.h"
+#import "UserDefaultsFilterManager.h"
 #import "EventKitUI.h"
 
 

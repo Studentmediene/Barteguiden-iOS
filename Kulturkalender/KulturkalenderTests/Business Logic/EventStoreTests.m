@@ -8,7 +8,7 @@
 
 // TODO: Fix imports
 // Class under test
-#import "EventStore.h"
+#import "CoreDataEventStore.h"
 
 // Collaborators
 #import "Event.h"
@@ -23,7 +23,7 @@
 @end
 
 @implementation EventStoreTests {
-    EventStore *_eventStore;
+    CoreDataEventStore *_eventStore;
 }
 
 - (void)setUp
@@ -63,7 +63,7 @@
 - (void)testNilPredicateShouldMatchAllEvents
 {
     NSArray *result = [_eventStore eventsMatchingPredicate:nil error:NULL];
-    STAssertEquals(result.count, 4U, @"Incorrect number of events.");
+    STAssertEquals(result.count, 5U, @"Incorrect number of events.");
 }
 
 // TODO: Move to EventTests? Rename?
@@ -79,7 +79,7 @@
 
 - (void)setUpEventStore
 {
-    _eventStore = [[EventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
+    _eventStore = [[CoreDataEventStore alloc] initWithManagedObjectContext:[self managedObjectContext]];
     EventStoreCommunicator *communicator = [[EventStoreCommunicatorMock alloc] init];
     communicator.delegate = _eventStore;
     _eventStore.communicator = communicator;

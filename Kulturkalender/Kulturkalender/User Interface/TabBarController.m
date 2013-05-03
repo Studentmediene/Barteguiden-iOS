@@ -9,7 +9,7 @@
 #import "TabBarController.h"
 #import "EventKit.h"
 
-#import "FilterManager.h"
+#import "UserDefaultsFilterManager.h"
 #import "AbstractEventsViewController.h"
 #import "MyPageViewController.h"
 #import "EventsSearchDisplayController.h"

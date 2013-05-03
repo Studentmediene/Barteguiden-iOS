@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "FilterManager.h"
+#import "UserDefaultsFilterManager.h"
 
 
 NSString * const kCategoryFilterSelectionKey = @"CategoryFilterSelection";
@@ -15,7 +15,7 @@ NSString * const kAgeLimitFilterSelectionKey = @"AgeLimitFilterSelection";
 NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
 
 
-@interface FilterManager ()
+@interface UserDefaultsFilterManager ()
 
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
 @property (nonatomic, strong) id<EventStore> eventStore;
@@ -23,7 +23,7 @@ NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
 @end
 
 
-@implementation FilterManager
+@implementation UserDefaultsFilterManager
 
 - (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults eventStore:(id<EventStore>)eventStore
 {
@@ -199,7 +199,7 @@ NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
 {
     static NSArray *categories = nil;
     if (categories == nil) {
-        categories = @[@(EventCategoryConcerts), @(EventCategoryNightlife), @(EventCategoryTheatre), @(EventCategoryDance), @(EventCategoryArtExhibition), @(EventCategorySports), @(EventCategoryPresentations)];
+        categories = @[@(EventCategoryOther), @(EventCategoryConcerts), @(EventCategoryNightlife), @(EventCategoryTheatre), @(EventCategoryDance), @(EventCategoryArtExhibition), @(EventCategorySports), @(EventCategoryPresentations)];
     }
     
     return categories;

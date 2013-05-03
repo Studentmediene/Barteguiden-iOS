@@ -14,9 +14,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    self.calendarStore = [[EKEventStore alloc] init]; // TODO: Inject instead?
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,7 +31,16 @@
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    if (cell == self.sendUsYourTipsCell) {
+    if (cell == self.defaultCalendarCell) {
+        EKCalendarChooser *calendarChooser = [[EKCalendarChooser alloc] initWithSelectionStyle:EKCalendarChooserSelectionStyleSingle displayStyle:EKCalendarChooserDisplayWritableCalendarsOnly entityType:EKEntityTypeEvent eventStore:self.calendarStore];
+        calendarChooser.selectedCalendars = [NSSet setWithObject:[self.calendarStore defaultCalendarForNewEvents]];
+        calendarChooser.title = NSLocalizedString(@"Default Calendar", nil);
+        [self.navigationController pushViewController:calendarChooser animated:YES];
+    }
+    else if (cell == self.defaultAlertCell) {
+        
+    }
+    else if (cell == self.sendUsYourTipsCell) {
         [self sendUsYourTips:cell];
         
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];

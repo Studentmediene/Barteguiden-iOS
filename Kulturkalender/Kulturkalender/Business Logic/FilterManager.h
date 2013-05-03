@@ -1,15 +1,15 @@
 //
 //  FilterManager.h
-//  Kulturkalender
+//  Barteguiden
 //
-//  Created by Christian Rasmussen on 01.11.12.
-//  Copyright (c) 2012 Under Dusken. All rights reserved.
+//  Created by Christian Rasmussen on 03.05.13.
+//  Copyright (c) 2013 Under Dusken. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef Barteguiden_FilterManager_h
+#define Barteguiden_FilterManager_h
+
 #import "EventKit.h"
-
-@protocol EventStore;
 
 
 typedef NS_OPTIONS(NSUInteger, CategoryFilter) {
@@ -57,17 +57,4 @@ typedef NS_ENUM(NSInteger, PriceFilter) {
 
 @end
 
-
-@interface FilterManager : NSObject <FilterManager>
-
-- (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults eventStore:(id<EventStore>)eventStore;
-
-- (void)save;
-
-// Defaults
-- (void)registerDefaultSelectedCategoryIDs:(CategoryFilter)categoryFilter;
-- (void)registerDefaultAgeLimitFilter:(AgeLimitFilter)ageLimitFilter;
-- (void)registerDefaultMyAge:(NSUInteger)myAge;
-- (void)registerDefaultPriceFilter:(PriceFilter)priceFilter;
-
-@end
+#endif

@@ -8,7 +8,7 @@
 
 #import "MyPageViewController.h"
 #import "EventKit.h"
-#import "FilterManager.h"
+#import "UserDefaultsFilterManager.h"
 #import "FilterViewController.h"
 
 

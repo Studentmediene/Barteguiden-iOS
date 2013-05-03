@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "CoreDataEventKit.h"
-#import "FilterManager.h"
+#import <CoreData/CoreData.h>
+#import "CoreDataEventStore.h"
+#import "UserDefaultsFilterManager.h"
 #import "TabBarController.h"
 
 
@@ -19,12 +20,12 @@
     [self setUpStyles];
     
     // Event store
-    self.eventStore = [[EventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
+    self.eventStore = [[CoreDataEventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidFailNotification:) name:EventStoreDidFailNotification object:self.eventStore];
     
     // Filter manager
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    self.filterManager = [[FilterManager alloc] initWithUserDefaults:userDefaults eventStore:self.eventStore];
+    self.filterManager = [[UserDefaultsFilterManager alloc] initWithUserDefaults:userDefaults eventStore:self.eventStore];
     [self.filterManager registerDefaultSelectedCategoryIDs:CategoryFilterShowAllEvents];
     [self.filterManager registerDefaultAgeLimitFilter:AgeLimitFilterShowAllEvents];
     [self.filterManager registerDefaultMyAge:0];

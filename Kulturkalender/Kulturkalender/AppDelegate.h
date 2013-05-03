@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class EventStore;
-@class FilterManager;
+@class CoreDataEventStore;
+@class UserDefaultsFilterManager;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, strong) EventStore *eventStore;
-@property (nonatomic, strong) FilterManager *filterManager;
+@property (nonatomic, strong) CoreDataEventStore *eventStore;
+@property (nonatomic, strong) UserDefaultsFilterManager *filterManager;
 
 @end

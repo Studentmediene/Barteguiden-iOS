@@ -42,7 +42,7 @@
 		694B5E1816371D3D00631278 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B5E1716371D3D00631278 /* MapKit.framework */; };
 		694B5E1D163720E400631278 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B5E1C163720E300631278 /* CoreLocation.framework */; };
 		694C4E9B16D84960009F787D /* NSArray+RIOClassifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C4E9A16D84960009F787D /* NSArray+RIOClassifier.m */; };
-		69528C0F1643152C00A96B65 /* FilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69528C0E1643152C00A96B65 /* FilterManager.m */; };
+		69528C0F1643152C00A96B65 /* UserDefaultsFilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69528C0E1643152C00A96B65 /* UserDefaultsFilterManager.m */; };
 		6956C67616419E5300E10586 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67516419E5300E10586 /* FilterViewController.m */; };
 		6956C67A16422A0500E10586 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67916422A0500E10586 /* SettingsViewController.m */; };
 		696CB68C16D81ABB0090E7C9 /* EventResultsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 696CB68B16D81ABB0090E7C9 /* EventResultsSection.m */; };
@@ -107,7 +107,7 @@
 		69B9F7611716332000184F5B /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B9F7601716332000184F5B /* HeaderView.m */; };
 		69BA0AD5162F3E13009726E7 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0AD4162F3E13009726E7 /* EventCell.xib */; };
 		69BA0ADC162F4513009726E7 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA0ADB162F4513009726E7 /* EventCell.m */; };
-		69C37BDE168F71C4009631DF /* EventStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BDD168F71C4009631DF /* EventStore.m */; };
+		69C37BDE168F71C4009631DF /* CoreDataEventStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BDD168F71C4009631DF /* CoreDataEventStore.m */; };
 		69C37BE5168F82BC009631DF /* LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BE4168F82BC009631DF /* LocalizedText.m */; };
 		69C37BE8168F82BC009631DF /* LocalizedDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BE7168F82BC009631DF /* LocalizedDescription.m */; };
 		69C37BEB168F82BC009631DF /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BEA168F82BC009631DF /* _Event.m */; };
@@ -123,6 +123,7 @@
 		69C37D8616A0445A009631DF /* EventMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D8516A04458009631DF /* EventMock.m */; };
 		69C37D8E16A81230009631DF /* RIOClassifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37D8D16A81230009631DF /* RIOClassifierTests.m */; };
 		69C491681625F1DE00F28C45 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C491671625F1DE00F28C45 /* EventDetailsViewController.m */; };
+		69C6F9051734282000568238 /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C6F9041734282000568238 /* CalendarManager.m */; };
 		69C7EF4B16DB3DD50013D370 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AA11608E70F0045B6F6 /* CoreGraphics.framework */; };
 		69C7EF5716DDBA3A0013D370 /* EventStoreCommunicatorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C7EF5616DDBA3A0013D370 /* EventStoreCommunicatorMock.m */; };
 		69C9E21B1687C60200D65004 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E21A1687C60200D65004 /* TabBarController.m */; };
@@ -207,8 +208,8 @@
 		694B5E1C163720E300631278 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		694C4E9916D84960009F787D /* NSArray+RIOClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+RIOClassifier.h"; sourceTree = "<group>"; };
 		694C4E9A16D84960009F787D /* NSArray+RIOClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RIOClassifier.m"; sourceTree = "<group>"; };
-		69528C0D1643152C00A96B65 /* FilterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterManager.h; sourceTree = "<group>"; };
-		69528C0E1643152C00A96B65 /* FilterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterManager.m; sourceTree = "<group>"; };
+		69528C0D1643152C00A96B65 /* UserDefaultsFilterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsFilterManager.h; sourceTree = "<group>"; };
+		69528C0E1643152C00A96B65 /* UserDefaultsFilterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsFilterManager.m; sourceTree = "<group>"; };
 		6956C67416419E5300E10586 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		6956C67516419E5300E10586 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		6956C67816422A0500E10586 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -246,7 +247,6 @@
 		69AFC61716C5DB2A0072C7DE /* EventResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventResultsController.h; sourceTree = "<group>"; };
 		69AFC61816C5DB2A0072C7DE /* EventResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResultsController.m; sourceTree = "<group>"; };
 		69AFC61A16C5E0C40072C7DE /* EventResultsControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResultsControllerDelegate.h; sourceTree = "<group>"; };
-		69AFC61B16C6B8E50072C7DE /* CoreDataEventKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataEventKit.h; sourceTree = "<group>"; };
 		69AFC61E16C828D60072C7DE /* EventFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventFormatter.h; sourceTree = "<group>"; };
 		69AFC61F16C828D70072C7DE /* EventFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventFormatter.m; sourceTree = "<group>"; };
 		69B016AC16B0CD87004374DC /* EventProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventProtocol.h; sourceTree = "<group>"; };
@@ -298,8 +298,8 @@
 		69BA0AD4162F3E13009726E7 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		69BA0ADA162F4513009726E7 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
 		69BA0ADB162F4513009726E7 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
-		69C37BDC168F71C4009631DF /* EventStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventStore.h; sourceTree = "<group>"; };
-		69C37BDD168F71C4009631DF /* EventStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStore.m; sourceTree = "<group>"; };
+		69C37BDC168F71C4009631DF /* CoreDataEventStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataEventStore.h; sourceTree = "<group>"; };
+		69C37BDD168F71C4009631DF /* CoreDataEventStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataEventStore.m; sourceTree = "<group>"; };
 		69C37BE1168F77AF009631DF /* EventKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventKit.h; sourceTree = "<group>"; };
 		69C37BE3168F82BC009631DF /* LocalizedText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedText.h; sourceTree = "<group>"; };
 		69C37BE4168F82BC009631DF /* LocalizedText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedText.m; sourceTree = "<group>"; };
@@ -326,6 +326,9 @@
 		69C37D8D16A81230009631DF /* RIOClassifierTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIOClassifierTests.m; sourceTree = "<group>"; };
 		69C491661625F1DE00F28C45 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		69C491671625F1DE00F28C45 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
+		69C6F9031734282000568238 /* CalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarManager.h; sourceTree = "<group>"; };
+		69C6F9041734282000568238 /* CalendarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarManager.m; sourceTree = "<group>"; };
+		69C6F9061734289A00568238 /* FilterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterManager.h; sourceTree = "<group>"; };
 		69C7EF4716DB258E0013D370 /* EventStoreCommunicatorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventStoreCommunicatorDelegate.h; sourceTree = "<group>"; };
 		69C7EF5516DDBA3A0013D370 /* EventStoreCommunicatorMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventStoreCommunicatorMock.h; sourceTree = "<group>"; };
 		69C7EF5616DDBA3A0013D370 /* EventStoreCommunicatorMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreCommunicatorMock.m; sourceTree = "<group>"; };
@@ -432,7 +435,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		693EF27616123B4B00D10C03 /* My Page Tab */ = {
+		693EF27616123B4B00D10C03 /* My Filter Tab */ = {
 			isa = PBXGroup;
 			children = (
 				69D7FC4E161DF10900E38D56 /* MyPageViewController.h */,
@@ -440,7 +443,7 @@
 				6956C67416419E5300E10586 /* FilterViewController.h */,
 				6956C67516419E5300E10586 /* FilterViewController.m */,
 			);
-			name = "My Page Tab";
+			name = "My Filter Tab";
 			sourceTree = "<group>";
 		};
 		6988E1781613907B00C2915A /* Favorites Tab */ = {
@@ -547,6 +550,8 @@
 		69B43FE316E6908900AA6850 /* SettingsManager */ = {
 			isa = PBXGroup;
 			children = (
+				69C6F9031734282000568238 /* CalendarManager.h */,
+				69C6F9041734282000568238 /* CalendarManager.m */,
 			);
 			name = SettingsManager;
 			path = "../../KulturkalenderTests/Business Logic";
@@ -703,9 +708,8 @@
 			isa = PBXGroup;
 			children = (
 				69B016AE16B0CE34004374DC /* Public */,
-				69AFC61B16C6B8E50072C7DE /* CoreDataEventKit.h */,
-				69C37BDC168F71C4009631DF /* EventStore.h */,
-				69C37BDD168F71C4009631DF /* EventStore.m */,
+				69C37BDC168F71C4009631DF /* CoreDataEventStore.h */,
+				69C37BDD168F71C4009631DF /* CoreDataEventStore.m */,
 				69C37D14169BDF62009631DF /* EventStoreCommunicator.h */,
 				69C37D15169BDF62009631DF /* EventStoreCommunicator.m */,
 				69C7EF4716DB258E0013D370 /* EventStoreCommunicatorDelegate.h */,
@@ -730,8 +734,9 @@
 		69C37D8016A037C3009631DF /* FilterManager */ = {
 			isa = PBXGroup;
 			children = (
-				69528C0D1643152C00A96B65 /* FilterManager.h */,
-				69528C0E1643152C00A96B65 /* FilterManager.m */,
+				69C6F9061734289A00568238 /* FilterManager.h */,
+				69528C0D1643152C00A96B65 /* UserDefaultsFilterManager.h */,
+				69528C0E1643152C00A96B65 /* UserDefaultsFilterManager.m */,
 			);
 			name = FilterManager;
 			sourceTree = "<group>";
@@ -791,7 +796,7 @@
 				69B9F7601716332000184F5B /* HeaderView.m */,
 				69D7FC36161B570F00E38D56 /* Featured Tab */,
 				6904F8DA16136D9B00482F13 /* All Tab */,
-				693EF27616123B4B00D10C03 /* My Page Tab */,
+				693EF27616123B4B00D10C03 /* My Filter Tab */,
 				6988E1781613907B00C2915A /* Favorites Tab */,
 				69D7FC47161DF08300E38D56 /* Settings Tab */,
 			);
@@ -1180,10 +1185,10 @@
 				69884B9A163A0D200057D189 /* EventFormatter+LocalizedText.m in Sources */,
 				6956C67616419E5300E10586 /* FilterViewController.m in Sources */,
 				6956C67A16422A0500E10586 /* SettingsViewController.m in Sources */,
-				69528C0F1643152C00A96B65 /* FilterManager.m in Sources */,
+				69528C0F1643152C00A96B65 /* UserDefaultsFilterManager.m in Sources */,
 				69DCD8ED165729A800A6E6A8 /* EventAnnotation.m in Sources */,
 				69C9E21B1687C60200D65004 /* TabBarController.m in Sources */,
-				69C37BDE168F71C4009631DF /* EventStore.m in Sources */,
+				69C37BDE168F71C4009631DF /* CoreDataEventStore.m in Sources */,
 				69C37BE5168F82BC009631DF /* LocalizedText.m in Sources */,
 				69C37BE8168F82BC009631DF /* LocalizedDescription.m in Sources */,
 				69C37BEB168F82BC009631DF /* _Event.m in Sources */,
@@ -1202,6 +1207,7 @@
 				69B1D98B1703D5FE0066B032 /* UIImage+RIOScaleAndCrop.m in Sources */,
 				69B9F7611716332000184F5B /* HeaderView.m in Sources */,
 				697E8F3C1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m in Sources */,
+				69C6F9051734282000568238 /* CalendarManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1259,7 +1265,6 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1274,7 +1279,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1289,7 +1293,6 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1298,7 +1301,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1337,7 +1339,6 @@
 					"-Wall",
 					"-Wextra",
 					"-Wno-unused-parameter",
-					"-DNS_BLOCK_ASSERTIONS=1",
 				);
 				PRODUCT_NAME = Barteguiden;
 				SDKROOT = iphoneos;

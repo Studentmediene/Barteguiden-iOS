@@ -24,7 +24,7 @@
     }
 }
 
-- (NSURL *)URLForEventChangesSince:(NSDate *)since
+- (NSURL *)URLForEvents
 {
     return [[NSBundle mainBundle] URLForResource:@"Example" withExtension:@"json"]; // TODO: Use correct file
 }

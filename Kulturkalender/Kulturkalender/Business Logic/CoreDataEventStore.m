@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#import "EventStore.h"
+#import "CoreDataEventStore.h"
 #import <CoreData/CoreData.h>
 #import "Event.h"
 #import "EventStoreCommunicator.h"
@@ -37,14 +37,14 @@ static NSString * const kURLKey = @"eventURL";
 static NSString * const kCalendarEventIDKey = @"calendarEventID";
 
 
-@interface EventStore ()
+@interface CoreDataEventStore ()
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
 
-@implementation EventStore
+@implementation CoreDataEventStore
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {

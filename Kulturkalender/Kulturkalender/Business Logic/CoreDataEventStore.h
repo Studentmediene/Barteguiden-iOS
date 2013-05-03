@@ -17,7 +17,7 @@
 @class EventStoreCommunicator;
 @class EventBuilder;
 
-@interface EventStore : NSObject <EventStore, EventDelegate, EventStoreCommunicatorDelegate>
+@interface CoreDataEventStore : NSObject <EventStore, EventDelegate, EventStoreCommunicatorDelegate>
 
 @property (nonatomic, strong) EventStoreCommunicator *communicator;
 @property (nonatomic, strong) EventBuilder *builder;
