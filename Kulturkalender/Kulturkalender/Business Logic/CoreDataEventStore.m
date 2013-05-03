@@ -1,5 +1,5 @@
 //
-//  EventStore.m
+//  CoreDataEventStore.m
 //  Barteguiden
 //
 //  Created by Christian Rasmussen on 29.12.12.

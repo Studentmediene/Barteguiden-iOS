@@ -6,9 +6,6 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#ifndef Kulturkalender_EventConstants_h
-#define Kulturkalender_EventConstants_h
-
 // Localization
 static NSString * const tbl = @"Event";
 
@@ -17,5 +14,3 @@ static NSString * const tbl = @"Event";
 //static NSString * const kLocationEntityName = @"Location";
 //static NSString * const kLocalizedDescriptionEntityName = @"LocalizedDescription";
 //static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
-
-#endif

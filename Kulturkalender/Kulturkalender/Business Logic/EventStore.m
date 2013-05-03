@@ -1,12 +1,12 @@
 //
-//  EventStoreProtocol.m
+//  EventStore.m
 //  Barteguiden
 //
 //  Created by Christian Rasmussen on 06.02.13.
 //  Copyright (c) 2013 Under Dusken. All rights reserved.
 //
 
-#import "EventStoreProtocol.h"
+#import "EventStore.h"
 
 
 // Errors

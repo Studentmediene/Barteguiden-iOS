@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 Under Dusken. All rights reserved.
 //
 
-#ifndef Kulturkalender_EventKitUI_h
-#define Kulturkalender_EventKitUI_h
-
 #import "EventResultsController.h"
 #import "EventResultsControllerDelegate.h"
 #import "EventResultsSectionInfo.h"
@@ -22,5 +19,3 @@
 #import "EventFormatter+LocalizedText.h"
 
 #import "EventAnnotation.h"
-
-#endif

@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 Under Dusken. All rights reserved.
 //
 
-#ifndef Barteguiden_FilterManager_h
-#define Barteguiden_FilterManager_h
-
 #import "EventKit.h"
 
 
@@ -56,5 +53,3 @@ typedef NS_ENUM(NSInteger, PriceFilter) {
 @property (nonatomic) PriceFilter priceFilter;
 
 @end
-
-#endif

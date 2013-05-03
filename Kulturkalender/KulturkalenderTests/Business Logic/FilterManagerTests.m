@@ -25,7 +25,7 @@
 
 
 @implementation FilterManagerTests {
-    UserDefaultsFilterManager *filterManager;
+    id<FilterManager> filterManager;
     NSUserDefaults *userDefaultsMock;
 }
 
@@ -42,8 +42,9 @@
 
 #pragma mark - Defaults
 
-// TODO: Missing
-// TODO: Also test predicate?
+// TODO: Test defaults?
+// TODO: Test predicate?
+// TODO: Test saving?
 
 
 #pragma mark - Category filter
@@ -197,15 +198,6 @@
 {
     [filterManager setPriceFilter:6];
     [verify(userDefaultsMock) setObject:@6 forKey:@"PriceFilterSelection"];
-}
-
-
-#pragma mark - Saving
-
-- (void)testSaveShouldPersistUserDefaults
-{
-    [filterManager save];
-    [verify(userDefaultsMock) synchronize];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  EventStoreProtocol.h
+//  EventStore.h
 //  Barteguiden
 //
 //  Created by Christian Rasmussen on 24.01.13.

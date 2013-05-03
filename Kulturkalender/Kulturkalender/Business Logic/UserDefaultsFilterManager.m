@@ -1,5 +1,5 @@
 //
-//  FilterManager.m
+//  UserDefaultsFilterManager.m
 //  Barteguiden
 //
 //  Created by Christian Rasmussen on 01.11.12.

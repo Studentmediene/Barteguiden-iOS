@@ -6,10 +6,5 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
-#ifndef Kulturkalender_EventKit_h
-#define Kulturkalender_EventKit_h
-
-#import "EventStoreProtocol.h"
+#import "EventStore.h"
 #import "EventProtocol.h"
-
-#endif
