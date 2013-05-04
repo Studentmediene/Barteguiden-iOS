@@ -24,4 +24,6 @@
 
 @property (nonatomic, strong) id<CalendarManager> calendarManager;
 
+- (IBAction)toggleAutoAddFavorites:(id)sender;
+
 @end

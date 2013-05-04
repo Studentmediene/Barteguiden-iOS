@@ -9,6 +9,7 @@
 #import "EventDetailsViewController.h"
 #import "EventKit.h"
 #import "EventKitUI.h"
+#import "CalendarManager.h"
 #import "UIImage+RIODarkenAndBlur.h"
 
 #import "PosterViewController.h"
@@ -27,33 +28,16 @@ static CGSize const kThumbnailSize = {320, 200};
 {
     [super viewDidLoad];
     
+    [self setUpStyles];
+    
     // TODO: Does not work to add events to calendar anymore :-/
-    self.calendarStore = [[EKEventStore alloc] init]; // TODO: Inject instead?
     [self requestAccessToCalendar];
     
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Action"] style:UIBarButtonItemStyleBordered target:self action:@selector(shareEvent:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Action"] style:UIBarButtonItemStyleBordered target:self action:@selector(shareEvent:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarStoreChanged:) name:EKEventStoreChangedNotification object:self.calendarStore];
-    
-    UIImage *modifyCalendarButtonImage = [UIImage imageNamed:@"TextHighlight"];
-    UIImage *stretchableModifyCalendarButtonImage = [modifyCalendarButtonImage stretchableImageWithLeftCapWidth:3 topCapHeight:3];
-    [self.calendarButton setBackgroundImage:stretchableModifyCalendarButtonImage forState:UIControlStateHighlighted];
-
-    // TODO: Use this code to make a border around age limit
-//    self.priceLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
-//    self.priceLabel.layer.borderWidth = 2;
-//    self.priceLabel.layer.cornerRadius = 2;
-    
-    self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:30];
-    self.locationLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
-    self.priceLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
-    self.ageLimitLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
-    self.timeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
-    
-    self.descriptionTitleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
-    self.descriptionLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarStoreChanged:) name:EKEventStoreChangedNotification object:self.calendarManager.calendarStore];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -72,7 +56,7 @@ static CGSize const kThumbnailSize = {320, 200};
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:EventStoreChangedNotification object:self.eventStore];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:EKEventStoreChangedNotification object:self.calendarStore];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:EKEventStoreChangedNotification object:self.calendarManager.calendarStore];
 }
 
 
@@ -143,8 +127,8 @@ static CGSize const kThumbnailSize = {320, 200};
     const float kAlertOffset = -30*60; // TODO: Get from settings
     const float kOneHourOffset = 60*60;
     
-    EKEvent *calendarEvent = [EKEvent eventWithEventStore:self.calendarStore];
-    calendarEvent.calendar = [self.calendarStore defaultCalendarForNewEvents];
+    EKEvent *calendarEvent = [EKEvent eventWithEventStore:self.calendarManager.calendarStore];
+    calendarEvent.calendar = [self.calendarManager defaultCalendar];
     calendarEvent.title = self.event.title;
     calendarEvent.location = self.event.placeName;
     calendarEvent.startDate = self.event.startAt;
@@ -155,7 +139,7 @@ static CGSize const kThumbnailSize = {320, 200};
     
 	EKEventEditViewController *eventEditViewController = [[EKEventEditViewController alloc] init];
     eventEditViewController.event = calendarEvent;
-	eventEditViewController.eventStore = self.calendarStore; // TODO: Get from settings
+	eventEditViewController.eventStore = self.calendarManager.calendarStore; // TODO: Get from settings
 	eventEditViewController.editViewDelegate = self;
     
 //    UIColor *tableViewBackgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];
@@ -183,7 +167,7 @@ static CGSize const kThumbnailSize = {320, 200};
 
 - (IBAction)removeFromCalendar:(id)sender
 {
-    EKEvent *calendarEvent = [self.calendarStore eventWithIdentifier:[self.event calendarEventID]];
+    EKEvent *calendarEvent = [self.calendarManager.calendarStore eventWithIdentifier:[self.event calendarEventID]];
     [self removeCalendarEvent:calendarEvent];
 }
 
@@ -236,7 +220,7 @@ static CGSize const kThumbnailSize = {320, 200};
 - (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller {
     // TODO: Return calendar from settings
     NSLog(@"%@", NSStringFromSelector(_cmd));
-	EKCalendar *calendarForEdit = [self.calendarStore defaultCalendarForNewEvents];
+	EKCalendar *calendarForEdit = [self.calendarManager.calendarStore defaultCalendarForNewEvents];
 	return calendarForEdit;
 }
 
@@ -245,7 +229,7 @@ static CGSize const kThumbnailSize = {320, 200};
 
 - (void)requestAccessToCalendar
 {
-    [self.calendarStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+    [self.calendarManager.calendarStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
         NSLog(@"granted:%d error:%@", granted, error);
     }];
 }
@@ -258,14 +242,14 @@ static CGSize const kThumbnailSize = {320, 200};
 - (void)addCalendarEvent:(EKEvent *)calendarEvent
 {
     NSLog(@"Adding event to calendar:%@", calendarEvent.eventIdentifier);
-    [self.calendarStore saveEvent:calendarEvent span:EKSpanThisEvent error:NULL];
+    [self.calendarManager.calendarStore saveEvent:calendarEvent span:EKSpanThisEvent error:NULL];
     [self.event setCalendarEventID:calendarEvent.eventIdentifier];
 }
 
 - (void)removeCalendarEvent:(EKEvent *)calendarEvent
 {
     NSLog(@"Removing event from calendar:%@", calendarEvent.eventIdentifier);
-    [self.calendarStore removeEvent:calendarEvent span:EKSpanThisEvent error:NULL];
+    [self.calendarManager.calendarStore removeEvent:calendarEvent span:EKSpanThisEvent error:NULL];
     [self.event setCalendarEventID:nil];
 }
 
@@ -305,6 +289,25 @@ static CGSize const kThumbnailSize = {320, 200};
     self.calendarImageView.image = ([self isAddedToCalendar] == NO) ? [UIImage imageNamed:@"Calendar-Normal"] : [UIImage imageNamed:@"Calendar-Selected"];
 }
 
-
+- (void)setUpStyles
+{
+    UIImage *modifyCalendarButtonImage = [UIImage imageNamed:@"TextHighlight"];
+    UIImage *stretchableModifyCalendarButtonImage = [modifyCalendarButtonImage stretchableImageWithLeftCapWidth:3 topCapHeight:3];
+    [self.calendarButton setBackgroundImage:stretchableModifyCalendarButtonImage forState:UIControlStateHighlighted];
+    
+// TODO: Use this code to make a border around age limit
+//    self.priceLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+//    self.priceLabel.layer.borderWidth = 2;
+//    self.priceLabel.layer.cornerRadius = 2;
+    
+    self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:30];
+    self.locationLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
+    self.priceLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
+    self.ageLimitLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
+    self.timeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
+    
+    self.descriptionTitleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
+    self.descriptionLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
+}
 
 @end

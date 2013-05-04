@@ -10,8 +10,7 @@
 #import <EventKit/EventKit.h>
 
 
-static BOOL const kDefaultShouldAutoAddFavorites = NO;
-static double const kDefaultAlertTimeInterval = 30;
+static BOOL const kShouldAutoAddFavoritesDefaultValue = NO;
 
 static NSString * const kCalendarAutoAddFavoritesKey = @"CalendarAutoAddFavorites";
 static NSString * const kCalendarDefaultCalendarIdentifierKey = @"CalendarDefaultCalendarIdentifier";
@@ -66,12 +65,12 @@ static NSString * const kCalendarDefaultAlertTimeIntervalKey = @"CalendarDefault
 
 - (BOOL)shouldAutoAddFavorites
 {
-    NSNumber *autoAddFavoritesNumber = [self.userDefaults objectForKey:kCalendarAutoAddFavoritesKey];
-    if (autoAddFavoritesNumber == nil) {
-        return kDefaultShouldAutoAddFavorites;
+    NSNumber *autoAddFavorites = [self.userDefaults objectForKey:kCalendarAutoAddFavoritesKey];
+    if (autoAddFavorites == nil) {
+        return kShouldAutoAddFavoritesDefaultValue;
     }
     
-    return [autoAddFavoritesNumber boolValue];
+    return [autoAddFavorites boolValue];
 }
 
 - (void)setAutoAddFavorites:(BOOL)autoAddFavorites
@@ -109,7 +108,7 @@ static NSString * const kCalendarDefaultAlertTimeIntervalKey = @"CalendarDefault
 {
     NSNumber *defaultAlertNumber = [self.userDefaults objectForKey:kCalendarDefaultAlertTimeIntervalKey];
     if (defaultAlertNumber == nil) {
-        return [EKAlarm alarmWithRelativeOffset:kDefaultAlertTimeInterval];
+        return nil;
     }
     
     return [EKAlarm alarmWithRelativeOffset:[defaultAlertNumber doubleValue]];
@@ -117,12 +116,8 @@ static NSString * const kCalendarDefaultAlertTimeIntervalKey = @"CalendarDefault
 
 - (void)setDefaultAlert:(EKAlarm *)defaultAlert
 {
-    [self setDefaultAlertTimeInterval:defaultAlert.relativeOffset];
-}
-
-- (void)setDefaultAlertTimeInterval:(NSTimeInterval)timeInterval
-{
-    [self.userDefaults setObject:@(timeInterval) forKey:kCalendarDefaultAlertTimeIntervalKey];
+    NSNumber *offset = (defaultAlert != nil) ? @(defaultAlert.relativeOffset) : nil;
+    [self.userDefaults setObject:offset forKey:kCalendarDefaultAlertTimeIntervalKey];
 }
 
 @end

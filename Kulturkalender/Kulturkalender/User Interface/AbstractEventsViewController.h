@@ -11,11 +11,13 @@
 #import "EventKitUI.h"
 
 @protocol EventStore;
+@protocol CalendarManager;
 @class EventResultsController;
 
 @interface AbstractEventsViewController : UITableViewController <EventsSearchDisplayControllerDelegate, EventResultsControllerDelegate>
 
 @property (nonatomic, strong) id<EventStore> eventStore;
+@property (nonatomic, strong) id<CalendarManager>calendarManager;
 
 @property (nonatomic, strong) EventResultsController *eventResultsController;
 

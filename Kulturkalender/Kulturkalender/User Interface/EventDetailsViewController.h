@@ -10,17 +10,16 @@
 #import <EventKit/EventKit.h>
 #import <EventKitUI/EventKitUI.h>
 
-
 @protocol EventStore;
 @protocol Event;
+@protocol CalendarManager;
+
 
 @interface EventDetailsViewController : UIViewController <UIActionSheetDelegate, EKEventEditViewDelegate>
 
-@property (nonatomic, strong) id<EventStore> eventStore;
+@property (nonatomic, strong) id<EventStore> eventStore; // FIXME: Is this one really necessary?
 @property (nonatomic, strong) id<Event> event;
-
-//@property (nonatomic, strong) id<SettingsManager> settingsManager;
-@property (nonatomic, strong) EKEventStore *calendarStore;
+@property (nonatomic, strong) id<CalendarManager> calendarManager;
 
 //@property (nonatomic, strong) UIActivityViewController *activityViewController;
 

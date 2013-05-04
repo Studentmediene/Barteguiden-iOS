@@ -32,7 +32,7 @@
         if ([rootViewController isKindOfClass:[AbstractEventsViewController class]]) {
             AbstractEventsViewController *abstractEventsViewController = (AbstractEventsViewController *)rootViewController;
             abstractEventsViewController.eventStore = self.eventStore;
-            
+            abstractEventsViewController.calendarManager = self.calendarManager;
             EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)abstractEventsViewController.searchDisplayController.delegate;
             eventsSearchDisplayController.eventStore = self.eventStore;
         }

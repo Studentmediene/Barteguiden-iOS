@@ -37,6 +37,7 @@
     // Calendar manager
     EKEventStore *calendarStore = [[EKEventStore alloc] init];
     self.calendarManager = [[UserDefaultsCalendarManager alloc] initWithUserDefaults:userDefaults calendarStore:calendarStore];
+//    [self.calendarManager registerDefaultDefaultAlertTimeInterval:30];
     
     // Inject dependencies
     TabBarController *tabBarController = (TabBarController *)self.window.rootViewController;
@@ -72,6 +73,7 @@
     NSLog(@"Closing...");
     [self.eventStore save:NULL];
     [self.filterManager save];
+    [self.calendarManager save];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

@@ -1,5 +1,5 @@
 //
-//  MyPageViewController.h
+//  MyFilterViewController.h
 //  Barteguiden
 //
 //  Created by Christian Rasmussen on 04.10.12.

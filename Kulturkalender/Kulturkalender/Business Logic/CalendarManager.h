@@ -21,6 +21,4 @@
 @property (nonatomic, strong) EKCalendar *defaultCalendar;
 @property (nonatomic, strong) EKAlarm *defaultAlert;
 
-- (void)setDefaultAlertTimeInterval:(NSTimeInterval)timeInterval;
-
 @end

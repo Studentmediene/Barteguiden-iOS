@@ -57,6 +57,11 @@
 
 #pragma mark - Actions
 
+- (IBAction)toggleAutoAddFavorites:(UISwitch *)sender
+{
+    [self.calendarManager setAutoAddFavorites:sender.on];
+}
+
 - (IBAction)sendUsYourTips:(id)sender
 {
     if ([MFMailComposeViewController canSendMail]) {
@@ -96,9 +101,9 @@
 
 - (void)updateViewInfo
 {
-    self.autoAddFavoritesSwitch.on = YES;
+    self.autoAddFavoritesSwitch.on = [self.calendarManager shouldAutoAddFavorites];
     self.defaultCalendarLabel.text = [[self.calendarManager defaultCalendar] title];
-    self.defaultAlertLabel.text = [[self.calendarManager defaultAlert] description];
+    self.defaultAlertLabel.text = [NSString stringWithFormat:@"%.0f", [[self.calendarManager defaultAlert] relativeOffset]];
 }
 
 @end

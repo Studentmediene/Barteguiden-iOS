@@ -9,6 +9,7 @@
 #import "AbstractEventsViewController.h"
 #import "EventKit.h"
 #import "EventKitUI.h"
+#import "CalendarManager.h"
 
 #import "EventDetailsViewController.h"
 #import "EventCell.h"
@@ -180,6 +181,7 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
     EventDetailsViewController *eventDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
 //    eventDetailsViewController.delegate = self;
     eventDetailsViewController.event = event;
+    eventDetailsViewController.calendarManager = self.calendarManager;
     
     [self.navigationController pushViewController:eventDetailsViewController animated:YES];
 }

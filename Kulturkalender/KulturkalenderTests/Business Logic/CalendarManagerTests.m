@@ -116,10 +116,10 @@
 
 #pragma mark - Default alert
 
-- (void)testDefaultAlertShouldReturn30MinutesBeforeAsDefault
+- (void)testDefaultAlertShouldReturnNilAsDefault
 {
     [given([userDefaultsMock objectForKey:@"CalendarDefaultAlertTimeInterval"]) willReturn:nil];
-    assertThatDouble([[calendarManager defaultAlert] relativeOffset], is(equalToDouble(30)));
+    assertThat([calendarManager defaultAlert], is(equalTo(nil)));
 }
 
 - (void)testDefaultAlertShouldReturnValueStoredInUserDefaults
@@ -128,10 +128,10 @@
     assertThatDouble([[calendarManager defaultAlert] relativeOffset], is(equalToDouble(5)));
 }
 
-- (void)testSetDefaultAlertTimeIntervalShouldSaveValueInUserDefaults
+- (void)testSetDefaultAlertToNilShouldSaveNilInUserDefaults
 {
-    [calendarManager setDefaultAlertTimeInterval:11];
-    [verify(userDefaultsMock) setObject:@11 forKey:@"CalendarDefaultAlertTimeInterval"];
+    [calendarManager setDefaultAlert:nil];
+    [verify(userDefaultsMock) setObject:nil forKey:@"CalendarDefaultAlertTimeInterval"];
 }
 
 - (void)testSetDefaultAlertShouldSaveValueInUserDefaults
