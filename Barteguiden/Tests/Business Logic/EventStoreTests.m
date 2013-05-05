@@ -90,7 +90,7 @@
 - (NSManagedObjectContext *)managedObjectContext
 {
     // Managed object model
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Kulturkalender" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"EventKit" withExtension:@"momd"];
     NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
     // Persistent store coordinator

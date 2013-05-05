@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'Kulturkalender' target in the 'Kulturkalender' project
+// Prefix header for all source files
 //
 
 #import <Availability.h>

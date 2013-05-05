@@ -31,7 +31,7 @@
 		<string>proxima_nova_reg-webfont.ttf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>Kulturkalender</string>
+	<string>MainStoryboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

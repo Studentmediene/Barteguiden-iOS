@@ -177,7 +177,7 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 
 - (void)navigateToEvent:(id)event
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Kulturkalender" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     EventDetailsViewController *eventDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
 //    eventDetailsViewController.delegate = self;
     eventDetailsViewController.event = event;

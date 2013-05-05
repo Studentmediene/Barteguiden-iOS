@@ -147,18 +147,18 @@
 		69F52AB21608E70F0045B6F6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F52AB11608E70F0045B6F6 /* Default.png */; };
 		69F52AB41608E70F0045B6F6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F52AB31608E70F0045B6F6 /* Default@2x.png */; };
 		69F52AB61608E70F0045B6F6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F52AB51608E70F0045B6F6 /* Default-568h@2x.png */; };
-		69F52AB91608E70F0045B6F6 /* Kulturkalender.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69F52AB71608E70F0045B6F6 /* Kulturkalender.xcdatamodeld */; };
+		69F52AB91608E70F0045B6F6 /* EventKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69F52AB71608E70F0045B6F6 /* EventKit.xcdatamodeld */; };
 		69F52AC11608E70F0045B6F6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AC01608E70F0045B6F6 /* SenTestingKit.framework */; };
 		69F52AC21608E70F0045B6F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9D1608E70F0045B6F6 /* UIKit.framework */; };
 		69F52AC31608E70F0045B6F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52A9F1608E70F0045B6F6 /* Foundation.framework */; };
 		69F52ACC1608E70F0045B6F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ACA1608E70F0045B6F6 /* InfoPlist.strings */; };
-		69F52ADB1608E7E20045B6F6 /* Kulturkalender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */; };
+		69F52ADB1608E7E20045B6F6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F52ADA1608E7E20045B6F6 /* MainStoryboard.storyboard */; };
 		69F71BDF1716458900DB1C23 /* Favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F71BDB1716458900DB1C23 /* Favorites.png */; };
 		69F71BE01716458900DB1C23 /* MyPage.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F71BDC1716458900DB1C23 /* MyPage.png */; };
 		69F71BE11716458900DB1C23 /* Favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F71BDD1716458900DB1C23 /* Favorites@2x.png */; };
 		69F71BE21716458900DB1C23 /* MyPage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F71BDE1716458900DB1C23 /* MyPage@2x.png */; };
 		6E05CCA58BFD406C860A4DF8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB8DEFF9AB94CCB94DFF519 /* libPods.a */; };
-		EBD4B6477A3C4659A2CDD51C /* libPods-KulturkalenderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB79CD5E306B4CFEAE997893 /* libPods-KulturkalenderTests.a */; };
+		BA74B4A0A5964C678CF42CD0 /* libPods-BarteguidenTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96EA835EA5AB4D5D8604890F /* libPods-BarteguidenTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -370,19 +370,19 @@
 		69F52AB11608E70F0045B6F6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		69F52AB31608E70F0045B6F6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		69F52AB51608E70F0045B6F6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		69F52AB81608E70F0045B6F6 /* Kulturkalender.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Kulturkalender.xcdatamodel; sourceTree = "<group>"; };
+		69F52AB81608E70F0045B6F6 /* EventKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventKit.xcdatamodel; sourceTree = "<group>"; };
 		69F52ABF1608E70F0045B6F6 /* BarteguidenTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarteguidenTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F52AC01608E70F0045B6F6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		69F52AC91608E70F0045B6F6 /* BarteguidenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BarteguidenTests-Info.plist"; sourceTree = "<group>"; };
 		69F52ACB1608E70F0045B6F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kulturkalender.storyboard; sourceTree = "<group>"; };
+		69F52ADA1608E7E20045B6F6 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		69F71BDB1716458900DB1C23 /* Favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Favorites.png; sourceTree = "<group>"; };
 		69F71BDC1716458900DB1C23 /* MyPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPage.png; sourceTree = "<group>"; };
 		69F71BDD1716458900DB1C23 /* Favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Favorites@2x.png"; sourceTree = "<group>"; };
 		69F71BDE1716458900DB1C23 /* MyPage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyPage@2x.png"; sourceTree = "<group>"; };
 		7493FD972B57486DBA74AF06 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		BAAEBFA7E9A449CB9EBF4F42 /* Pods-KulturkalenderTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KulturkalenderTests.xcconfig"; path = "../Pods/Pods-KulturkalenderTests.xcconfig"; sourceTree = SOURCE_ROOT; };
-		BB79CD5E306B4CFEAE997893 /* libPods-KulturkalenderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KulturkalenderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96EA835EA5AB4D5D8604890F /* libPods-BarteguidenTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BarteguidenTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98FDF9089FA14EF184FF85EB /* Pods-BarteguidenTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarteguidenTests.xcconfig"; path = "../Pods/Pods-BarteguidenTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		FBB8DEFF9AB94CCB94DFF519 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -415,7 +415,7 @@
 				69F52AC31608E70F0045B6F6 /* Foundation.framework in Frameworks */,
 				69C7EF4B16DB3DD50013D370 /* CoreGraphics.framework in Frameworks */,
 				69F0E6F2173440D20001DDD7 /* CoreData.framework in Frameworks */,
-				EBD4B6477A3C4659A2CDD51C /* libPods-KulturkalenderTests.a in Frameworks */,
+				BA74B4A0A5964C678CF42CD0 /* libPods-BarteguidenTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,7 +691,7 @@
 		69C37BFA168F841F009631DF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				69F52AB71608E70F0045B6F6 /* Kulturkalender.xcdatamodeld */,
+				69F52AB71608E70F0045B6F6 /* EventKit.xcdatamodeld */,
 				698F87171624A182001B9090 /* Event.h */,
 				698F87181624A182001B9090 /* Event.m */,
 				69B7141C16CDD5CB00BEEADD /* EventDelegate.h */,
@@ -883,12 +883,12 @@
 		69F52A8E1608E70F0045B6F6 = {
 			isa = PBXGroup;
 			children = (
-				69F52AA51608E70F0045B6F6 /* Kulturkalender */,
-				69F52AC71608E70F0045B6F6 /* KulturkalenderTests */,
+				69F52AA51608E70F0045B6F6 /* Source */,
+				69F52AC71608E70F0045B6F6 /* Tests */,
 				69F52A9C1608E70F0045B6F6 /* Frameworks */,
 				69F52A9A1608E70F0045B6F6 /* Products */,
 				7493FD972B57486DBA74AF06 /* Pods.xcconfig */,
-				BAAEBFA7E9A449CB9EBF4F42 /* Pods-KulturkalenderTests.xcconfig */,
+				98FDF9089FA14EF184FF85EB /* Pods-BarteguidenTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -916,12 +916,12 @@
 				69B84F261703930C006DB348 /* MessageUI.framework */,
 				697E8F381731F42800974244 /* CoreImage.framework */,
 				FBB8DEFF9AB94CCB94DFF519 /* libPods.a */,
-				BB79CD5E306B4CFEAE997893 /* libPods-KulturkalenderTests.a */,
+				96EA835EA5AB4D5D8604890F /* libPods-BarteguidenTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		69F52AA51608E70F0045B6F6 /* Kulturkalender */ = {
+		69F52AA51608E70F0045B6F6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				69F52AAE1608E70F0045B6F6 /* AppDelegate.h */,
@@ -932,7 +932,7 @@
 				693EF25D161220D100D10C03 /* Resources */,
 				69F52AA61608E70F0045B6F6 /* Supporting Files */,
 			);
-			path = Kulturkalender;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		69F52AA61608E70F0045B6F6 /* Supporting Files */ = {
@@ -949,7 +949,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		69F52AC71608E70F0045B6F6 /* KulturkalenderTests */ = {
+		69F52AC71608E70F0045B6F6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				69C9E220168A533A00D65004 /* User Interface */,
@@ -957,7 +957,7 @@
 				69C37D8B16A811E9009631DF /* Additions */,
 				69F52AC81608E70F0045B6F6 /* Supporting Files */,
 			);
-			path = KulturkalenderTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		69F52AC81608E70F0045B6F6 /* Supporting Files */ = {
@@ -972,7 +972,7 @@
 		69F52AD81608E7230045B6F6 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				69F52ADA1608E7E20045B6F6 /* Kulturkalender.storyboard */,
+				69F52ADA1608E7E20045B6F6 /* MainStoryboard.storyboard */,
 				69BA0AD8162F44D3009726E7 /* Event Cell */,
 				69C491641625F1A600F28C45 /* Event Details */,
 				69C9E2181687C5B700D65004 /* Tabs */,
@@ -1017,11 +1017,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69F52AD51608E70F0045B6F6 /* Build configuration list for PBXNativeTarget "BarteguidenTests" */;
 			buildPhases = (
+				E706EBA4F99A4D85BD10FA6C /* Check Pods Manifest.lock */,
 				69F52ABA1608E70F0045B6F6 /* Sources */,
 				69F52ABB1608E70F0045B6F6 /* Frameworks */,
 				69F52ABC1608E70F0045B6F6 /* Resources */,
 				69F52ABD1608E70F0045B6F6 /* Run Script */,
 				2F7A4ACB225B479796C65491 /* Copy Pods Resources */,
+				EC8A9EFE1BC344CFB2DD5FE8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1069,7 +1071,7 @@
 				69F52AB21608E70F0045B6F6 /* Default.png in Resources */,
 				69F52AB41608E70F0045B6F6 /* Default@2x.png in Resources */,
 				69F52AB61608E70F0045B6F6 /* Default-568h@2x.png in Resources */,
-				69F52ADB1608E7E20045B6F6 /* Kulturkalender.storyboard in Resources */,
+				69F52ADB1608E7E20045B6F6 /* MainStoryboard.storyboard in Resources */,
 				698F871016249719001B9090 /* Example.json in Resources */,
 				69BA0AD5162F3E13009726E7 /* EventCell.xib in Resources */,
 				69884B7C1639FB670057D189 /* Event.strings in Resources */,
@@ -1202,6 +1204,34 @@
 			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E706EBA4F99A4D85BD10FA6C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		EC8A9EFE1BC344CFB2DD5FE8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-BarteguidenTests-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1211,7 +1241,7 @@
 			files = (
 				69F52AAC1608E70F0045B6F6 /* main.m in Sources */,
 				69F52AB01608E70F0045B6F6 /* AppDelegate.m in Sources */,
-				69F52AB91608E70F0045B6F6 /* Kulturkalender.xcdatamodeld in Sources */,
+				69F52AB91608E70F0045B6F6 /* EventKit.xcdatamodeld in Sources */,
 				6904F8DE16136DBA00482F13 /* AbstractEventsViewController.m in Sources */,
 				69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */,
 				69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */,
@@ -1358,9 +1388,9 @@
 			baseConfigurationReference = 7493FD972B57486DBA74AF06 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kulturkalender/Barteguiden-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/Barteguiden-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = "Kulturkalender/Barteguiden-Info.plist";
+				INFOPLIST_FILE = "Source/Barteguiden-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = (
 					"-Wall",
@@ -1378,9 +1408,9 @@
 			baseConfigurationReference = 7493FD972B57486DBA74AF06 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kulturkalender/Barteguiden-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/Barteguiden-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = "Kulturkalender/Barteguiden-Info.plist";
+				INFOPLIST_FILE = "Source/Barteguiden-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = (
 					"-Wall",
@@ -1395,7 +1425,7 @@
 		};
 		69F52AD61608E70F0045B6F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAAEBFA7E9A449CB9EBF4F42 /* Pods-KulturkalenderTests.xcconfig */;
+			baseConfigurationReference = 98FDF9089FA14EF184FF85EB /* Pods-BarteguidenTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Barteguiden.app/Barteguiden";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1403,8 +1433,8 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kulturkalender/Barteguiden-Prefix.pch";
-				INFOPLIST_FILE = "KulturkalenderTests/BarteguidenTests-Info.plist";
+				GCC_PREFIX_HEADER = "Source/Barteguiden-Prefix.pch";
+				INFOPLIST_FILE = "Tests/BarteguidenTests-Info.plist";
 				PRODUCT_NAME = BarteguidenTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -1413,7 +1443,7 @@
 		};
 		69F52AD71608E70F0045B6F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAAEBFA7E9A449CB9EBF4F42 /* Pods-KulturkalenderTests.xcconfig */;
+			baseConfigurationReference = 98FDF9089FA14EF184FF85EB /* Pods-BarteguidenTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Barteguiden.app/Barteguiden";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1421,8 +1451,8 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kulturkalender/Barteguiden-Prefix.pch";
-				INFOPLIST_FILE = "KulturkalenderTests/BarteguidenTests-Info.plist";
+				GCC_PREFIX_HEADER = "Source/Barteguiden-Prefix.pch";
+				INFOPLIST_FILE = "Tests/BarteguidenTests-Info.plist";
 				PRODUCT_NAME = BarteguidenTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -1462,13 +1492,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		69F52AB71608E70F0045B6F6 /* Kulturkalender.xcdatamodeld */ = {
+		69F52AB71608E70F0045B6F6 /* EventKit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				69F52AB81608E70F0045B6F6 /* Kulturkalender.xcdatamodel */,
+				69F52AB81608E70F0045B6F6 /* EventKit.xcdatamodel */,
 			);
-			currentVersion = 69F52AB81608E70F0045B6F6 /* Kulturkalender.xcdatamodel */;
-			path = Kulturkalender.xcdatamodeld;
+			currentVersion = 69F52AB81608E70F0045B6F6 /* EventKit.xcdatamodel */;
+			path = EventKit.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

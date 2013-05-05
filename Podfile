@@ -1,9 +1,9 @@
 platform :ios, '6.1'
-xcodeproj 'Kulturkalender/Kulturkalender.xcodeproj'
+xcodeproj 'Barteguiden/Barteguiden.xcodeproj'
 
 pod 'JMImageCache'
 
-target 'KulturkalenderTests', :exclusive => true do
+target 'BarteguidenTests', :exclusive => true do
 pod 'OCMockito'
 pod 'OCHamcrest'
 end
