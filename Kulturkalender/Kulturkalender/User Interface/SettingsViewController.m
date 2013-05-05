@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "CalendarManager.h"
+#import "DefaultAlertViewController.h"
 
 
 @implementation SettingsViewController
@@ -44,9 +45,6 @@
         calendarChooser.title = NSLocalizedString(@"Default Calendar", nil);
         [self.navigationController pushViewController:calendarChooser animated:YES];
     }
-    else if (cell == self.defaultAlertCell) {
-        
-    }
     else if (cell == self.sendUsYourTipsCell) {
         [self sendUsYourTips:cell];
         
@@ -69,14 +67,25 @@
         mailViewController.mailComposeDelegate = self;
         // FIXME: Update these values
         [mailViewController setToRecipients:@[@"tips@underdusken.no"]];
-        [mailViewController setSubject:@"Subject Goes Here."];
-        [mailViewController setMessageBody:@"Your message goes here." isHTML:NO];
+        [mailViewController setSubject:@""];
+        [mailViewController setMessageBody:@"" isHTML:NO];
         
         [self presentViewController:mailViewController animated:YES completion:NULL];
         
     }
     else {
         // TODO: Handle error
+    }
+}
+
+
+#pragma mark - UIStoryboard
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue isEqual:@"DefaultAlertSegue"]) {
+        DefaultAlertViewController *defaultAlertViewController = [segue destinationViewController];
+        defaultAlertViewController.selectedTimeInterval = [[self.calendarManager defaultAlert] relativeOffset];
     }
 }
 
@@ -88,6 +97,13 @@
     [self.calendarManager setDefaultCalendar:selectedCalendar];
 }
 
+
+#pragma mark - DefaultAlertViewControllerDelegate
+
+- (void)defaultAlertViewController:(DefaultAlertViewController *)defaultAlertViewController didSelectAlert:(EKAlarm *)alert
+{
+    
+}
 
 #pragma mark - MFMailComposeViewControllerDelegate
 

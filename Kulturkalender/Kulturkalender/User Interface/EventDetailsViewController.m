@@ -10,9 +10,8 @@
 #import "EventKit.h"
 #import "EventKitUI.h"
 #import "CalendarManager.h"
+#import "RIOExpandableLabel.h"
 #import "UIImage+RIODarkenAndBlur.h"
-
-#import "PosterViewController.h"
 #import "MapViewController.h"
 
 
@@ -20,6 +19,7 @@ static NSString * const kPosterSegue = @"PosterSegue";
 static NSString * const kMapSegue = @"MapSegue";
 
 static CGSize const kThumbnailSize = {320, 200};
+static float const kOneHourOffset = 1*60*60;
 
 
 @implementation EventDetailsViewController
@@ -80,12 +80,7 @@ static CGSize const kThumbnailSize = {320, 200};
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:kPosterSegue])
-    {
-        PosterViewController *posterViewController = [segue destinationViewController];
-        posterViewController.poster = [self.event originalImage];
-    }
-    else if ([segue.identifier isEqualToString:kMapSegue])
+    if ([segue.identifier isEqualToString:kMapSegue])
     {
         MapViewController *mapViewController = [segue destinationViewController];
         mapViewController.annotation = [[EventAnnotation alloc] initWithEvent:self.event];
@@ -124,26 +119,12 @@ static CGSize const kThumbnailSize = {320, 200};
 
 - (IBAction)addToCalendar:(id)sender
 {
-    const float kAlertOffset = -30*60; // TODO: Get from settings
-    const float kOneHourOffset = 60*60;
-    
-    EKEvent *calendarEvent = [EKEvent eventWithEventStore:self.calendarManager.calendarStore];
-    calendarEvent.calendar = [self.calendarManager defaultCalendar];
-    calendarEvent.title = self.event.title;
-    calendarEvent.location = self.event.placeName;
-    calendarEvent.startDate = self.event.startAt;
-    calendarEvent.endDate = [[self.event startAt] dateByAddingTimeInterval:kOneHourOffset];
-    
-    EKAlarm *alarm = [EKAlarm alarmWithRelativeOffset:kAlertOffset];
-    [calendarEvent addAlarm:alarm];
+    EKEvent *calendarEvent = [self calendarEvent];
     
 	EKEventEditViewController *eventEditViewController = [[EKEventEditViewController alloc] init];
     eventEditViewController.event = calendarEvent;
-	eventEditViewController.eventStore = self.calendarManager.calendarStore; // TODO: Get from settings
+	eventEditViewController.eventStore = self.calendarManager.calendarStore;
 	eventEditViewController.editViewDelegate = self;
-    
-//    UIColor *tableViewBackgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];
-//    eventEditViewController.view.backgroundColor = tableViewBackgroundColor;
     
 	[self presentViewController:eventEditViewController animated:YES completion:NULL];
 }
@@ -202,6 +183,7 @@ static CGSize const kThumbnailSize = {320, 200};
 - (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action {
 	switch (action) {
 		case EKEventEditViewActionCanceled: {
+            // Do nothing
 			break;
         }
 		case EKEventEditViewActionSaved: {
@@ -217,12 +199,21 @@ static CGSize const kThumbnailSize = {320, 200};
 	[controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller {
-    // TODO: Return calendar from settings
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-	EKCalendar *calendarForEdit = [self.calendarManager.calendarStore defaultCalendarForNewEvents];
-	return calendarForEdit;
+#pragma mark - RIOExpandableLabelDelegate
+
+- (void)expandableLabelDidLayout:(RIOExpandableLabel *)expandableLabel
+{
+    self.descriptionHeightConstraint.constant = expandableLabel.displayHeight;
 }
+
+- (void)expandableLabelWantsToRevealText:(RIOExpandableLabel *)expandableLabel
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.descriptionHeightConstraint.constant = expandableLabel.displayHeight;
+        [self.view layoutIfNeeded];
+    }];
+}
+
 
 
 #pragma mark - Private methods
@@ -268,7 +259,7 @@ static CGSize const kThumbnailSize = {320, 200};
         posterImage = [UIImage darkenedAndBlurredImageForImage:posterImage withDarkenScale:0.7 blurRadius:0];
     }
     else {
-        posterImage = [UIImage imageNamed:@"MissingPoster"]; // TODO: Use another placeholder
+        posterImage = [UIImage imageNamed:@"MissingPoster"];
     }
     
     self.posterImageView.image = posterImage;
@@ -277,6 +268,8 @@ static CGSize const kThumbnailSize = {320, 200};
     self.ageLimitLabel.text = ageLimit;
     
     self.descriptionLabel.text = [eventFormatter currentLocalizedDescription];
+    self.descriptionLabel.delegate = self;
+    self.descriptionLabel.maxNumberOfLines = 4;
     
     self.favoriteButton.selected = [self.event isFavorite];
     
@@ -287,6 +280,35 @@ static CGSize const kThumbnailSize = {320, 200};
     
     self.calendarActionLabel.text = calendarActionTitle;
     self.calendarImageView.image = ([self isAddedToCalendar] == NO) ? [UIImage imageNamed:@"Calendar-Normal"] : [UIImage imageNamed:@"Calendar-Selected"];
+    
+//    if ([self.event URL] == nil) {
+//        self.visitWebsiteButton.hidden = YES;
+////        [self.view removeConstraint:self.showOnMapConstraint];
+////        self.showOnMapConstraint = [NSLayoutConstraint constraintWithItem:self.descriptionLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.showOnMapButton attribute:NSLayoutAttributeTop multiplier:1 constant:20];
+////        [self.view addConstraint:self.showOnMapConstraint];
+////        [self.view constr]
+////        self.showOnMapConstraint
+//    }
+//    else {
+//        self.visitWebsiteButton.hidden = NO;
+//    }
+}
+
+- (EKEvent *)calendarEvent
+{
+    EKEvent *calendarEvent = [EKEvent eventWithEventStore:self.calendarManager.calendarStore];
+    calendarEvent.calendar = self.calendarManager.defaultCalendar;
+    calendarEvent.title = self.event.title;
+    calendarEvent.location = self.event.placeName;
+    calendarEvent.startDate = self.event.startAt;
+    calendarEvent.endDate = [self.event.startAt dateByAddingTimeInterval:kOneHourOffset];
+    
+    EKAlarm *alarm = self.calendarManager.defaultAlert;
+    if (alarm != nil) {
+        [calendarEvent addAlarm:alarm];
+    }
+    
+    return calendarEvent;
 }
 
 - (void)setUpStyles
@@ -307,7 +329,9 @@ static CGSize const kThumbnailSize = {320, 200};
     self.timeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
     
     self.descriptionTitleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
-    self.descriptionLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
+    self.descriptionLabel.textFont = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
+    self.descriptionLabel.moreButtonFont = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
+    self.descriptionLabel.moreButtonColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1];
 }
 
 @end

@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <EventKitUI/EventKitUI.h>
 #import <MessageUI/MessageUI.h>
+#import "DefaultAlertViewControllerDelegate.h"
 
 @protocol CalendarManager;
 
 
-@interface SettingsViewController : UITableViewController <EKCalendarChooserDelegate, MFMailComposeViewControllerDelegate>
+@interface SettingsViewController : UITableViewController <EKCalendarChooserDelegate, MFMailComposeViewControllerDelegate, DefaultAlertViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableViewCell *defaultCalendarCell;
 @property (nonatomic, weak) IBOutlet UITableViewCell *defaultAlertCell;

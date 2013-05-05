@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <EventKit/EventKit.h>
 #import <EventKitUI/EventKitUI.h>
+#import "RIOExpandableLabelDelegate.h"
 
 @protocol EventStore;
 @protocol Event;
 @protocol CalendarManager;
+@class RIOExpandableLabel;
 
 
-@interface EventDetailsViewController : UIViewController <UIActionSheetDelegate, EKEventEditViewDelegate>
+@interface EventDetailsViewController : UIViewController <UIActionSheetDelegate, EKEventEditViewDelegate, RIOExpandableLabelDelegate>
 
 @property (nonatomic, strong) id<EventStore> eventStore; // FIXME: Is this one really necessary?
 @property (nonatomic, strong) id<Event> event;
@@ -38,7 +40,12 @@
 @property (nonatomic, weak) IBOutlet UIButton *favoriteButton;
 
 @property (nonatomic, weak) IBOutlet UILabel *descriptionTitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, weak) IBOutlet RIOExpandableLabel *descriptionLabel;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *descriptionHeightConstraint;
+
+@property (nonatomic, weak) IBOutlet UIButton *visitWebsiteButton;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *showOnMapConstraint;
+@property (nonatomic, weak) IBOutlet UIButton *showOnMapButton;
 
 - (IBAction)toggleFavorite:(id)sender;
 - (IBAction)shareEvent:(id)sender;
