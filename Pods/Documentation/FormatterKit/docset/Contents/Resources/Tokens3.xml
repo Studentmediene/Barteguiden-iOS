@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/TTTHTTPURLResponseFormatter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/TTTHTTPURLResponseFormatter</TokenIdentifier>
+			<Abstract>Instances of TTTHTTPURLResponseFormatter create localized string representations of NSHTTPURLResponse objects.</Abstract>
+			<DeclaredIn>TTTURLRequestFormatter.h</DeclaredIn>
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTHTTPURLResponseFormatter/stringFromHTTPURLResponse:</TokenIdentifier>
+			<Abstract>Returns a string representation of a given HTTP response.</Abstract>
+			<DeclaredIn>TTTURLRequestFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromHTTPURLResponse:(NSHTTPURLResponse *)response</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>response</Name>
+					<Abstract>The HTTP response to format.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromHTTPURLResponse:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

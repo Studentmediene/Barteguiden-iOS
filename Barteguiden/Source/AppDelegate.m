@@ -44,7 +44,7 @@
     tabBarController.eventStore = self.eventStore;
     tabBarController.filterManager = self.filterManager;
     tabBarController.calendarManager = self.calendarManager;
-    
+
     return YES;
 }
 

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/TTTLocationFormatter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/TTTLocationFormatter</TokenIdentifier>
+			<Abstract>Instances of TTTLocationFormatter create localized string representations of CLLocationCoordinate2D, CLLocationDistance, CLLocationDegrees, and CLLocationSpeed values and CLLocation objects.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTLocationFormatter/numberFormatter</TokenIdentifier>
+			<Abstract>Specifies the NSNumberFormatter object used to format numeric values in all formatted strings. By default, this uses the current system locale with the NSNumberFormatterDecimalStyle number style, and displays 2 significant digits.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly, nonatomic, strong) NSNumberFormatter *numberFormatter</Declaration>
+			
+			
+			<Anchor>//api/name/numberFormatter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTLocationFormatter/coordinateOrder</TokenIdentifier>
+			<Abstract>Specifies the ordering of latitude and longitude values in coordinate pairs. TTTCoordinateLatLngOrder by default.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) TTTLocationFormatterCoordinateOrder coordinateOrder</Declaration>
+			
+			
+			<Anchor>//api/name/coordinateOrder</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTLocationFormatter/bearingStyle</TokenIdentifier>
+			<Abstract>Specifies the formatting of bearing in strings. TTTBearingWordStyle by default.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) TTTLocationFormatterBearingStyle bearingStyle</Declaration>
+			
+			
+			<Anchor>//api/name/bearingStyle</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTLocationFormatter/unitSystem</TokenIdentifier>
+			<Abstract>Specifies the units used to express distance in formatted strings. TTTMetricSystem by default.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) TTTLocationUnitSystem unitSystem</Declaration>
+			
+			
+			<Anchor>//api/name/unitSystem</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTLocationFormatter/stringFromCoordinate:</TokenIdentifier>
+			<Abstract>Returns a string representation of a given coordinate formatted using the receiver’s current settings.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromCoordinate:(CLLocationCoordinate2D)coordinate</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>coordinate</Name>
+					<Abstract>The coordinate to format.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromCoordinate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTLocationFormatter/stringFromLocation:</TokenIdentifier>
+			<Abstract>Returns a string representation of a given location formatted using the receiver’s current settings.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromLocation:(CLLocation *)location</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>location</Name>
+					<Abstract>The location to format.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromLocation:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTLocationFormatter/stringFromDistance:</TokenIdentifier>
+			<Abstract>Returns a string representation of a given distance formatted using the receiver’s current settings.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromDistance:(CLLocationDistance)distance</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>distance</Name>
+					<Abstract>The distance to format.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromDistance:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTLocationFormatter/stringFromBearing:</TokenIdentifier>
+			<Abstract>Returns a string representation of a given bearing formatted using the receiver’s current settings.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromBearing:(CLLocationDegrees)bearing</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>bearing</Name>
+					<Abstract>The bearing to format.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromBearing:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTLocationFormatter/stringFromSpeed:</TokenIdentifier>
+			<Abstract>Returns a string representation of a given speed formatted using the receiver’s current settings.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromSpeed:(CLLocationSpeed)speed</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>speed</Name>
+					<Abstract>The speed to format.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromSpeed:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTLocationFormatter/stringFromDistanceFromLocation:toLocation:</TokenIdentifier>
+			<Abstract>Returns a string representation of the distance between two specified locations formatted using the receiver’s current settings.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromDistanceFromLocation:(CLLocation *)originLocation toLocation:(CLLocation *)destinationLocation</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>originLocation</Name>
+					<Abstract>The starting location.</Abstract>
+				</Parameter><Parameter>
+					<Name>destinationLocation</Name>
+					<Abstract>The final location.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromDistanceFromLocation:toLocation:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTLocationFormatter/stringFromBearingFromLocation:toLocation:</TokenIdentifier>
+			<Abstract>Returns a string representation of the bearing between two specified locations formatted using the receiver’s current settings.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromBearingFromLocation:(CLLocation *)originLocation toLocation:(CLLocation *)destinationLocation</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>originLocation</Name>
+					<Abstract>The starting location.</Abstract>
+				</Parameter><Parameter>
+					<Name>destinationLocation</Name>
+					<Abstract>The final location.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromBearingFromLocation:toLocation:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTLocationFormatter/stringFromDistanceAndBearingFromLocation:toLocation:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromDistanceAndBearingFromLocation:(CLLocation *)originLocation toLocation:(CLLocation *)destinationLocation</Declaration>
+			
+			
+			<Anchor>//api/name/stringFromDistanceAndBearingFromLocation:toLocation:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTLocationFormatter/stringFromVelocityFromLocation:toLocation:atSpeed:</TokenIdentifier>
+			<Abstract>Returns a string representation of the velocity traveling between two specified locations at a given speed formatted using the receiver’s current settings.</Abstract>
+			<DeclaredIn>TTTLocationFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromVelocityFromLocation:(CLLocation *)originLocation toLocation:(CLLocation *)destinationLocation atSpeed:(CLLocationSpeed)speed</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>originLocation</Name>
+					<Abstract>The starting location.</Abstract>
+				</Parameter><Parameter>
+					<Name>destinationLocation</Name>
+					<Abstract>The final location.</Abstract>
+				</Parameter><Parameter>
+					<Name>speed</Name>
+					<Abstract>The speed used to travel between the specified locations.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromVelocityFromLocation:toLocation:atSpeed:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

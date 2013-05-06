@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/TTTTimeIntervalFormatter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/TTTTimeIntervalFormatter</TokenIdentifier>
+			<Abstract>Instances of TTTTimeIntervalFormatter create localized string representations of NSTimeInterval values.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTTimeIntervalFormatter/locale</TokenIdentifier>
+			<Abstract>Specifies the locale used to format strings. Defaults to the current system locale.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSLocale *locale</Declaration>
+			
+			
+			<Anchor>//api/name/locale</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTTimeIntervalFormatter/pastDeicticExpression</TokenIdentifier>
+			<Abstract>Specifies the localized string used to express the past deictic expression. "ago" by default.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSString *pastDeicticExpression</Declaration>
+			
+			
+			<Anchor>//api/name/pastDeicticExpression</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTTimeIntervalFormatter/presentDeicticExpression</TokenIdentifier>
+			<Abstract>Specifies the localized string used to express the present deictic expression. "just now" by default.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSString *presentDeicticExpression</Declaration>
+			
+			
+			<Anchor>//api/name/presentDeicticExpression</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTTimeIntervalFormatter/futureDeicticExpression</TokenIdentifier>
+			<Abstract>Specifies the localized string used to express the future deictic expression. "from now" by default.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSString *futureDeicticExpression</Declaration>
+			
+			
+			<Anchor>//api/name/futureDeicticExpression</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTTimeIntervalFormatter/deicticExpressionFormat</TokenIdentifier>
+			<Abstract>Specifies the localized string used to format the time interval string and deictic expression. Defaults to a format with the deictic expression following the time interval</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSString *deicticExpressionFormat</Declaration>
+			
+			
+			<Anchor>//api/name/deicticExpressionFormat</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTTimeIntervalFormatter/presentTimeIntervalMargin</TokenIdentifier>
+			<Abstract>Specifies the time interval before and after the present moment that is described as still being in the present, rather than the past or future. Defaults to 1 second.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) NSTimeInterval presentTimeIntervalMargin</Declaration>
+			
+			
+			<Anchor>//api/name/presentTimeIntervalMargin</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTTimeIntervalFormatter/approximateQualifierFormat</TokenIdentifier>
+			<Abstract>Specifies the localized string used to qualify a time interval as being an approximate time. "about" by default.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSString *approximateQualifierFormat</Declaration>
+			
+			
+			<Anchor>//api/name/approximateQualifierFormat</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTTimeIntervalFormatter/usesApproximateQualifier</TokenIdentifier>
+			<Abstract>Specifies whether to use an approximate qualifier when the described interval is not exact. NO by default.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL usesApproximateQualifier</Declaration>
+			
+			
+			<Anchor>//api/name/usesApproximateQualifier</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTTimeIntervalFormatter/usesAbbreviatedCalendarUnits</TokenIdentifier>
+			<Abstract>Specifies whether to use abbreviated calendar units to describe time intervals, for instance "wks" instead of "weeks" in English. Defaults to NO.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL usesAbbreviatedCalendarUnits</Declaration>
+			
+			
+			<Anchor>//api/name/usesAbbreviatedCalendarUnits</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTTimeIntervalFormatter/usesIdiomaticDeicticExpressions</TokenIdentifier>
+			<Abstract>Specifies whether to use idiomatic deictic expressions when available, such as "last week" instead of "1 week ago". Defaults to NO.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL usesIdiomaticDeicticExpressions</Declaration>
+			
+			
+			<Anchor>//api/name/usesIdiomaticDeicticExpressions</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTTimeIntervalFormatter/stringForTimeInterval:</TokenIdentifier>
+			<Abstract>Returns a string representation of a time interval formatted using the receiver’s current settings.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringForTimeInterval:(NSTimeInterval)seconds</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>seconds</Name>
+					<Abstract>The number of seconds to add to the receiver. Use a negative value for seconds to have the returned object specify a date before the receiver.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringForTimeInterval:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTTimeIntervalFormatter/stringForTimeIntervalFromDate:toDate:</TokenIdentifier>
+			<Abstract>Returns a string representation of the time interval between two specified dates formatted using the receiver’s current settings.</Abstract>
+			<DeclaredIn>TTTTimeIntervalFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringForTimeIntervalFromDate:(NSDate *)startingDate toDate:(NSDate *)endingDate</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>startingDate</Name>
+					<Abstract>The starting date</Abstract>
+				</Parameter><Parameter>
+					<Name>endingDate</Name>
+					<Abstract>The ending date</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringForTimeIntervalFromDate:toDate:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

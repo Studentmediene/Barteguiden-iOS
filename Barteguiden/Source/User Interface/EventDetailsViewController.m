@@ -10,7 +10,7 @@
 #import "EventKit.h"
 #import "EventKitUI.h"
 #import "CalendarManager.h"
-#import "RIOExpandableLabel.h"
+#import <RIOExpandableLabel.h>
 #import "UIImage+RIODarkenAndBlur.h"
 #import "MapViewController.h"
 
@@ -302,10 +302,9 @@ static float const kOneHourOffset = 1*60*60;
     calendarEvent.location = self.event.placeName;
     calendarEvent.startDate = self.event.startAt;
     calendarEvent.endDate = [self.event.startAt dateByAddingTimeInterval:kOneHourOffset];
-    
     EKAlarm *alarm = self.calendarManager.defaultAlert;
     if (alarm != nil) {
-        [calendarEvent addAlarm:alarm];
+        [calendarEvent addAlarm:[EKAlarm alarmWithRelativeOffset:30]];
     }
     
     return calendarEvent;

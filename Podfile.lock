@@ -1,17 +1,44 @@
 PODS:
+  - FormatterKit (1.1.1):
+    - FormatterKit/AddressFormatter
+    - FormatterKit/ArrayFormatter
+    - FormatterKit/LocationFormatter
+    - FormatterKit/OrdinalNumberFormatter
+    - FormatterKit/TimeIntervalFormatter
+    - FormatterKit/UnitOfInformationFormatter
+    - FormatterKit/URLRequestFormatter
+  - FormatterKit/AddressFormatter (1.1.1)
+  - FormatterKit/ArrayFormatter (1.1.1)
+  - FormatterKit/LocationFormatter (1.1.1)
+  - FormatterKit/OrdinalNumberFormatter (1.1.1)
+  - FormatterKit/TimeIntervalFormatter (1.1.1)
+  - FormatterKit/UnitOfInformationFormatter (1.1.1)
+  - FormatterKit/URLRequestFormatter (1.1.1)
   - JMImageCache (0.4.0)
   - OCHamcrest (1.9)
   - OCMockito (0.23):
     - OCHamcrest (= 1.9)
+  - RIOExpandableLabel (0.0.1)
+  - TransformerKit (0.2.2)
 
 DEPENDENCIES:
+  - FormatterKit
   - JMImageCache
   - OCHamcrest
   - OCMockito
+  - RIOExpandableLabel (from `https://github.com/skohorn/RIOExpandableLabel.git`)
+  - TransformerKit
+
+EXTERNAL SOURCES:
+  RIOExpandableLabel:
+    :git: https://github.com/skohorn/RIOExpandableLabel.git
 
 SPEC CHECKSUMS:
+  FormatterKit: b644b98d4495bdf11fc70f8f80867df5864eaf70
   JMImageCache: 4d764ca5819ce5b0b3bb1efb85c29977768c54bd
   OCHamcrest: f8393efd5a49d91879be573635d6183effacc0ab
   OCMockito: 2223021dd82697fc536c403d6850d2ed8ffae578
+  RIOExpandableLabel: 16687e1a603180d57a85e2f39c99908808fd05ef
+  TransformerKit: c07d1de4a661db2ca420092445750ab4ad67331a
 
 COCOAPODS: 0.19.1

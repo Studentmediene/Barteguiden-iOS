@@ -8,7 +8,8 @@
 
 #import "SettingsViewController.h"
 #import "CalendarManager.h"
-#import "DefaultAlertViewController.h"
+#import "AlertChooser.h"
+#import "CalendarTransformers.h"
 
 
 @implementation SettingsViewController
@@ -45,6 +46,13 @@
         calendarChooser.title = NSLocalizedString(@"Default Calendar", nil);
         [self.navigationController pushViewController:calendarChooser animated:YES];
     }
+    else if (cell == self.defaultAlertCell) {
+        AlertChooser *alertChooser = [[AlertChooser alloc] init];
+        alertChooser.delegate = self;
+        alertChooser.selectedAlert = [self.calendarManager defaultAlert];
+        alertChooser.title = NSLocalizedString(@"Default Alert", nil);
+        [self.navigationController pushViewController:alertChooser animated:YES];
+    }
     else if (cell == self.sendUsYourTipsCell) {
         [self sendUsYourTips:cell];
         
@@ -67,8 +75,8 @@
         mailViewController.mailComposeDelegate = self;
         // FIXME: Update these values
         [mailViewController setToRecipients:@[@"tips@underdusken.no"]];
-        [mailViewController setSubject:@""];
-        [mailViewController setMessageBody:@"" isHTML:NO];
+        [mailViewController setSubject:@"Your subject here"];
+        [mailViewController setMessageBody:@"Your body here" isHTML:NO];
         
         [self presentViewController:mailViewController animated:YES completion:NULL];
         
@@ -79,30 +87,21 @@
 }
 
 
-#pragma mark - UIStoryboard
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue isEqual:@"DefaultAlertSegue"]) {
-        DefaultAlertViewController *defaultAlertViewController = [segue destinationViewController];
-        defaultAlertViewController.selectedTimeInterval = [[self.calendarManager defaultAlert] relativeOffset];
-    }
-}
-
 #pragma mark - EKCalendarChooserDelegate
 
 - (void)calendarChooserSelectionDidChange:(EKCalendarChooser *)calendarChooser
 {
-    EKCalendar *selectedCalendar = [calendarChooser.selectedCalendars anyObject];
-    [self.calendarManager setDefaultCalendar:selectedCalendar];
+    self.calendarManager.defaultCalendar = [calendarChooser.selectedCalendars anyObject];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
 #pragma mark - DefaultAlertViewControllerDelegate
 
-- (void)defaultAlertViewController:(DefaultAlertViewController *)defaultAlertViewController didSelectAlert:(EKAlarm *)alert
+- (void)alertChooserSelectionDidChange:(AlertChooser *)alertChooser
 {
-    
+    self.calendarManager.defaultAlert = alertChooser.selectedAlert;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate
@@ -119,7 +118,8 @@
 {
     self.autoAddFavoritesSwitch.on = [self.calendarManager shouldAutoAddFavorites];
     self.defaultCalendarLabel.text = [[self.calendarManager defaultCalendar] title];
-    self.defaultAlertLabel.text = [NSString stringWithFormat:@"%.0f", [[self.calendarManager defaultAlert] relativeOffset]];
+    NSValueTransformer *alertDescription = [NSValueTransformer valueTransformerForName:CalendarAlertDescriptionTransformerName];
+    self.defaultAlertLabel.text = [alertDescription transformedValue:[self.calendarManager defaultAlert]];
 }
 
 @end

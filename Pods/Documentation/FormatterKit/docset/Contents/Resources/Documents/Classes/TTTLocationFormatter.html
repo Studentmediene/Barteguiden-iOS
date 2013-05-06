@@ -1,0 +1,974 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>TTTLocationFormatter Class Reference</title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" />
+		<meta name="generator" content="appledoc 2.0.4 (build 703)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">TTTLocationFormatter Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/bearingStyle">&nbsp;&nbsp;&nbsp;&nbsp;bearingStyle</option>
+	
+	<option value="//api/name/coordinateOrder">&nbsp;&nbsp;&nbsp;&nbsp;coordinateOrder</option>
+	
+	<option value="//api/name/numberFormatter">&nbsp;&nbsp;&nbsp;&nbsp;numberFormatter</option>
+	
+	<option value="//api/name/unitSystem">&nbsp;&nbsp;&nbsp;&nbsp;unitSystem</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/stringFromBearing:">&nbsp;&nbsp;&nbsp;&nbsp;- stringFromBearing:</option>
+	
+	<option value="//api/name/stringFromBearingFromLocation:toLocation:">&nbsp;&nbsp;&nbsp;&nbsp;- stringFromBearingFromLocation:toLocation:</option>
+	
+	<option value="//api/name/stringFromCoordinate:">&nbsp;&nbsp;&nbsp;&nbsp;- stringFromCoordinate:</option>
+	
+	<option value="//api/name/stringFromDistance:">&nbsp;&nbsp;&nbsp;&nbsp;- stringFromDistance:</option>
+	
+	<option value="//api/name/stringFromDistanceAndBearingFromLocation:toLocation:">&nbsp;&nbsp;&nbsp;&nbsp;- stringFromDistanceAndBearingFromLocation:toLocation:</option>
+	
+	<option value="//api/name/stringFromDistanceFromLocation:toLocation:">&nbsp;&nbsp;&nbsp;&nbsp;- stringFromDistanceFromLocation:toLocation:</option>
+	
+	<option value="//api/name/stringFromLocation:">&nbsp;&nbsp;&nbsp;&nbsp;- stringFromLocation:</option>
+	
+	<option value="//api/name/stringFromSpeed:">&nbsp;&nbsp;&nbsp;&nbsp;- stringFromSpeed:</option>
+	
+	<option value="//api/name/stringFromVelocityFromLocation:toLocation:atSpeed:">&nbsp;&nbsp;&nbsp;&nbsp;- stringFromVelocityFromLocation:toLocation:atSpeed:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bearingStyle">bearingStyle</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/coordinateOrder">coordinateOrder</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberFormatter">numberFormatter</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unitSystem">unitSystem</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromBearing:">stringFromBearing:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromBearingFromLocation:toLocation:">stringFromBearingFromLocation:toLocation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromCoordinate:">stringFromCoordinate:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromDistance:">stringFromDistance:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromDistanceAndBearingFromLocation:toLocation:">stringFromDistanceAndBearingFromLocation:toLocation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromDistanceFromLocation:toLocation:">stringFromDistanceFromLocation:toLocation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromLocation:">stringFromLocation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromSpeed:">stringFromSpeed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromVelocityFromLocation:toLocation:atSpeed:">stringFromVelocityFromLocation:toLocation:atSpeed:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="TTTLocationFormatter Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">TTTLocationFormatter Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSFormatter</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">TTTLocationFormatter.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Instances of <a href="TTTLocationFormatter.html"><code>TTTLocationFormatter</code></a> create localized string representations of <code>CLLocationCoordinate2D</code>, <code>CLLocationDistance</code>, <code>CLLocationDegrees</code>, and <code>CLLocationSpeed</code> values and <code>CLLocation</code> objects.</p>
+
+<p>For example, if Imperial units were specified, a distance of 1960 meters at a bearing of 225Â° would be formatted as @&ldquo;1,218 Miles Southwest&rdquo; in English</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/numberFormatter">&nbsp;&nbsp;numberFormatter</a></code>
+		<span class="tooltip"><p>Specifies the <code>NSNumberFormatter</code> object used to format numeric values in all formatted strings. By default, this uses the current system locale with the <code>NSNumberFormatterDecimalStyle</code> number style, and displays 2 significant digits.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/coordinateOrder">&nbsp;&nbsp;coordinateOrder</a></code>
+		<span class="tooltip"><p>Specifies the ordering of latitude and longitude values in coordinate pairs. <code>TTTCoordinateLatLngOrder</code> by default.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/bearingStyle">&nbsp;&nbsp;bearingStyle</a></code>
+		<span class="tooltip"><p>Specifies the formatting of bearing in strings. <code>TTTBearingWordStyle</code> by default.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/unitSystem">&nbsp;&nbsp;unitSystem</a></code>
+		<span class="tooltip"><p>Specifies the units used to express distance in formatted strings. <code>TTTMetricSystem</code> by default.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromCoordinate:">&ndash;&nbsp;stringFromCoordinate:</a></code>
+		<span class="tooltip"><p>Returns a string representation of a given coordinate formatted using the receiverâs current setting</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromLocation:">&ndash;&nbsp;stringFromLocation:</a></code>
+		<span class="tooltip"><p>Returns a string representation of a given location formatted using the receiverâs current setting</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromDistance:">&ndash;&nbsp;stringFromDistance:</a></code>
+		<span class="tooltip"><p>Returns a string representation of a given distance formatted using the receiverâs current setting</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromBearing:">&ndash;&nbsp;stringFromBearing:</a></code>
+		<span class="tooltip"><p>Returns a string representation of a given bearing formatted using the receiverâs current setting</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromSpeed:">&ndash;&nbsp;stringFromSpeed:</a></code>
+		<span class="tooltip"><p>Returns a string representation of a given speed formatted using the receiverâs current setting</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromDistanceFromLocation:toLocation:">&ndash;&nbsp;stringFromDistanceFromLocation:toLocation:</a></code>
+		<span class="tooltip"><p>Returns a string representation of the distance between two specified locations formatted using the receiverâs current setting</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromBearingFromLocation:toLocation:">&ndash;&nbsp;stringFromBearingFromLocation:toLocation:</a></code>
+		<span class="tooltip"><p>Returns a string representation of the bearing between two specified locations formatted using the receiverâs current setting</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromDistanceAndBearingFromLocation:toLocation:">&ndash;&nbsp;stringFromDistanceAndBearingFromLocation:toLocation:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromVelocityFromLocation:toLocation:atSpeed:">&ndash;&nbsp;stringFromVelocityFromLocation:toLocation:atSpeed:</a></code>
+		<span class="tooltip"><p>Returns a string representation of the velocity traveling between two specified locations at a given speed formatted using the receiverâs current setting</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/bearingStyle" title="bearingStyle"></a>
+	<h3 class="subsubtitle method-title">bearingStyle</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the formatting of bearing in strings. <code>TTTBearingWordStyle</code> by default.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) TTTLocationFormatterBearingStyle bearingStyle</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the formatting of bearing in strings. <code>TTTBearingWordStyle</code> by default.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/coordinateOrder" title="coordinateOrder"></a>
+	<h3 class="subsubtitle method-title">coordinateOrder</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the ordering of latitude and longitude values in coordinate pairs. <code>TTTCoordinateLatLngOrder</code> by default.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) TTTLocationFormatterCoordinateOrder coordinateOrder</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the ordering of latitude and longitude values in coordinate pairs. <code>TTTCoordinateLatLngOrder</code> by default.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/numberFormatter" title="numberFormatter"></a>
+	<h3 class="subsubtitle method-title">numberFormatter</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the <code>NSNumberFormatter</code> object used to format numeric values in all formatted strings. By default, this uses the current system locale with the <code>NSNumberFormatterDecimalStyle</code> number style, and displays 2 significant digits.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (readonly, nonatomic, strong) NSNumberFormatter *numberFormatter</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the <code>NSNumberFormatter</code> object used to format numeric values in all formatted strings. By default, this uses the current system locale with the <code>NSNumberFormatterDecimalStyle</code> number style, and displays 2 significant digits.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/unitSystem" title="unitSystem"></a>
+	<h3 class="subsubtitle method-title">unitSystem</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the units used to express distance in formatted strings. <code>TTTMetricSystem</code> by default.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) TTTLocationUnitSystem unitSystem</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the units used to express distance in formatted strings. <code>TTTMetricSystem</code> by default.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromBearing:" title="stringFromBearing:"></a>
+	<h3 class="subsubtitle method-title">stringFromBearing:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a string representation of a given bearing formatted using the receiverâs current setting</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringFromBearing:(CLLocationDegrees)<em>bearing</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>bearing</em></dt>
+			<dd><p>The bearing to format.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a string representation of a given bearing formatted using the receiverâs current setting</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromBearingFromLocation:toLocation:" title="stringFromBearingFromLocation:toLocation:"></a>
+	<h3 class="subsubtitle method-title">stringFromBearingFromLocation:toLocation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a string representation of the bearing between two specified locations formatted using the receiverâs current setting</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringFromBearingFromLocation:(CLLocation *)<em>originLocation</em> toLocation:(CLLocation *)<em>destinationLocation</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>originLocation</em></dt>
+			<dd><p>The starting location.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>destinationLocation</em></dt>
+			<dd><p>The final location.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a string representation of the bearing between two specified locations formatted using the receiverâs current setting</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromCoordinate:" title="stringFromCoordinate:"></a>
+	<h3 class="subsubtitle method-title">stringFromCoordinate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a string representation of a given coordinate formatted using the receiverâs current setting</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringFromCoordinate:(CLLocationCoordinate2D)<em>coordinate</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>coordinate</em></dt>
+			<dd><p>The coordinate to format.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a string representation of a given coordinate formatted using the receiverâs current setting</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromDistance:" title="stringFromDistance:"></a>
+	<h3 class="subsubtitle method-title">stringFromDistance:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a string representation of a given distance formatted using the receiverâs current setting</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringFromDistance:(CLLocationDistance)<em>distance</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>distance</em></dt>
+			<dd><p>The distance to format.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a string representation of a given distance formatted using the receiverâs current setting</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromDistanceAndBearingFromLocation:toLocation:" title="stringFromDistanceAndBearingFromLocation:toLocation:"></a>
+	<h3 class="subsubtitle method-title">stringFromDistanceAndBearingFromLocation:toLocation:</h3>
+	
+	
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringFromDistanceAndBearingFromLocation:(CLLocation *)<em>originLocation</em> toLocation:(CLLocation *)<em>destinationLocation</em></code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromDistanceFromLocation:toLocation:" title="stringFromDistanceFromLocation:toLocation:"></a>
+	<h3 class="subsubtitle method-title">stringFromDistanceFromLocation:toLocation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a string representation of the distance between two specified locations formatted using the receiverâs current setting</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringFromDistanceFromLocation:(CLLocation *)<em>originLocation</em> toLocation:(CLLocation *)<em>destinationLocation</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>originLocation</em></dt>
+			<dd><p>The starting location.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>destinationLocation</em></dt>
+			<dd><p>The final location.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a string representation of the distance between two specified locations formatted using the receiverâs current setting</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromLocation:" title="stringFromLocation:"></a>
+	<h3 class="subsubtitle method-title">stringFromLocation:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a string representation of a given location formatted using the receiverâs current setting</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringFromLocation:(CLLocation *)<em>location</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>location</em></dt>
+			<dd><p>The location to format.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a string representation of a given location formatted using the receiverâs current setting</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromSpeed:" title="stringFromSpeed:"></a>
+	<h3 class="subsubtitle method-title">stringFromSpeed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a string representation of a given speed formatted using the receiverâs current setting</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringFromSpeed:(CLLocationSpeed)<em>speed</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>speed</em></dt>
+			<dd><p>The speed to format.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a string representation of a given speed formatted using the receiverâs current setting</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromVelocityFromLocation:toLocation:atSpeed:" title="stringFromVelocityFromLocation:toLocation:atSpeed:"></a>
+	<h3 class="subsubtitle method-title">stringFromVelocityFromLocation:toLocation:atSpeed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a string representation of the velocity traveling between two specified locations at a given speed formatted using the receiverâs current setting</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringFromVelocityFromLocation:(CLLocation *)<em>originLocation</em> toLocation:(CLLocation *)<em>destinationLocation</em> atSpeed:(CLLocationSpeed)<em>speed</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>originLocation</em></dt>
+			<dd><p>The starting location.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>destinationLocation</em></dt>
+			<dd><p>The final location.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>speed</em></dt>
+			<dd><p>The speed used to travel between the specified locations.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Returns a string representation of the velocity traveling between two specified locations at a given speed formatted using the receiverâs current setting</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTLocationFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Mattt Thompson. All rights reserved. (Last updated: 2013-05-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.4 (build 703)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+		</script>
+	</body>
+</html>

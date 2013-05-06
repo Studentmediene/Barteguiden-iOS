@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/TTTAddressFormatter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/TTTAddressFormatter</TokenIdentifier>
+			<Abstract>Instances of TTTAddressFormatter create address strings formatted according to a given locale.</Abstract>
+			<DeclaredIn>TTTAddressFormatter.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTAddressFormatter/locale</TokenIdentifier>
+			<Abstract>Specifies the locale used to format strings. Defaults to the current system locale.</Abstract>
+			<DeclaredIn>TTTAddressFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSLocale *locale</Declaration>
+			
+			
+			<Anchor>//api/name/locale</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTAddressFormatter/stringFromAddressWithStreet:locality:region:postalCode:country:</TokenIdentifier>
+			<Abstract>Returns an address string for the specified components formatted with the receiver's locale.</Abstract>
+			<DeclaredIn>TTTAddressFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromAddressWithStreet:(NSString *)street locality:(NSString *)locality region:(NSString *)region postalCode:(NSString *)postalCode country:(NSString *)country</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>street</Name>
+					<Abstract>The street address</Abstract>
+				</Parameter><Parameter>
+					<Name>locality</Name>
+					<Abstract>The locality (a.k.a. city, municipality, township)</Abstract>
+				</Parameter><Parameter>
+					<Name>region</Name>
+					<Abstract>The region (a.k.a. state, prefecture, principality)</Abstract>
+				</Parameter><Parameter>
+					<Name>postalCode</Name>
+					<Abstract>The postal code (a.k.a ZIP code)</Abstract>
+				</Parameter><Parameter>
+					<Name>country</Name>
+					<Abstract>The country</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromAddressWithStreet:locality:region:postalCode:country:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

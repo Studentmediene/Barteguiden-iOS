@@ -45,6 +45,7 @@
 		69528C0F1643152C00A96B65 /* UserDefaultsFilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69528C0E1643152C00A96B65 /* UserDefaultsFilterManager.m */; };
 		6956C67616419E5300E10586 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67516419E5300E10586 /* FilterViewController.m */; };
 		6956C67A16422A0500E10586 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67916422A0500E10586 /* SettingsViewController.m */; };
+		695EC1BC173789E1007C32D5 /* CalendarTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 695EC1BB173789E1007C32D5 /* CalendarTransformers.m */; };
 		696CB68C16D81ABB0090E7C9 /* EventResultsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 696CB68B16D81ABB0090E7C9 /* EventResultsSection.m */; };
 		697E8F00171F5DC300974244 /* Other-Big.png in Resources */ = {isa = PBXBuildFile; fileRef = 697E8EFC171F5DC300974244 /* Other-Big.png */; };
 		697E8F01171F5DC300974244 /* Other-Big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697E8EFD171F5DC300974244 /* Other-Big@2x.png */; };
@@ -126,9 +127,7 @@
 		69C7EF4B16DB3DD50013D370 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F52AA11608E70F0045B6F6 /* CoreGraphics.framework */; };
 		69C7EF5716DDBA3A0013D370 /* EventStoreCommunicatorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C7EF5616DDBA3A0013D370 /* EventStoreCommunicatorMock.m */; };
 		69C9E21B1687C60200D65004 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E21A1687C60200D65004 /* TabBarController.m */; };
-		69CC037C1735A12000F96209 /* RIOExpandableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CC037A1735A12000F96209 /* RIOExpandableLabel.m */; };
-		69CC03821736149B00F96209 /* DefaultAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CC03811736149B00F96209 /* DefaultAlertViewController.m */; };
-		69CC0387173619D600F96209 /* AlertFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CC0386173619D600F96209 /* AlertFormatter.m */; };
+		69CC03821736149B00F96209 /* AlertChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CC03811736149B00F96209 /* AlertChooser.m */; };
 		69D7FC3A161B576A00E38D56 /* AllEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC39161B576A00E38D56 /* AllEventsViewController.m */; };
 		69D7FC40161B57B600E38D56 /* FeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC3F161B57B600E38D56 /* FeaturedViewController.m */; };
 		69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */; };
@@ -218,6 +217,8 @@
 		6956C67516419E5300E10586 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		6956C67816422A0500E10586 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		6956C67916422A0500E10586 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		695EC1BA173789E1007C32D5 /* CalendarTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTransformers.h; sourceTree = "<group>"; };
+		695EC1BB173789E1007C32D5 /* CalendarTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTransformers.m; sourceTree = "<group>"; };
 		696CB68916D81AAA0090E7C9 /* EventResultsSectionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResultsSectionInfo.h; sourceTree = "<group>"; };
 		696CB68A16D81ABB0090E7C9 /* EventResultsSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventResultsSection.h; sourceTree = "<group>"; };
 		696CB68B16D81ABB0090E7C9 /* EventResultsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResultsSection.m; sourceTree = "<group>"; };
@@ -337,14 +338,9 @@
 		69C7EF5616DDBA3A0013D370 /* EventStoreCommunicatorMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventStoreCommunicatorMock.m; sourceTree = "<group>"; };
 		69C9E2191687C60200D65004 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		69C9E21A1687C60200D65004 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
-		69CC03791735A12000F96209 /* RIOExpandableLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIOExpandableLabel.h; sourceTree = "<group>"; };
-		69CC037A1735A12000F96209 /* RIOExpandableLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIOExpandableLabel.m; sourceTree = "<group>"; };
-		69CC037B1735A12000F96209 /* RIOExpandableLabelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIOExpandableLabelDelegate.h; sourceTree = "<group>"; };
-		69CC03801736149B00F96209 /* DefaultAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultAlertViewController.h; sourceTree = "<group>"; };
-		69CC03811736149B00F96209 /* DefaultAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultAlertViewController.m; sourceTree = "<group>"; };
-		69CC0383173614E000F96209 /* DefaultAlertViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefaultAlertViewControllerDelegate.h; sourceTree = "<group>"; };
-		69CC0385173619D600F96209 /* AlertFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertFormatter.h; sourceTree = "<group>"; };
-		69CC0386173619D600F96209 /* AlertFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertFormatter.m; sourceTree = "<group>"; };
+		69CC03801736149B00F96209 /* AlertChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertChooser.h; sourceTree = "<group>"; };
+		69CC03811736149B00F96209 /* AlertChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertChooser.m; sourceTree = "<group>"; };
+		69CC0383173614E000F96209 /* AlertChooserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertChooserDelegate.h; sourceTree = "<group>"; };
 		69D7FC38161B576A00E38D56 /* AllEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllEventsViewController.h; sourceTree = "<group>"; };
 		69D7FC39161B576A00E38D56 /* AllEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllEventsViewController.m; sourceTree = "<group>"; };
 		69D7FC3E161B57B600E38D56 /* FeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedViewController.h; sourceTree = "<group>"; };
@@ -457,6 +453,15 @@
 				6956C67516419E5300E10586 /* FilterViewController.m */,
 			);
 			name = "My Filter Tab";
+			sourceTree = "<group>";
+		};
+		695EC1B9173785C0007C32D5 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				695EC1BA173789E1007C32D5 /* CalendarTransformers.h */,
+				695EC1BB173789E1007C32D5 /* CalendarTransformers.m */,
+			);
+			name = Transformers;
 			sourceTree = "<group>";
 		};
 		6988E1781613907B00C2915A /* Favorites Tab */ = {
@@ -713,9 +718,6 @@
 				69B1D98A1703D5FE0066B032 /* UIImage+RIOScaleAndCrop.m */,
 				697E8F3A1731F8CE00974244 /* UIImage+RIODarkenAndBlur.h */,
 				697E8F3B1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m */,
-				69CC03791735A12000F96209 /* RIOExpandableLabel.h */,
-				69CC037A1735A12000F96209 /* RIOExpandableLabel.m */,
-				69CC037B1735A12000F96209 /* RIOExpandableLabelDelegate.h */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -834,15 +836,6 @@
 			path = "User Interface";
 			sourceTree = "<group>";
 		};
-		69CC0384173619B400F96209 /* Misc */ = {
-			isa = PBXGroup;
-			children = (
-				69CC0385173619D600F96209 /* AlertFormatter.h */,
-				69CC0386173619D600F96209 /* AlertFormatter.m */,
-			);
-			name = Misc;
-			sourceTree = "<group>";
-		};
 		69D7FC36161B570F00E38D56 /* Featured Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -857,9 +850,9 @@
 			children = (
 				6956C67816422A0500E10586 /* SettingsViewController.h */,
 				6956C67916422A0500E10586 /* SettingsViewController.m */,
-				69CC03801736149B00F96209 /* DefaultAlertViewController.h */,
-				69CC03811736149B00F96209 /* DefaultAlertViewController.m */,
-				69CC0383173614E000F96209 /* DefaultAlertViewControllerDelegate.h */,
+				69CC0383173614E000F96209 /* AlertChooserDelegate.h */,
+				69CC03801736149B00F96209 /* AlertChooser.h */,
+				69CC03811736149B00F96209 /* AlertChooser.m */,
 			);
 			name = "Settings Tab";
 			sourceTree = "<group>";
@@ -972,11 +965,11 @@
 		69F52AD81608E7230045B6F6 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				695EC1B9173785C0007C32D5 /* Transformers */,
 				69F52ADA1608E7E20045B6F6 /* MainStoryboard.storyboard */,
 				69BA0AD8162F44D3009726E7 /* Event Cell */,
 				69C491641625F1A600F28C45 /* Event Details */,
 				69C9E2181687C5B700D65004 /* Tabs */,
-				69CC0384173619B400F96209 /* Misc */,
 				69B7815116C1DC1A00ADD13A /* EventKitUI */,
 			);
 			path = "User Interface";
@@ -1281,9 +1274,8 @@
 				69B9F7611716332000184F5B /* HeaderView.m in Sources */,
 				697E8F3C1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m in Sources */,
 				69C6F9051734282000568238 /* UserDefaultsCalendarManager.m in Sources */,
-				69CC037C1735A12000F96209 /* RIOExpandableLabel.m in Sources */,
-				69CC03821736149B00F96209 /* DefaultAlertViewController.m in Sources */,
-				69CC0387173619D600F96209 /* AlertFormatter.m in Sources */,
+				69CC03821736149B00F96209 /* AlertChooser.m in Sources */,
+				695EC1BC173789E1007C32D5 /* CalendarTransformers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

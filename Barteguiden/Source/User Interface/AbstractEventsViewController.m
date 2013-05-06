@@ -216,7 +216,7 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        NSLog(@"Generating new cell from nib"); // TODO: Use this to check that search field works
+//        NSLog(@"Generating new cell from nib"); // TODO: Use this to check that search field works
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EventCell" owner:self options:nil];
         cell = (UITableViewCell *)[nib objectAtIndex:0];
         [cell prepareForReuse];

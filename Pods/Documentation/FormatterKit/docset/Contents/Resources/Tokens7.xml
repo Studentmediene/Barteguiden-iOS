@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/TTTURLRequestFormatter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/TTTURLRequestFormatter</TokenIdentifier>
+			<Abstract>Instances of TTTURLRequestFormatter create localized string representations of NSURLRequest objects. There are also class methods that generate equivalent curl and wget command strings.</Abstract>
+			<DeclaredIn>TTTURLRequestFormatter.h</DeclaredIn>
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/TTTURLRequestFormatter/stringFromURLRequest:</TokenIdentifier>
+			<Abstract>Returns a string representation of a given request.</Abstract>
+			<DeclaredIn>TTTURLRequestFormatter.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringFromURLRequest:(NSURLRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract>The request to format.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/stringFromURLRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/TTTURLRequestFormatter/cURLCommandFromURLRequest:</TokenIdentifier>
+			<Abstract>Returns a curl command string equivalent of the specified request object.</Abstract>
+			<DeclaredIn>TTTURLRequestFormatter.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)cURLCommandFromURLRequest:(NSURLRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract>The request to format.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/cURLCommandFromURLRequest:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/TTTURLRequestFormatter/WgetCommandFromURLRequest:</TokenIdentifier>
+			<Abstract>Returns a wget command string equivalent of the specified request object.</Abstract>
+			<DeclaredIn>TTTURLRequestFormatter.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)WgetCommandFromURLRequest:(NSURLRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract>The request to format.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/WgetCommandFromURLRequest:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
