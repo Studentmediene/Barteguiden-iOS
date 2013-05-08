@@ -30,11 +30,8 @@ static float const kOneHourOffset = 1*60*60;
     
     [self setUpStyles];
     
-    // TODO: Does not work to add events to calendar anymore :-/
-    [self requestAccessToCalendar];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Action"] style:UIBarButtonItemStyleBordered target:self action:@selector(shareEvent:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Action"] style:UIBarButtonItemStyleBordered target:self action:@selector(shareEvent:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarStoreChanged:) name:EKEventStoreChangedNotification object:self.calendarManager.calendarStore];
@@ -72,7 +69,7 @@ static float const kOneHourOffset = 1*60*60;
 - (void)calendarStoreChanged:(NSNotification *)note
 {
     // TODO: Check if it is the correct calendar event that is updated?
-    [self updateViewInfo];
+//    [self updateViewInfo];
 }
 
 
@@ -90,15 +87,7 @@ static float const kOneHourOffset = 1*60*60;
 
 #pragma mark - IBAction
 
-- (void)toggleFavorite:(id)sender
-{
-    BOOL newFavorite = ([self.event isFavorite] == NO);
-
-    self.event.favorite = newFavorite;
-    self.favoriteButton.selected = newFavorite;
-}
-
-- (void)shareEvent:(id)sender
+- (IBAction)shareEvent:(id)sender
 {
     NSString *eventAd = [NSString stringWithFormat:@"Join me at %@!", [self.event title]];
     NSArray *activityItems = @[eventAd];
@@ -107,29 +96,57 @@ static float const kOneHourOffset = 1*60*60;
     [self presentViewController:activityViewController animated:YES completion:NULL];
 }
 
-- (IBAction)modifyCalendar:(id)sender
+- (IBAction)toggleFavorite:(id)sender
 {
-    if ([self isAddedToCalendar] == NO) {
-        [self addToCalendar:sender];
-    }
-    else {
-        [self promptRemoveFromCalendar:sender];
+    BOOL newFavorite = ([self.event isFavorite] == NO);
+
+    self.event.favorite = newFavorite;
+    self.favoriteButton.selected = newFavorite;
+    
+    if ([self.calendarManager shouldAutoAddFavorites]) {
+        [self.calendarManager requestAccessWithCompletion:^(BOOL granted, NSError *error) {
+            if (granted == NO) {
+                return;
+            }
+        
+            if (newFavorite == YES && [self isAddedToCalendar] == NO) {
+                EKEvent *calendarEvent = [self newCalendarEvent];
+                [self addCalendarEvent:calendarEvent];
+            }
+            else if (newFavorite == NO && [self isAddedToCalendar] == YES) {
+                EKEvent *calendarEvent = [self.calendarManager.calendarStore eventWithIdentifier:self.event.calendarEventID];
+                [self removeCalendarEvent:calendarEvent];
+            }
+        }];
     }
 }
 
-- (IBAction)addToCalendar:(id)sender
+- (IBAction)toggleCalendarEvent:(id)sender
 {
-    EKEvent *calendarEvent = [self calendarEvent];
+    [self.calendarManager requestAccessWithCompletion:^(BOOL granted, NSError *error) {
+        if (granted == NO) {
+            return;
+        }
     
-	EKEventEditViewController *eventEditViewController = [[EKEventEditViewController alloc] init];
-    eventEditViewController.event = calendarEvent;
-	eventEditViewController.eventStore = self.calendarManager.calendarStore;
-	eventEditViewController.editViewDelegate = self;
-    
-	[self presentViewController:eventEditViewController animated:YES completion:NULL];
+        if ([self isAddedToCalendar] == NO) {
+            [self presentNewCalendarEvent];
+        }
+        else {
+            [self promptEditOrRemoveFromCalendar];
+        }
+    }];
 }
 
-- (IBAction)promptRemoveFromCalendar:(id)sender
+- (IBAction)visitWebsite:(id)sender
+{
+    NSURL *url = [self.event URL];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+
+#pragma mark - Calendar methods
+
+- (void)promptEditOrRemoveFromCalendar
 {
     // TODO: Fix localization
     NSString *deleteTitle = NSLocalizedString(@"Remove from Calendar", nil);
@@ -141,21 +158,68 @@ static float const kOneHourOffset = 1*60*60;
     [actionSheet showInView:self.view];
 }
 
-- (IBAction)editInCalendar:(id)sender
+- (void)presentNewCalendarEvent
 {
-    NSLog(@"Editing...");
+    EKEvent *calendarEvent = [self newCalendarEvent];
+    
+	[self presentEventEditorForCalendarEvent:calendarEvent];
 }
 
-- (IBAction)removeFromCalendar:(id)sender
+- (void)presentEditCalendarEvent
+{
+    EKEvent *calendarEvent = [self.calendarManager.calendarStore eventWithIdentifier:self.event.calendarEventID];
+    
+    [self presentEventEditorForCalendarEvent:calendarEvent];
+}
+
+- (void)presentEventEditorForCalendarEvent:(EKEvent *)calendarEvent
+{
+    EKEventEditViewController *eventEditViewController = [[EKEventEditViewController alloc] init];
+    eventEditViewController.event = calendarEvent;
+	eventEditViewController.eventStore = self.calendarManager.calendarStore;
+	eventEditViewController.editViewDelegate = self;
+    
+	[self presentViewController:eventEditViewController animated:YES completion:NULL];
+}
+
+- (void)removeFromCalendar
 {
     EKEvent *calendarEvent = [self.calendarManager.calendarStore eventWithIdentifier:[self.event calendarEventID]];
     [self removeCalendarEvent:calendarEvent];
 }
 
-- (IBAction)visitWebsite:(id)sender
+- (BOOL)isAddedToCalendar
 {
-    NSURL *url = [self.event URL];
-    [[UIApplication sharedApplication] openURL:url];
+    return ([[self.event calendarEventID] length] > 0);
+}
+
+- (void)addCalendarEvent:(EKEvent *)calendarEvent
+{
+    [self.calendarManager.calendarStore saveEvent:calendarEvent span:EKSpanThisEvent error:NULL];
+    [self.event setCalendarEventID:calendarEvent.eventIdentifier];
+}
+
+- (void)removeCalendarEvent:(EKEvent *)calendarEvent
+{
+    [self.calendarManager.calendarStore removeEvent:calendarEvent span:EKSpanThisEvent error:NULL];
+    [self.event setCalendarEventID:nil];
+}
+
+- (EKEvent *)newCalendarEvent
+{
+    EKEvent *calendarEvent = [self.calendarManager newCalendarEvent];
+    calendarEvent.calendar = self.calendarManager.defaultCalendar;
+    calendarEvent.title = self.event.title;
+    calendarEvent.location = self.event.placeName;
+    calendarEvent.startDate = self.event.startAt;
+    calendarEvent.endDate = [self.event.startAt dateByAddingTimeInterval:kOneHourOffset];
+    
+    EKAlarm *alert = self.calendarManager.defaultAlert;
+    if (alert != nil) {
+        [calendarEvent addAlarm:alert];
+    }
+    
+    return calendarEvent;
 }
 
 
@@ -169,10 +233,10 @@ static float const kOneHourOffset = 1*60*60;
     
     if ([self isAddedToCalendar] == YES) {
         if (buttonIndex == actionSheet.destructiveButtonIndex) {
-            [self removeFromCalendar:actionSheet];
+            [self removeFromCalendar];
         }
         else {
-            [self editInCalendar:actionSheet];
+            [self presentEditCalendarEvent];
         }
     }
 }
@@ -199,6 +263,7 @@ static float const kOneHourOffset = 1*60*60;
 	[controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
+
 #pragma mark - RIOExpandableLabelDelegate
 
 - (void)expandableLabelDidLayout:(RIOExpandableLabel *)expandableLabel
@@ -217,32 +282,6 @@ static float const kOneHourOffset = 1*60*60;
 
 
 #pragma mark - Private methods
-
-- (void)requestAccessToCalendar
-{
-    [self.calendarManager.calendarStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-        NSLog(@"granted:%d error:%@", granted, error);
-    }];
-}
-
-- (BOOL)isAddedToCalendar
-{
-    return ([[self.event calendarEventID] length] > 0);
-}
-
-- (void)addCalendarEvent:(EKEvent *)calendarEvent
-{
-    NSLog(@"Adding event to calendar:%@", calendarEvent.eventIdentifier);
-    [self.calendarManager.calendarStore saveEvent:calendarEvent span:EKSpanThisEvent error:NULL];
-    [self.event setCalendarEventID:calendarEvent.eventIdentifier];
-}
-
-- (void)removeCalendarEvent:(EKEvent *)calendarEvent
-{
-    NSLog(@"Removing event from calendar:%@", calendarEvent.eventIdentifier);
-    [self.calendarManager.calendarStore removeEvent:calendarEvent span:EKSpanThisEvent error:NULL];
-    [self.event setCalendarEventID:nil];
-}
 
 - (void)updateViewInfo
 {
@@ -294,22 +333,6 @@ static float const kOneHourOffset = 1*60*60;
 //    }
 }
 
-- (EKEvent *)calendarEvent
-{
-    EKEvent *calendarEvent = [EKEvent eventWithEventStore:self.calendarManager.calendarStore];
-    calendarEvent.calendar = self.calendarManager.defaultCalendar;
-    calendarEvent.title = self.event.title;
-    calendarEvent.location = self.event.placeName;
-    calendarEvent.startDate = self.event.startAt;
-    calendarEvent.endDate = [self.event.startAt dateByAddingTimeInterval:kOneHourOffset];
-    EKAlarm *alarm = self.calendarManager.defaultAlert;
-    if (alarm != nil) {
-        [calendarEvent addAlarm:[EKAlarm alarmWithRelativeOffset:30]];
-    }
-    
-    return calendarEvent;
-}
-
 - (void)setUpStyles
 {
     UIImage *modifyCalendarButtonImage = [UIImage imageNamed:@"TextHighlight"];
@@ -329,7 +352,9 @@ static float const kOneHourOffset = 1*60*60;
     
     self.descriptionTitleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
     self.descriptionLabel.textFont = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
-    self.descriptionLabel.moreButtonFont = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
+//    self.descriptionLabel.moreButtonText = @"More ▾";
+    self.descriptionLabel.moreButtonFont = [UIFont boldSystemFontOfSize:14];
+//    self.descriptionLabel.moreButtonFont = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
     self.descriptionLabel.moreButtonColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1];
 }
 

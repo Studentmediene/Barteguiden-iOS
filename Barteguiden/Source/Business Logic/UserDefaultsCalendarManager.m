@@ -8,6 +8,7 @@
 
 #import "UserDefaultsCalendarManager.h"
 #import <EventKit/EventKit.h>
+#import "NSError+RIOUnderlyingError.h"
 
 
 static BOOL const kShouldAutoAddFavoritesDefaultValue = NO;
@@ -43,6 +44,34 @@ static NSString * const kCalendarDefaultAlertTimeIntervalKey = @"CalendarDefault
 {
     [self.userDefaults synchronize];
 }
+
+- (EKEvent *)newCalendarEvent
+{
+    return [EKEvent eventWithEventStore:self.calendarStore];
+}
+
+
+#pragma mark - Authorization
+
+- (void)requestAccessWithCompletion:(void (^)(BOOL, NSError *))completion
+{
+    if ([EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent] == EKAuthorizationStatusAuthorized) {
+        completion(YES, nil);
+    }
+    else {
+        [self.calendarStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *underlyingError) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (granted == NO) {
+                    NSError *error = [NSError errorWithDomain:CalendarManagerErrorDomain code:CalendarManagerAuthorizationFailed underlyingError:underlyingError];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:CalendarManagerDidFailNotification object:self userInfo:@{CalendarManagerErrorUserInfoKey: error}];
+                }
+                
+                completion(granted, underlyingError);
+            });
+        }];
+    }
+}
+
 
 #pragma mark - Defaults
 

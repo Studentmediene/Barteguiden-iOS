@@ -101,7 +101,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59J-XQ-EPQ">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <size key="titleShadowOffset" width="0.0" height="1"/>
-                                        <state key="normal" title="Visit Organizer's Website" backgroundImage="ActionButton-Normal.png">
+                                        <state key="normal" title="Visit Website" backgroundImage="ActionButton-Normal.png">
                                             <color key="titleColor" white="0.17791970800000001" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </state>
@@ -212,7 +212,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="modifyCalendar:" destination="B3q-rJ-UdF" eventType="touchUpInside" id="x4f-NY-7sp"/>
+                                                    <action selector="toggleCalendarEvent:" destination="B3q-rJ-UdF" eventType="touchUpInside" id="C1J-N0-D1T"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -243,6 +243,7 @@
                                 <constraints>
                                     <constraint firstItem="4XK-L5-DAw" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="17" type="user" id="1hj-pT-p2n"/>
                                     <constraint firstAttribute="trailing" secondItem="tEx-3z-SJo" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="36Y-gI-KKJ"/>
+                                    <constraint firstItem="4XK-L5-DAw" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="211" id="6WJ-ol-nF3"/>
                                     <constraint firstItem="A8d-GZ-0dO" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" type="user" id="8k2-t6-2gN"/>
                                     <constraint firstAttribute="trailing" secondItem="YuK-xV-JiW" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="95s-8S-jnj"/>
                                     <constraint firstItem="59J-XQ-EPQ" firstAttribute="centerX" secondItem="dhy-Fb-6Wj" secondAttribute="centerX" type="user" id="Awc-mg-Sip"/>
@@ -254,27 +255,26 @@
                                     <constraint firstItem="rzx-k2-XDn" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="HL9-iA-JMb"/>
                                     <constraint firstItem="tEx-3z-SJo" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="I7w-wz-A1q"/>
                                     <constraint firstAttribute="trailing" secondItem="Cpu-AF-hUp" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="JaX-y0-nQZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="tEx-3z-SJo" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="KOG-jg-VcS"/>
                                     <constraint firstItem="YuK-xV-JiW" firstAttribute="top" secondItem="Cpu-AF-hUp" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LLa-YM-bcB"/>
                                     <constraint firstItem="YuK-xV-JiW" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Lpv-YG-7cs"/>
                                     <constraint firstItem="59J-XQ-EPQ" firstAttribute="top" secondItem="YuK-xV-JiW" secondAttribute="bottom" constant="20" type="user" id="QH3-NJ-1cA"/>
                                     <constraint firstAttribute="trailing" secondItem="7Th-fI-DFR" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="QV2-BT-P7m"/>
                                     <constraint firstItem="rzx-k2-XDn" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="152" type="user" id="Sof-0v-e7B"/>
+                                    <constraint firstItem="FaH-RS-vXI" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="214" id="U0X-Cr-2VI"/>
                                     <constraint firstItem="5PD-4a-E3h" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" type="user" id="UUV-Ti-is3"/>
                                     <constraint firstAttribute="trailing" secondItem="FaH-RS-vXI" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="YAj-n1-buc"/>
                                     <constraint firstItem="Cpu-AF-hUp" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="YqF-vM-8Ps"/>
                                     <constraint firstItem="59J-XQ-EPQ" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="ZJe-Pb-1mH"/>
                                     <constraint firstAttribute="trailing" secondItem="59J-XQ-EPQ" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="ZbE-9u-dsi"/>
-                                    <constraint firstAttribute="bottom" secondItem="tEx-3z-SJo" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="bjD-3f-mDK"/>
                                     <constraint firstItem="r5z-an-beK" firstAttribute="centerY" secondItem="96o-qw-xEw" secondAttribute="centerY" type="user" id="dmq-Pj-pLu"/>
                                     <constraint firstItem="r5z-an-beK" firstAttribute="top" secondItem="7Th-fI-DFR" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="e76-ev-lL2"/>
                                     <constraint firstItem="ERR-bM-bto" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="142" type="user" id="eh9-lP-mPG"/>
-                                    <constraint firstItem="A8d-GZ-0dO" firstAttribute="top" secondItem="4XK-L5-DAw" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="gDo-at-zN4"/>
                                     <constraint firstItem="tEx-3z-SJo" firstAttribute="top" secondItem="59J-XQ-EPQ" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="k8y-1e-tI7"/>
                                     <constraint firstItem="7Th-fI-DFR" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="kPx-U1-KPM"/>
                                     <constraint firstItem="5PD-4a-E3h" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" type="user" id="lgj-1P-iHv"/>
                                     <constraint firstItem="5mh-xZ-ZLe" firstAttribute="centerY" secondItem="ERR-bM-bto" secondAttribute="centerY" type="user" id="mF7-xN-6kD"/>
                                     <constraint firstItem="7Th-fI-DFR" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="20" symbolic="YES" type="user" id="mkH-iW-ayN"/>
-                                    <constraint firstItem="4XK-L5-DAw" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="213" type="user" id="nQc-Z3-g7j"/>
                                     <constraint firstItem="r5z-an-beK" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="nu1-dr-a2R"/>
                                     <constraint firstItem="Cpu-AF-hUp" firstAttribute="top" secondItem="A8d-GZ-0dO" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="sJY-vi-iAv"/>
                                     <constraint firstItem="96o-qw-xEw" firstAttribute="leading" secondItem="r5z-an-beK" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="tFw-kJ-J7A"/>
@@ -925,12 +925,8 @@
         <class className="EventDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addToCalendar:"/>
-                <relationship kind="action" name="editInCalendar:"/>
-                <relationship kind="action" name="modifyCalendar:"/>
-                <relationship kind="action" name="promptRemoveFromCalendar:"/>
-                <relationship kind="action" name="removeFromCalendar:"/>
                 <relationship kind="action" name="shareEvent:"/>
+                <relationship kind="action" name="toggleCalendarEvent:"/>
                 <relationship kind="action" name="toggleFavorite:"/>
                 <relationship kind="action" name="visitWebsite:"/>
                 <relationship kind="outlet" name="ageLimitLabel" candidateClass="UILabel"/>

@@ -17,7 +17,7 @@ NSString * const EventStoreChangedNotification = @"EventStoreChangedNotification
 NSString * const EventStoreDidFailNotification = @"EventStoreDidFailNotification";
 
 // User info keys
-NSString * const EventStoreInsertedEventsUserInfoKey = @"EventStoreInsertedEventsUserInfoKey";
-NSString * const EventStoreUpdatedEventsUserInfoKey = @"EventStoreUpdatedEventsUserInfoKey";
-NSString * const EventStoreDeletedEventsUserInfoKey = @"EventStoreDeletedEventsUserInfoKey";
-NSString * const EventStoreErrorUserInfoKey = @"EventStoreErrorUserInfoKey";
+NSString * const EventStoreInsertedEventsUserInfoKey = @"inserted";
+NSString * const EventStoreUpdatedEventsUserInfoKey = @"updated";
+NSString * const EventStoreDeletedEventsUserInfoKey = @"deleted";
+NSString * const EventStoreErrorUserInfoKey = @"error";

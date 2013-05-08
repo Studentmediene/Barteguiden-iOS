@@ -19,7 +19,7 @@
 
 @interface EventDetailsViewController : UIViewController <UIActionSheetDelegate, EKEventEditViewDelegate, RIOExpandableLabelDelegate>
 
-@property (nonatomic, strong) id<EventStore> eventStore; // FIXME: Is this one really necessary?
+@property (nonatomic, strong) id<EventStore> eventStore; // FIXME: Remember to inject event store
 @property (nonatomic, strong) id<Event> event;
 @property (nonatomic, strong) id<CalendarManager> calendarManager;
 
@@ -49,7 +49,7 @@
 
 - (IBAction)toggleFavorite:(id)sender;
 - (IBAction)shareEvent:(id)sender;
-- (IBAction)modifyCalendar:(id)sender;
+- (IBAction)toggleCalendarEvent:(id)sender;
 - (IBAction)visitWebsite:(id)sender;
 
 @end

@@ -103,11 +103,10 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     }
 }
 
-- (void)communicator:(EventStoreCommunicator *)communicator didFailWithError:(NSError *)error
+- (void)communicator:(EventStoreCommunicator *)communicator didFailWithError:(NSError *)underlyingError
 {
-    NSLog(@"FAILED:%@", error);
-    // TODO: Use notification to notify about error
-//    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidFailToRefreshNotification object:self userInfo:@{EventStoreRefreshErrorKey: error}];
+    NSError *error = [NSError errorWithDomain:EventStoreErrorDomain code:EventStoreFetchRequestFailed underlyingError:underlyingError];
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidFailNotification object:self userInfo:@{EventStoreErrorUserInfoKey: error}];
 }
 
 

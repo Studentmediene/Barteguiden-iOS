@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Under Dusken. All rights reserved.
 //
 
+// TODO: Use a test framework for testing NSURLConnection? (Nocilla, OHHTTPStubs)
 // TODO: Fix imports
 // Class under test
 #import "CoreDataEventStore.h"

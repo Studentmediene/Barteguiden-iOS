@@ -25,7 +25,6 @@
 	// Do any additional setup after loading the view.
     
     // Inject dependencies
-    NSLog(@"Injecting dependencies");
     for (UINavigationController *navigationController in self.viewControllers) {
         UIViewController *rootViewController = navigationController.viewControllers[0];
         
