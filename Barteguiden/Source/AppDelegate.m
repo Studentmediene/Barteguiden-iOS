@@ -18,6 +18,8 @@
 
 #import "TabBarController.h"
 
+#import <PSPDFAlertView.h>
+
 
 @implementation AppDelegate
 
@@ -109,8 +111,8 @@
             NSString *title = NSLocalizedString(@"Can't Access Calendar", nil);
             NSString *message = NSLocalizedString(@"To access your calendar, go to Settings > Privacy > Calendar, and set the Barteguiden switch to On.", nil);
             NSString *cancelButtonTitle = NSLocalizedString(@"Close", nil);
-            UIAlertView *enableCalendar = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
-            [enableCalendar show];
+            UIAlertView *enableCalendarAlertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
+            [enableCalendarAlertView show];
             break;
         }
     }
@@ -201,21 +203,25 @@
 - (void)setUpStyles
 {
     // Navigation bar
-    UIColor *navigationBarText = [UIColor colorWithHue:0 saturation:0 brightness:(78.0/100.0) alpha:1];
+    UIColor *barText = [UIColor colorWithHue:0 saturation:0 brightness:(78.0/100.0) alpha:1];
     [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: navigationBarText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:20]}];
+    [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:20]}];
+    
+    // Toolbar
+    [[UIToolbar appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class],[TabBarController class], nil] setTintColor:barText];
     
     // Bar button item text styles
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: navigationBarText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateNormal];
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: navigationBarText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateHighlighted];
+    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateNormal];
+    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateHighlighted];
     [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setTintColor:[UIColor blackColor]];
     
     // Back button
-    UIImage *backButtonImage = [UIImage imageNamed:@"BackButton-Normal"];
-    UIImage *highlightedBackButtonImage = [UIImage imageNamed:@"BackButton-Highlighted"];
+    UIImage *backButtonImage = [[UIImage imageNamed:@"BackButton-Normal"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 6)];
+    UIImage *highlightedBackButtonImage = [[UIImage imageNamed:@"BackButton-Highlighted"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 6)];
     [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackButtonBackgroundImage:highlightedBackButtonImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackButtonTitlePositionAdjustment:UIOffsetMake(3, 0) forBarMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 0) forBarMetrics:UIBarMetricsDefault];
     
     // Bar button item
     UIImage *barButtonItemImage = [UIImage imageNamed:@"BarButtonItem-Normal"];
@@ -230,7 +236,7 @@
     [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:highlightedBarButtonItemDoneImage forState:UIControlStateHighlighted style:UIBarButtonItemStyleDone barMetrics:UIBarMetricsDefault];
 
     // Segmented control
-    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: navigationBarText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateNormal];
+    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateNormal];
     UIImage *unselectedBackgroundImage = [[UIImage imageNamed:@"SegmentedControlBackground-Normal"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 6, 6, 6)];
     [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:unselectedBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     UIImage *selectedBackgroundImage = [[UIImage imageNamed:@"SegmentedControlBackground-Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 6, 6, 6)];
@@ -241,6 +247,8 @@
     [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setDividerImage:rightSelectedImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
     UIImage *leftSelectedImage = [UIImage imageNamed:@"SegmentedControlDivider-LeftSelected"];
     [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setDividerImage:leftSelectedImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setContentPositionAdjustment:UIOffsetMake(1, 0) forSegmentType:UISegmentedControlSegmentLeft barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setContentPositionAdjustment:UIOffsetMake(-1, 0) forSegmentType:UISegmentedControlSegmentRight barMetrics:UIBarMetricsDefault];
     
     // Table view section header
 //    [[UIBarButtonItem appearance] setBackbutt];

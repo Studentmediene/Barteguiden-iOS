@@ -17,7 +17,7 @@
 @class RIOExpandableLabel;
 
 
-@interface EventDetailsViewController : UIViewController <UIActionSheetDelegate, EKEventEditViewDelegate, RIOExpandableLabelDelegate>
+@interface EventDetailsViewController : UIViewController <EKEventEditViewDelegate, RIOExpandableLabelDelegate>
 
 @property (nonatomic, strong) id<EventStore> eventStore; // FIXME: Remember to inject event store
 @property (nonatomic, strong) id<Event> event;
@@ -50,6 +50,5 @@
 - (IBAction)toggleFavorite:(id)sender;
 - (IBAction)shareEvent:(id)sender;
 - (IBAction)toggleCalendarEvent:(id)sender;
-- (IBAction)visitWebsite:(id)sender;
 
 @end

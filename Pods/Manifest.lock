@@ -18,6 +18,7 @@ PODS:
   - OCHamcrest (1.9)
   - OCMockito (0.23):
     - OCHamcrest (= 1.9)
+  - PSAlertView (1.1)
   - RIOExpandableLabel (0.0.1)
   - TransformerKit (0.2.2)
 
@@ -26,19 +27,21 @@ DEPENDENCIES:
   - JMImageCache
   - OCHamcrest
   - OCMockito
-  - RIOExpandableLabel (from `https://github.com/skohorn/RIOExpandableLabel.git`)
+  - PSAlertView
+  - RIOExpandableLabel (from `~/Projects/Products/2013 RIOExpandableLabel/RIOExpandableLabel/`)
   - TransformerKit
 
 EXTERNAL SOURCES:
   RIOExpandableLabel:
-    :git: https://github.com/skohorn/RIOExpandableLabel.git
+    :path: ~/Projects/Products/2013 RIOExpandableLabel/RIOExpandableLabel/
 
 SPEC CHECKSUMS:
   FormatterKit: b644b98d4495bdf11fc70f8f80867df5864eaf70
   JMImageCache: 4d764ca5819ce5b0b3bb1efb85c29977768c54bd
   OCHamcrest: f8393efd5a49d91879be573635d6183effacc0ab
   OCMockito: 2223021dd82697fc536c403d6850d2ed8ffae578
-  RIOExpandableLabel: 16687e1a603180d57a85e2f39c99908808fd05ef
+  PSAlertView: bdccae3cbd14f6060772654ae641daec7415d9fa
+  RIOExpandableLabel: c2bc344f3243d9f4a977faabb59b1c96ff8e3f41
   TransformerKit: c07d1de4a661db2ca420092445750ab4ad67331a
 
 COCOAPODS: 0.19.1

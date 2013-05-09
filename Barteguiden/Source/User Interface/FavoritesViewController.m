@@ -65,7 +65,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return NSLocalizedString(@"Unstar", nil); // TODO: Remember to localize
+    return NSLocalizedString(@"Unstar", nil);
 }
 
 @end

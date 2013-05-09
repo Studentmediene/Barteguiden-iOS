@@ -13,6 +13,7 @@
 #import <RIOExpandableLabel.h>
 #import "UIImage+RIODarkenAndBlur.h"
 #import "MapViewController.h"
+#import <PSPDFActionSheet.h>
 
 
 static NSString * const kPosterSegue = @"PosterSegue";
@@ -104,11 +105,7 @@ static float const kOneHourOffset = 1*60*60;
     self.favoriteButton.selected = newFavorite;
     
     if ([self.calendarManager shouldAutoAddFavorites]) {
-        [self.calendarManager requestAccessWithCompletion:^(BOOL granted, NSError *error) {
-            if (granted == NO) {
-                return;
-            }
-        
+        [self.calendarManager requestAccessWithCompletion:^{
             if (newFavorite == YES && [self isAddedToCalendar] == NO) {
                 EKEvent *calendarEvent = [self newCalendarEvent];
                 [self addCalendarEvent:calendarEvent];
@@ -123,11 +120,7 @@ static float const kOneHourOffset = 1*60*60;
 
 - (IBAction)toggleCalendarEvent:(id)sender
 {
-    [self.calendarManager requestAccessWithCompletion:^(BOOL granted, NSError *error) {
-        if (granted == NO) {
-            return;
-        }
-    
+    [self.calendarManager requestAccessWithCompletion:^{
         if ([self isAddedToCalendar] == NO) {
             [self presentNewCalendarEvent];
         }
@@ -137,25 +130,24 @@ static float const kOneHourOffset = 1*60*60;
     }];
 }
 
-- (IBAction)visitWebsite:(id)sender
-{
-    NSURL *url = [self.event URL];
-    [[UIApplication sharedApplication] openURL:url];
-}
-
 
 #pragma mark - Calendar methods
 
 - (void)promptEditOrRemoveFromCalendar
 {
-    // TODO: Fix localization
     NSString *deleteTitle = NSLocalizedString(@"Remove from Calendar", nil);
     NSString *editTitle = NSLocalizedString(@"Edit in Calendar", nil);
     NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:deleteTitle otherButtonTitles:editTitle, nil];
-    
-    [actionSheet showInView:self.view];
+    PSPDFActionSheet *calendarActionSheet = [[PSPDFActionSheet alloc] initWithTitle:nil];
+    [calendarActionSheet setDestructiveButtonWithTitle:deleteTitle block:^{
+        [self removeFromCalendar];
+    }];
+    [calendarActionSheet addButtonWithTitle:editTitle block:^{
+        [self presentEditCalendarEvent];
+    }];
+    [calendarActionSheet setCancelButtonWithTitle:cancelTitle block:NULL];
+    [calendarActionSheet showWithSender:nil fallbackView:self.view animated:YES];
 }
 
 - (void)presentNewCalendarEvent
@@ -223,25 +215,6 @@ static float const kOneHourOffset = 1*60*60;
 }
 
 
-#pragma mark - UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == actionSheet.cancelButtonIndex) {
-        return;
-    }
-    
-    if ([self isAddedToCalendar] == YES) {
-        if (buttonIndex == actionSheet.destructiveButtonIndex) {
-            [self removeFromCalendar];
-        }
-        else {
-            [self presentEditCalendarEvent];
-        }
-    }
-}
-
-
 #pragma mark EKEventEditViewDelegate
 
 - (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action {
@@ -280,7 +253,6 @@ static float const kOneHourOffset = 1*60*60;
 }
 
 
-
 #pragma mark - Private methods
 
 - (void)updateViewInfo
@@ -312,7 +284,6 @@ static float const kOneHourOffset = 1*60*60;
     
     self.favoriteButton.selected = [self.event isFavorite];
     
-    // TODO: Fix localization
     NSString *addToCalendar = NSLocalizedString(@"Add to Calendar", nil);
     NSString *removeFromCalendar = NSLocalizedString(@"Remove from Calendar", nil);
     NSString *calendarActionTitle = ([self isAddedToCalendar] == NO) ? addToCalendar : removeFromCalendar;
@@ -335,9 +306,8 @@ static float const kOneHourOffset = 1*60*60;
 
 - (void)setUpStyles
 {
-    UIImage *modifyCalendarButtonImage = [UIImage imageNamed:@"TextHighlight"];
-    UIImage *stretchableModifyCalendarButtonImage = [modifyCalendarButtonImage stretchableImageWithLeftCapWidth:3 topCapHeight:3];
-    [self.calendarButton setBackgroundImage:stretchableModifyCalendarButtonImage forState:UIControlStateHighlighted];
+    UIImage *highlightedToggleCalendarButtonImage = [[UIImage imageNamed:@"TextHighlight"] resizableImageWithCapInsets:UIEdgeInsetsMake(3, 3, 3, 3)];
+    [self.calendarButton setBackgroundImage:highlightedToggleCalendarButtonImage forState:UIControlStateHighlighted];
     
 // TODO: Use this code to make a border around age limit
 //    self.priceLabel.layer.borderColor = [[UIColor whiteColor] CGColor];

@@ -60,6 +60,12 @@
 #define COCOAPODS_VERSION_MINOR_JMImageCache 4
 #define COCOAPODS_VERSION_PATCH_JMImageCache 0
 
+// PSAlertView
+#define COCOAPODS_POD_AVAILABLE_PSAlertView
+#define COCOAPODS_VERSION_MAJOR_PSAlertView 1
+#define COCOAPODS_VERSION_MINOR_PSAlertView 1
+#define COCOAPODS_VERSION_PATCH_PSAlertView 0
+
 // RIOExpandableLabel
 #define COCOAPODS_POD_AVAILABLE_RIOExpandableLabel
 #define COCOAPODS_VERSION_MAJOR_RIOExpandableLabel 0
