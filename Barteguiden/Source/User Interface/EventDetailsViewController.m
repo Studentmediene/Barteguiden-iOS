@@ -12,11 +12,13 @@
 #import "CalendarManager.h"
 #import <RIOExpandableLabel.h>
 #import "UIImage+RIODarkenAndBlur.h"
-#import "MapViewController.h"
 #import <PSPDFActionSheet.h>
 
+#import "WebsiteViewController.h"
+#import "MapViewController.h"
 
-static NSString * const kPosterSegue = @"PosterSegue";
+
+static NSString * const kWebsiteSegue = @"WebsiteSegue";
 static NSString * const kMapSegue = @"MapSegue";
 
 static CGSize const kThumbnailSize = {320, 200};
@@ -78,7 +80,12 @@ static float const kOneHourOffset = 1*60*60;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:kMapSegue])
+    if ([segue.identifier isEqualToString:kWebsiteSegue])
+    {
+        WebsiteViewController *websiteViewController = [segue destinationViewController];
+        websiteViewController.openURL = [self.event URL];
+    }
+    else if ([segue.identifier isEqualToString:kMapSegue])
     {
         MapViewController *mapViewController = [segue destinationViewController];
         mapViewController.annotation = [[EventAnnotation alloc] initWithEvent:self.event];

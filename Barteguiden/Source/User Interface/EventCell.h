@@ -12,7 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *thumbnailImageView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *subtitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *detailLabel;
-@property (nonatomic, weak) IBOutlet UILabel *priceLabel;
 
 @end

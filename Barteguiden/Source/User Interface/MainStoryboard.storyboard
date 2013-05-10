@@ -77,7 +77,7 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dhy-Fb-6Wj">
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Info:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpu-AF-hUp">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpu-AF-hUp">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.20000001789999999" green="0.20000001789999999" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
@@ -239,9 +239,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="tEx-3z-SJo" secondAttribute="bottom" constant="57" id="0gG-Y7-rbF"/>
                                     <constraint firstItem="4XK-L5-DAw" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="17" type="user" id="1hj-pT-p2n"/>
                                     <constraint firstAttribute="trailing" secondItem="tEx-3z-SJo" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="36Y-gI-KKJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="tEx-3z-SJo" secondAttribute="bottom" constant="20" type="user" id="4ng-s1-C3t"/>
                                     <constraint firstItem="4XK-L5-DAw" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="211" id="6WJ-ol-nF3"/>
                                     <constraint firstItem="A8d-GZ-0dO" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" type="user" id="8k2-t6-2gN"/>
                                     <constraint firstAttribute="trailing" secondItem="YuK-xV-JiW" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="95s-8S-jnj"/>
@@ -254,7 +254,7 @@
                                     <constraint firstItem="rzx-k2-XDn" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="HL9-iA-JMb"/>
                                     <constraint firstItem="tEx-3z-SJo" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="I7w-wz-A1q"/>
                                     <constraint firstAttribute="trailing" secondItem="Cpu-AF-hUp" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="JaX-y0-nQZ"/>
-                                    <constraint firstItem="YuK-xV-JiW" firstAttribute="top" secondItem="Cpu-AF-hUp" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="LLa-YM-bcB"/>
+                                    <constraint firstItem="YuK-xV-JiW" firstAttribute="top" secondItem="Cpu-AF-hUp" secondAttribute="bottom" constant="3" type="user" id="LLa-YM-bcB"/>
                                     <constraint firstItem="YuK-xV-JiW" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="Lpv-YG-7cs"/>
                                     <constraint firstItem="59J-XQ-EPQ" firstAttribute="top" secondItem="YuK-xV-JiW" secondAttribute="bottom" constant="20" type="user" id="QH3-NJ-1cA"/>
                                     <constraint firstAttribute="trailing" secondItem="7Th-fI-DFR" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="QV2-BT-P7m"/>
@@ -830,25 +830,10 @@
             </objects>
             <point key="canvasLocation" x="713" y="3114"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="eEf-HU-KeM">
-            <objects>
-                <navigationController storyboardIdentifier="SettingsNavigationController" definesPresentationContext="YES" id="nfY-R6-2AU" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GnH-J2-EBf">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Hze-Sz-r1P" kind="relationship" relationship="rootViewController" id="BjC-WS-shz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahz-Je-nzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1833" y="3114"/>
-        </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="i8f-ya-iVq">
             <objects>
-                <tableViewController storyboardIdentifier="" id="Hze-Sz-r1P" customClass="SettingsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Settings" id="Hze-Sz-r1P" customClass="SettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="BhR-IS-OvD">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -968,6 +953,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="autoAddFavoritesSwitch" destination="gzC-MT-QOy" id="vqX-qS-0ZK"/>
                         <outlet property="defaultAlertCell" destination="G9M-eV-VMJ" id="VMc-Vb-HjP"/>
@@ -1077,7 +1063,6 @@
         <class className="SettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="sendUsYourTips:"/>
                 <relationship kind="action" name="toggleAutoAddFavorites:"/>
                 <relationship kind="outlet" name="autoAddFavoritesSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="defaultAlertCell" candidateClass="UITableViewCell"/>

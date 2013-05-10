@@ -36,6 +36,7 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     [event safeSetValuesForKeysWithDictionary:jsonObject dateFormatter:dateFormatter];
     
     [event setValue:jsonObject[@"id"] forKey:@"eventID"];
+    [event setValue:jsonObject[@"url"] forKey:@"eventURL"];
     event.featuredState = @(jsonObject[@"featured"] != nil);
     event.ageLimitNumber = jsonObject[@"ageLimit"];
     

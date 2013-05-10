@@ -24,6 +24,6 @@
 - (IBAction)refresh:(id)sender;
 - (IBAction)share:(id)sender;
 
-@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong) NSURL *openURL;
 
 @end

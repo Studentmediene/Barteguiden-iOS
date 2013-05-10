@@ -61,7 +61,7 @@
 								<reference key="NSNextResponder" ref="614931471"/>
 								<int key="NSvFlags">1320</int>
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
-								<string key="NSFrame">{{42, 7}, {208, 22}}</string>
+								<string key="NSFrame">{{45, 7}, {201, 22}}</string>
 								<reference key="NSSuperview" ref="614931471"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="357599218"/>
@@ -100,7 +100,7 @@
 								<reference key="NSNextResponder" ref="614931471"/>
 								<int key="NSvFlags">1320</int>
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
-								<string key="NSFrame">{{42, 28}, {251, 21}}</string>
+								<string key="NSFrame">{{45, 28}, {248, 21}}</string>
 								<reference key="NSSuperview" ref="614931471"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -110,7 +110,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Time and Location</string>
+								<string key="IBUIText">Subtitle</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">2</int>
 									<bytes key="NSRGB">MC42MTE3NjQ3MjkgMC42MzUyOTQxMzk0IDAuNjY2NjY2Njg2NQA</bytes>
@@ -132,7 +132,7 @@
 								<reference key="NSNextResponder" ref="614931471"/>
 								<int key="NSvFlags">1320</int>
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
-								<string key="NSFrame">{{258, 9}, {35, 19}}</string>
+								<string key="NSFrame">{{254, 9}, {39, 19}}</string>
 								<reference key="NSSuperview" ref="614931471"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="411683404"/>
@@ -143,7 +143,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Price</string>
+								<string key="IBUIText">Detail</string>
 								<nil key="IBUITextColor"/>
 								<reference key="IBUIHighlightedColor" ref="783171199"/>
 								<int key="IBUIBaselineAdjustment">0</int>
@@ -203,27 +203,27 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">priceLabel</string>
-						<reference key="source" ref="1067689164"/>
-						<reference key="destination" ref="357599218"/>
-					</object>
-					<int key="connectionID">32</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">detailLabel</string>
-						<reference key="source" ref="1067689164"/>
-						<reference key="destination" ref="411683404"/>
-					</object>
-					<int key="connectionID">50</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">thumbnailImageView</string>
 						<reference key="source" ref="1067689164"/>
 						<reference key="destination" ref="236181625"/>
 					</object>
 					<int key="connectionID">128</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">detailLabel</string>
+						<reference key="source" ref="1067689164"/>
+						<reference key="destination" ref="357599218"/>
+					</object>
+					<int key="connectionID">160</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">subtitleLabel</string>
+						<reference key="source" ref="1067689164"/>
+						<reference key="destination" ref="411683404"/>
+					</object>
+					<int key="connectionID">162</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -249,11 +249,10 @@
 						<int key="objectID">10</int>
 						<reference key="object" ref="1067689164"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="357599218"/>
 							<object class="IBNSLayoutConstraint" id="588296182">
 								<reference key="firstItem" ref="357599218"/>
 								<int key="firstAttribute">5</int>
-								<int key="relation">1</int>
+								<int key="relation">0</int>
 								<reference key="secondItem" ref="43670291"/>
 								<int key="secondAttribute">6</int>
 								<float key="multiplier">1</float>
@@ -310,8 +309,8 @@
 								</object>
 								<float key="priority">1000</float>
 								<reference key="containingView" ref="1067689164"/>
-								<int key="scoringType">6</int>
-								<float key="scoringTypeFloat">24</float>
+								<int key="scoringType">9</int>
+								<float key="scoringTypeFloat">40</float>
 								<int key="contentType">2</int>
 							</object>
 							<object class="IBNSLayoutConstraint" id="49356640">
@@ -344,6 +343,22 @@
 								<reference key="containingView" ref="1067689164"/>
 								<int key="scoringType">3</int>
 								<float key="scoringTypeFloat">9</float>
+								<int key="contentType">3</int>
+							</object>
+							<object class="IBNSLayoutConstraint" id="880103368">
+								<reference key="firstItem" ref="43670291"/>
+								<int key="firstAttribute">5</int>
+								<int key="relation">0</int>
+								<reference key="secondItem" ref="236181625"/>
+								<int key="secondAttribute">6</int>
+								<float key="multiplier">1</float>
+								<object class="IBLayoutConstant" key="constant">
+									<double key="value">0.0</double>
+								</object>
+								<float key="priority">1000</float>
+								<reference key="containingView" ref="1067689164"/>
+								<int key="scoringType">9</int>
+								<float key="scoringTypeFloat">40</float>
 								<int key="contentType">3</int>
 							</object>
 							<object class="IBNSLayoutConstraint" id="304701121">
@@ -390,13 +405,14 @@
 								</object>
 								<float key="priority">1000</float>
 								<reference key="containingView" ref="1067689164"/>
-								<int key="scoringType">8</int>
-								<float key="scoringTypeFloat">29</float>
+								<int key="scoringType">9</int>
+								<float key="scoringTypeFloat">40</float>
 								<int key="contentType">3</int>
 							</object>
 							<reference ref="43670291"/>
-							<reference ref="411683404"/>
 							<reference ref="236181625"/>
+							<reference ref="411683404"/>
+							<reference ref="357599218"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -432,24 +448,7 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">13</int>
 						<reference key="object" ref="43670291"/>
-						<array class="NSMutableArray" key="children">
-							<object class="IBNSLayoutConstraint" id="77355138">
-								<reference key="firstItem" ref="43670291"/>
-								<int key="firstAttribute">7</int>
-								<int key="relation">0</int>
-								<nil key="secondItem"/>
-								<int key="secondAttribute">0</int>
-								<float key="multiplier">1</float>
-								<object class="IBLayoutConstant" key="constant">
-									<double key="value">208</double>
-								</object>
-								<float key="priority">1000</float>
-								<reference key="containingView" ref="43670291"/>
-								<int key="scoringType">3</int>
-								<float key="scoringTypeFloat">9</float>
-								<int key="contentType">1</int>
-							</object>
-						</array>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="1067689164"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -484,8 +483,8 @@
 								</object>
 								<float key="priority">1000</float>
 								<reference key="containingView" ref="236181625"/>
-								<int key="scoringType">3</int>
-								<float key="scoringTypeFloat">9</float>
+								<int key="scoringType">9</int>
+								<float key="scoringTypeFloat">40</float>
 								<int key="contentType">1</int>
 							</object>
 						</array>
@@ -537,11 +536,6 @@
 						<reference key="parent" ref="236181625"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">149</int>
-						<reference key="object" ref="77355138"/>
-						<reference key="parent" ref="43670291"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">150</int>
 						<reference key="object" ref="924685064"/>
 						<reference key="parent" ref="1067689164"/>
@@ -556,6 +550,11 @@
 						<reference key="object" ref="306131773"/>
 						<reference key="parent" ref="236181625"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">156</int>
+						<reference key="object" ref="880103368"/>
+						<reference key="parent" ref="1067689164"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -565,10 +564,11 @@
 				<string key="10.CustomClassName">EventCell</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="10.IBUserGuides" ref="0"/>
-				<array class="NSMutableArray" key="10.IBViewMetadataConstraints">
+				<array key="10.IBViewMetadataConstraints">
 					<reference ref="924685064"/>
 					<reference ref="850407703"/>
 					<reference ref="304701121"/>
+					<reference ref="880103368"/>
 					<reference ref="525320838"/>
 					<reference ref="49356640"/>
 					<reference ref="1030835227"/>
@@ -593,19 +593,16 @@
 				<string key="126.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="13.IBUserGuides" ref="0"/>
-				<array key="13.IBViewMetadataConstraints">
-					<reference ref="77355138"/>
-				</array>
 				<boolean value="NO" key="13.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<boolean value="NO" key="13.showNotes"/>
 				<string key="130.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="137.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="147.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="148.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="149.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="150.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="151.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="153.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="156.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="23.IBUserGuides" ref="0"/>
 				<array class="NSMutableArray" key="23.IBViewMetadataConstraints">
@@ -621,7 +618,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">153</int>
+			<int key="maxID">162</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -630,7 +627,7 @@
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="detailLabel">UILabel</string>
-						<string key="priceLabel">UILabel</string>
+						<string key="subtitleLabel">UILabel</string>
 						<string key="thumbnailImageView">UIImageView</string>
 						<string key="titleLabel">UILabel</string>
 					</dictionary>
@@ -639,8 +636,8 @@
 							<string key="name">detailLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="priceLabel">
-							<string key="name">priceLabel</string>
+						<object class="IBToOneOutletInfo" key="subtitleLabel">
+							<string key="name">subtitleLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="thumbnailImageView">

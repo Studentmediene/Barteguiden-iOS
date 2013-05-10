@@ -23,8 +23,8 @@
 - (void)awakeFromNib
 {
     self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
-    self.detailLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:14];
-    self.priceLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
+    self.subtitleLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:14];
+    self.detailLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

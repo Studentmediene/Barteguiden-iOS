@@ -75,11 +75,8 @@ static CGSize const kSettingsTabSize = {64, 49};
 
 - (IBAction)presentSettings:(id)sender
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UINavigationController *settingsNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"SettingsNavigationController"];
-    SettingsViewController *settingsViewController = settingsNavigationController.viewControllers[0];
-    settingsViewController.calendarManager = self.calendarManager;
-    [self presentViewController:settingsNavigationController animated:YES completion:NULL];
+    UIViewController *settingsViewController = [self settingsViewController];
+    [self presentViewController:settingsViewController animated:YES completion:NULL];
 }
 
 - (IBAction)dismissSettings:(UIStoryboardSegue *)segue
@@ -92,9 +89,6 @@ static CGSize const kSettingsTabSize = {64, 49};
 
 - (void)setUpSettingsButton
 {
-//    UIView *settingsView = [[UIView alloc] initWithFrame:CGRectMake(self.tabBar.bounds.size.width - kSettingsTabSize.width, 0, kSettingsTabSize.width, kSettingsTabSize.height)];
-//    settingsView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabBarBackground"]];
-//    
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.frame = CGRectMake(self.tabBar.bounds.size.width - kSettingsTabSize.width, 0, kSettingsTabSize.width, kSettingsTabSize.height);
         settingsButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabBarBackground"]];
@@ -123,7 +117,33 @@ static CGSize const kSettingsTabSize = {64, 49};
     FeaturedViewController *featuredViewController = [[FeaturedViewController alloc] initWithStyle:UITableViewStyleGrouped];
     featuredViewController.eventStore = self.eventStore;
     featuredViewController.calendarManager = self.calendarManager;
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:featuredViewController];
+    return navigationController;
+}
+
+- (UIViewController *)allEventsViewController
+{
+    return nil;
+}
+
+- (UIViewController *)myFilterViewController
+{
+    return nil;
+}
+
+- (UIViewController *)favoritesViewController
+{
+    return nil;
+}
+
+- (UIViewController *)settingsViewController
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+    SettingsViewController *settingsViewController = [storyboard instantiateViewControllerWithIdentifier:@"Settings"];
+    settingsViewController.calendarManager = self.calendarManager;
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
     return navigationController;
 }
 

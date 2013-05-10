@@ -41,7 +41,7 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
     
     self.webView.scalesPageToFit = YES;
     
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://vg.no"]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.openURL];
     [self.webView loadRequest:urlRequest];
 }
 
