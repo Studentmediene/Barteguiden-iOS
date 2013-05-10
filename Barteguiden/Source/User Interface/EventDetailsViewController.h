@@ -25,6 +25,8 @@
 
 //@property (nonatomic, strong) UIActivityViewController *activityViewController;
 
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *locationLabel;
 @property (nonatomic, weak) IBOutlet UILabel *priceLabel;
@@ -43,9 +45,8 @@
 @property (nonatomic, weak) IBOutlet RIOExpandableLabel *descriptionLabel;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *descriptionHeightConstraint;
 
-@property (nonatomic, weak) IBOutlet UIButton *visitWebsiteButton;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *showOnMapConstraint;
-@property (nonatomic, weak) IBOutlet UIButton *showOnMapButton;
+@property (nonatomic, weak) IBOutlet UIView *bottomMostView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *bottomMostViewSpacingConstraint;
 
 - (IBAction)toggleFavorite:(id)sender;
 - (IBAction)shareEvent:(id)sender;

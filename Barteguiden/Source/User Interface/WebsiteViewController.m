@@ -52,7 +52,7 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
 }
 
 
-#pragma mark - Actions
+#pragma mark - IBAction
 
 - (void)back:(id)sender
 {

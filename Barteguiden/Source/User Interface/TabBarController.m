@@ -139,7 +139,7 @@ static CGSize const kSettingsTabSize = {64, 49};
 
 - (UIViewController *)settingsViewController
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SettingsViewController *settingsViewController = [storyboard instantiateViewControllerWithIdentifier:@"Settings"];
     settingsViewController.calendarManager = self.calendarManager;
     
