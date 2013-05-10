@@ -53,7 +53,7 @@ static NSString * kFilterSegue = @"FilterSegue";
     }
 }
 
-- (IBAction)close:(UIStoryboardSegue *)segue
+- (IBAction)dismissFilter:(UIStoryboardSegue *)segue
 {
     NSLog(@"Closing filter");
     

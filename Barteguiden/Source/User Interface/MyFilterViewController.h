@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) id<FilterManager> filterManager;
 
+- (IBAction)dismissFilter:(UIStoryboardSegue *)segue;
+
 @end

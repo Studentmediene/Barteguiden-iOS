@@ -15,8 +15,7 @@ static CGFloat const kAccessoryImageViewWith = 27;
 
 @interface GroupedTableViewButton ()
 
-@property (nonatomic, strong) UIImageView *thumbnailImageView;
-@property (nonatomic, strong) UIImageView *accessoryImageView;
+
 
 @end
 
@@ -47,25 +46,44 @@ static CGFloat const kAccessoryImageViewWith = 27;
     self.thumbnailImageView.highlightedImage = highlightedThumbnailImage;
 }
 
+- (void)layoutSubviews
+{
+//    if () {
+//        
+//    }
+    if (self.thumbnailImageView == nil) {
+        UIImage *backgroundImage = [[UIImage imageNamed:@"GroupedTableViewButton-Normal"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 11, 10)];
+        [self setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+        UIImage *highlightedBackgroundImage = [[UIImage imageNamed:@"GroupedTableViewButton-Highlighted"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 11, 10)];
+        [self setBackgroundImage:highlightedBackgroundImage forState:UIControlStateHighlighted];
+        [self setUpThumbnailImageView];
+    }
+    
+    if (self.accessoryImageView == nil) {
+        [self setUpAccessoryImageView];
+    }
+}
+
 
 #pragma mark - Private methods
 
 - (void)setUpView
 {
-    NSLog(@"%@", NSStringFromCGRect(self.frame));
-    // Set background image
-    UIImage *backgroundImage = [[UIImage imageNamed:@"GroupedTableViewButton-Normal"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 11, 10)];
-    [self setBackgroundImage:backgroundImage forState:UIControlStateNormal];
-    UIImage *highlightedBackgroundImage = [[UIImage imageNamed:@"GroupedTableViewButton-Highlighted"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 11, 10)];
-    [self setBackgroundImage:highlightedBackgroundImage forState:UIControlStateHighlighted];
     
-    // Create thumnail image
+}
+
+- (void)setUpThumbnailImageView
+{
     _thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kThumbnailImageViewWidth, self.bounds.size.height)];
     
     _thumbnailImageView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
     [_thumbnailImageView setTranslatesAutoresizingMaskIntoConstraints:YES];
     
-    // Create accessory image view
+    [self addSubview:_thumbnailImageView];
+}
+
+- (void)setUpAccessoryImageView
+{
     _accessoryImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width - kAccessoryImageViewWith, 0, kAccessoryImageViewWith, self.bounds.size.height)];
     _accessoryImageView.backgroundColor = [UIColor redColor];
     _accessoryImageView.image = [UIImage imageNamed:@"GroupedTableViewArrow-Normal"];
@@ -74,8 +92,6 @@ static CGFloat const kAccessoryImageViewWith = 27;
     _accessoryImageView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
     [_accessoryImageView setTranslatesAutoresizingMaskIntoConstraints:YES];
     
-    // Add subviews
-    [self addSubview:_thumbnailImageView];
     [self addSubview:_accessoryImageView];
 }
 

@@ -11,6 +11,9 @@
 
 @interface GroupedTableViewButton : UIButton
 
+@property (nonatomic, strong) UIImageView *thumbnailImageView;
+@property (nonatomic, strong) UIImageView *accessoryImageView;
+
 @property (nonatomic, strong) UIImage *thumbnailImage;
 @property (nonatomic, strong) UIImage *highlightedThumbnailImage;
 

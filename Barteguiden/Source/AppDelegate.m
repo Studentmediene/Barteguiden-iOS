@@ -214,7 +214,6 @@
     // Bar button item text styles
     [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateNormal];
     [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateHighlighted];
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setTintColor:[UIColor blackColor]];
     
     // Back button
     UIImage *backButtonImage = [[UIImage imageNamed:@"BackButton-Normal"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 6)];
@@ -250,26 +249,11 @@
     [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setContentPositionAdjustment:UIOffsetMake(1, 0) forSegmentType:UISegmentedControlSegmentLeft barMetrics:UIBarMetricsDefault];
     [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setContentPositionAdjustment:UIOffsetMake(-1, 0) forSegmentType:UISegmentedControlSegmentRight barMetrics:UIBarMetricsDefault];
     
-    // Table view section header
-//    [[UIBarButtonItem appearance] setBackbutt];
-
-//    // Set background color of table views
-//    UIColor *tableViewBackgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];
-//    [[UITableView appearance] setBackgroundView:nil];
-//    [[UITableView appearance] setBackgroundColor:tableViewBackgroundColor];
-//
-//    // Set text color of navigation bar
-////    UIColor *navigationBarTextColor = [UIColor colorWithRed:196.0/255.0 green:196.0/255.0 blue:196.0/255.0 alpha:1];
-////    [[UILabel appearanceWhenContainedIn:[UINavigationBar class], nil] setColor:navigationBarTextColor];
-////    [[UINavigationBar appearance] setTitleTextAttributes:@{ UITextAttributeTextColor: navigationBarTextColor}];
-//
-//    UIColor *darkGray = [UIColor colorWithHue:0.67 saturation:0.2 brightness:0.15 alpha:1];
-//    UIColor *gray = [UIColor colorWithHue:0 saturation:0 brightness:0.4 alpha:0.8];
-//    [[UINavigationBar appearance] setTintColor:darkGray];
-//    [[UITabBar appearance] setTintColor:darkGray];
-//    [[UISearchBar appearance] setTintColor:darkGray];
-//    [[UITableViewHeaderFooterView appearance] setTintColor:gray];
-////    [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setColor:[UIColor redColor]];
+    // Tab bar
+    [[UITabBar appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:[UIImage imageNamed:@"TabBarBackground"]];
+    [[UITabBar appearanceWhenContainedIn:[TabBarController class], nil] setSelectionIndicatorImage:[UIImage imageNamed:@"TabBarSelectedTab"]];
+    [[UITabBarItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:10]} forState:UIControlStateNormal];
+    [[UITabBarItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor], UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:10]} forState:UIControlStateHighlighted];
 }
 
 @end

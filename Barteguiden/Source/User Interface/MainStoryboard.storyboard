@@ -19,7 +19,7 @@
                         <segue destination="FBL-b0-0ta" kind="relationship" relationship="viewControllers" id="peA-EO-pG1"/>
                         <segue destination="UtO-4H-Skc" kind="relationship" relationship="viewControllers" id="xHI-BK-rKl"/>
                         <segue destination="XkY-7I-c6u" kind="relationship" relationship="viewControllers" id="XTg-Dy-VxU"/>
-                        <segue destination="w33-Rt-09i" kind="relationship" relationship="viewControllers" id="wos-Lv-t2k"/>
+                        <segue destination="ggq-Bq-KuV" kind="relationship" relationship="viewControllers" id="C1w-Ic-72Q"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFr-Tp-hgI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,34 +84,28 @@
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEx-3z-SJo" customClass="GroupedTableViewButton">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="08g-eM-3jj"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEx-3z-SJo">
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                        <state key="normal" title="Show on Map">
-                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="0.0" height="1"/>
+                                        <state key="normal" title="Show on Map" backgroundImage="ActionButton-Normal.png">
+                                            <color key="titleColor" white="0.2049783302919708" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <state key="highlighted" backgroundImage="ActionButton-Highlighted.png"/>
                                         <connections>
                                             <segue destination="cyT-uv-fWD" kind="push" identifier="MapSegue" id="sWC-mM-lLz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59J-XQ-EPQ" customClass="GroupedTableViewButton">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="b09-IW-KXr"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59J-XQ-EPQ">
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                        <state key="normal" title="Visit Website">
-                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="0.0" height="1"/>
+                                        <state key="normal" title="Visit Website" backgroundImage="ActionButton-Normal.png">
+                                            <color key="titleColor" white="0.20144274635036497" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <state key="highlighted" backgroundImage="ActionButton-Highlighted.png"/>
                                         <connections>
                                             <segue destination="80s-Yu-4yu" kind="push" identifier="WebsiteSegue" id="mub-et-YA0"/>
                                         </connections>
@@ -245,11 +239,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YuK-xV-JiW" secondAttribute="bottom" constant="20" type="user" id="1Du-9d-iSX"/>
+                                    <constraint firstAttribute="bottom" secondItem="tEx-3z-SJo" secondAttribute="bottom" constant="57" id="0gG-Y7-rbF"/>
                                     <constraint firstItem="4XK-L5-DAw" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="17" type="user" id="1hj-pT-p2n"/>
                                     <constraint firstAttribute="trailing" secondItem="tEx-3z-SJo" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="36Y-gI-KKJ"/>
                                     <constraint firstItem="4XK-L5-DAw" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="211" id="6WJ-ol-nF3"/>
-                                    <constraint firstItem="tEx-3z-SJo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YuK-xV-JiW" secondAttribute="bottom" constant="20" type="user" id="8gb-e1-yb7"/>
                                     <constraint firstItem="A8d-GZ-0dO" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" type="user" id="8k2-t6-2gN"/>
                                     <constraint firstAttribute="trailing" secondItem="YuK-xV-JiW" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="95s-8S-jnj"/>
                                     <constraint firstItem="59J-XQ-EPQ" firstAttribute="centerX" secondItem="dhy-Fb-6Wj" secondAttribute="centerX" type="user" id="Awc-mg-Sip"/>
@@ -261,7 +254,6 @@
                                     <constraint firstItem="rzx-k2-XDn" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="HL9-iA-JMb"/>
                                     <constraint firstItem="tEx-3z-SJo" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="I7w-wz-A1q"/>
                                     <constraint firstAttribute="trailing" secondItem="Cpu-AF-hUp" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="JaX-y0-nQZ"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="59J-XQ-EPQ" secondAttribute="bottom" constant="20" type="user" id="LIH-Hs-dPE"/>
                                     <constraint firstItem="YuK-xV-JiW" firstAttribute="top" secondItem="Cpu-AF-hUp" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="LLa-YM-bcB"/>
                                     <constraint firstItem="YuK-xV-JiW" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="Lpv-YG-7cs"/>
                                     <constraint firstItem="59J-XQ-EPQ" firstAttribute="top" secondItem="YuK-xV-JiW" secondAttribute="bottom" constant="20" type="user" id="QH3-NJ-1cA"/>
@@ -273,7 +265,6 @@
                                     <constraint firstItem="Cpu-AF-hUp" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="YqF-vM-8Ps"/>
                                     <constraint firstItem="59J-XQ-EPQ" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="ZJe-Pb-1mH"/>
                                     <constraint firstAttribute="trailing" secondItem="59J-XQ-EPQ" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="ZbE-9u-dsi"/>
-                                    <constraint firstAttribute="bottom" secondItem="tEx-3z-SJo" secondAttribute="bottom" constant="59" id="aVD-Iu-VqV"/>
                                     <constraint firstItem="r5z-an-beK" firstAttribute="centerY" secondItem="96o-qw-xEw" secondAttribute="centerY" type="user" id="dmq-Pj-pLu"/>
                                     <constraint firstItem="r5z-an-beK" firstAttribute="top" secondItem="7Th-fI-DFR" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="e76-ev-lL2"/>
                                     <constraint firstItem="ERR-bM-bto" firstAttribute="top" secondItem="dhy-Fb-6Wj" secondAttribute="top" constant="142" type="user" id="eh9-lP-mPG"/>
@@ -345,28 +336,24 @@
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Odo-gL-Gqn"/>
                                     <barButtonItem image="WebsiteBackArrow.png" style="plain" id="t2J-cZ-rvd">
-                                        <color key="tintColor" white="0.7764598540145986" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="back:" destination="80s-Yu-4yu" id="Iu6-bv-zIi"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="TY0-3u-ic3"/>
                                     <barButtonItem style="plain" systemItem="play" id="LpM-gO-xQU">
-                                        <color key="tintColor" white="0.77757185218978098" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="forward:" destination="80s-Yu-4yu" id="lCu-SK-xGV"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="ytw-lp-9ER"/>
                                     <barButtonItem style="plain" systemItem="refresh" id="p1h-9d-lxw">
-                                        <color key="tintColor" white="0.77551893248175197" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="refresh:" destination="80s-Yu-4yu" id="EGw-ax-oil"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="exA-8Q-4Kr"/>
                                     <barButtonItem style="plain" systemItem="action" id="hMW-gG-tet">
-                                        <color key="tintColor" white="0.78199133211678828" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="share:" destination="80s-Yu-4yu" id="uce-KS-aqN"/>
                                         </connections>
@@ -427,11 +414,11 @@
             </objects>
             <point key="canvasLocation" x="2391" y="953"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Featured-->
         <scene sceneID="Ng1-gb-Is9">
             <objects>
                 <navigationController definesPresentationContext="YES" id="X1Z-WQ-KQT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="5R0-C3-KYW"/>
+                    <tabBarItem key="tabBarItem" title="Featured" id="5R0-C3-KYW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ld4-WR-TTN">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -447,7 +434,7 @@
         <scene sceneID="Mja-7v-Goi">
             <objects>
                 <navigationController definesPresentationContext="YES" id="FBL-b0-0ta" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Events" image="AllEvents.png" id="n1j-FU-kDv"/>
+                    <tabBarItem key="tabBarItem" title="All Events" id="n1j-FU-kDv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cHN-jc-KNG">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -463,7 +450,7 @@
         <scene sceneID="1xp-oc-uV0">
             <objects>
                 <navigationController definesPresentationContext="YES" id="UtO-4H-Skc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Filter" image="MyPage.png" id="ck3-c0-mhk"/>
+                    <tabBarItem key="tabBarItem" title="My Filter" id="ck3-c0-mhk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gQh-Ar-S9F">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -575,7 +562,7 @@
         <scene sceneID="VzP-Wi-3HX">
             <objects>
                 <navigationController definesPresentationContext="YES" id="XkY-7I-c6u" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="Favorites.png" id="d3p-XS-SfF"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="d3p-XS-SfF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kDT-NI-BmF">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -605,7 +592,7 @@
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qi2-oC-6CI">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qi2-oC-6CI">
                                                     <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -757,7 +744,7 @@
                     <navigationItem key="navigationItem" title="Filter" id="3qj-MQ-FKp">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="4d2-v0-VCM">
                             <connections>
-                                <segue destination="Q0v-oU-7sw" kind="unwind" unwindAction="close:" id="Li2-Q5-kyl"/>
+                                <segue destination="Q0v-oU-7sw" kind="unwind" identifier="DoneSegue" unwindAction="dismissFilter:" id="lkd-rZ-QWd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -828,12 +815,42 @@
             </objects>
             <point key="canvasLocation" x="1272" y="2397"/>
         </scene>
+        <!--View Controller - Settings-->
+        <scene sceneID="SDz-hq-1Nq">
+            <objects>
+                <viewController id="ggq-Bq-KuV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C9k-2d-bYW">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="qNp-1J-cO2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kUA-Dn-ert" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="713" y="3114"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eEf-HU-KeM">
+            <objects>
+                <navigationController storyboardIdentifier="SettingsNavigationController" definesPresentationContext="YES" id="nfY-R6-2AU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GnH-J2-EBf">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Hze-Sz-r1P" kind="relationship" relationship="rootViewController" id="BjC-WS-shz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahz-Je-nzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1833" y="3114"/>
+        </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="i8f-ya-iVq">
             <objects>
-                <tableViewController id="Hze-Sz-r1P" customClass="SettingsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="" id="Hze-Sz-r1P" customClass="SettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="BhR-IS-OvD">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -944,7 +961,13 @@
                             <outlet property="delegate" destination="Hze-Sz-r1P" id="At0-Oj-a38"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="7UV-An-iUA"/>
+                    <navigationItem key="navigationItem" title="Settings" id="7UV-An-iUA">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="4uY-a4-oNI">
+                            <connections>
+                                <segue destination="mXk-Fi-U0H" kind="unwind" identifier="DoneSegue" unwindAction="dismissSettings:" id="Oso-9O-SvB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="autoAddFavoritesSwitch" destination="gzC-MT-QOy" id="vqX-qS-0ZK"/>
                         <outlet property="defaultAlertCell" destination="G9M-eV-VMJ" id="VMc-Vb-HjP"/>
@@ -955,40 +978,23 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxZ-1b-k29" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mXk-Fi-U0H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1272" y="3114"/>
-        </scene>
-        <!--Navigation Controller - Settings-->
-        <scene sceneID="zJV-qR-rvE">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="w33-Rt-09i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="Settings.png" id="WwZ-eq-MeG"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZlP-2Z-DgZ">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Hze-Sz-r1P" kind="relationship" relationship="rootViewController" id="2Rb-h4-DqT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fae-8w-cuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="713" y="3114"/>
+            <point key="canvasLocation" x="2394" y="3114"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ActionButton-Highlighted.png" width="300" height="45"/>
+        <image name="ActionButton-Normal.png" width="300" height="45"/>
         <image name="AgeLimitBorder.png" width="40" height="21"/>
-        <image name="AllEvents.png" width="30" height="30"/>
         <image name="Calendar-Normal.png" width="24" height="28"/>
         <image name="Calendar-Selected.png" width="24" height="28"/>
         <image name="Concerts-Big.png" width="40" height="40"/>
         <image name="Favorite-Normal.png" width="40" height="36"/>
         <image name="Favorite-Selected.png" width="40" height="36"/>
-        <image name="Favorites.png" width="30" height="30"/>
         <image name="Location.png" width="26" height="25"/>
         <image name="MissingPoster.png" width="320" height="200"/>
-        <image name="MyPage.png" width="30" height="30"/>
         <image name="Separator.png" width="320" height="1"/>
-        <image name="Settings.png" width="30" height="30"/>
         <image name="WebsiteBackArrow.png" width="16" height="22"/>
     </resources>
     <classes>
@@ -1008,7 +1014,6 @@
                 <relationship kind="action" name="shareEvent:"/>
                 <relationship kind="action" name="toggleCalendarEvent:"/>
                 <relationship kind="action" name="toggleFavorite:"/>
-                <relationship kind="action" name="visitWebsite:"/>
                 <relationship kind="outlet" name="ageLimitLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="calendarActionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="calendarButton" candidateClass="UIButton"/>
@@ -1051,9 +1056,6 @@
                 <relationship kind="outlet" name="priceFilterPaidEvents" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
-        <class className="GroupedTableViewButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupedTableViewButton.h"/>
-        </class>
         <class className="MapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
@@ -1062,6 +1064,9 @@
         </class>
         <class className="MyFilterViewController" superclassName="AbstractEventsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MyFilterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissFilter:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -1072,6 +1077,7 @@
         <class className="SettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="sendUsYourTips:"/>
                 <relationship kind="action" name="toggleAutoAddFavorites:"/>
                 <relationship kind="outlet" name="autoAddFavoritesSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="defaultAlertCell" candidateClass="UITableViewCell"/>
@@ -1083,6 +1089,13 @@
         </class>
         <class className="TabBarController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissSettings:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="presentSettings:"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
         <class className="WebsiteViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WebsiteViewController.h"/>

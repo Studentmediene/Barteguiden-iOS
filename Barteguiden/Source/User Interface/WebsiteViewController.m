@@ -90,7 +90,6 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    NSLog(@"Failed:%@", error);
 //    NSString *title = NSLocalizedString(@"Cannot Open Page", nil);
 //    NSString *message = NSLocalizedString(@"Safari cannot open the page because the address is invalid", nil);
 //    NSString *cancelButtonTitle = NSLocalizedString(@"OK", nil);
@@ -126,6 +125,8 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
     if (self.webView.loading == YES && self.lastLoading == NO) {
         currentBarButtonItem = self.refreshBarButtonItem;
         replacementBarButtonItem = self.activityIndicatorViewBarButtonItem;
+        
+//        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     }
     else if (self.webView.loading == NO && self.lastLoading == YES) {
         currentBarButtonItem = self.activityIndicatorViewBarButtonItem;

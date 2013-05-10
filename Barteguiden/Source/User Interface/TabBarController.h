@@ -18,4 +18,8 @@
 @property (nonatomic, strong) id<FilterManager> filterManager;
 @property (nonatomic, strong) id<CalendarManager> calendarManager;
 
+
+- (IBAction)presentSettings:(id)sender;
+- (IBAction)dismissSettings:(UIStoryboardSegue *)segue;
+
 @end

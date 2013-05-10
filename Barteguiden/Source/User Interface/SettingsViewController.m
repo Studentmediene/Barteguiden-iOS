@@ -40,50 +40,24 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
     if (cell == self.defaultCalendarCell) {
-        EKCalendarChooser *calendarChooser = [[EKCalendarChooser alloc] initWithSelectionStyle:EKCalendarChooserSelectionStyleSingle displayStyle:EKCalendarChooserDisplayWritableCalendarsOnly entityType:EKEntityTypeEvent eventStore:self.calendarManager.calendarStore];
-        calendarChooser.delegate = self;
-        calendarChooser.selectedCalendars = [NSSet setWithObject:[self.calendarManager defaultCalendar]];
-        calendarChooser.title = NSLocalizedString(@"Default Calendar", nil);
-        [self.navigationController pushViewController:calendarChooser animated:YES];
+        [self navigateToCalendarChooser];
     }
     else if (cell == self.defaultAlertCell) {
-        AlertChooser *alertChooser = [[AlertChooser alloc] init];
-        alertChooser.delegate = self;
-        alertChooser.selectedAlert = [self.calendarManager defaultAlert];
-        alertChooser.title = NSLocalizedString(@"Default Alert", nil);
-        [self.navigationController pushViewController:alertChooser animated:YES];
+        [self navigateToAlertChooser];
     }
     else if (cell == self.sendUsYourTipsCell) {
-        [self sendUsYourTips:cell];
+        [self presentSendUsYourTips];
         
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
 
-#pragma mark - Actions
+#pragma mark - IBAction
 
 - (IBAction)toggleAutoAddFavorites:(UISwitch *)sender
 {
     [self.calendarManager setAutoAddFavorites:sender.on];
-}
-
-- (IBAction)sendUsYourTips:(id)sender
-{
-    if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
-        mailViewController.mailComposeDelegate = self;
-        // FIXME: Update these values
-        [mailViewController setToRecipients:@[@"tips@underdusken.no"]];
-        [mailViewController setSubject:@"Your subject here"];
-        [mailViewController setMessageBody:@"Your body here" isHTML:NO];
-        
-        [self presentViewController:mailViewController animated:YES completion:NULL];
-        
-    }
-    else {
-        // TODO: Handle error
-    }
 }
 
 
@@ -104,6 +78,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
 #pragma mark - MFMailComposeViewControllerDelegate
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
@@ -120,6 +95,41 @@
     self.defaultCalendarLabel.text = [[self.calendarManager defaultCalendar] title];
     NSValueTransformer *alertDescription = [NSValueTransformer valueTransformerForName:CalendarAlertDescriptionTransformerName];
     self.defaultAlertLabel.text = [alertDescription transformedValue:[self.calendarManager defaultAlert]];
+}
+
+- (void)navigateToCalendarChooser
+{
+    EKCalendarChooser *calendarChooser = [[EKCalendarChooser alloc] initWithSelectionStyle:EKCalendarChooserSelectionStyleSingle displayStyle:EKCalendarChooserDisplayWritableCalendarsOnly entityType:EKEntityTypeEvent eventStore:self.calendarManager.calendarStore];
+    calendarChooser.delegate = self;
+    calendarChooser.selectedCalendars = [NSSet setWithObject:[self.calendarManager defaultCalendar]];
+    calendarChooser.title = NSLocalizedString(@"Default Calendar", nil);
+    [self.navigationController pushViewController:calendarChooser animated:YES];
+}
+
+- (void)navigateToAlertChooser
+{
+    AlertChooser *alertChooser = [[AlertChooser alloc] init];
+    alertChooser.delegate = self;
+    alertChooser.selectedAlert = [self.calendarManager defaultAlert];
+    alertChooser.title = NSLocalizedString(@"Default Alert", nil);
+    [self.navigationController pushViewController:alertChooser animated:YES];
+}
+
+- (void)presentSendUsYourTips
+{
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+        mailViewController.mailComposeDelegate = self;
+        // FIXME: Update these values
+        [mailViewController setToRecipients:@[@"tips@underdusken.no"]];
+        [mailViewController setSubject:@"Your subject here"];
+        [mailViewController setMessageBody:@"Your body here" isHTML:NO];
+        
+        [self presentViewController:mailViewController animated:YES completion:NULL];
+    }
+    else {
+        // TODO: Handle error
+    }
 }
 
 @end
