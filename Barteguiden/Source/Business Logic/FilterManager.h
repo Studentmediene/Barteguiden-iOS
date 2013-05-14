@@ -12,13 +12,13 @@
 typedef NS_OPTIONS(NSUInteger, CategoryFilter) {
     CategoryFilterShowNoneEvents    = 0,
     CategoryFilterShowOther         = 1 << EventCategoryOther,
-    CategoryFilterShowConcerts      = 1 << EventCategoryConcerts,
+    CategoryFilterShowMusic         = 1 << EventCategoryMusic,
     CategoryFilterShowNightlife     = 1 << EventCategoryNightlife,
-    CategoryFilterShowTheatre       = 1 << EventCategoryTheatre,
-    CategoryFilterShowDance         = 1 << EventCategoryDance,
-    CategoryFilterShowArtExhibition = 1 << EventCategoryArtExhibition,
-    CategoryFilterShowSports        = 1 << EventCategorySports,
+    CategoryFilterShowSport         = 1 << EventCategorySport,
+    CategoryFilterShowPerformances  = 1 << EventCategoryPerformances,
     CategoryFilterShowPresentations = 1 << EventCategoryPresentations,
+    CategoryFilterShowExhibitions   = 1 << EventCategoryExhibitions,
+    CategoryFilterShowDebate        = 1 << EventCategoryDebate,
     CategoryFilterShowAllEvents     = NSUIntegerMax
 };
 

@@ -16,6 +16,8 @@
 #import <EventKit/EventKit.h>
 #import "UserDefaultsCalendarManager.h"
 
+#import "ApplicationNetworkActivity.h"
+
 #import "TabBarController.h"
 
 #import <PSPDFAlertView.h>
@@ -29,6 +31,9 @@
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
+    self.networkActivity = [[ApplicationNetworkActivity alloc] initWithApplication:[UIApplication sharedApplication]];
+    // TODO: Inject into other classes
+    
     // Event store
     self.eventStore = [[CoreDataEventStore alloc] initWithManagedObjectContext:self.managedObjectContext];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidFailNotification:) name:EventStoreDidFailNotification object:self.eventStore];
@@ -39,14 +44,20 @@
     // Calendar manager
     EKEventStore *calendarStore = [[EKEventStore alloc] init];
     self.calendarManager = [[UserDefaultsCalendarManager alloc] initWithUserDefaults:userDefaults calendarStore:calendarStore];
-    [self.calendarManager registerDefaultDefaultAlertTimeInterval:-30*60];
+//    [self.calendarManager registerDefaultDefaultAlertTimeInterval:-30*60]; // TODO: If I uncomment this line, I can't select None as Default Alert
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarManagerDidFailNotification:) name:CalendarManagerDidFailNotification object:self.calendarManager];
     
     // Inject dependencies
     TabBarController *tabBarController = (TabBarController *)self.window.rootViewController;
+//    TabBarController *tabBarController = [[TabBarController alloc] initWithEventStore:self.eventStore filterManager:self.filterManager calendarManager:self.calendarManager];
+//    tabBarController.storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     tabBarController.eventStore = self.eventStore;
     tabBarController.filterManager = self.filterManager;
     tabBarController.calendarManager = self.calendarManager;
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window.rootViewController = tabBarController;
+//    [self.window makeKeyAndVisible];
     
     return YES;
 }

@@ -54,22 +54,22 @@
 + (NSString *)categoryKeyForCategory:(EventCategory)category
 {
     switch (category) {
-        case EventCategoryConcerts:
-            return @"CATEGORY_CONCERTS";
+        case EventCategoryMusic:
+            return @"CATEGORY_MUSIC";
         case EventCategoryNightlife:
-            return @"Movies"; // TODO: Change back to CATEGORY_NIGHTLIFE
-        case EventCategoryTheatre:
-            return @"CATEGORY_THEATRE";
-        case EventCategoryDance:
-            return @"CATEGORY_DANCE";
-        case EventCategoryArtExhibition:
-            return @"CATEGORY_ART_EXHIBITION";
-        case EventCategorySports:
-            return @"CATEGORY_SPORTS";
+            return @"CATEGORY_NIGHTLIFE";
+        case EventCategorySport:
+            return @"CATEGORY_SPORT";
+        case EventCategoryPerformances:
+            return @"CATEGORY_PERFORMANCES";
         case EventCategoryPresentations:
             return @"CATEGORY_PRESENTATIONS";
+        case EventCategoryExhibitions:
+            return @"CATEGORY_EXHIBITIONS";
+        case EventCategoryDebate:
+            return @"CATEGORY_DEBATE";
         default:
-            return @"CATEGORY_UNKNOWN";
+            return @"CATEGORY_OTHER";
     }
 }
 
@@ -79,22 +79,22 @@
 + (NSString *)categoryImageNameForCategory:(EventCategory)category
 {
     switch (category) {
-        case EventCategoryConcerts:
-            return @"Concerts";
+        case EventCategoryMusic:
+            return @"CategoryMusic";
         case EventCategoryNightlife:
-            return @"Movies";  // TODO: Change to Other
-        case EventCategoryTheatre:
-            return @"Theatre";
-//        case EventCategoryDance:
-//            return @"Dance";
-//        case EventCategoryArtExhibition:
-//            return @"ArtExhibition";
-//        case EventCategorySports:
-//            return @"Sports";
+            return @"CategoryNightlife";
+        case EventCategorySport:
+            return @"CategorySport";
+        case EventCategoryPerformances:
+            return @"CategoryPerformances";
         case EventCategoryPresentations:
-            return @"Presentations";
+            return @"CategoryPresentations";
+        case EventCategoryExhibitions:
+            return @"CategoryExhibitions";
+        case EventCategoryDebate:
+            return @"CategoryDebate";
         default:
-            return @"Other";
+            return @"CategoryOther";
     }
 }
 

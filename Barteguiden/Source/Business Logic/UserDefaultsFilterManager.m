@@ -199,7 +199,7 @@ static NSString * const kPriceFilterSelectionKey = @"PriceFilterSelection";
 {
     static NSArray *categories = nil;
     if (categories == nil) {
-        categories = @[@(EventCategoryOther), @(EventCategoryConcerts), @(EventCategoryNightlife), @(EventCategoryTheatre), @(EventCategoryDance), @(EventCategoryArtExhibition), @(EventCategorySports), @(EventCategoryPresentations)];
+        categories = @[@(EventCategoryOther), @(EventCategoryMusic), @(EventCategoryNightlife), @(EventCategorySport), @(EventCategoryPerformances), @(EventCategoryPresentations), @(EventCategoryExhibitions), @(EventCategoryDebate)];
     }
     
     return categories;

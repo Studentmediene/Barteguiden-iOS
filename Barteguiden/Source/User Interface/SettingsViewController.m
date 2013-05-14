@@ -121,9 +121,9 @@
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
         // FIXME: Update these values
+        NSString *subject = NSLocalizedString(@"Tips for Barteguiden", nil);
         [mailViewController setToRecipients:@[@"tips@underdusken.no"]];
-        [mailViewController setSubject:@"Your subject here"];
-        [mailViewController setMessageBody:@"Your body here" isHTML:NO];
+        [mailViewController setSubject:subject];
         
         [self presentViewController:mailViewController animated:YES completion:NULL];
     }

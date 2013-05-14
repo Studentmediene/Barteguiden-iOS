@@ -18,8 +18,9 @@
 @property (nonatomic, strong) id<FilterManager> filterManager;
 @property (nonatomic, strong) id<CalendarManager> calendarManager;
 
-
 - (IBAction)presentSettings:(id)sender;
 - (IBAction)dismissSettings:(UIStoryboardSegue *)segue;
+
+- (id)initWithEventStore:(id<EventStore>)eventStore filterManager:(id<FilterManager>)filterManager calendarManager:(id<CalendarManager>)calendarManager;
 
 @end

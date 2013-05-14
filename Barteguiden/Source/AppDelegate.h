@@ -11,6 +11,7 @@
 @class CoreDataEventStore;
 @class UserDefaultsFilterManager;
 @class UserDefaultsCalendarManager;
+@class ApplicationNetworkActivity;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -23,5 +24,6 @@
 @property (nonatomic, strong) CoreDataEventStore *eventStore;
 @property (nonatomic, strong) UserDefaultsFilterManager *filterManager;
 @property (nonatomic, strong) UserDefaultsCalendarManager *calendarManager;
+@property (nonatomic, strong) ApplicationNetworkActivity *networkActivity;
 
 @end

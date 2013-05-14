@@ -6,14 +6,14 @@
   Copyright (c) 2012 Under Dusken. All rights reserved.
 */
 
-"CATEGORY_UNKNOWN" = "Unknown";
-"CATEGORY_CONCERTS" = "Concerts";
+"CATEGORY_OTHER" = "Other";
+"CATEGORY_MUSIC" = "Music";
 "CATEGORY_NIGHTLIFE" = "Nightlife";
-"CATEGORY_THEATRE" = "Theatre";
-"CATEGORY_DANCE" = "Dance";
-"CATEGORY_ART_EXHIBITION" = "Art Exhibition";
-"CATEGORY_SPORTS" = "Sports";
+"CATEGORY_SPORT" = "Sport";
+"CATEGORY_PERFORMANCES" = "Performances";
 "CATEGORY_PRESENTATIONS" = "Presentations";
+"CATEGORY_EXHIBITIONS" = "Exhibitions";
+"CATEGORY_DEBATE" = "Debate";
 
 "AGE_LIMIT_NO_AGE_LIMIT" = "No age Limit";
 "AGE_LIMIT_ARBITRARY_AGE_LIMIT" = "%1$u and Above";

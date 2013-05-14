@@ -83,13 +83,13 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     static NSDictionary *categories;
     if (categories == nil) {
         categories = @{@"OTHER": @(EventCategoryOther),
-                       @"CONCERTS": @(EventCategoryConcerts),
+                       @"MUSIC": @(EventCategoryMusic),
                        @"NIGHTLIFE": @(EventCategoryNightlife),
-                       @"THEATRE": @(EventCategoryTheatre),
-                       @"DANCE": @(EventCategoryDance),
-                       @"ART_EXHIBITION": @(EventCategoryArtExhibition),
-                       @"SPORTS": @(EventCategorySports),
-                       @"PRESENTATIONS": @(EventCategoryPresentations)};
+                       @"SPORT": @(EventCategorySport),
+                       @"PERFORMANCES": @(EventCategoryPerformances),
+                       @"PRESENTATIONS": @(EventCategoryPresentations),
+                       @"EXHIBITIONS": @(EventCategoryExhibitions),
+                       @"DEBATE": @(EventCategoryDebate)};
     }
     
     return categories;

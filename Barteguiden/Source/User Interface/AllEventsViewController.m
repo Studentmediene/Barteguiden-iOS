@@ -61,7 +61,7 @@ enum {
 
 - (IBAction)changePriceFilter:(id)sender
 {
-    // FIXME: Change back
+    // TODO: Change back?
     [self.eventResultsController setPredicate:[self eventsPredicate] withAnimation:YES];
 //    [self reloadPredicate];
     [self updatePlaceholderInSearchField];

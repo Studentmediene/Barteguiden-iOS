@@ -26,26 +26,25 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 {
     [super viewDidLoad];
     
-    self.eventResultsController = [[EventResultsController alloc] initWithEventStore:self.eventStore sectionNameBlock:^NSString *(id<Event> event) {
-        EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:event];
-        NSString *sectionName = [eventFormatter dateSectionName];
-        
-        return sectionName;
-    }];
-    self.eventResultsController.delegate = self;
-    NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES];
-    self.eventResultsController.sortDescriptors = @[startAtSortDescriptor];
-    
     // Hide search bar as default
-    self.tableView.contentOffset = CGPointMake(0, -44);//self.searchDisplayController.searchBar.frame.size.height);
+    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
 //    self.tableView.contentInset = UIEdgeInsetsMake(-44,0,0,0);
     
-    [self reloadPredicate];
-    
-    self.tableView.separatorColor = [UIColor colorWithHue:216.0/360.0 saturation:5.0/100.0 brightness:83.0/100.0 alpha:1];
-    
+    self.tableView.separatorColor = [UIColor colorWithHue:(216/360.0) saturation:(5/100.0) brightness:(83/100.0) alpha:1];
     
     [self.tableView registerClass:[HeaderView class] forHeaderFooterViewReuseIdentifier:kHeaderReuseIdentifier];
+//    [self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    self.tableView.con
+//    NSLog(@"%@", self.tableView.constraints);
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSLog(@"Setting delegate to:%@", self);
+    self.eventResultsController.delegate = self;
+    [self reloadPredicate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -177,8 +176,7 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 
 - (void)navigateToEvent:(id)event
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    EventDetailsViewController *eventDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
+    EventDetailsViewController *eventDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
 //    eventDetailsViewController.delegate = self;
     eventDetailsViewController.event = event;
     eventDetailsViewController.calendarManager = self.calendarManager;

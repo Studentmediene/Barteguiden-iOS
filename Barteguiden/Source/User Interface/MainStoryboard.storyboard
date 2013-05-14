@@ -103,7 +103,12 @@
                                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Concerts-Big.png" translatesAutoresizingMaskIntoConstraints="NO" id="ERR-bM-bto"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Concerts-Big.png" translatesAutoresizingMaskIntoConstraints="NO" id="ERR-bM-bto">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="ZS3-Wm-tym"/>
+                                                    <constraint firstAttribute="width" constant="40" id="lJf-X2-02A"/>
+                                                </constraints>
+                                            </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="18+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qc-TU-tKd">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="19" type="user" id="xVQ-h9-2vh"/>
@@ -274,7 +279,7 @@
                                     <constraint firstItem="Cpu-AF-hUp" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="YqF-vM-8Ps"/>
                                     <constraint firstItem="m8A-VI-Anb" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" type="default" id="hH1-Q6-0Wl"/>
                                     <constraint firstItem="YuK-xV-JiW" firstAttribute="top" secondItem="Cpu-AF-hUp" secondAttribute="bottom" constant="3" type="user" id="jeB-ie-vgx"/>
-                                    <constraint firstAttribute="bottom" secondItem="YuK-xV-JiW" secondAttribute="bottom" constant="182" id="u6j-kg-D62"/>
+                                    <constraint firstAttribute="bottom" secondItem="YuK-xV-JiW" secondAttribute="bottom" constant="20" type="user" id="u6j-kg-D62"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -292,6 +297,7 @@
                     <connections>
                         <outlet property="ageLimitLabel" destination="8qc-TU-tKd" id="0IL-mw-K5x"/>
                         <outlet property="bottomMostView" destination="YuK-xV-JiW" id="bZa-cZ-v3u"/>
+                        <outlet property="bottomMostViewSpacingConstraint" destination="u6j-kg-D62" id="Ku2-H7-kVe"/>
                         <outlet property="calendarActionLabel" destination="WGS-Ft-bsU" id="B2X-3I-IpA"/>
                         <outlet property="calendarButton" destination="Wn9-Mc-SV1" id="O5a-bR-jbL"/>
                         <outlet property="calendarImageView" destination="OUn-lb-j8j" id="guf-OM-uwu"/>
@@ -462,7 +468,7 @@
         <!--All Events View Controller - All Events-->
         <scene sceneID="C2a-bY-oTN">
             <objects>
-                <tableViewController id="lGT-Ys-tVy" customClass="AllEventsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AllEvents" id="lGT-Ys-tVy" customClass="AllEventsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jmD-cb-ikJ">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -514,7 +520,7 @@
         <!--My Filter View Controller - My Filter-->
         <scene sceneID="HSU-UA-U5r">
             <objects>
-                <tableViewController id="tvS-YH-KEM" customClass="MyFilterViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MyFilter" id="tvS-YH-KEM" customClass="MyFilterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9cF-iU-uVm">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -777,7 +783,7 @@
         <!--Favorites View Controller - Favorites-->
         <scene sceneID="rzc-ga-h3I">
             <objects>
-                <tableViewController id="2C8-c0-zNg" customClass="FavoritesViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Favorites" id="2C8-c0-zNg" customClass="FavoritesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dfG-Ka-itS">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -970,7 +976,7 @@
         <image name="AgeLimitBorder.png" width="40" height="21"/>
         <image name="Calendar-Normal.png" width="24" height="28"/>
         <image name="Calendar-Selected.png" width="24" height="28"/>
-        <image name="Concerts-Big.png" width="40" height="40"/>
+        <image name="Concerts-Big.png" width="16" height="16"/>
         <image name="Favorite-Normal.png" width="40" height="36"/>
         <image name="Favorite-Selected.png" width="40" height="36"/>
         <image name="Location.png" width="26" height="25"/>

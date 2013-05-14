@@ -12,13 +12,13 @@
 
 typedef NS_ENUM(NSInteger, EventCategory) {
     EventCategoryOther = 0,
-    EventCategoryConcerts,
+    EventCategoryMusic,
     EventCategoryNightlife,
-    EventCategoryTheatre,
-    EventCategoryDance,
-    EventCategoryArtExhibition,
-    EventCategorySports,
-    EventCategoryPresentations
+    EventCategorySport,
+    EventCategoryPerformances,
+    EventCategoryPresentations,
+    EventCategoryExhibitions,
+    EventCategoryDebate
 };
 
 @protocol Event <NSObject>
