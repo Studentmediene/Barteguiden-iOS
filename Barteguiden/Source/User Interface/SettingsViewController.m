@@ -99,11 +99,20 @@
 
 - (void)navigateToCalendarChooser
 {
-    EKCalendarChooser *calendarChooser = [[EKCalendarChooser alloc] initWithSelectionStyle:EKCalendarChooserSelectionStyleSingle displayStyle:EKCalendarChooserDisplayWritableCalendarsOnly entityType:EKEntityTypeEvent eventStore:self.calendarManager.calendarStore];
-    calendarChooser.delegate = self;
-    calendarChooser.selectedCalendars = [NSSet setWithObject:[self.calendarManager defaultCalendar]];
-    calendarChooser.title = NSLocalizedString(@"Default Calendar", nil);
-    [self.navigationController pushViewController:calendarChooser animated:YES];
+    __weak typeof(self) bself = self;
+    [self.calendarManager requestAccessWithCompletion:^(NSError *error) {
+        if (error == nil) {
+            EKCalendarChooser *calendarChooser = [[EKCalendarChooser alloc] initWithSelectionStyle:EKCalendarChooserSelectionStyleSingle displayStyle:EKCalendarChooserDisplayWritableCalendarsOnly entityType:EKEntityTypeEvent eventStore:bself.calendarManager.calendarStore];
+            calendarChooser.delegate = bself;
+            calendarChooser.selectedCalendars = [NSSet setWithObject:[bself.calendarManager defaultCalendar]];
+            calendarChooser.title = NSLocalizedString(@"Default Calendar", nil);
+            [bself.navigationController pushViewController:calendarChooser animated:YES];
+        }
+        else {
+            NSIndexPath *indexPath = [bself.tableView indexPathForCell:bself.defaultCalendarCell];
+            [bself.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
+    }];
 }
 
 - (void)navigateToAlertChooser

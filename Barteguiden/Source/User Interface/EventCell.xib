@@ -54,7 +54,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">Concerts.png</string>
+									<string key="NSResourceName">CategoryMusic.png</string>
 								</object>
 							</object>
 							<object class="IBUILabel" id="43670291">
@@ -669,7 +669,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">Concerts.png</string>
+			<string key="NS.key.0">CategoryMusic.png</string>
 			<string key="NS.object.0">{25, 25}</string>
 		</object>
 		<bool key="IBDocument.UseAutolayout">YES</bool>

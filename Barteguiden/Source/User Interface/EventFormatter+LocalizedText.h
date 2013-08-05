@@ -12,6 +12,5 @@
 @interface EventFormatter (LocalizedText)
 
 - (NSString *)currentLocalizedDescription;
-- (NSString *)currentLocalizedFeatured;
 
 @end

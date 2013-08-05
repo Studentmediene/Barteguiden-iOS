@@ -53,20 +53,21 @@ static NSString * const kCalendarDefaultAlertTimeIntervalKey = @"CalendarDefault
 
 #pragma mark - Authorization
 
-- (void)requestAccessWithCompletion:(void (^)(void))completion
+- (void)requestAccessWithCompletion:(void (^)(NSError *error))completion
 {
     if ([EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent] == EKAuthorizationStatusAuthorized) {
-        completion();
+        completion(nil);
     }
     else {
         [self.calendarStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *underlyingError) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (granted == YES) {
-                    completion();
+                    completion(nil);
                 }
                 else {
                     NSError *error = [NSError errorWithDomain:CalendarManagerErrorDomain code:CalendarManagerAuthorizationFailed underlyingError:underlyingError];
                     [[NSNotificationCenter defaultCenter] postNotificationName:CalendarManagerDidFailNotification object:self userInfo:@{CalendarManagerErrorUserInfoKey: error}];
+                    completion(error);
                 }
             });
         }];

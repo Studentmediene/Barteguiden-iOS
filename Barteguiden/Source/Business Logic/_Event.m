@@ -7,28 +7,26 @@
 //
 
 #import "_Event.h"
-#import "LocalizedDescription.h"
-#import "LocalizedFeatured.h"
 
 
 @implementation _Event
 
 @dynamic address;
-@dynamic ageLimitNumber;
+@dynamic ageLimit;
 @dynamic calendarEventID;
 @dynamic categoryID;
 @dynamic eventID;
 @dynamic eventURL;
 @dynamic favoriteState;
 @dynamic featuredState;
-@dynamic imageID;
+@dynamic imageURL;
 @dynamic latitude;
 @dynamic longitude;
 @dynamic placeName;
 @dynamic price;
 @dynamic startAt;
 @dynamic title;
-@dynamic localizedDescription;
-@dynamic localizedFeatured;
+@dynamic description_en;
+@dynamic description_nb;
 
 @end

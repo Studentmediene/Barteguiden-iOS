@@ -8,7 +8,6 @@
 
 #import "EventBuilder.h"
 #import "Event.h"
-#import "LocalizedText.h"
 #import "NSManagedObject+CIMGFSafeSetValuesForKeysWithDictionary.h"
 
 
@@ -35,33 +34,25 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     
     [event safeSetValuesForKeysWithDictionary:jsonObject dateFormatter:dateFormatter];
     
-    [event setValue:jsonObject[@"id"] forKey:@"eventID"];
-    [event setValue:jsonObject[@"url"] forKey:@"eventURL"];
-    event.featuredState = @(jsonObject[@"featured"] != nil);
-    event.ageLimitNumber = jsonObject[@"ageLimit"];
+    event.featuredState = @([jsonObject[@"isRecommended"] boolValue]);
     
     NSString *categoryString = jsonObject[@"categoryID"];
     NSNumber *categoryID = [[self categoriesByKey] objectForKey:categoryString];
     if (categoryID != nil) {
         event.categoryID = categoryID;
     }
-
-    event.localizedDescription = [self setWithLocalizedTextForEntityName:kLocalizedDescriptionEntityName withJSONObject:jsonObject[@"description"] inManagedObjectContext:event.managedObjectContext];
-    event.localizedFeatured = [self setWithLocalizedTextForEntityName:kLocalizedFeaturedEntityName withJSONObject:jsonObject[@"featured"] inManagedObjectContext:event.managedObjectContext];
-}
-
-- (NSSet *)setWithLocalizedTextForEntityName:(NSString *)entityName withJSONObject:(NSArray *)jsonObject inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
-{
-    NSMutableSet *set = [[NSMutableSet alloc] init];
-    for (NSDictionary *text in jsonObject) {
-        LocalizedText *localizedText = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:managedObjectContext];
-        
-        [localizedText safeSetValuesForKeysWithDictionary:text dateFormatter:nil];
-        
-        [set addObject:localizedText];
-    }
     
-    return set;
+    NSArray *descriptions = jsonObject[@"descriptions"];
+    if (descriptions != nil) {
+        for (NSDictionary *description in descriptions) {
+            if ([description[@"language"] isEqualToString:@"nb"]) {
+                event.description_nb = description[@"text"];
+            }
+            else if ([description[@"language"] isEqualToString:@"en"]) {
+                event.description_en = description[@"text"];
+            }
+        }
+    }
 }
 
 
@@ -72,7 +63,7 @@ static NSString * const kLocalizedFeaturedEntityName = @"LocalizedFeatured";
     static NSDateFormatter *dateFormatter;
     if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.sssZ"];
     }
     
     return dateFormatter;

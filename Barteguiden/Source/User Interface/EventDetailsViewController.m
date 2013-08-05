@@ -105,14 +105,16 @@ static float const kOneHourOffset = 1*60*60;
     self.favoriteButton.selected = newFavorite;
     
     if ([self.calendarManager shouldAutoAddFavorites]) {
-        [self.calendarManager requestAccessWithCompletion:^{
-            if (newFavorite == YES && [self isAddedToCalendar] == NO) {
-                EKEvent *calendarEvent = [self newCalendarEvent];
-                [self addCalendarEvent:calendarEvent];
-            }
-            else if (newFavorite == NO && [self isAddedToCalendar] == YES) {
-                EKEvent *calendarEvent = [self.calendarManager.calendarStore eventWithIdentifier:self.event.calendarEventID];
-                [self removeCalendarEvent:calendarEvent];
+        [self.calendarManager requestAccessWithCompletion:^(NSError *error) {
+            if (error == nil) {
+                if (newFavorite == YES && [self isAddedToCalendar] == NO) {
+                    EKEvent *calendarEvent = [self newCalendarEvent];
+                    [self addCalendarEvent:calendarEvent];
+                }
+                else if (newFavorite == NO && [self isAddedToCalendar] == YES) {
+                    EKEvent *calendarEvent = [self.calendarManager.calendarStore eventWithIdentifier:self.event.calendarEventID];
+                    [self removeCalendarEvent:calendarEvent];
+                }
             }
         }];
     }
@@ -120,12 +122,14 @@ static float const kOneHourOffset = 1*60*60;
 
 - (IBAction)toggleCalendarEvent:(id)sender
 {
-    [self.calendarManager requestAccessWithCompletion:^{
-        if ([self isAddedToCalendar] == NO) {
-            [self presentNewCalendarEvent];
-        }
-        else {
-            [self promptEditOrRemoveFromCalendar];
+    [self.calendarManager requestAccessWithCompletion:^(NSError *error) {
+        if (error == nil) {
+            if ([self isAddedToCalendar] == NO) {
+                [self presentNewCalendarEvent];
+            }
+            else {
+                [self promptEditOrRemoveFromCalendar];
+            }
         }
     }];
 }
@@ -291,10 +295,11 @@ static float const kOneHourOffset = 1*60*60;
     
     self.posterImageView.image = posterImage;
     
-    NSString *ageLimit = [NSString stringWithFormat:@"%d+", [self.event ageLimit]];
+    NSString *ageLimit = [NSString stringWithFormat:@"%@+", [self.event ageLimit]];
     self.ageLimitLabel.text = ageLimit;
     
-    self.descriptionLabel.text = [eventFormatter currentLocalizedDescription];
+    NSString *defaultDescription = NSLocalizedString(@"No description", nil);
+    self.descriptionLabel.text = [eventFormatter currentLocalizedDescription] ?: defaultDescription;
     self.descriptionLabel.delegate = self;
     self.descriptionLabel.maxNumberOfLines = 4;
     
@@ -324,7 +329,7 @@ static float const kOneHourOffset = 1*60*60;
         [[self visitWebsiteButton] removeFromSuperview];
     }
     
-    if (CLLocationCoordinate2DIsValid([self.event location]) == YES) {
+    if ([self.event hasLocation]) {
         UIButton *showOnMapButton = [self showOnMapButton];
         [self.scrollView addSubview:showOnMapButton];
         

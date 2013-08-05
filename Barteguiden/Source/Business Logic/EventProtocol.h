@@ -32,10 +32,11 @@ typedef NS_ENUM(NSInteger, EventCategory) {
 
 @property (nonatomic, readonly) EventCategory category;
 @property (nonatomic, readonly) NSDecimalNumber *price;
-@property (nonatomic, readonly) NSUInteger ageLimit;
+@property (nonatomic, readonly) NSNumber *ageLimit;
 
 @property (nonatomic, readonly) NSString *placeName;
 @property (nonatomic, readonly) NSString *address;
+@property (nonatomic, readonly) BOOL hasLocation;
 @property (nonatomic, readonly) CLLocationCoordinate2D location;
 
 @property (nonatomic, readonly) NSURL *URL;
@@ -46,6 +47,5 @@ typedef NS_ENUM(NSInteger, EventCategory) {
 - (UIImage *)imageWithSize:(CGSize)size;
 
 - (NSString *)descriptionForLanguage:(NSString *)language;
-- (NSString *)featuredForLanguage:(NSString *)language;
 
 @end

@@ -30,21 +30,4 @@
     return currentLocalizedText;
 }
 
-- (NSString *)currentLocalizedFeatured
-{
-    NSString *currentLocalizedText = nil;
-    
-    NSArray *preferredLanguages = [NSLocale preferredLanguages];
-    for (NSString *currentLanguage in preferredLanguages)
-    {
-        currentLocalizedText = [self.event featuredForLanguage:currentLanguage];
-        
-        if (currentLocalizedText != nil) {
-            break;
-        }
-    }
-    
-    return currentLocalizedText;
-}
-
 @end

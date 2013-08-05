@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DqF-lb-TfP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DqF-lb-TfP">
     <dependencies>
+        <development version="4600" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
@@ -103,12 +104,7 @@
                                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Concerts-Big.png" translatesAutoresizingMaskIntoConstraints="NO" id="ERR-bM-bto">
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="ZS3-Wm-tym"/>
-                                                    <constraint firstAttribute="width" constant="40" id="lJf-X2-02A"/>
-                                                </constraints>
-                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="CategoryMusic-Big.png" translatesAutoresizingMaskIntoConstraints="NO" id="ERR-bM-bto"/>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="18+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qc-TU-tKd">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="19" type="user" id="xVQ-h9-2vh"/>
@@ -976,7 +972,7 @@
         <image name="AgeLimitBorder.png" width="40" height="21"/>
         <image name="Calendar-Normal.png" width="24" height="28"/>
         <image name="Calendar-Selected.png" width="24" height="28"/>
-        <image name="Concerts-Big.png" width="16" height="16"/>
+        <image name="CategoryMusic-Big.png" width="40" height="40"/>
         <image name="Favorite-Normal.png" width="40" height="36"/>
         <image name="Favorite-Selected.png" width="40" height="36"/>
         <image name="Location.png" width="26" height="25"/>

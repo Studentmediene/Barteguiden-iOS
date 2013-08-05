@@ -8,7 +8,6 @@
 
 #import "Event.h"
 #import "EventDelegate.h"
-#import "LocalizedText.h"
 #import "UIImage+RIOScaleAndCrop.h" // TODO: Temp
 
 
@@ -24,11 +23,6 @@
     }
     
     return _imageCache;
-}
-
-- (NSUInteger)ageLimit
-{
-    return [self.ageLimitNumber unsignedIntegerValue];
 }
 
 - (BOOL)isFeatured
@@ -51,6 +45,11 @@
     return [self.categoryID integerValue];
 }
 
+- (BOOL)hasLocation
+{
+    return (self.latitude != nil && self.longitude != nil);
+}
+
 - (CLLocationCoordinate2D)location
 {
     return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
@@ -65,9 +64,7 @@
 {
     CGFloat scale = [[UIScreen mainScreen] scale];
     
-    NSString *imageID = [NSString stringWithFormat:@"%@", self.eventID];
-    NSURL *url = [self.delegate URLForImageWithEventID:imageID size:CGSizeZero];
-    
+    NSURL *url = [NSURL URLWithString:self.imageURL];
     UIImage *image = [self.imageCache imageForURL:url delegate:self];
     
     if (image != nil) {
@@ -86,9 +83,7 @@
     CGFloat scale = [[UIScreen mainScreen] scale];
     CGSize scaledSize = CGSizeMake(size.width * scale, size.height * scale);
     
-    NSString *imageID = [NSString stringWithFormat:@"%@", self.eventID];
-    NSURL *url = [self.delegate URLForImageWithEventID:imageID size:scaledSize];
-    
+    NSURL *url = [NSURL URLWithString:self.imageURL];
     UIImage *image = [self.imageCache imageForURL:url delegate:self];
     
     if (image != nil) {
@@ -103,12 +98,15 @@
 
 - (NSString *)descriptionForLanguage:(NSString *)language
 {
-    return [self localizedTextFromSet:self.localizedDescription withLanguage:language];
-}
-
-- (NSString *)featuredForLanguage:(NSString *)language
-{
-    return [self localizedTextFromSet:self.localizedFeatured withLanguage:language];
+    if ([language isEqualToString:@"nb"]) {
+        return self.description_nb;
+    }
+    else if ([language isEqualToString:@"en"])
+    {
+        return self.description_en;
+    }
+    
+    return nil;
 }
 
 
@@ -118,24 +116,6 @@
 {
     NSLog(@"Image downloaded");
     [self.delegate eventDidChange:self];
-}
-
-
-#pragma mark - Private methods
-
-- (NSString *)localizedTextFromSet:(NSSet *)set withLanguage:(NSString *)language
-{
-    NSSet *currentLocalizedTexts = [set objectsPassingTest:^BOOL(id obj, BOOL *stop) {
-        LocalizedText *localizedText = obj;
-        if ([localizedText.language isEqualToString:language]) {
-            *stop = YES;
-            return YES;
-        }
-        
-        return NO;
-    }];
-    
-    return [[currentLocalizedTexts anyObject] text];
 }
 
 @end

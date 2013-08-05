@@ -20,7 +20,7 @@
 - (EKEvent *)newCalendarEvent;
 
 // Authorization
-- (void)requestAccessWithCompletion:(void (^)(void))completion;
+- (void)requestAccessWithCompletion:(void (^)(NSError *error))completion;
 
 // Settings
 @property (nonatomic, getter=shouldAutoAddFavorites) BOOL autoAddFavorites;

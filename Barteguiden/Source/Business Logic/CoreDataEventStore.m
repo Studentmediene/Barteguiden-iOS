@@ -81,7 +81,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     NSMutableSet *eventIDs = [NSMutableSet set];
     
     for (NSDictionary *jsonObject in events) {
-        NSString *eventID = jsonObject[@"id"];
+        NSString *eventID = [NSString stringWithFormat:@"%@", jsonObject[@"eventID"]];
         [eventIDs addObject:eventID];
         
         Event *event = (Event *)[self eventWithIdentifier:eventID error:NULL]; // TODO: Fix error handling
@@ -225,15 +225,15 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 - (BOOL)save:(NSError **)error
 {
     NSError *underlyingError = nil;
-    if ([self.managedObjectContext hasChanges] == YES && [self.managedObjectContext save:&underlyingError] == NO) {
-        if (error != NULL) {
-            *error = [NSError errorWithDomain:EventStoreErrorDomain code:EventStoreSaveFailed underlyingError:underlyingError];
-        }
-        
-        return NO;
+    if ([self.managedObjectContext hasChanges] && [self.managedObjectContext save:&underlyingError]) {
+        return YES;
     }
     
-    return YES;
+    if (error != NULL) {
+        *error = [NSError errorWithDomain:EventStoreErrorDomain code:EventStoreSaveFailed underlyingError:underlyingError];
+    }
+    
+    return NO;
 }
 
 
