@@ -119,9 +119,10 @@
     NSError *error = note.userInfo[CalendarManagerErrorUserInfoKey];
     switch (error.code) {
         case CalendarManagerAuthorizationFailed: {
-            NSString *title = NSLocalizedString(@"Can't Access Calendar", nil);
-            NSString *message = NSLocalizedString(@"To access your calendar, go to Settings > Privacy > Calendar, and set the Barteguiden switch to On.", nil);
-            NSString *cancelButtonTitle = NSLocalizedString(@"Close", nil);
+            NSString *title = NSLocalizedStringWithDefaultValue(@"CALENDAR_AUTHORIZATION_FAILED_TITLE", nil, [NSBundle mainBundle], @"Can't Access Calendar", @"Title of alert view (Displayed when calendar authorization fails)");
+            NSString *message = NSLocalizedStringWithDefaultValue(@"CALENDAR_AUTHORIZATION_FAILED_MESSAGE", nil, [NSBundle mainBundle], @"To access your calendar, go to Settings > Privacy > Calendar, and set the Barteguiden switch to On.", @"Message of alert view (Displayed when calendar authorization fails)");
+            NSString *cancelButtonTitle = NSLocalizedStringWithDefaultValue(@"CALENDAR_AUTHORIZATION_FAILED_CANCEL_BUTTON", nil, [NSBundle mainBundle], @"Close", @"Name of cancel button of alert view (Displayed when calendar authorization fails)");
+            
             UIAlertView *enableCalendarAlertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
             [enableCalendarAlertView show];
             break;

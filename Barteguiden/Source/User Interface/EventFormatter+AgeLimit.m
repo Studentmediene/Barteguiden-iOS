@@ -7,7 +7,6 @@
 //
 
 #import "EventFormatter+AgeLimit.h"
-#import "EventConstants.h"
 #import "EventKit.h"
 
 
@@ -27,10 +26,10 @@ static int const kNoAgeLimit = 0;
     NSString *ageLimitString = nil;
     
     if (ageLimit == kNoAgeLimit) {
-        ageLimitString = NSLocalizedStringFromTable(@"AGE_LIMIT_NO_AGE_LIMIT", tbl, @"No age limit");
+        ageLimitString = NSLocalizedStringFromTable(@"AGE_LIMIT_NO_AGE_LIMIT", @"Event", @"No age limit");
     }
     else {
-        NSString *format = NSLocalizedStringFromTable(@"AGE_LIMIT_ARBITRARY_AGE_LIMIT", tbl, @"Arbitrary age limit");
+        NSString *format = NSLocalizedStringFromTable(@"AGE_LIMIT_ARBITRARY_AGE_LIMIT", @"Event", @"Arbitrary age limit");
         ageLimitString = [NSString stringWithFormat:format, ageLimit];
     }
     

@@ -105,7 +105,7 @@
             EKCalendarChooser *calendarChooser = [[EKCalendarChooser alloc] initWithSelectionStyle:EKCalendarChooserSelectionStyleSingle displayStyle:EKCalendarChooserDisplayWritableCalendarsOnly entityType:EKEntityTypeEvent eventStore:bself.calendarManager.calendarStore];
             calendarChooser.delegate = bself;
             calendarChooser.selectedCalendars = [NSSet setWithObject:[bself.calendarManager defaultCalendar]];
-            calendarChooser.title = NSLocalizedString(@"Default Calendar", nil);
+            calendarChooser.title = NSLocalizedStringWithDefaultValue(@"SETTINGS_DEFAULT_CALENDAR_CHOOSER_TITLE", nil, [NSBundle mainBundle], @"Default Calendar", @"Title of default calendar chooser");
             [bself.navigationController pushViewController:calendarChooser animated:YES];
         }
         else {
@@ -120,7 +120,7 @@
     AlertChooser *alertChooser = [[AlertChooser alloc] init];
     alertChooser.delegate = self;
     alertChooser.selectedAlert = [self.calendarManager defaultAlert];
-    alertChooser.title = NSLocalizedString(@"Default Alert", nil);
+    alertChooser.title = NSLocalizedStringWithDefaultValue(@"SETTINGS_DEFAULT_ALERT_CHOOSER_TITLE", nil, [NSBundle mainBundle], @"Default Alert", @"Title of default alert chooser");
     [self.navigationController pushViewController:alertChooser animated:YES];
 }
 
@@ -129,8 +129,8 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
-        // FIXME: Update these values
-        NSString *subject = NSLocalizedString(@"Tips for Barteguiden", nil);
+        
+        NSString *subject = NSLocalizedStringWithDefaultValue(@"SETTINGS_SEND_US_YOUR_TIPS_SUBJECT", nil, [NSBundle mainBundle], @"Tips for Barteguiden", @"Subject for email about tips");
         [mailViewController setToRecipients:@[@"tips@underdusken.no"]];
         [mailViewController setSubject:subject];
         

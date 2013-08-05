@@ -90,8 +90,18 @@ static float const kOneHourOffset = 1*60*60;
 
 - (IBAction)shareEvent:(id)sender
 {
-    NSString *eventAd = [NSString stringWithFormat:@"Join me at %@!", [self.event title]];
-    NSArray *activityItems = @[eventAd];
+    NSString *shareTextFormat = NSLocalizedStringWithDefaultValue(@"SHARE_TEXT_FORMAT", nil, [NSBundle mainBundle], @"Join me at %1$@!", @"Message to share with friends [1. Title of event]");
+    NSString *shareWithURLTextFormat = NSLocalizedStringWithDefaultValue(@"SHARE_TEXT_WITH_URL_FORMAT", nil, [NSBundle mainBundle], @"Join me at %1$@! (%2$@)", @"Message to share with friends [1. Title of event, 2. URL for event]");
+    
+    NSString *shareText;
+    if (self.event.URL != nil) {
+        shareText = [NSString stringWithFormat:shareWithURLTextFormat, self.event.title, self.event.URL];
+    }
+    else {
+        shareText = [NSString stringWithFormat:shareTextFormat, self.event.title];
+    }
+    
+    NSArray *activityItems = @[shareText];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
     [self presentViewController:activityViewController animated:YES completion:NULL];
@@ -155,9 +165,9 @@ static float const kOneHourOffset = 1*60*60;
 
 - (void)promptEditOrRemoveFromCalendar
 {
-    NSString *deleteTitle = NSLocalizedString(@"Remove from Calendar", nil);
-    NSString *editTitle = NSLocalizedString(@"Edit in Calendar", nil);
-    NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
+    NSString *deleteTitle = NSLocalizedStringWithDefaultValue(@"TOGGLE_CALENDAR_ACTION_SHEET_DELETE_BUTTON", nil, [NSBundle mainBundle], @"Remove from Calendar", @"Title of delete button in action sheet (Displayed when toggling calendar button)");
+    NSString *editTitle = NSLocalizedStringWithDefaultValue(@"TOGGLE_CALENDAR_ACTION_SHEET_EDIT_BUTTON", nil, [NSBundle mainBundle], @"Edit in Calendar", @"Title of edit button in action sheet (Displayed when toggling calendar button)");
+    NSString *cancelTitle = NSLocalizedStringWithDefaultValue(@"TOGGLE_CALENDAR_ACTION_SHEET_CANCEL_BUTTON", nil, [NSBundle mainBundle], @"Cancel", @"Title of cancel button in action sheet (Displayed when toggling calendar button)");
     
     PSPDFActionSheet *calendarActionSheet = [[PSPDFActionSheet alloc] initWithTitle:nil];
     [calendarActionSheet setDestructiveButtonWithTitle:deleteTitle block:^{
@@ -298,7 +308,7 @@ static float const kOneHourOffset = 1*60*60;
     NSString *ageLimit = [NSString stringWithFormat:@"%@+", [self.event ageLimit]];
     self.ageLimitLabel.text = ageLimit;
     
-    NSString *defaultDescription = NSLocalizedString(@"No description", nil);
+    NSString *defaultDescription = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_NO_DESCRIPTION", nil, [NSBundle mainBundle], @"No description", @"Default text if there are no description of event");
     self.descriptionLabel.text = [eventFormatter currentLocalizedDescription] ?: defaultDescription;
     self.descriptionLabel.delegate = self;
     self.descriptionLabel.maxNumberOfLines = 4;
@@ -306,8 +316,8 @@ static float const kOneHourOffset = 1*60*60;
     self.favoriteButton.selected = [self.event isFavorite];
     
     // Set up toggle calendar button
-    NSString *addToCalendar = NSLocalizedString(@"Add to Calendar", nil);
-    NSString *removeFromCalendar = NSLocalizedString(@"Remove from Calendar", nil);
+    NSString *addToCalendar = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_ADD_TO_CALENDAR_LABEL", nil, [NSBundle mainBundle], @"Add to Calendar", @"Text inside toggle calendar button in event details");
+    NSString *removeFromCalendar = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_REMOVE_FROM_CALENDAR_LABEL", nil, [NSBundle mainBundle], @"Remove from Calendar", @"Text inside toggle calendar button in event details");
     NSString *calendarActionTitle = ([self isAddedToCalendar] == NO) ? addToCalendar : removeFromCalendar;
     
     self.calendarActionLabel.text = calendarActionTitle;
@@ -371,7 +381,7 @@ static float const kOneHourOffset = 1*60*60;
 - (UIButton *)visitWebsiteButton
 {
     if (_visitWebsiteButton == nil) {
-        NSString *title = NSLocalizedString(@"Visit Website", nil);
+        NSString *title = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_VISIT_WEBSITE_BUTTON", nil, [NSBundle mainBundle], @"Visit Website", @"Title of button to visit the event's website");
         _visitWebsiteButton = [[NavigationButton alloc] initWithFrame:CGRectMake(0, 0, 280, 44)];
         [_visitWebsiteButton setImage:[UIImage imageNamed:@"Website-Normal"] forState:UIControlStateNormal];
         [_visitWebsiteButton setImage:[UIImage imageNamed:@"Website-Highlighted"] forState:UIControlStateHighlighted];
@@ -388,7 +398,7 @@ static float const kOneHourOffset = 1*60*60;
 - (UIButton *)showOnMapButton
 {
     if (_showOnMapButton == nil) {
-        NSString *title = NSLocalizedString(@"Show on Map", nil);
+        NSString *title = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_SHOW_ON_MAP_BUTTON", nil, [NSBundle mainBundle], @"Show on Map", @"Title of button to show location on map");
         _showOnMapButton = [[NavigationButton alloc] initWithFrame:CGRectMake(0, 0, 280, 44)];
         [_showOnMapButton setImage:[UIImage imageNamed:@"Location-Normal"] forState:UIControlStateNormal];
         [_showOnMapButton setImage:[UIImage imageNamed:@"Location-Highlighted"] forState:UIControlStateHighlighted];

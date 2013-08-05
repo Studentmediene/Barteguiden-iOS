@@ -1,0 +1,144 @@
+
+/* Class = "IBUITableViewSection"; headerTitle = "Price"; ObjectID = "249-q2-ogj"; */
+"249-q2-ogj.headerTitle" = "Price";
+
+/* Class = "IBUINavigationItem"; title = "Filter"; ObjectID = "3qj-MQ-FKp"; */
+"3qj-MQ-FKp.title" = "Filter";
+
+/* Class = "IBUITabBarItem"; title = "Featured"; ObjectID = "5R0-C3-KYW"; */
+"5R0-C3-KYW.title" = "Featured";
+
+/* Class = "IBUILabel"; text = "Time"; ObjectID = "5gZ-6h-74k"; */
+"5gZ-6h-74k.text" = "Time";
+
+/* Class = "IBUILabel"; text = "Price"; ObjectID = "5mh-xZ-ZLe"; */
+"5mh-xZ-ZLe.text" = "Price";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "7Th-fI-DFR"; */
+"7Th-fI-DFR.text" = "Title";
+
+/* Class = "IBUINavigationItem"; title = "Settings"; ObjectID = "7UV-An-iUA"; */
+"7UV-An-iUA.title" = "Settings";
+
+/* Class = "IBUIBarButtonItem"; title = "Filter"; ObjectID = "8FG-HU-XVa"; */
+"8FG-HU-XVa.title" = "Filter";
+
+/* Class = "IBUILabel"; text = "18+"; ObjectID = "8qc-TU-tKd"; */
+"8qc-TU-tKd.text" = "18+";
+
+/* Class = "IBUILabel"; text = "Location"; ObjectID = "96o-qw-xEw"; */
+"96o-qw-xEw.text" = "Location";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Categories"; ObjectID = "9fe-Bf-nRc"; */
+"9fe-Bf-nRc.headerTitle" = "Categories";
+
+/* Class = "IBUILabel"; text = "Send us your Tips"; ObjectID = "AVg-fi-XW2"; */
+"AVg-fi-XW2.text" = "Send us your Tips";
+
+/* Class = "IBUIViewController"; title = "Event Details"; ObjectID = "B3q-rJ-UdF"; */
+"B3q-rJ-UdF.title" = "Event Details";
+
+/* Class = "IBUILabel"; text = "4 hours before"; ObjectID = "C15-cN-xtE"; */
+"C15-cN-xtE.text" = "4 hours before";
+
+/* Class = "IBUINavigationItem"; title = "Website"; ObjectID = "C3h-Nn-PWH"; */
+"C3h-Nn-PWH.title" = "Website";
+
+/* Class = "IBUISearchBar"; placeholder = "Search Favorites"; ObjectID = "CnG-RM-MRb"; */
+"CnG-RM-MRb.placeholder" = "Search Favorites";
+
+/* Class = "IBUILabel"; text = "Description"; ObjectID = "Cpu-AF-hUp"; */
+"Cpu-AF-hUp.text" = "Description";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Calendar"; ObjectID = "Dl4-xs-FAz"; */
+"Dl4-xs-FAz.headerTitle" = "Calendar";
+
+/* Class = "IBUINavigationItem"; title = "All Events"; ObjectID = "GBK-Ao-P5q"; */
+"GBK-Ao-P5q.title" = "All Events";
+
+/* Class = "IBUINavigationItem"; title = "Featured"; ObjectID = "J4V-dh-06v"; */
+"J4V-dh-06v.title" = "Featured";
+
+/* Class = "IBUISegmentedControl"; JDc-np-0JG.segmentTitles[0] = "All"; ObjectID = "JDc-np-0JG"; */
+"JDc-np-0JG.segmentTitles[0]" = "All";
+
+/* Class = "IBUISegmentedControl"; JDc-np-0JG.segmentTitles[1] = "Paid"; ObjectID = "JDc-np-0JG"; */
+"JDc-np-0JG.segmentTitles[1]" = "Paid";
+
+/* Class = "IBUISegmentedControl"; JDc-np-0JG.segmentTitles[2] = "Free"; ObjectID = "JDc-np-0JG"; */
+"JDc-np-0JG.segmentTitles[2]" = "Free";
+
+/* Class = "IBUILabel"; text = "Happenings"; ObjectID = "Mq3-IT-EsE"; */
+"Mq3-IT-EsE.text" = "Happenings";
+
+/* Class = "IBUISearchBar"; placeholder = "Search My Filter"; ObjectID = "Pie-Ue-OXU"; */
+"Pie-Ue-OXU.placeholder" = "Search My Filter";
+
+/* Class = "IBUINavigationItem"; title = "My Filter"; ObjectID = "RVb-Da-8bw"; */
+"RVb-Da-8bw.title" = "My Filter";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Age Limit"; ObjectID = "TaK-sX-Rjz"; */
+"TaK-sX-Rjz.headerTitle" = "Age Limit";
+
+/* Class = "IBUILabel"; text = "My Age"; ObjectID = "Tee-fv-vtR"; */
+"Tee-fv-vtR.text" = "My Age";
+
+/* Class = "IBUINavigationItem"; title = "Favorites"; ObjectID = "TpC-dv-bkI"; */
+"TpC-dv-bkI.title" = "Favorites";
+
+/* Class = "IBUILabel"; text = "Add to Calendar"; ObjectID = "WGS-Ft-bsU"; */
+"WGS-Ft-bsU.text" = "Add to Calendar";
+
+/* Class = "IBUILabel"; text = "All Events"; ObjectID = "aIr-ZO-lgR"; */
+"aIr-ZO-lgR.text" = "All Events";
+
+/* Class = "IBUILabel"; text = "Default Alert"; ObjectID = "aSi-ai-fdr"; */
+"aSi-ai-fdr.text" = "Default Alert";
+
+/* Class = "IBUITabBarItem"; title = "My Filter"; ObjectID = "ck3-c0-mhk"; */
+"ck3-c0-mhk.title" = "My Filter";
+
+/* Class = "IBUITabBarItem"; title = "Favorites"; ObjectID = "d3p-XS-SfF"; */
+"d3p-XS-SfF.title" = "Favorites";
+
+/* Class = "IBUILabel"; text = "All Events"; ObjectID = "dFx-KL-N0i"; */
+"dFx-KL-N0i.text" = "All Events";
+
+/* Class = "IBUISearchBar"; placeholder = "Search Featured"; ObjectID = "fcs-T2-Ubk"; */
+"fcs-T2-Ubk.placeholder" = "Search Featured";
+
+/* Class = "IBUITextField"; placeholder = "Age"; ObjectID = "hKk-SL-ba4"; */
+"hKk-SL-ba4.placeholder" = "Age";
+
+/* Class = "IBUILabel"; text = "Auto-Add Favorites"; ObjectID = "j6V-sE-vG6"; */
+"j6V-sE-vG6.text" = "Auto-Add Favorites";
+
+/* Class = "IBUILabel"; text = "Allowed for my Age"; ObjectID = "jRu-cy-iE2"; */
+"jRu-cy-iE2.text" = "Allowed for my Age";
+
+/* Class = "IBUITabBarItem"; title = "All Events"; ObjectID = "n1j-FU-kDv"; */
+"n1j-FU-kDv.title" = "All Events";
+
+/* Class = "IBUISearchBar"; placeholder = "Search All Events"; ObjectID = "pEG-19-r4i"; */
+"pEG-19-r4i.placeholder" = "Search All Events";
+
+/* Class = "IBUITabBarItem"; title = "Settings"; ObjectID = "qNp-1J-cO2"; */
+"qNp-1J-cO2.title" = "Settings";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "qi2-oC-6CI"; */
+"qi2-oC-6CI.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Free Events"; ObjectID = "sL2-Dp-ryT"; */
+"sL2-Dp-ryT.text" = "Free Events";
+
+/* Class = "IBUINavigationItem"; title = "Map"; ObjectID = "vNQ-11-9Zi"; */
+"vNQ-11-9Zi.title" = "Map";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Events"; ObjectID = "vQi-zh-iP9"; */
+"vQi-zh-iP9.headerTitle" = "Events";
+
+/* Class = "IBUILabel"; text = "Default Calendar"; ObjectID = "x9Y-36-gem"; */
+"x9Y-36-gem.text" = "Default Calendar";
+
+/* Class = "IBUILabel"; text = "Paid Events"; ObjectID = "ydX-jq-zzJ"; */
+"ydX-jq-zzJ.text" = "Paid Events";

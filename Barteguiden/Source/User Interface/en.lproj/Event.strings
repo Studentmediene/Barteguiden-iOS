@@ -19,6 +19,5 @@
 "AGE_LIMIT_ARBITRARY_AGE_LIMIT" = "%1$u and Above";
 
 "PRICE_FREE_EVENT" = "Free";
-"PRICE_PAID_EVENT" = "%1$@kr";
 
 "TIME_AND_LOCATION_STRING_FORMAT" = "%1$@ at %2$@";

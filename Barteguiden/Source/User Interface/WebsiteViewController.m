@@ -71,9 +71,9 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
 
 - (void)share:(id)sender
 {
-    NSString *openInSafariTitle = NSLocalizedString(@"Open in Safari", nil);
-    NSString *copyLinkTitle = NSLocalizedString(@"Copy Link", nil);
-    NSString *cancelTitle = NSLocalizedString(@"Cancel", nil);
+    NSString *openInSafariTitle = NSLocalizedStringWithDefaultValue(@"WEBSITE_OPEN_IN_SAFARI_BUTTON", nil, [NSBundle mainBundle], @"Open in Safari", @"Title of button to open website in Safari in alert sheet (Displayed when browsing the event's website)");
+    NSString *copyLinkTitle = NSLocalizedStringWithDefaultValue(@"WEBSITE_COPY_LINK_BUTTON", nil, [NSBundle mainBundle], @"Copy Link", @"Title of button to copy link to website in alert sheet (Displayed when browsing the event's website)");
+    NSString *cancelTitle = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANCEL_BUTTON", nil, [NSBundle mainBundle], @"Cancel", @"Title of cancel button in alert sheet (Displayed when browsing the event's website)");
     PSPDFActionSheet *shareActionSheet = [[PSPDFActionSheet alloc] initWithTitle:nil];
     [shareActionSheet addButtonWithTitle:openInSafariTitle block:^{
         [[UIApplication sharedApplication] openURL:self.webView.request.URL];
@@ -90,12 +90,12 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-//    NSString *title = NSLocalizedString(@"Cannot Open Page", nil);
-//    NSString *message = NSLocalizedString(@"Safari cannot open the page because the address is invalid", nil);
-//    NSString *cancelButtonTitle = NSLocalizedString(@"OK", nil);
-//    PSPDFAlertView *failedAlertView = [[PSPDFAlertView alloc] initWithTitle:title message:message];
-//    [failedAlertView setCancelButtonWithTitle:cancelButtonTitle block:NULL];
-//    [failedAlertView show];
+    NSString *title = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANNOT_OPEN_PAGE_TITLE", nil, [NSBundle mainBundle], @"Cannot Open Page", @"Title of alert view (Displayed when browser failed to load)");
+    NSString *message = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANNOT_OPEN_PAGE_MESSAGE", nil, [NSBundle mainBundle], @"Safari cannot open the page because the address is invalid", @"Message of alert view (Displayed when browser failed to load)");
+    NSString *cancelButtonTitle = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANNOT_OPEN_PAGE_CANCEL_BUTTON", nil, [NSBundle mainBundle], @"OK", @"Title of cancel button in alert view (Displayed when browser failed to load)");
+    PSPDFAlertView *failedAlertView = [[PSPDFAlertView alloc] initWithTitle:title message:message];
+    [failedAlertView setCancelButtonWithTitle:cancelButtonTitle block:NULL];
+    [failedAlertView show];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView

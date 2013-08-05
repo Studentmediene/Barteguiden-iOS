@@ -65,7 +65,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return NSLocalizedString(@"Unstar", nil);
+    return NSLocalizedStringWithDefaultValue(@"FAVORITES_REMOVE_BUTTON", nil, [NSBundle mainBundle], @"Remove", @"Title of button to remove an event from favorites");
 }
 
 @end

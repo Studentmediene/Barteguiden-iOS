@@ -7,7 +7,6 @@
 //
 
 #import "EventFormatter+Price.h"
-#import "EventConstants.h"
 #import "EventKit.h"
 
 
@@ -23,7 +22,7 @@
     NSString *priceString = nil;
     
     if ([price isEqualToNumber:[NSDecimalNumber zero]]) {
-        priceString = NSLocalizedStringFromTable(@"PRICE_FREE_EVENT", tbl, @"Free event");
+        priceString = NSLocalizedStringFromTable(@"PRICE_FREE_EVENT", @"Event", @"Free event");
     }
     else {
         priceString = [[self currencyFormatter] stringFromNumber:price];

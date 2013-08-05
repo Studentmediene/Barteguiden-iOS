@@ -81,18 +81,15 @@ enum {
     switch ([self.priceFilterSegmentedControl selectedSegmentIndex]) {
         case kAllEventsSegmentedControllIndex:
         {
-            return NSLocalizedString(@"Search All Events", nil);
-//            return NSLocalizedStringWithDefaultValue(@"ALL_EVENTS_SEARCH_FIELD_PLACEHOLDER", @"", @"", @"Search All Events", @"Placeholder in search field");
+            return NSLocalizedStringWithDefaultValue(@"ALL_EVENTS_ALL_EVENTS_SEARCH_FIELD_PLACEHOLDER", nil, [NSBundle mainBundle], @"Search All Events", @"Placeholder text in search field in all events tab");
         }
         case kPaidEventsSegmentedControllIndex:
         {
-            return NSLocalizedString(@"Search Paid Events", nil);
-//            return NSLocalizedStringWithDefaultValue(@"PAID_EVENTS_SEARCH_FIELD_PLACEHOLDER", nil, nil, @"Search Paid Events", @"Placeholder in search field");
+            return NSLocalizedStringWithDefaultValue(@"ALL_EVENTS_PAID_EVENTS_SEARCH_FIELD_PLACEHOLDER", nil, [NSBundle mainBundle], @"Search Paid Events", @"Placeholder text in search field in all events tab");
         }
         case kFreeEventsSegmentedControllIndex:
         {
-            return NSLocalizedString(@"Search Free Events", nil);
-//            return NSLocalizedStringWithDefaultValue(@"FREE_EVENTS_SEARCH_FIELD_PLACEHOLDER", nil, nil, @"Search Free Events", @"Placeholder in search field");
+            return NSLocalizedStringWithDefaultValue(@"ALL_EVENTS_FREE_EVENTS_SEARCH_FIELD_PLACEHOLDER", nil, [NSBundle mainBundle], @"Search Free Events", @"Placeholder text in search field in all events tab");
         }
     }
     

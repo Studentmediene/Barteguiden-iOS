@@ -7,7 +7,6 @@
 //
 
 #import "EventFormatter+TableView.h"
-#import "EventConstants.h"
 #import "EventKit.h"
 
 
@@ -29,8 +28,7 @@
 {
     NSDateFormatter *dateFormatter = [self timeAndLocationStringDateFormatter];
     
-    // TODO: Fix and remember localization
-    NSString *format = NSLocalizedStringFromTable(@"TIME_AND_LOCATION_STRING_FORMAT", tbl, @"Format for the time and location");
+    NSString *format = NSLocalizedStringFromTable(@"TIME_AND_LOCATION_STRING_FORMAT", @"Event", @"Format for the time and location");
     NSString *timeAndLocation = [NSString stringWithFormat:format, [dateFormatter stringFromDate:[self.event startAt]], [self.event placeName]];
     
     return timeAndLocation;

@@ -7,7 +7,6 @@
 //
 
 #import "EventFormatter.h"
-#import "EventConstants.h"
 #import "EventKit.h"
 
 

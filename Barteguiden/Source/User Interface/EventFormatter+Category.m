@@ -7,7 +7,6 @@
 //
 
 #import "EventFormatter+Category.h"
-#import "EventConstants.h"
 
 
 @implementation EventFormatter (Category)
@@ -20,7 +19,7 @@
 + (NSString *)categoryStringForCategory:(EventCategory)category
 {
     NSString *categoryKey = [[self class] categoryKeyForCategory:category];
-    NSString *categoryString = NSLocalizedStringFromTable(categoryKey, tbl, @"The category for an event");
+    NSString *categoryString = NSLocalizedStringFromTable(categoryKey, @"Event", @"The category for an event");
     return categoryString;
 }
 
