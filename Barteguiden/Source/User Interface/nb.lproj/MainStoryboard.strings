@@ -1,24 +1,23 @@
-
 /* Class = "IBUITableViewSection"; headerTitle = "Price"; ObjectID = "249-q2-ogj"; */
-"249-q2-ogj.headerTitle" = "Price";
+"249-q2-ogj.headerTitle" = "Pris";
 
 /* Class = "IBUINavigationItem"; title = "Filter"; ObjectID = "3qj-MQ-FKp"; */
 "3qj-MQ-FKp.title" = "Filter";
 
 /* Class = "IBUITabBarItem"; title = "Featured"; ObjectID = "5R0-C3-KYW"; */
-"5R0-C3-KYW.title" = "Featured";
+"5R0-C3-KYW.title" = "Aktuelt";
 
 /* Class = "IBUILabel"; text = "Time"; ObjectID = "5gZ-6h-74k"; */
-"5gZ-6h-74k.text" = "Time";
+"5gZ-6h-74k.text" = "Tid";
 
 /* Class = "IBUILabel"; text = "Price"; ObjectID = "5mh-xZ-ZLe"; */
-"5mh-xZ-ZLe.text" = "Price";
+"5mh-xZ-ZLe.text" = "Pris";
 
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "7Th-fI-DFR"; */
-"7Th-fI-DFR.text" = "Title";
+"7Th-fI-DFR.text" = "Tittel";
 
 /* Class = "IBUINavigationItem"; title = "Settings"; ObjectID = "7UV-An-iUA"; */
-"7UV-An-iUA.title" = "Settings";
+"7UV-An-iUA.title" = "Innstillinger";
 
 /* Class = "IBUIBarButtonItem"; title = "Filter"; ObjectID = "8FG-HU-XVa"; */
 "8FG-HU-XVa.title" = "Filter";
@@ -27,118 +26,119 @@
 "8qc-TU-tKd.text" = "18+";
 
 /* Class = "IBUILabel"; text = "Location"; ObjectID = "96o-qw-xEw"; */
-"96o-qw-xEw.text" = "Location";
+"96o-qw-xEw.text" = "Lokasjon";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Categories"; ObjectID = "9fe-Bf-nRc"; */
-"9fe-Bf-nRc.headerTitle" = "Categories";
+"9fe-Bf-nRc.headerTitle" = "Kategorier";
 
 /* Class = "IBUILabel"; text = "Send us your Tips"; ObjectID = "AVg-fi-XW2"; */
-"AVg-fi-XW2.text" = "Send us your Tips";
+"AVg-fi-XW2.text" = "Send oss dine tips";
 
 /* Class = "IBUIViewController"; title = "Event Details"; ObjectID = "B3q-rJ-UdF"; */
-"B3q-rJ-UdF.title" = "Event Details";
+"B3q-rJ-UdF.title" = "Arrangementdetaljer";
 
 /* Class = "IBUILabel"; text = "4 hours before"; ObjectID = "C15-cN-xtE"; */
-"C15-cN-xtE.text" = "4 hours before";
+"C15-cN-xtE.text" = "4 timer tidligere";
 
 /* Class = "IBUINavigationItem"; title = "Website"; ObjectID = "C3h-Nn-PWH"; */
-"C3h-Nn-PWH.title" = "Website";
+"C3h-Nn-PWH.title" = "Nettside";
 
 /* Class = "IBUISearchBar"; placeholder = "Search Favorites"; ObjectID = "CnG-RM-MRb"; */
-"CnG-RM-MRb.placeholder" = "Search Favorites";
+"CnG-RM-MRb.placeholder" = "Søk i favoritter";
 
 /* Class = "IBUILabel"; text = "Description"; ObjectID = "Cpu-AF-hUp"; */
-"Cpu-AF-hUp.text" = "Description";
+"Cpu-AF-hUp.text" = "Beskrivelse";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Calendar"; ObjectID = "Dl4-xs-FAz"; */
-"Dl4-xs-FAz.headerTitle" = "Calendar";
+"Dl4-xs-FAz.headerTitle" = "Kalender";
 
 /* Class = "IBUINavigationItem"; title = "All Events"; ObjectID = "GBK-Ao-P5q"; */
-"GBK-Ao-P5q.title" = "All Events";
+"GBK-Ao-P5q.title" = "Arrangementer";
 
 /* Class = "IBUINavigationItem"; title = "Featured"; ObjectID = "J4V-dh-06v"; */
-"J4V-dh-06v.title" = "Featured";
+"J4V-dh-06v.title" = "Aktuelt";
 
 /* Class = "IBUISegmentedControl"; JDc-np-0JG.segmentTitles[0] = "All"; ObjectID = "JDc-np-0JG"; */
-"JDc-np-0JG.segmentTitles[0]" = "All";
+"JDc-np-0JG.segmentTitles[0]" = "Alle";
 
 /* Class = "IBUISegmentedControl"; JDc-np-0JG.segmentTitles[1] = "Paid"; ObjectID = "JDc-np-0JG"; */
-"JDc-np-0JG.segmentTitles[1]" = "Paid";
+"JDc-np-0JG.segmentTitles[1]" = "Betalt";
 
 /* Class = "IBUISegmentedControl"; JDc-np-0JG.segmentTitles[2] = "Free"; ObjectID = "JDc-np-0JG"; */
-"JDc-np-0JG.segmentTitles[2]" = "Free";
+"JDc-np-0JG.segmentTitles[2]" = "Gratis";
 
-/* Class = "IBUILabel"; text = "Happenings"; ObjectID = "Mq3-IT-EsE"; */
-"Mq3-IT-EsE.text" = "Happenings";
+/* Class = "IBUILabel"; text = "Calendar"; ObjectID = "Mq3-IT-EsE"; */
+"Mq3-IT-EsE.text" = "Kalender";
 
 /* Class = "IBUISearchBar"; placeholder = "Search My Filter"; ObjectID = "Pie-Ue-OXU"; */
-"Pie-Ue-OXU.placeholder" = "Search My Filter";
+"Pie-Ue-OXU.placeholder" = "Søk i mitt filter";
 
 /* Class = "IBUINavigationItem"; title = "My Filter"; ObjectID = "RVb-Da-8bw"; */
-"RVb-Da-8bw.title" = "My Filter";
+"RVb-Da-8bw.title" = "Mitt filter";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Age Limit"; ObjectID = "TaK-sX-Rjz"; */
-"TaK-sX-Rjz.headerTitle" = "Age Limit";
+"TaK-sX-Rjz.headerTitle" = "Aldersgrense";
 
 /* Class = "IBUILabel"; text = "My Age"; ObjectID = "Tee-fv-vtR"; */
-"Tee-fv-vtR.text" = "My Age";
+"Tee-fv-vtR.text" = "Min alder";
 
 /* Class = "IBUINavigationItem"; title = "Favorites"; ObjectID = "TpC-dv-bkI"; */
-"TpC-dv-bkI.title" = "Favorites";
+"TpC-dv-bkI.title" = "Favoritter";
 
 /* Class = "IBUILabel"; text = "Add to Calendar"; ObjectID = "WGS-Ft-bsU"; */
-"WGS-Ft-bsU.text" = "Add to Calendar";
+"WGS-Ft-bsU.text" = "Legg til i kalender";
 
 /* Class = "IBUILabel"; text = "All Events"; ObjectID = "aIr-ZO-lgR"; */
-"aIr-ZO-lgR.text" = "All Events";
+"aIr-ZO-lgR.text" = "Arrangementer";
 
 /* Class = "IBUILabel"; text = "Default Alert"; ObjectID = "aSi-ai-fdr"; */
-"aSi-ai-fdr.text" = "Default Alert";
+"aSi-ai-fdr.text" = "Standard varsel";
 
 /* Class = "IBUITabBarItem"; title = "My Filter"; ObjectID = "ck3-c0-mhk"; */
-"ck3-c0-mhk.title" = "My Filter";
+"ck3-c0-mhk.title" = "Mitt filter";
 
 /* Class = "IBUITabBarItem"; title = "Favorites"; ObjectID = "d3p-XS-SfF"; */
-"d3p-XS-SfF.title" = "Favorites";
+"d3p-XS-SfF.title" = "Favoritter";
 
 /* Class = "IBUILabel"; text = "All Events"; ObjectID = "dFx-KL-N0i"; */
-"dFx-KL-N0i.text" = "All Events";
+"dFx-KL-N0i.text" = "Arrangementer";
 
 /* Class = "IBUISearchBar"; placeholder = "Search Featured"; ObjectID = "fcs-T2-Ubk"; */
-"fcs-T2-Ubk.placeholder" = "Search Featured";
+"fcs-T2-Ubk.placeholder" = "Søk i aktuelt";
 
 /* Class = "IBUITextField"; placeholder = "Age"; ObjectID = "hKk-SL-ba4"; */
-"hKk-SL-ba4.placeholder" = "Age";
+"hKk-SL-ba4.placeholder" = "Alder";
 
 /* Class = "IBUILabel"; text = "Auto-Add Favorites"; ObjectID = "j6V-sE-vG6"; */
-"j6V-sE-vG6.text" = "Auto-Add Favorites";
+"j6V-sE-vG6.text" = "Legg til favoritter auto.";
 
 /* Class = "IBUILabel"; text = "Allowed for my Age"; ObjectID = "jRu-cy-iE2"; */
-"jRu-cy-iE2.text" = "Allowed for my Age";
+"jRu-cy-iE2.text" = "Tillatt for min alder";
 
 /* Class = "IBUITabBarItem"; title = "All Events"; ObjectID = "n1j-FU-kDv"; */
-"n1j-FU-kDv.title" = "All Events";
+"n1j-FU-kDv.title" = "Arrangementer";
 
 /* Class = "IBUISearchBar"; placeholder = "Search All Events"; ObjectID = "pEG-19-r4i"; */
-"pEG-19-r4i.placeholder" = "Search All Events";
+"pEG-19-r4i.placeholder" = "Søk i alle arrangementer";
 
 /* Class = "IBUITabBarItem"; title = "Settings"; ObjectID = "qNp-1J-cO2"; */
-"qNp-1J-cO2.title" = "Settings";
+"qNp-1J-cO2.title" = "Innstillinger";
 
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "qi2-oC-6CI"; */
-"qi2-oC-6CI.text" = "Title";
+"qi2-oC-6CI.text" = "Tittel";
 
 /* Class = "IBUILabel"; text = "Free Events"; ObjectID = "sL2-Dp-ryT"; */
 "sL2-Dp-ryT.text" = "Free Events";
 
 /* Class = "IBUINavigationItem"; title = "Map"; ObjectID = "vNQ-11-9Zi"; */
-"vNQ-11-9Zi.title" = "Map";
+"vNQ-11-9Zi.title" = "Kart";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Events"; ObjectID = "vQi-zh-iP9"; */
-"vQi-zh-iP9.headerTitle" = "Events";
+"vQi-zh-iP9.headerTitle" = "Arrangementer";
 
 /* Class = "IBUILabel"; text = "Default Calendar"; ObjectID = "x9Y-36-gem"; */
-"x9Y-36-gem.text" = "Default Calendar";
+"x9Y-36-gem.text" = "Standard kalender";
 
 /* Class = "IBUILabel"; text = "Paid Events"; ObjectID = "ydX-jq-zzJ"; */
-"ydX-jq-zzJ.text" = "Paid Events";
+"ydX-jq-zzJ.text" = "Betalte arrangementer";
+
