@@ -23,6 +23,18 @@ enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // WORKAROUND: Placeholder text and segmented control text is not retrieved from localization in iOS6
+    // http://stackoverflow.com/questions/15075165/storyboard-base-localization-strings-file-does-not-localize-at-runtime
+    [self updatePlaceholderInSearchField];
+    
+    NSString *allSegment = NSLocalizedStringWithDefaultValue(@"ALL_EVENTS_SEGMENTED_CONTROL_TEXT_ALL_EVENTS", nil, [NSBundle mainBundle], @"All", @"Title of all events filter in all events tab");
+    NSString *paidSegment = NSLocalizedStringWithDefaultValue(@"ALL_EVENTS_SEGMENTED_CONTROL_TEXT_PAID_EVENTS", nil, [NSBundle mainBundle], @"Paid", @"Title of paid events filter in all events tab");
+    NSString *freeSegment = NSLocalizedStringWithDefaultValue(@"ALL_EVENTS_SEGMENTED_CONTROL_TEXT_FREE_EVENTS", nil, [NSBundle mainBundle], @"Free", @"Title of free events filter in all events tab");
+    
+    [self.priceFilterSegmentedControl setTitle:allSegment forSegmentAtIndex:kAllEventsSegmentedControllIndex];
+    [self.priceFilterSegmentedControl setTitle:paidSegment forSegmentAtIndex:kPaidEventsSegmentedControllIndex];
+    [self.priceFilterSegmentedControl setTitle:freeSegment forSegmentAtIndex:kFreeEventsSegmentedControllIndex];
 }
 
 - (void)didReceiveMemoryWarning

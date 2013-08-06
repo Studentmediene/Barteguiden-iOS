@@ -35,7 +35,7 @@
 "AVg-fi-XW2.text" = "Send oss dine tips";
 
 /* Class = "IBUIViewController"; title = "Event Details"; ObjectID = "B3q-rJ-UdF"; */
-"B3q-rJ-UdF.title" = "Arrangementdetaljer";
+"B3q-rJ-UdF.title" = "Detaljer";
 
 /* Class = "IBUILabel"; text = "4 hours before"; ObjectID = "C15-cN-xtE"; */
 "C15-cN-xtE.text" = "4 timer tidligere";
@@ -62,7 +62,7 @@
 "JDc-np-0JG.segmentTitles[0]" = "Alle";
 
 /* Class = "IBUISegmentedControl"; JDc-np-0JG.segmentTitles[1] = "Paid"; ObjectID = "JDc-np-0JG"; */
-"JDc-np-0JG.segmentTitles[1]" = "Betalt";
+"JDc-np-0JG.segmentTitles[1]" = "Betalte";
 
 /* Class = "IBUISegmentedControl"; JDc-np-0JG.segmentTitles[2] = "Free"; ObjectID = "JDc-np-0JG"; */
 "JDc-np-0JG.segmentTitles[2]" = "Gratis";
@@ -89,7 +89,7 @@
 "WGS-Ft-bsU.text" = "Legg til i kalender";
 
 /* Class = "IBUILabel"; text = "All Events"; ObjectID = "aIr-ZO-lgR"; */
-"aIr-ZO-lgR.text" = "Arrangementer";
+"aIr-ZO-lgR.text" = "Alle arrangementer";
 
 /* Class = "IBUILabel"; text = "Default Alert"; ObjectID = "aSi-ai-fdr"; */
 "aSi-ai-fdr.text" = "Standard varsel";
@@ -101,7 +101,7 @@
 "d3p-XS-SfF.title" = "Favoritter";
 
 /* Class = "IBUILabel"; text = "All Events"; ObjectID = "dFx-KL-N0i"; */
-"dFx-KL-N0i.text" = "Arrangementer";
+"dFx-KL-N0i.text" = "Alle arrangementer";
 
 /* Class = "IBUISearchBar"; placeholder = "Search Featured"; ObjectID = "fcs-T2-Ubk"; */
 "fcs-T2-Ubk.placeholder" = "Søk i aktuelt";
@@ -116,7 +116,7 @@
 "jRu-cy-iE2.text" = "Tillatt for min alder";
 
 /* Class = "IBUITabBarItem"; title = "All Events"; ObjectID = "n1j-FU-kDv"; */
-"n1j-FU-kDv.title" = "Arrangementer";
+"n1j-FU-kDv.title" = "Alle";
 
 /* Class = "IBUISearchBar"; placeholder = "Search All Events"; ObjectID = "pEG-19-r4i"; */
 "pEG-19-r4i.placeholder" = "Søk i alle arrangementer";
@@ -128,7 +128,7 @@
 "qi2-oC-6CI.text" = "Tittel";
 
 /* Class = "IBUILabel"; text = "Free Events"; ObjectID = "sL2-Dp-ryT"; */
-"sL2-Dp-ryT.text" = "Free Events";
+"sL2-Dp-ryT.text" = "Gratis arrangementer";
 
 /* Class = "IBUINavigationItem"; title = "Map"; ObjectID = "vNQ-11-9Zi"; */
 "vNQ-11-9Zi.title" = "Kart";

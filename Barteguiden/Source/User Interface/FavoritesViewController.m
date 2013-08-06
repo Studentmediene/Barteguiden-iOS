@@ -17,6 +17,10 @@
 {
     [super viewDidLoad];
     
+    // WORKAROUND: Placeholder text and segmented control text is not retrieved from localization in iOS6
+    // http://stackoverflow.com/questions/15075165/storyboard-base-localization-strings-file-does-not-localize-at-runtime
+    self.searchDisplayController.searchBar.placeholder = NSLocalizedStringWithDefaultValue(@"FAVORITES_SEARCH_FIELD_PLACEHOLDER", nil, [NSBundle mainBundle], @"Search Favorites", @"Placeholder text in search field in favorites tab");
+    
     // Enable editing of favorites
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }

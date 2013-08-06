@@ -15,6 +15,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // WORKAROUND: Placeholder text and segmented control text is not retrieved from localization in iOS6
+    // http://stackoverflow.com/questions/15075165/storyboard-base-localization-strings-file-does-not-localize-at-runtime
+    self.searchDisplayController.searchBar.placeholder = NSLocalizedStringWithDefaultValue(@"FEATURED_SEARCH_FIELD_PLACEHOLDER", nil, [NSBundle mainBundle], @"Search Featured", @"Placeholder text in search field in featured tab");
 }
 
 - (void)didReceiveMemoryWarning
