@@ -478,7 +478,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="All Events" id="GBK-Ao-P5q">
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="JDc-np-0JG">
-                            <rect key="frame" x="60" y="7" width="200" height="31"/>
+                            <rect key="frame" x="40" y="7" width="240" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="All"/>

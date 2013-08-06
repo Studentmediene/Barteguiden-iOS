@@ -289,8 +289,10 @@
 {
     for (NSString *sectionName in deletedSections) {
         NSUInteger oldIndex = [self indexOfSectionWithName:sectionName inSections:oldSections];
-        EventResultsSection *section = oldSections[oldIndex];
-        [self.delegate eventResultsController:self didChangeSection:section atIndex:oldIndex forChangeType:EventResultsChangeDelete];
+        if (oldIndex != NSNotFound) {
+            EventResultsSection *section = oldSections[oldIndex];
+            [self.delegate eventResultsController:self didChangeSection:section atIndex:oldIndex forChangeType:EventResultsChangeDelete];
+        }
     }
 }
 
@@ -321,7 +323,9 @@
 {
     for (id<Event> event in events) {
         NSIndexPath *oldIndexPath = [self indexPathForEvent:event inSections:oldSections];
-        [self.delegate eventResultsController:self didChangeObject:event atIndexPath:oldIndexPath forChangeType:EventResultsChangeDelete newIndexPath:nil];
+        if (oldIndexPath != nil) {
+            [self.delegate eventResultsController:self didChangeObject:event atIndexPath:oldIndexPath forChangeType:EventResultsChangeDelete newIndexPath:nil];
+        }
     }
 }
 
