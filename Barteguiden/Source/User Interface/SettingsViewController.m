@@ -9,7 +9,6 @@
 #import "SettingsViewController.h"
 #import "CalendarManager.h"
 #import "AlertChooser.h"
-#import "CalendarTransformers.h"
 
 
 @implementation SettingsViewController
@@ -93,8 +92,9 @@
 {
     self.autoAddFavoritesSwitch.on = [self.calendarManager shouldAutoAddFavorites];
     self.defaultCalendarLabel.text = [[self.calendarManager defaultCalendar] title];
-    NSValueTransformer *alertDescription = [NSValueTransformer valueTransformerForName:CalendarAlertDescriptionTransformerName];
-    self.defaultAlertLabel.text = [alertDescription transformedValue:[self.calendarManager defaultAlert]];
+//    NSValueTransformer *alertDescription = [NSValueTransformer valueTransformerForName:CalendarAlertDescriptionTransformerName];
+//    self.defaultAlertLabel.text = [alertDescription transformedValue:[self.calendarManager defaultAlert]];
+    self.defaultAlertLabel.text = [AlertChooser alertDescriptionForAlert:[self.calendarManager defaultAlert]];
 }
 
 - (void)navigateToCalendarChooser

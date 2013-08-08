@@ -72,9 +72,3 @@
 #define COCOAPODS_VERSION_MINOR_RIOExpandableLabel 0
 #define COCOAPODS_VERSION_PATCH_RIOExpandableLabel 1
 
-// TransformerKit
-#define COCOAPODS_POD_AVAILABLE_TransformerKit
-#define COCOAPODS_VERSION_MAJOR_TransformerKit 0
-#define COCOAPODS_VERSION_MINOR_TransformerKit 2
-#define COCOAPODS_VERSION_PATCH_TransformerKit 2
-

@@ -25,7 +25,6 @@
 		69528C0F1643152C00A96B65 /* UserDefaultsFilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69528C0E1643152C00A96B65 /* UserDefaultsFilterManager.m */; };
 		6956C67616419E5300E10586 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67516419E5300E10586 /* FilterViewController.m */; };
 		6956C67A16422A0500E10586 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67916422A0500E10586 /* SettingsViewController.m */; };
-		695EC1BC173789E1007C32D5 /* CalendarTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 695EC1BB173789E1007C32D5 /* CalendarTransformers.m */; };
 		695EC1BF1737D80A007C32D5 /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 695EC1BE1737D80A007C32D5 /* CalendarManager.m */; };
 		695EC1DC1739EF75007C32D5 /* BackButton-Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 695EC1D81739EF75007C32D5 /* BackButton-Highlighted.png */; };
 		695EC1DD1739EF75007C32D5 /* BackButton-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 695EC1D91739EF75007C32D5 /* BackButton-Normal.png */; };
@@ -251,8 +250,6 @@
 		6956C67516419E5300E10586 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		6956C67816422A0500E10586 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		6956C67916422A0500E10586 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		695EC1BA173789E1007C32D5 /* CalendarTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTransformers.h; sourceTree = "<group>"; };
-		695EC1BB173789E1007C32D5 /* CalendarTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTransformers.m; sourceTree = "<group>"; };
 		695EC1BE1737D80A007C32D5 /* CalendarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarManager.m; sourceTree = "<group>"; };
 		695EC1D81739EF75007C32D5 /* BackButton-Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButton-Highlighted.png"; sourceTree = "<group>"; };
 		695EC1D91739EF75007C32D5 /* BackButton-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButton-Normal.png"; sourceTree = "<group>"; };
@@ -566,15 +563,6 @@
 				6956C67516419E5300E10586 /* FilterViewController.m */,
 			);
 			name = "My Filter Tab";
-			sourceTree = "<group>";
-		};
-		695EC1B9173785C0007C32D5 /* Transformers */ = {
-			isa = PBXGroup;
-			children = (
-				695EC1BA173789E1007C32D5 /* CalendarTransformers.h */,
-				695EC1BB173789E1007C32D5 /* CalendarTransformers.m */,
-			);
-			name = Transformers;
 			sourceTree = "<group>";
 		};
 		695EC2081739FCC7007C32D5 /* Back Button */ = {
@@ -1223,7 +1211,6 @@
 				69C491641625F1A600F28C45 /* Event Details */,
 				69C9E2181687C5B700D65004 /* Tabs */,
 				6983FD5E173CD765003B429B /* Buttons */,
-				695EC1B9173785C0007C32D5 /* Transformers */,
 				69B7815116C1DC1A00ADD13A /* EventKitUI */,
 			);
 			path = "User Interface";
@@ -1289,7 +1276,7 @@
 		69F52A901608E70F0045B6F6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Under Dusken";
 			};
 			buildConfigurationList = 69F52A931608E70F0045B6F6 /* Build configuration list for PBXProject "Barteguiden" */;
@@ -1582,7 +1569,6 @@
 				697E8F3C1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m in Sources */,
 				69C6F9051734282000568238 /* UserDefaultsCalendarManager.m in Sources */,
 				69CC03821736149B00F96209 /* AlertChooser.m in Sources */,
-				695EC1BC173789E1007C32D5 /* CalendarTransformers.m in Sources */,
 				695EC1BF1737D80A007C32D5 /* CalendarManager.m in Sources */,
 				695EC27E173B16D9007C32D5 /* NavigationButton.m in Sources */,
 				695EC2A2173B2316007C32D5 /* WebsiteViewController.m in Sources */,
@@ -1690,6 +1676,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-framework",

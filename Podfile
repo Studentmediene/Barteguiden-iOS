@@ -1,7 +1,6 @@
 platform :ios, '6.1'
 xcodeproj 'Barteguiden/Barteguiden.xcodeproj'
 
-pod 'TransformerKit'
 pod 'FormatterKit'
 pod 'PSAlertView'
 pod 'JMImageCache'

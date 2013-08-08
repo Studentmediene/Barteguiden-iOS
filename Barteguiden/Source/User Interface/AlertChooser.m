@@ -9,10 +9,9 @@
 #import "AlertChooser.h"
 #import "AlertChooserDelegate.h"
 #import <EventKit/EventKit.h>
-#import "CalendarTransformers.h"
 
 
-static NSUInteger const kNoneAlertRow = 0;
+static int kNoneAlertRow = 0;
 
 
 @implementation AlertChooser
@@ -88,11 +87,20 @@ static NSUInteger const kNoneAlertRow = 0;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    EKAlarm *alert = [[self alerts] objectAtIndex:indexPath.row];
+    EKAlarm *alert = [self alertForIndexPath:indexPath];
     
-    NSValueTransformer *alertDescription = [NSValueTransformer valueTransformerForName:CalendarAlertDescriptionTransformerName];
-    cell.textLabel.text = [alertDescription transformedValue:alert];
+    cell.textLabel.text = [[self class] alertDescriptionForAlert:alert];
     cell.accessoryType = ([self isAlertSelected:alert]) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+}
+
+- (EKAlarm *)alertForIndexPath:(NSIndexPath *)indexPath
+{
+    id alert = [[self alerts] objectAtIndex:indexPath.row];
+    if (alert == [NSNull null]) {
+        return nil;
+    }
+    
+    return alert;
 }
 
 - (NSArray *)alerts
@@ -115,10 +123,43 @@ static NSUInteger const kNoneAlertRow = 0;
     return alerts;
 }
 
++ (NSString *)alertDescriptionForAlert:(EKAlarm *)alert
+{
+    if (alert == nil) {
+        return [[self alertDescriptions] objectForKey:[NSNull null]];
+    }
+    
+    return [[self alertDescriptions] objectForKey:@(alert.relativeOffset)];
+}
+
++ (NSDictionary *)alertDescriptions
+{
+    static NSDictionary *alertDescriptions = nil;
+    if (alertDescriptions == nil) {
+        NSInteger min = 60;
+        NSInteger hour = 60 * min;
+        NSInteger day = 24 * hour;
+        
+        alertDescriptions = @{
+            [NSNull null]: NSLocalizedStringWithDefaultValue(@"ALERT_CHOOSER_ALERT_NONE", nil, [NSBundle mainBundle], @"None", @"None-alert in alert chooser"),
+            @0: NSLocalizedStringWithDefaultValue(@"ALERT_CHOOSER_ALERT_AT_TIME_OF_EVENT", nil, [NSBundle mainBundle], @"At time of event", @"At time of event-alert in alert chooser"),
+            @(-5*min): NSLocalizedStringWithDefaultValue(@"ALERT_CHOOSER_ALERT_5_MINUTES_BEFORE", nil, [NSBundle mainBundle], @"5 minutes before", @"5 minutes before-alert in alert chooser"),
+            @(-15*min): NSLocalizedStringWithDefaultValue(@"ALERT_CHOOSER_ALERT_15_MINUTES_BEFORE", nil, [NSBundle mainBundle], @"15 minutes before", @"15 minutes before-alert in alert chooser"),
+            @(-30*min): NSLocalizedStringWithDefaultValue(@"ALERT_CHOOSER_ALERT_30_MINUTES_BEFORE", nil, [NSBundle mainBundle], @"30 minutes before", @"30 minutes before-alert in alert chooser"),
+            @(-1*hour): NSLocalizedStringWithDefaultValue(@"ALERT_CHOOSER_ALERT_1_HOUR_BEFORE", nil, [NSBundle mainBundle], @"1 hour before", @"1 hour before-alert in alert chooser"),
+            @(-2*hour): NSLocalizedStringWithDefaultValue(@"ALERT_CHOOSER_ALERT_2_HOURS_BEFORE", nil, [NSBundle mainBundle], @"2 hours before", @"2 hours before-alert in alert chooser"),
+            @(-1*day): NSLocalizedStringWithDefaultValue(@"ALERT_CHOOSER_ALERT_1_DAY_BEFORE", nil, [NSBundle mainBundle], @"1 day before", @"1 day before-alert in alert chooser"),
+            @(-2*day): NSLocalizedStringWithDefaultValue(@"ALERT_CHOOSER_ALERT_2_DAYS_BEFORE", nil, [NSBundle mainBundle], @"2 days before", @"2 days before-alert in alert chooser")
+        };
+    }
+    
+    return alertDescriptions;
+}
+
 - (BOOL)isAlertSelected:(EKAlarm *)alert
 {
-    BOOL isNoneSelected = ([alert isEqual:[NSNull null]] == YES && self.selectedAlert == nil);
-    BOOL isOtherSelected = ([alert isEqual:[NSNull null]] == NO && self.selectedAlert != nil && alert.relativeOffset == self.selectedAlert.relativeOffset);
+    BOOL isNoneSelected = (alert == nil && self.selectedAlert == nil);
+    BOOL isOtherSelected = (alert != nil && self.selectedAlert != nil && alert.relativeOffset == self.selectedAlert.relativeOffset);
     return (isNoneSelected || isOtherSelected);
 }
 
@@ -126,6 +167,10 @@ static NSUInteger const kNoneAlertRow = 0;
 {
     __block NSUInteger previousRow = kNoneAlertRow; // Deselect 'None'-alert as default
     [[self alerts] enumerateObjectsUsingBlock:^(EKAlarm *alert, NSUInteger index, BOOL *stop) {
+        if ([alert isEqual:[NSNull null]]) {
+            alert = nil;
+        }
+        
         if ([self isAlertSelected:alert]) {
             previousRow = index;
             *stop = YES;

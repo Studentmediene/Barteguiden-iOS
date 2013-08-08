@@ -18,4 +18,6 @@
 
 @property (nonatomic) EKAlarm *selectedAlert;
 
++ (NSString *)alertDescriptionForAlert:(id)alert;
+
 @end
