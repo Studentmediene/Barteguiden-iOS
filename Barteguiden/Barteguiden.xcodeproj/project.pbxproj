@@ -1714,6 +1714,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7493FD972B57486DBA74AF06 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
@@ -1728,6 +1729,7 @@
 					"-Wno-unused-parameter",
 				);
 				PRODUCT_NAME = Barteguiden;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1737,6 +1739,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7493FD972B57486DBA74AF06 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Barteguiden-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -1748,6 +1751,7 @@
 					"-Wno-unused-parameter",
 				);
 				PRODUCT_NAME = Barteguiden;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
