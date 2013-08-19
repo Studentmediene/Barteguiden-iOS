@@ -87,7 +87,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
         Event *event = (Event *)[self eventWithIdentifier:eventID error:NULL]; // TODO: Fix error handling
         
         if (event != nil) {
-            [self.builder updateEvent:event withJSONObject:jsonObject];
+            [self.builder updateEvent:event withJSONObject:jsonObject inManagedObjectContext:self.managedObjectContext];
         }
         else {
             [self.builder insertNewEventWithJSONObject:jsonObject inManagedObjectContext:self.managedObjectContext];

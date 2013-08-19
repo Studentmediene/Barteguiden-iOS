@@ -9,5 +9,7 @@
 
 - (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues;
 - (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues dateFormatter:(NSDateFormatter *)dateFormatter;
+- (void)safeSetValue:(id)value forKey:(NSString *)key;
+- (void)safeSetValue:(id)value forKey:(NSString *)key dateFormatter:(NSDateFormatter *)dateFormatter;
 
 @end
