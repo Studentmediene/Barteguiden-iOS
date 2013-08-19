@@ -16,7 +16,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-#define RIOSaveMOCWithoutErrors() \
+#define SaveMOCWithoutErrors() \
 do { \
     NSError *error; \
     BOOL saved = [_managedObjectContext save:&error]; \
@@ -51,7 +51,7 @@ do { \
 - (void)testInsertEventShouldReturnNilWhenJsonObjectIsNil
 {
     Event *event = [_eventBuilder insertNewEventWithJSONObject:nil inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     STAssertNil(event, @"Event should be nil");
 }
@@ -59,7 +59,7 @@ do { \
 - (void)testInsertEventShouldReturnNilWhenJsonObjectIsEmptyDictionary
 {
     Event *event = [_eventBuilder insertNewEventWithJSONObject:@{} inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     STAssertNil(event, @"Event should be nil");
 }
@@ -67,7 +67,7 @@ do { \
 - (void)testInsertEventShouldReturnCorrectObjectWhenJsonObjectIsSimpleValidEvent
 {
     Event *event = [_eventBuilder insertNewEventWithJSONObject:[self simpleValidEvent] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     STAssertNotNil(event, @"Event should not be nil");
     STAssertEqualObjects(event.eventID, @"37", nil);
@@ -79,7 +79,7 @@ do { \
 - (void)testInsertEventShouldReturnNilWhenJsonObjectIsMalformedSimpleEvent
 {
     Event *event = [_eventBuilder insertNewEventWithJSONObject:[self malformedSimpleEvent] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     STAssertNil(event, @"Event should be nil");
 }
@@ -87,7 +87,7 @@ do { \
 - (void)testInsertEventShouldReturnCorrectObjectWhenJsonObjectIsCompleteValidEvent
 {
     Event *event = [_eventBuilder insertNewEventWithJSONObject:[self completeValidEvent] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     STAssertNotNil(event, @"Event should not be nil");
     STAssertEqualObjects(event.eventID, @"37", nil);
@@ -110,7 +110,7 @@ do { \
 - (void)testInsertEventShouldReturnCorrectObjectWhenJsonObjectIsAnotherCompleteValidEvent
 {
     Event *event = [_eventBuilder insertNewEventWithJSONObject:[self anotherCompleteValidEvent] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     STAssertNotNil(event, @"Event should not be nil");
     STAssertEqualObjects(event.eventID, @"38", nil);
@@ -133,7 +133,7 @@ do { \
 - (void)testInsertEventShouldReturnNilWhenJsonObjectIsMalformedCompleteEvent
 {
     Event *event = [_eventBuilder insertNewEventWithJSONObject:[self malformedCompleteEvent] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     STAssertNil(event, @"Event should be nil");
 }
@@ -144,10 +144,10 @@ do { \
 - (void)testInsertAndUpdateEventShouldReturnCorrectObjectWhenJsonObjectIsSimpleValidEvent
 {
     Event *event = [_eventBuilder insertNewEventWithJSONObject:[self simpleValidEvent] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     [_eventBuilder updateEvent:event withJSONObject:[self anotherSimpleValidEvent] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     STAssertNotNil(event, @"Event should not be nil");
     STAssertEqualObjects(event.eventID, @"38", nil);
@@ -159,10 +159,10 @@ do { \
 - (void)testInsertAndUpdateEventShouldReturnCorrectObjectWhenJsonObjectIsCompleteValidEventAndUpdatedWithCompleteValidEventWithNullValues
 {
     Event *event = [_eventBuilder insertNewEventWithJSONObject:[self anotherCompleteValidEvent] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     [_eventBuilder updateEvent:event withJSONObject:[self completeValidEventWithNullValues] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     STAssertNotNil(event, @"Event should not be nil");
     STAssertEqualObjects(event.eventID, @"37", nil);
@@ -185,10 +185,10 @@ do { \
 - (void)testInsertAndUpdateEventShouldReturnCorrectObjectWhenJsonObjectIsCompleteValidEventAndUpdatedWithMalformedCompleteEventWithNullValues
 {
     Event *event = [_eventBuilder insertNewEventWithJSONObject:[self completeValidEvent] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     [_eventBuilder updateEvent:event withJSONObject:[self malformedCompleteEventWithNullValues] inManagedObjectContext:_managedObjectContext];
-    RIOSaveMOCWithoutErrors();
+    SaveMOCWithoutErrors();
     
     STAssertNotNil(event, @"Event should not be nil");
     STAssertEqualObjects(event.eventID, @"37", nil);
