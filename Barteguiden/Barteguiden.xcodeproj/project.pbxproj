@@ -539,13 +539,6 @@
 			name = "All Events Tab";
 			sourceTree = "<group>";
 		};
-		691F9D2017C2441E00B16209 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Data;
-			sourceTree = "<group>";
-		};
 		693EF25D161220D100D10C03 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -982,7 +975,6 @@
 		69C37D7C169FFF43009631DF /* EventKit */ = {
 			isa = PBXGroup;
 			children = (
-				691F9D2017C2441E00B16209 /* Data */,
 				69C37D8716A0445E009631DF /* Mocks */,
 				69C37BFD168F8F28009631DF /* EventStoreTests.m */,
 				69C37D76169FF22D009631DF /* EventTests.m */,
