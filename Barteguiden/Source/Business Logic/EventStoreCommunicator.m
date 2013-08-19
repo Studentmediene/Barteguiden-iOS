@@ -96,6 +96,7 @@ static NSString * const kEventsKey = @"events";
 {
 //    return [[NSBundle mainBundle] URLForResource:@"Samfundet" withExtension:@"json"]; // TODO: Remove
     return [NSURL URLWithString:@"http://barteguiden.no/v1/events"];
+//    return [NSURL URLWithString:@"http://skohorn-mbp10-1.local:3000/events"];
 }
 
 - (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size
