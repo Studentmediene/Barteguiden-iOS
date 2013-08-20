@@ -28,14 +28,10 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
     
     // Hide search bar as default
     self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
-//    self.tableView.contentInset = UIEdgeInsetsMake(-44,0,0,0);
     
     self.tableView.separatorColor = [UIColor colorWithHue:(216/360.0) saturation:(5/100.0) brightness:(83/100.0) alpha:1];
     
     [self.tableView registerClass:[HeaderView class] forHeaderFooterViewReuseIdentifier:kHeaderReuseIdentifier];
-//    [self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
-//    self.tableView.con
-//    NSLog(@"%@", self.tableView.constraints);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -99,18 +95,16 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 23.0; // TODO: Why 23 and not 24?
+    return 23; // TODO: Why 23 and not 24?
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    
-    
     UIView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kHeaderReuseIdentifier];
     
     return sectionHeaderView;
-    
 }
+
 
 #pragma mark - EventResultsControllerDelegate
 

@@ -11,18 +11,25 @@
 #import "EventDelegate.h"
 #import "EventStoreCommunicatorDelegate.h"
 
-
 @protocol EventStoreDelegate;
+@protocol NetworkActivity;
 
 @class EventStoreCommunicator;
 @class EventBuilder;
 
-@interface CoreDataEventStore : NSObject <EventStore, EventDelegate, EventStoreCommunicatorDelegate>
+
+@interface CoreDataEventStore : NSObject <EventStore, EventStoreCommunicatorDelegate>
 
 @property (nonatomic, strong) EventStoreCommunicator *communicator;
 @property (nonatomic, strong) EventBuilder *builder;
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property (nonatomic, strong) id<NetworkActivity> networkActivity;
+
+- (instancetype)init;
 - (void)refresh;
 
 @end

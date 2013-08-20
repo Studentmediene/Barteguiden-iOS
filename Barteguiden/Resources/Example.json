@@ -1,18 +1,18 @@
 {
   "events": [
     {
-      "id": "1",
+      "eventID": "1",
       "title": "Tirsdagsquiz",
-      "categoryID": "CONCERTS",
-      "ageLimit": 18,
-      "price": 0,
-      "startAt": "2015-01-15T19:00:00+0200",
+      "startAt": "2015-01-15T19:00:00.000+0200",
       "placeName": "Studentersamfundet",
       "address": "Elgeseter gate 1",
       "latitude": 63.422634,
       "longitude": 10.394697,
-      "url": "http://samfundet.no/arrangement/vis/3386",
-      "description": [
+      "categoryID": "MUSIC",
+      "ageLimit": 18,
+      "price": 0,
+      "eventURL": "http://samfundet.no/arrangement/vis/3386",
+      "descriptions": [
         {
           "language": "nb",
           "text": "Det blir Tirsdagskviss i Edgar."
@@ -22,59 +22,50 @@
           "text": "It will be Tuesday quiz at Edgar."
         }
       ],
-      "featured": [
-        {
-          "language": "nb",
-          "text": "Redaksjonen liker denne hendelsen."
-        },
-        {
-          "language": "en",
-          "text": "The editorial staff like this event."
-        }
-      ]
+      "isRecommended": true
     },
     {
-      "id": "2",
+      "eventID": "2",
       "title": "Glassblåsing",
-      "categoryID": "NIGHTLIFE",
+      "startAt": "2015-01-17T17:00:00.000+0200",
+      "placeName": "Trondheim Glassblåseri",
+      "categoryID": "MUSIC",
       "ageLimit": 18,
       "price": 120,
-      "startAt": "2015-01-17T17:00:00+0200",
-      "placeName": "Trondheim Glassblåseri",
-      "description": []
+      "descriptions": []
     },
     {
-      "id": "3",
+      "eventID": "3",
       "title": "Test",
+      "startAt": "2015-01-17T21:00:00.000+0200",
+      "placeName": "Ukjent",
       "categoryID": "OTHER",
       "ageLimit": 25,
       "price": 0,
-      "startAt": "2015-01-17T21:00:00+0200",
-      "placeName": "Ukjent",
-      "description": []
+      "descriptions": []
     },
     {
-      "id": "4",
+      "eventID": "4",
       "title": "LUKA",
-      "categoryID": "CONCERTS",
-      "ageLimit": 0,
-      "price": 200,
-      "startAt": "2015-01-18T20:00:00+0200",
+      "startAt": "2015-01-18T20:00:00.000+0200",
       "placeName": "Studentersamfundet",
       "streetName": "Elgesetergate 1",
       "latitude": 63.430515,
       "longitude": 10.395053,
-      "description": []
+      "categoryID": "MUSIC",
+      "ageLimit": 0,
+      "price": 200,
+      "descriptions": []
     },
     {
-      "id": "5",
+      "eventID": "5",
       "title": "Test 2",
+      "startAt": "2015-01-15T21:00:00.000+0200",
+      "placeName": "Studentersamfundet",
       "categoryID": "NIGHTLIFE",
       "ageLimit": 21,
       "price": 1000,
-      "startAt": "2015-01-15T21:00:00+0200",
-      "placeName": "Studentersamfundet",
-      "description": []
+      "descriptions": []
      }
   ]
 }

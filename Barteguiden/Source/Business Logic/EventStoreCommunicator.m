@@ -47,12 +47,14 @@ static NSString * const kEventsKey = @"events";
     self.connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self startImmediately:YES];
 }
 
+
 #pragma mark - NSURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     [self notifyDidFailWithError:error];
 }
+
 
 #pragma mark - NSURLConnectionDataDelegate
 
