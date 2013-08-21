@@ -8,12 +8,13 @@
 
 #import "_Event.h"
 #import "EventKit.h"
-#import <JMImageCache/JMImageCache.h>
+
+@class JMImageCache;
 
 
 @protocol EventDelegate;
 
-@interface Event : _Event <Event, JMImageCacheDelegate>
+@interface Event : _Event <Event>
 
 @property (nonatomic, weak) id<EventDelegate> delegate;
 

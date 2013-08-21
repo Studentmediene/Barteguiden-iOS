@@ -9,6 +9,7 @@
 #import "Event.h"
 #import "EventDelegate.h"
 #import "UIImage+RIOScaleAndCrop.h" // TODO: Temp
+#import <JMImageCache/JMImageCache.h>
 
 
 @implementation Event
@@ -60,22 +61,6 @@
     return [NSURL URLWithString:self.eventURL];
 }
 
-- (UIImage *)originalImage
-{
-    CGFloat scale = [[UIScreen mainScreen] scale];
-    
-    NSURL *url = [NSURL URLWithString:self.imageURL];
-    UIImage *image = [self.imageCache imageForURL:url delegate:self];
-    
-    if (image != nil) {
-        UIImage *adjustedImage = [[UIImage alloc] initWithCGImage:image.CGImage scale:scale orientation:UIImageOrientationUp];
-        
-        return adjustedImage;
-    }
-    
-    return nil;
-}
-
 - (UIImage *)imageWithSize:(CGSize)size
 {
     NSLog(@"Retrieving image for eventID:%@ (%.0fx%.0f)", self.eventID, size.width, size.height);
@@ -84,16 +69,24 @@
     CGSize scaledSize = CGSizeMake(size.width * scale, size.height * scale);
     
     NSURL *url = [NSURL URLWithString:self.imageURL];
-    UIImage *image = [self.imageCache imageForURL:url delegate:self];
-    
-    if (image != nil) {
-        UIImage *scaledAndCroppedImage = [image imageByScalingAndCroppingForSize:scaledSize];
-        UIImage *adjustedImage = [[UIImage alloc] initWithCGImage:scaledAndCroppedImage.CGImage scale:scale orientation:UIImageOrientationUp];
+    UIImage *image = [self.imageCache cachedImageForURL:url];
+    if (image == nil) {
+        [self.delegate eventStartedDownloadingData:self];
+        __weak typeof(self) bself = self;
+        [self.imageCache imageForURL:url completionBlock:^(UIImage *image) {
+            [bself.delegate eventFinishedDownloadingData:self];
+            [bself.delegate eventDidChange:self];
+        } failureBlock:^(NSURLRequest *request, NSURLResponse *response, NSError *error) {
+            [bself.delegate eventFinishedDownloadingData:self];
+        }];
         
-        return adjustedImage;
+        return nil;
     }
     
-    return nil;
+    UIImage *scaledAndCroppedImage = [image imageByScalingAndCroppingForSize:scaledSize];
+    UIImage *adjustedImage = [[UIImage alloc] initWithCGImage:scaledAndCroppedImage.CGImage scale:scale orientation:UIImageOrientationUp];
+    
+    return adjustedImage;
 }
 
 - (NSString *)descriptionForLanguage:(NSString *)language
@@ -101,21 +94,11 @@
     if ([language isEqualToString:@"nb"]) {
         return self.description_nb;
     }
-    else if ([language isEqualToString:@"en"])
-    {
+    else if ([language isEqualToString:@"en"]) {
         return self.description_en;
     }
     
     return nil;
-}
-
-
-#pragma mark - JMImageCacheDelegate
-
-- (void)cache:(JMImageCache *)c didDownloadImage:(UIImage *)i forURL:(NSURL *)url
-{
-    NSLog(@"Image downloaded");
-    [self.delegate eventDidChange:self];
 }
 
 @end

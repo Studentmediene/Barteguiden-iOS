@@ -54,7 +54,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
         _communicator.delegate = self;
         _builder = [[EventBuilder alloc] init];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextObjectsDidChangeNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:self.managedObjectContext];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextObjectsDidChangeNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:self.managedObjectContext]; // TODO: Not the best place to add observer (Tests will override managed object context)
     }
     return self;
 }
@@ -79,29 +79,47 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 {
     [self.networkActivity decrementNetworkActivity];
     
-    NSMutableSet *eventIDs = [NSMutableSet set];
-    
-    for (NSDictionary *jsonObject in events) {
-        NSString *eventID = [NSString stringWithFormat:@"%@", jsonObject[@"eventID"]];
-        [eventIDs addObject:eventID];
+    NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
+    NSManagedObjectContext *backgroundManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    [backgroundManagedObjectContext performBlock:^{
+        backgroundManagedObjectContext.persistentStoreCoordinator = coordinator;
         
-        Event *event = (Event *)[self eventWithIdentifier:eventID error:NULL]; // TODO: Fix error handling
+        NSMutableSet *eventIDs = [NSMutableSet set];
         
-        if (event != nil) {
-            [self.builder updateEvent:event withJSONObject:jsonObject inManagedObjectContext:self.managedObjectContext];
+        NSFetchRequest *fetchRequest = [self fetchRequestWithPredicate:nil];
+        NSError *error = nil;
+        NSArray *existingEvents = [backgroundManagedObjectContext executeFetchRequest:fetchRequest error:&error];
+        NSMutableArray *deletedEvents = [existingEvents mutableCopy];
+        if (existingEvents == nil && error != NULL) {
+            return;
         }
-        else {
-            [self.builder insertNewEventWithJSONObject:jsonObject inManagedObjectContext:self.managedObjectContext];
+        
+        for (NSDictionary *jsonObject in events) {
+            NSString *eventID = [NSString stringWithFormat:@"%@", jsonObject[@"eventID"]];
+            [eventIDs addObject:eventID];
+            
+            __block Event *event = nil;
+            [existingEvents enumerateObjectsUsingBlock:^(Event *obj, NSUInteger idx, BOOL *stop) {
+                if ([obj.eventID isEqualToString:eventID]) {
+                    event = obj;
+                    [deletedEvents removeObject:obj];
+                    *stop = YES;
+                }
+            }];
+            
+            if (event != nil) {
+                [self.builder updateEvent:event withJSONObject:jsonObject inManagedObjectContext:backgroundManagedObjectContext];
+            }
+            else {
+                [self.builder insertNewEventWithJSONObject:jsonObject inManagedObjectContext:self.managedObjectContext];
+            }
         }
-    }
-    
-    // TODO: Do not delete favorited events
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT (%K IN %@)", kEventIDKey, eventIDs];
-    NSArray *deletedEvents = [self eventsMatchingPredicate:predicate error:NULL]; // TODO: Fix error handling
-    
-    for (Event *deletedEvent in deletedEvents) {
-        [self.managedObjectContext deleteObject:deletedEvent];
-    }
+        
+        // TODO: Do not delete favorited events
+        for (Event *deletedEvent in deletedEvents) {
+            [backgroundManagedObjectContext deleteObject:deletedEvent];
+        }
+    }];
 }
 
 - (void)communicator:(EventStoreCommunicator *)communicator didFailWithError:(NSError *)underlyingError
@@ -249,6 +267,16 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     [self notifyEventStoreChangedWithInserted:nil updated:updated deleted:nil];
 }
 
+- (void)eventStartedDownloadingData:(Event *)event
+{
+    [self.networkActivity incrementNetworkActivity];
+}
+
+- (void)eventFinishedDownloadingData:(Event *)event
+{
+    [self.networkActivity decrementNetworkActivity];
+}
+
 - (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size
 {
     return [self.communicator URLForImageWithEventID:eventID size:size];
@@ -339,6 +367,8 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 }
 
 
+#pragma mark - Core Data setup
+
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (_managedObjectContext != nil) {
@@ -352,6 +382,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     }
     return _managedObjectContext;
 }
+
 
 - (NSManagedObjectModel *)managedObjectModel
 {
