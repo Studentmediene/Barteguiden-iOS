@@ -19,4 +19,7 @@ DerivedData
 .idea/
 
 # Specific rules
+Pods/
+Podfile.lock
+Podfile~
 !Kulturkalender.xcworkspace
