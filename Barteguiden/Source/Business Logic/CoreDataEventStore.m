@@ -41,6 +41,8 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 
 @interface CoreDataEventStore () <EventDelegate>
 
+@property (nonatomic, strong) NSManagedObjectContext *backgroundManagedObjectContext;
+
 @end
 
 
@@ -54,14 +56,14 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
         _communicator.delegate = self;
         _builder = [[EventBuilder alloc] init];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextObjectsDidChangeNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:self.managedObjectContext]; // TODO: Not the best place to add observer (Tests will override managed object context)
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextObjectsDidChangeNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:nil];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextObjectsDidChangeNotification object:self.managedObjectContext];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextObjectsDidChangeNotification object:nil];
 }
 
 - (void)refresh
@@ -79,16 +81,11 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 {
     [self.networkActivity decrementNetworkActivity];
     
-    NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
-    NSManagedObjectContext *backgroundManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    [backgroundManagedObjectContext performBlock:^{
-        backgroundManagedObjectContext.persistentStoreCoordinator = coordinator;
-        
-        NSMutableSet *eventIDs = [NSMutableSet set];
-        
-        NSFetchRequest *fetchRequest = [self fetchRequestWithPredicate:nil];
+    __weak typeof(self) bself = self;
+    [self.backgroundManagedObjectContext performBlock:^{
+        NSFetchRequest *fetchRequest = [bself fetchRequestWithPredicate:nil];
         NSError *error = nil;
-        NSArray *existingEvents = [backgroundManagedObjectContext executeFetchRequest:fetchRequest error:&error];
+        NSArray *existingEvents = [bself.backgroundManagedObjectContext executeFetchRequest:fetchRequest error:&error];
         if (existingEvents == nil && error != NULL) {
             return;
         }
@@ -97,8 +94,6 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
         
         for (NSDictionary *jsonObject in events) {
             NSString *eventID = [NSString stringWithFormat:@"%@", jsonObject[@"eventID"]];
-            [eventIDs addObject:eventID];
-            
             __block Event *event = nil;
             [existingEvents enumerateObjectsUsingBlock:^(Event *obj, NSUInteger idx, BOOL *stop) {
                 if ([obj.eventID isEqualToString:eventID]) {
@@ -109,10 +104,10 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
             }];
             
             if (event != nil) {
-                [self.builder updateEvent:event withJSONObject:jsonObject inManagedObjectContext:backgroundManagedObjectContext];
+                [bself.builder updateEvent:event withJSONObject:jsonObject inManagedObjectContext:bself.backgroundManagedObjectContext];
             }
             else {
-                [self.builder insertNewEventWithJSONObject:jsonObject inManagedObjectContext:self.managedObjectContext];
+                [bself.builder insertNewEventWithJSONObject:jsonObject inManagedObjectContext:bself.backgroundManagedObjectContext];
             }
         }
         
@@ -120,8 +115,10 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
         [eventsToBeDeleted minusSet:relevantEvents];
         
         for (Event *event in eventsToBeDeleted) {
-            [backgroundManagedObjectContext deleteObject:event];
+            [bself.backgroundManagedObjectContext deleteObject:event];
         }
+        
+        [bself.backgroundManagedObjectContext save:NULL]; // TODO: Fix error handling
     }];
 }
 
@@ -138,11 +135,19 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 
 - (void)managedObjectContextObjectsDidChangeNotification:(NSNotification *)note
 {
-    NSSet *inserted = note.userInfo[NSInsertedObjectsKey];
-    NSSet *updated = note.userInfo[NSUpdatedObjectsKey];
-    NSSet *deleted = note.userInfo[NSDeletedObjectsKey];
-    
-    [self notifyEventStoreChangedWithInserted:inserted updated:updated deleted:deleted];
+    if (note.object == self.managedObjectContext) {
+        NSSet *inserted = note.userInfo[NSInsertedObjectsKey];
+        NSSet *updated = note.userInfo[NSUpdatedObjectsKey];
+        NSSet *deleted = note.userInfo[NSDeletedObjectsKey];
+        
+        [self notifyEventStoreChangedWithInserted:inserted updated:updated deleted:deleted];
+    }
+    else if (note.object == self.backgroundManagedObjectContext) {
+        NSLog(@"Background MOC did change");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
+        });
+    }
 }
 
 
@@ -384,6 +389,20 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     return _managedObjectContext;
+}
+
+- (NSManagedObjectContext *)backgroundManagedObjectContext
+{
+    if (_backgroundManagedObjectContext != nil) {
+        return _backgroundManagedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        _backgroundManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [_backgroundManagedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    return _backgroundManagedObjectContext;
 }
 
 
