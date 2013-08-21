@@ -27,7 +27,7 @@ static NSString * const kFavoriteKey = @"favoriteState";
 
 static NSString * const kCategoryIDKey = @"categoryID";
 static NSString * const kPriceKey = @"price";
-static NSString * const kAgeLimitKey = @"ageLimitNumber";
+static NSString * const kAgeLimitKey = @"ageLimit";
 
 static NSString * const kPlaceNameKey = @"placeName";
 static NSString * const kAddressKey = @"address";
@@ -89,10 +89,11 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
         NSFetchRequest *fetchRequest = [self fetchRequestWithPredicate:nil];
         NSError *error = nil;
         NSArray *existingEvents = [backgroundManagedObjectContext executeFetchRequest:fetchRequest error:&error];
-        NSMutableArray *deletedEvents = [existingEvents mutableCopy];
         if (existingEvents == nil && error != NULL) {
             return;
         }
+        
+        NSMutableSet *relevantEvents = [[NSMutableSet alloc] init];
         
         for (NSDictionary *jsonObject in events) {
             NSString *eventID = [NSString stringWithFormat:@"%@", jsonObject[@"eventID"]];
@@ -102,7 +103,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
             [existingEvents enumerateObjectsUsingBlock:^(Event *obj, NSUInteger idx, BOOL *stop) {
                 if ([obj.eventID isEqualToString:eventID]) {
                     event = obj;
-                    [deletedEvents removeObject:obj];
+                    [relevantEvents addObject:event];
                     *stop = YES;
                 }
             }];
@@ -115,9 +116,11 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
             }
         }
         
-        // TODO: Do not delete favorited events
-        for (Event *deletedEvent in deletedEvents) {
-            [backgroundManagedObjectContext deleteObject:deletedEvent];
+        NSMutableSet *eventsToBeDeleted = [[NSMutableSet alloc] initWithArray:existingEvents];
+        [eventsToBeDeleted minusSet:relevantEvents];
+        
+        for (Event *event in eventsToBeDeleted) {
+            [backgroundManagedObjectContext deleteObject:event];
         }
     }];
 }
