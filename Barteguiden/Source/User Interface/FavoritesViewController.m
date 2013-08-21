@@ -36,11 +36,12 @@
 
 - (NSPredicate *)eventsPredicate
 {
-    // NOTE: Does not call [super eventsPredicate] to allow old events to show in this list
+    NSPredicate *predicate = [super eventsPredicate];
     
     NSPredicate *favoritesPredicate = [self.eventStore predicateForFavoritedEvents];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate, favoritesPredicate]];
     
-    return favoritesPredicate;
+    return predicate;
 }
 
 
