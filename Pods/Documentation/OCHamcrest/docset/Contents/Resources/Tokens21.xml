@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/HCIsDictionaryContainingValue.html">
+	<File path="Classes/HCIsDictionaryContainingKey.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/HCIsDictionaryContainingValue</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsDictionaryContainingKey</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsDictionaryContainingValue.h</DeclaredIn>
+			<DeclaredIn>HCIsDictionaryContainingKey.h</DeclaredIn>
 			
 			<NodeRef refid="21"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/HCIsDictionaryContainingValue/isDictionaryContainingValue:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsDictionaryContainingKey/isDictionaryContainingKey:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsDictionaryContainingValue.h</DeclaredIn>			
+			<DeclaredIn>HCIsDictionaryContainingKey.h</DeclaredIn>			
 			
-			<Declaration>+ (id)isDictionaryContainingValue:(id&lt;HCMatcher&gt;)theValueMatcher</Declaration>
+			<Declaration>+ (id)isDictionaryContainingKey:(id&lt;HCMatcher&gt;)theKeyMatcher</Declaration>
 			
 			
-			<Anchor>//api/name/isDictionaryContainingValue:</Anchor>
+			<Anchor>//api/name/isDictionaryContainingKey:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/HCIsDictionaryContainingValue/initWithValueMatcher:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsDictionaryContainingKey/initWithKeyMatcher:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsDictionaryContainingValue.h</DeclaredIn>			
+			<DeclaredIn>HCIsDictionaryContainingKey.h</DeclaredIn>			
 			
-			<Declaration>- (id)initWithValueMatcher:(id&lt;HCMatcher&gt;)theValueMatcher</Declaration>
+			<Declaration>- (id)initWithKeyMatcher:(id&lt;HCMatcher&gt;)theKeyMatcher</Declaration>
 			
 			
-			<Anchor>//api/name/initWithValueMatcher:</Anchor>
+			<Anchor>//api/name/initWithKeyMatcher:</Anchor>
 		</Token>
 		
 	</File>

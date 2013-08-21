@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/HCSelfDescribing.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/HCSelfDescribing</TokenIdentifier>
+			<Abstract>    The ability of an object to describe itself.</Abstract>
+			<DeclaredIn>HCSelfDescribing.h</DeclaredIn>
+			
+			<NodeRef refid="43"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/HCSelfDescribing/describeTo:</TokenIdentifier>
+			<Abstract>    Generates a description of the object.
+    
+    The description may be part of a description of a larger object of which this is just a
+    component, so it should be worded appropriately.
+    </Abstract>
+			<DeclaredIn>HCSelfDescribing.h</DeclaredIn>			
+			
+			<Declaration>- (void)describeTo:(id&lt;HCDescription&gt;)description</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>description</Name>
+					<Abstract>The description to be built or appended to.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeTo:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

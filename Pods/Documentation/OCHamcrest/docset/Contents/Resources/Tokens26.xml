@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/HCIsIn.html">
+	<File path="Classes/HCIsEqualIgnoringWhiteSpace.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/HCIsIn</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsEqualIgnoringWhiteSpace</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsIn.h</DeclaredIn>
+			<DeclaredIn>HCIsEqualIgnoringWhiteSpace.h</DeclaredIn>
 			
 			<NodeRef refid="26"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/HCIsIn/isInCollection:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsEqualIgnoringWhiteSpace/isEqualIgnoringWhiteSpace:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsIn.h</DeclaredIn>			
+			<DeclaredIn>HCIsEqualIgnoringWhiteSpace.h</DeclaredIn>			
 			
-			<Declaration>+ (id)isInCollection:(id)aCollection</Declaration>
+			<Declaration>+ (id)isEqualIgnoringWhiteSpace:(NSString *)aString</Declaration>
 			
 			
-			<Anchor>//api/name/isInCollection:</Anchor>
+			<Anchor>//api/name/isEqualIgnoringWhiteSpace:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/HCIsIn/initWithCollection:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsEqualIgnoringWhiteSpace/initWithString:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsIn.h</DeclaredIn>			
+			<DeclaredIn>HCIsEqualIgnoringWhiteSpace.h</DeclaredIn>			
 			
-			<Declaration>- (id)initWithCollection:(id)aCollection</Declaration>
+			<Declaration>- (id)initWithString:(NSString *)aString</Declaration>
 			
 			
-			<Anchor>//api/name/initWithCollection:</Anchor>
+			<Anchor>//api/name/initWithString:</Anchor>
 		</Token>
 		
 	</File>

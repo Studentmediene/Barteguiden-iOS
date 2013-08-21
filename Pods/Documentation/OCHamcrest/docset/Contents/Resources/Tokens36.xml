@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/HCStringStartsWith.html">
+	<File path="Classes/HCStringContainsInOrder.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/HCStringStartsWith</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/HCStringContainsInOrder</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCStringStartsWith.h</DeclaredIn>
+			<DeclaredIn>HCStringContainsInOrder.h</DeclaredIn>
 			
 			<NodeRef refid="36"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/HCStringStartsWith/stringStartsWith:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/HCStringContainsInOrder/containsInOrder:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCStringStartsWith.h</DeclaredIn>			
+			<DeclaredIn>HCStringContainsInOrder.h</DeclaredIn>			
 			
-			<Declaration>+ (id)stringStartsWith:(NSString *)aSubstring</Declaration>
+			<Declaration>+ (id)containsInOrder:(NSArray *)substringList</Declaration>
 			
 			
-			<Anchor>//api/name/stringStartsWith:</Anchor>
+			<Anchor>//api/name/containsInOrder:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/HCStringContainsInOrder/initWithSubstrings:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCStringContainsInOrder.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithSubstrings:(NSArray *)substringList</Declaration>
+			
+			
+			<Anchor>//api/name/initWithSubstrings:</Anchor>
 		</Token>
 		
 	</File>

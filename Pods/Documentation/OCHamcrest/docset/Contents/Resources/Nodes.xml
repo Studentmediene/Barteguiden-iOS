@@ -2,7 +2,7 @@
 <DocSetNodes version="1.0">
     <TOC>
         <Node type="folder">
-            <Name>OCHamcrest 1.9</Name>
+            <Name>OCHamcrest 2.1.0</Name>
             <Path>index.html</Path>
 			<Subnodes>
 				
@@ -47,6 +47,9 @@
 						<NodeRef refid="35"/>
 						<NodeRef refid="36"/>
 						<NodeRef refid="37"/>
+						<NodeRef refid="38"/>
+						<NodeRef refid="39"/>
+						<NodeRef refid="40"/>
 						
 					</Subnodes>
 				</Node>
@@ -57,9 +60,9 @@
 					<Name>Protocols</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="38"/>
-						<NodeRef refid="39"/>
-						<NodeRef refid="40"/>
+						<NodeRef refid="41"/>
+						<NodeRef refid="42"/>
+						<NodeRef refid="43"/>
 						
 					</Subnodes>
 				</Node>
@@ -85,148 +88,160 @@
 			<Path>Classes/HCBaseMatcher.html</Path>
 		</Node>
 		<Node id="5">
+			<Name>HCClassMatcher</Name>
+			<Path>Classes/HCClassMatcher.html</Path>
+		</Node>
+		<Node id="6">
 			<Name>HCConformsToProtocol</Name>
 			<Path>Classes/HCConformsToProtocol.html</Path>
 		</Node>
-		<Node id="6">
+		<Node id="7">
 			<Name>HCDescribedAs</Name>
 			<Path>Classes/HCDescribedAs.html</Path>
 		</Node>
-		<Node id="7">
+		<Node id="8">
 			<Name>HCHasCount</Name>
 			<Path>Classes/HCHasCount.html</Path>
 		</Node>
-		<Node id="8">
+		<Node id="9">
 			<Name>HCHasDescription</Name>
 			<Path>Classes/HCHasDescription.html</Path>
 		</Node>
-		<Node id="9">
+		<Node id="10">
 			<Name>HCHasProperty</Name>
 			<Path>Classes/HCHasProperty.html</Path>
 		</Node>
-		<Node id="10">
+		<Node id="11">
 			<Name>HCInvocationMatcher</Name>
 			<Path>Classes/HCInvocationMatcher.html</Path>
 		</Node>
-		<Node id="11">
+		<Node id="12">
 			<Name>HCIs</Name>
 			<Path>Classes/HCIs.html</Path>
 		</Node>
-		<Node id="12">
+		<Node id="13">
 			<Name>HCIsAnything</Name>
 			<Path>Classes/HCIsAnything.html</Path>
 		</Node>
-		<Node id="13">
+		<Node id="14">
 			<Name>HCIsCloseTo</Name>
 			<Path>Classes/HCIsCloseTo.html</Path>
 		</Node>
-		<Node id="14">
+		<Node id="15">
 			<Name>HCIsCollectionContaining</Name>
 			<Path>Classes/HCIsCollectionContaining.html</Path>
 		</Node>
-		<Node id="15">
+		<Node id="16">
 			<Name>HCIsCollectionContainingInAnyOrder</Name>
 			<Path>Classes/HCIsCollectionContainingInAnyOrder.html</Path>
 		</Node>
-		<Node id="16">
+		<Node id="17">
 			<Name>HCIsCollectionContainingInOrder</Name>
 			<Path>Classes/HCIsCollectionContainingInOrder.html</Path>
 		</Node>
-		<Node id="17">
+		<Node id="18">
 			<Name>HCIsCollectionOnlyContaining</Name>
 			<Path>Classes/HCIsCollectionOnlyContaining.html</Path>
 		</Node>
-		<Node id="18">
+		<Node id="19">
 			<Name>HCIsDictionaryContaining</Name>
 			<Path>Classes/HCIsDictionaryContaining.html</Path>
 		</Node>
-		<Node id="19">
+		<Node id="20">
 			<Name>HCIsDictionaryContainingEntries</Name>
 			<Path>Classes/HCIsDictionaryContainingEntries.html</Path>
 		</Node>
-		<Node id="20">
+		<Node id="21">
 			<Name>HCIsDictionaryContainingKey</Name>
 			<Path>Classes/HCIsDictionaryContainingKey.html</Path>
 		</Node>
-		<Node id="21">
+		<Node id="22">
 			<Name>HCIsDictionaryContainingValue</Name>
 			<Path>Classes/HCIsDictionaryContainingValue.html</Path>
 		</Node>
-		<Node id="22">
+		<Node id="23">
 			<Name>HCIsEmptyCollection</Name>
 			<Path>Classes/HCIsEmptyCollection.html</Path>
 		</Node>
-		<Node id="23">
+		<Node id="24">
 			<Name>HCIsEqual</Name>
 			<Path>Classes/HCIsEqual.html</Path>
 		</Node>
-		<Node id="24">
+		<Node id="25">
 			<Name>HCIsEqualIgnoringCase</Name>
 			<Path>Classes/HCIsEqualIgnoringCase.html</Path>
 		</Node>
-		<Node id="25">
+		<Node id="26">
 			<Name>HCIsEqualIgnoringWhiteSpace</Name>
 			<Path>Classes/HCIsEqualIgnoringWhiteSpace.html</Path>
 		</Node>
-		<Node id="26">
+		<Node id="27">
+			<Name>HCIsEqualToBool</Name>
+			<Path>Classes/HCIsEqualToBool.html</Path>
+		</Node>
+		<Node id="28">
 			<Name>HCIsIn</Name>
 			<Path>Classes/HCIsIn.html</Path>
 		</Node>
-		<Node id="27">
+		<Node id="29">
 			<Name>HCIsInstanceOf</Name>
 			<Path>Classes/HCIsInstanceOf.html</Path>
 		</Node>
-		<Node id="28">
+		<Node id="30">
 			<Name>HCIsNil</Name>
 			<Path>Classes/HCIsNil.html</Path>
 		</Node>
-		<Node id="29">
+		<Node id="31">
 			<Name>HCIsNot</Name>
 			<Path>Classes/HCIsNot.html</Path>
 		</Node>
-		<Node id="30">
+		<Node id="32">
 			<Name>HCIsSame</Name>
 			<Path>Classes/HCIsSame.html</Path>
 		</Node>
-		<Node id="31">
+		<Node id="33">
+			<Name>HCIsTypeOf</Name>
+			<Path>Classes/HCIsTypeOf.html</Path>
+		</Node>
+		<Node id="34">
 			<Name>HCOrderingComparison</Name>
 			<Path>Classes/HCOrderingComparison.html</Path>
 		</Node>
-		<Node id="32">
+		<Node id="35">
 			<Name>HCStringContains</Name>
 			<Path>Classes/HCStringContains.html</Path>
 		</Node>
-		<Node id="33">
+		<Node id="36">
 			<Name>HCStringContainsInOrder</Name>
 			<Path>Classes/HCStringContainsInOrder.html</Path>
 		</Node>
-		<Node id="34">
+		<Node id="37">
 			<Name>HCStringDescription</Name>
 			<Path>Classes/HCStringDescription.html</Path>
 		</Node>
-		<Node id="35">
+		<Node id="38">
 			<Name>HCStringEndsWith</Name>
 			<Path>Classes/HCStringEndsWith.html</Path>
 		</Node>
-		<Node id="36">
+		<Node id="39">
 			<Name>HCStringStartsWith</Name>
 			<Path>Classes/HCStringStartsWith.html</Path>
 		</Node>
-		<Node id="37">
+		<Node id="40">
 			<Name>HCSubstringMatcher</Name>
 			<Path>Classes/HCSubstringMatcher.html</Path>
 		</Node>
 		
 		
-		<Node id="38">
+		<Node id="41">
 			<Name>HCDescription</Name>
 			<Path>Protocols/HCDescription.html</Path>
 		</Node>
-		<Node id="39">
+		<Node id="42">
 			<Name>HCMatcher</Name>
 			<Path>Protocols/HCMatcher.html</Path>
 		</Node>
-		<Node id="40">
+		<Node id="43">
 			<Name>HCSelfDescribing</Name>
 			<Path>Protocols/HCSelfDescribing.html</Path>
 		</Node>

@@ -22,8 +22,8 @@
 
 + (JMImageCache *) sharedCache;
 
-- (void) imageForURL:(NSURL *)url key:(NSString *)key completionBlock:(void (^)(UIImage *image))completion;
-- (void) imageForURL:(NSURL *)url completionBlock:(void (^)(UIImage *image))completion;
+- (void) imageForURL:(NSURL *)url key:(NSString *)key completionBlock:(void (^)(UIImage *image))completion failureBlock:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError* error))failure;
+- (void) imageForURL:(NSURL *)url completionBlock:(void (^)(UIImage *image))completion failureBlock:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError* error))failure;
 
 - (UIImage *) cachedImageForKey:(NSString *)key;
 - (UIImage *) cachedImageForURL:(NSURL *)url;
@@ -37,7 +37,7 @@
 - (void) setImage:(UIImage *)i forKey:(NSString *)key;
 - (void) setImage:(UIImage *)i forURL:(NSURL *)url;
 - (void) removeImageForKey:(NSString *)key;
-- (void) removeImageForURL:(NSString *)url;
+- (void) removeImageForURL:(NSURL *)url;
 
 - (void) writeData:(NSData *)data toPath:(NSString *)path;
 - (void) performDiskWriteOperation:(NSInvocation *)invoction;

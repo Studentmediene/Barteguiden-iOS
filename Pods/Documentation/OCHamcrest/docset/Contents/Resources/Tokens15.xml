@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/HCIsCollectionContainingInAnyOrder.html">
+	<File path="Classes/HCIsCollectionContaining.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/HCIsCollectionContainingInAnyOrder</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsCollectionContaining</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsCollectionContainingInAnyOrder.h</DeclaredIn>
+			<DeclaredIn>HCIsCollectionContaining.h</DeclaredIn>
 			
 			<NodeRef refid="15"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/HCIsCollectionContainingInAnyOrder/isCollectionContainingInAnyOrder:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsCollectionContaining/isCollectionContaining:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsCollectionContainingInAnyOrder.h</DeclaredIn>			
+			<DeclaredIn>HCIsCollectionContaining.h</DeclaredIn>			
 			
-			<Declaration>+ (id)isCollectionContainingInAnyOrder:(NSMutableArray *)itemMatchers</Declaration>
+			<Declaration>+ (id)isCollectionContaining:(id&lt;HCMatcher&gt;)anElementMatcher</Declaration>
 			
 			
-			<Anchor>//api/name/isCollectionContainingInAnyOrder:</Anchor>
+			<Anchor>//api/name/isCollectionContaining:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/HCIsCollectionContainingInAnyOrder/initWithMatchers:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsCollectionContaining/initWithMatcher:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsCollectionContainingInAnyOrder.h</DeclaredIn>			
+			<DeclaredIn>HCIsCollectionContaining.h</DeclaredIn>			
 			
-			<Declaration>- (id)initWithMatchers:(NSMutableArray *)itemMatchers</Declaration>
+			<Declaration>- (id)initWithMatcher:(id&lt;HCMatcher&gt;)anElementMatcher</Declaration>
 			
 			
-			<Anchor>//api/name/initWithMatchers:</Anchor>
+			<Anchor>//api/name/initWithMatcher:</Anchor>
 		</Token>
 		
 	</File>

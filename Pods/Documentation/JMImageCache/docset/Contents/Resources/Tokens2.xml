@@ -34,6 +34,28 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIImageView/setImageWithURL:placeholder:completionBlock:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>UIImageView+JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)setImageWithURL:(NSURL *)url placeholder:(UIImage *)placeholderImage completionBlock:(void ( ^ ) ( UIImage *))completionBlock</Declaration>
+			
+			
+			<Anchor>//api/name/setImageWithURL:placeholder:completionBlock:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIImageView/setImageWithURL:placeholder:completionBlock:failureBlock:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>UIImageView+JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)setImageWithURL:(NSURL *)url placeholder:(UIImage *)placeholderImage completionBlock:(void ( ^ ) ( UIImage *))completionBlock failureBlock:(void ( ^ ) ( NSURLRequest *request , NSURLResponse *response , NSError *error ))failure</Declaration>
+			
+			
+			<Anchor>//api/name/setImageWithURL:placeholder:completionBlock:failureBlock:</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/intfm/UIImageView/setImageWithURL:key:placeholder:</TokenIdentifier>
 			<Abstract></Abstract>
 			<DeclaredIn>UIImageView+JMImageCache.h</DeclaredIn>			
@@ -42,6 +64,28 @@
 			
 			
 			<Anchor>//api/name/setImageWithURL:key:placeholder:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIImageView/setImageWithURL:key:placeholder:completionBlock:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>UIImageView+JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)setImageWithURL:(NSURL *)url key:(NSString *)key placeholder:(UIImage *)placeholderImage completionBlock:(void ( ^ ) ( UIImage *image ))completionBlock</Declaration>
+			
+			
+			<Anchor>//api/name/setImageWithURL:key:placeholder:completionBlock:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIImageView/setImageWithURL:key:placeholder:completionBlock:failureBlock:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>UIImageView+JMImageCache.h</DeclaredIn>			
+			
+			<Declaration>- (void)setImageWithURL:(NSURL *)url key:(NSString *)key placeholder:(UIImage *)placeholderImage completionBlock:(void ( ^ ) ( UIImage *image ))completionBlock failureBlock:(void ( ^ ) ( NSURLRequest *request , NSURLResponse *response , NSError *error ))failure</Declaration>
+			
+			
+			<Anchor>//api/name/setImageWithURL:key:placeholder:completionBlock:failureBlock:</Anchor>
 		</Token>
 		
 	</File>

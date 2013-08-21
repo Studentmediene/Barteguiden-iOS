@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/HCIsDictionaryContainingEntries.html">
+	<File path="Classes/HCIsDictionaryContaining.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/HCIsDictionaryContainingEntries</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsDictionaryContaining</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsDictionaryContainingEntries.h</DeclaredIn>
+			<DeclaredIn>HCIsDictionaryContaining.h</DeclaredIn>
 			
 			<NodeRef refid="19"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/HCIsDictionaryContainingEntries/isDictionaryContainingKeys:valueMatchers:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsDictionaryContaining/isDictionaryContainingKey:value:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsDictionaryContainingEntries.h</DeclaredIn>			
+			<DeclaredIn>HCIsDictionaryContaining.h</DeclaredIn>			
 			
-			<Declaration>+ (id)isDictionaryContainingKeys:(NSArray *)theKeys valueMatchers:(NSArray *)theValueMatchers</Declaration>
+			<Declaration>+ (id)isDictionaryContainingKey:(id&lt;HCMatcher&gt;)aKeyMatcher value:(id&lt;HCMatcher&gt;)aValueMatcher</Declaration>
 			
 			
-			<Anchor>//api/name/isDictionaryContainingKeys:valueMatchers:</Anchor>
+			<Anchor>//api/name/isDictionaryContainingKey:value:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/HCIsDictionaryContainingEntries/initWithKeys:valueMatchers:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsDictionaryContaining/initWithKeyMatcher:valueMatcher:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsDictionaryContainingEntries.h</DeclaredIn>			
+			<DeclaredIn>HCIsDictionaryContaining.h</DeclaredIn>			
 			
-			<Declaration>- (id)initWithKeys:(NSArray *)theKeys valueMatchers:(NSArray *)theValueMatchers</Declaration>
+			<Declaration>- (id)initWithKeyMatcher:(id&lt;HCMatcher&gt;)aKeyMatcher valueMatcher:(id&lt;HCMatcher&gt;)aValueMatcher</Declaration>
 			
 			
-			<Anchor>//api/name/initWithKeys:valueMatchers:</Anchor>
+			<Anchor>//api/name/initWithKeyMatcher:valueMatcher:</Anchor>
 		</Token>
 		
 	</File>

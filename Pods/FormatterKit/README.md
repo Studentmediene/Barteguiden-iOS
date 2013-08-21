@@ -12,6 +12,26 @@ In short, use this library if you're manually formatting any of the following (w
 * __Units of Information__: Humanized representations of quantities of bits and bytes *(e.g. "2.7 MB")*
 * __URL Requests__: Print out `cURL` or `Wget` command equivalents for any `NSURLRequest` *(e.g. `curl -X POST "https://www.example.com/" -H "Accept: text/html"`)*
 
+> FormatterKit, along with [TransformerKit](https://github.com/mattt/TransformerKit) & [InflectorKit](https://github.com/mattt/InflectorKit) provide well-designed APIs for manipulating user-facing content.
+
+## Localizations
+
+FormatterKit comes fully internationalized, with `.strings` files for the following locales:
+
+- Danish (`da`)
+- Dutch (`nl`)
+- English (`en`)
+- German (`de`)
+- Greek (`el`)
+- French (`fr`)
+- Indonesian (`id`)
+- Italian (`it`)
+- Norwegian Bokmål (`nb`)
+- Norwegian Nynorsk (`nn`)
+- Spanish (`es`)
+
+If you'd like to contribue an additional localization, feel free to [open a new pull request](https://github.com/mattt/FormatterKit/pulls).
+
 ## Demo
 
 Build and run the `FormatterKit Example` project in Xcode to see an inventory of the available `FormatterKit` components.
@@ -92,9 +112,11 @@ NSLog(@"%@", [locationFormatter stringFromDistanceAndBearingFromLocation:pittsbu
 
 #### Speed in Imperial Units with Bearing in Degrees
 
+``` objective-c
 [locationFormatter setBearingStyle:TTTBearingNumericStyle];
 NSLog(@"%@ at %@", [locationFormatter stringFromSpeed:25],[locationFormatter stringFromBearingFromLocation:pittsburgh toLocation:austin]);
 // "25 mph at 310°"
+```
 
 #### Coordinates
 

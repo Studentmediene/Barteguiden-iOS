@@ -36,11 +36,17 @@
 	
 	<option value="//api/name/approximateQualifierFormat">&nbsp;&nbsp;&nbsp;&nbsp;approximateQualifierFormat</option>
 	
+	<option value="//api/name/calendar">&nbsp;&nbsp;&nbsp;&nbsp;calendar</option>
+	
 	<option value="//api/name/deicticExpressionFormat">&nbsp;&nbsp;&nbsp;&nbsp;deicticExpressionFormat</option>
 	
 	<option value="//api/name/futureDeicticExpression">&nbsp;&nbsp;&nbsp;&nbsp;futureDeicticExpression</option>
 	
+	<option value="//api/name/leastSignificantUnit">&nbsp;&nbsp;&nbsp;&nbsp;leastSignificantUnit</option>
+	
 	<option value="//api/name/locale">&nbsp;&nbsp;&nbsp;&nbsp;locale</option>
+	
+	<option value="//api/name/numberOfSignificantUnits">&nbsp;&nbsp;&nbsp;&nbsp;numberOfSignificantUnits</option>
 	
 	<option value="//api/name/pastDeicticExpression">&nbsp;&nbsp;&nbsp;&nbsp;pastDeicticExpression</option>
 	
@@ -81,6 +87,16 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Configuring Deictic Expressions">Configuring Deictic Expressions</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Configuring Approximate Qualifiers">Configuring Approximate Qualifiers</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Configuring Significant Units">Configuring Significant Units</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Configuring Calendar Unit Abbreviations">Configuring Calendar Unit Abbreviations</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Converting Objects">Converting Objects</a></span></li>
+	
 </ul></li>
 
 
@@ -91,11 +107,17 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/approximateQualifierFormat">approximateQualifierFormat</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/calendar">calendar</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deicticExpressionFormat">deicticExpressionFormat</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/futureDeicticExpression">futureDeicticExpression</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/leastSignificantUnit">leastSignificantUnit</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/locale">locale</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberOfSignificantUnits">numberOfSignificantUnits</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pastDeicticExpression">pastDeicticExpression</a></span></li>
 	
@@ -173,7 +195,7 @@
 						
 						
 						
-						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
 
 						<ul class="task-list">
 							<li>
@@ -184,6 +206,21 @@
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/calendar">&nbsp;&nbsp;calendar</a></code>
+		<span class="tooltip"><p>Specifies the <a href="#//api/name/calendar">calendar</a> used in date calculation. Defaults to the current system <a href="#//api/name/calendar">calendar</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Configuring Deictic Expressions" name="task_Configuring Deictic Expressions"></a>
+						<h3 class="subsubtitle task-title">Configuring Deictic Expressions</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pastDeicticExpression">&nbsp;&nbsp;pastDeicticExpression</a></code>
 		<span class="tooltip"><p>Specifies the localized string used to express the past deictic expression. &ldquo;ago&rdquo; by default.</p></span>
@@ -220,6 +257,21 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/usesIdiomaticDeicticExpressions">&nbsp;&nbsp;usesIdiomaticDeicticExpressions</a></code>
+		<span class="tooltip"><p>Specifies whether to use idiomatic deictic expressions when available, such as &ldquo;last week&rdquo; instead of &ldquo;1 week ago&rdquo;. Defaults to <code>NO</code>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Configuring Approximate Qualifiers" name="task_Configuring Approximate Qualifiers"></a>
+						<h3 class="subsubtitle task-title">Configuring Approximate Qualifiers</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
 		<code><a href="#//api/name/approximateQualifierFormat">&nbsp;&nbsp;approximateQualifierFormat</a></code>
 		<span class="tooltip"><p>Specifies the localized string used to qualify a time interval as being an approximate time. &ldquo;about&rdquo; by default.</p></span>
 	</span>
@@ -232,21 +284,52 @@
 	</span>
 	<span class="task-item-suffix">property</span>
 	
+</li>
+						</ul>
+						
+						
+						<a title="Configuring Significant Units" name="task_Configuring Significant Units"></a>
+						<h3 class="subsubtitle task-title">Configuring Significant Units</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/numberOfSignificantUnits">&nbsp;&nbsp;numberOfSignificantUnits</a></code>
+		<span class="tooltip"><p>Specifies the number of units that should be displayed before approximating. <code>0</code> to show all units. <code>1</code> by default.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
 </li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/leastSignificantUnit">&nbsp;&nbsp;leastSignificantUnit</a></code>
+		<span class="tooltip"><p>Specifies the least significant unit that should be displayed when not approximating. Defaults to <code>NSCalendarUnitSeconds</code>. Must be any of year through to second inclusive.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Configuring Calendar Unit Abbreviations" name="task_Configuring Calendar Unit Abbreviations"></a>
+						<h3 class="subsubtitle task-title">Configuring Calendar Unit Abbreviations</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/usesAbbreviatedCalendarUnits">&nbsp;&nbsp;usesAbbreviatedCalendarUnits</a></code>
-		<span class="tooltip"><p>Specifies whether to use abbreviated calendar units to describe time intervals, for instance &ldquo;wks&rdquo; instead of &ldquo;weeks&rdquo; in English. Defaults to <code>NO</code>.</p></span>
+		<span class="tooltip"><p>Specifies whether to use abbreviated <a href="#//api/name/calendar">calendar</a> units to describe time intervals, for instance &ldquo;wks&rdquo; instead of &ldquo;weeks&rdquo; in English. Defaults to <code>NO</code>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/usesIdiomaticDeicticExpressions">&nbsp;&nbsp;usesIdiomaticDeicticExpressions</a></code>
-		<span class="tooltip"><p>Specifies whether to use idiomatic deictic expressions when available, such as &ldquo;last week&rdquo; instead of &ldquo;1 week ago&rdquo;. Defaults to <code>NO</code>.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Converting Objects" name="task_Converting Objects"></a>
+						<h3 class="subsubtitle task-title">Converting Objects</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/stringForTimeInterval:">&ndash;&nbsp;stringForTimeInterval:</a></code>
 		<span class="tooltip"><p>Returns a string representation of a time interval formatted using the receiverâs current setting</p></span>
@@ -294,6 +377,43 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Specifies the localized string used to qualify a time interval as being an approximate time. &ldquo;about&rdquo; by default.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTTimeIntervalFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/calendar" title="calendar"></a>
+	<h3 class="subsubtitle method-title">calendar</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the <a href="#//api/name/calendar">calendar</a> used in date calculation. Defaults to the current system <a href="#//api/name/calendar">calendar</a>.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSCalendar *calendar</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the <a href="#//api/name/calendar">calendar</a> used in date calculation. Defaults to the current system <a href="#//api/name/calendar">calendar</a>.</p>
 	</div>
 	
 	
@@ -385,6 +505,43 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/leastSignificantUnit" title="leastSignificantUnit"></a>
+	<h3 class="subsubtitle method-title">leastSignificantUnit</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the least significant unit that should be displayed when not approximating. Defaults to <code>NSCalendarUnitSeconds</code>. Must be any of year through to second inclusive.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSCalendarUnit leastSignificantUnit</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the least significant unit that should be displayed when not approximating. Defaults to <code>NSCalendarUnitSeconds</code>. Must be any of year through to second inclusive.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTTimeIntervalFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/locale" title="locale"></a>
 	<h3 class="subsubtitle method-title">locale</h3>
 	
@@ -405,6 +562,43 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Specifies the <a href="#//api/name/locale">locale</a> used to format strings. Defaults to the current system <a href="#//api/name/locale">locale</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">TTTTimeIntervalFormatter.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/numberOfSignificantUnits" title="numberOfSignificantUnits"></a>
+	<h3 class="subsubtitle method-title">numberOfSignificantUnits</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Specifies the number of units that should be displayed before approximating. <code>0</code> to show all units. <code>1</code> by default.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSUInteger numberOfSignificantUnits</code></div>
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Specifies the number of units that should be displayed before approximating. <code>0</code> to show all units. <code>1</code> by default.</p>
 	</div>
 	
 	
@@ -539,7 +733,7 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Specifies whether to use abbreviated calendar units to describe time intervals, for instance &ldquo;wks&rdquo; instead of &ldquo;weeks&rdquo; in English. Defaults to <code>NO</code>.</p>
+		<p>Specifies whether to use abbreviated <a href="#//api/name/calendar">calendar</a> units to describe time intervals, for instance &ldquo;wks&rdquo; instead of &ldquo;weeks&rdquo; in English. Defaults to <code>NO</code>.</p>
 	</div>		
 	
 	
@@ -552,7 +746,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Specifies whether to use abbreviated calendar units to describe time intervals, for instance &ldquo;wks&rdquo; instead of &ldquo;weeks&rdquo; in English. Defaults to <code>NO</code>.</p>
+		<p>Specifies whether to use abbreviated <a href="#//api/name/calendar">calendar</a> units to describe time intervals, for instance &ldquo;wks&rdquo; instead of &ldquo;weeks&rdquo; in English. Defaults to <code>NO</code>.</p>
 	</div>
 	
 	
@@ -767,7 +961,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Mattt Thompson. All rights reserved. (Last updated: 2013-05-06)</span><br />
+						<p><span class="copyright">&copy; 2013 Mattt Thompson. All rights reserved. (Last updated: 2013-08-21)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.4 (build 703)</a>.</span></p>
 						

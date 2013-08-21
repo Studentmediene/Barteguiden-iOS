@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/HCHasCount.html">
+	<File path="Classes/HCDescribedAs.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/HCHasCount</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/HCDescribedAs</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCHasCount.h</DeclaredIn>
+			<DeclaredIn>HCDescribedAs.h</DeclaredIn>
 			
 			<NodeRef refid="7"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/HCHasCount/hasCount:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/HCDescribedAs/describedAs:forMatcher:overValues:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCHasCount.h</DeclaredIn>			
+			<DeclaredIn>HCDescribedAs.h</DeclaredIn>			
 			
-			<Declaration>+ (id)hasCount:(id&lt;HCMatcher&gt;)matcher</Declaration>
+			<Declaration>+ (id)describedAs:(NSString *)description forMatcher:(id&lt;HCMatcher&gt;)aMatcher overValues:(NSArray *)templateValues</Declaration>
 			
 			
-			<Anchor>//api/name/hasCount:</Anchor>
+			<Anchor>//api/name/describedAs:forMatcher:overValues:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/HCHasCount/initWithCount:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/HCDescribedAs/initWithDescription:forMatcher:overValues:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCHasCount.h</DeclaredIn>			
+			<DeclaredIn>HCDescribedAs.h</DeclaredIn>			
 			
-			<Declaration>- (id)initWithCount:(id&lt;HCMatcher&gt;)matcher</Declaration>
+			<Declaration>- (id)initWithDescription:(NSString *)description forMatcher:(id&lt;HCMatcher&gt;)aMatcher overValues:(NSArray *)templateValues</Declaration>
 			
 			
-			<Anchor>//api/name/initWithCount:</Anchor>
+			<Anchor>//api/name/initWithDescription:forMatcher:overValues:</Anchor>
 		</Token>
 		
 	</File>

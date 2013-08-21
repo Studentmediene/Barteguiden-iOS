@@ -1,36 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/HCConformsToProtocol.html">
+	<File path="Classes/HCClassMatcher.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/HCConformsToProtocol</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/HCClassMatcher</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCConformsToProtocol.h</DeclaredIn>
+			<DeclaredIn>HCClassMatcher.h</DeclaredIn>
 			
 			<NodeRef refid="5"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/HCConformsToProtocol/conformsToProtocol:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/HCClassMatcher/initWithType:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCConformsToProtocol.h</DeclaredIn>			
+			<DeclaredIn>HCClassMatcher.h</DeclaredIn>			
 			
-			<Declaration>+ (id)conformsToProtocol:(Protocol *)protocol</Declaration>
-			
-			
-			<Anchor>//api/name/conformsToProtocol:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/HCConformsToProtocol/initWithProtocol:</TokenIdentifier>
-			<Abstract></Abstract>
-			<DeclaredIn>HCConformsToProtocol.h</DeclaredIn>			
-			
-			<Declaration>- (id)initWithProtocol:(Protocol *)protocol</Declaration>
+			<Declaration>- (id)initWithType:(Class)type</Declaration>
 			
 			
-			<Anchor>//api/name/initWithProtocol:</Anchor>
+			<Anchor>//api/name/initWithType:</Anchor>
 		</Token>
 		
 	</File>

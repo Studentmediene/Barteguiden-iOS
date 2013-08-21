@@ -1,36 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/HCIsCloseTo.html">
+	<File path="Classes/HCIsAnything.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/HCIsCloseTo</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsAnything</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsCloseTo.h</DeclaredIn>
+			<DeclaredIn>HCIsAnything.h</DeclaredIn>
 			
 			<NodeRef refid="13"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/HCIsCloseTo/isCloseTo:within:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsAnything/isAnything</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsCloseTo.h</DeclaredIn>			
+			<DeclaredIn>HCIsAnything.h</DeclaredIn>			
 			
-			<Declaration>+ (id)isCloseTo:(double)aValue within:(double)aDelta</Declaration>
+			<Declaration>+ (id)isAnything</Declaration>
 			
 			
-			<Anchor>//api/name/isCloseTo:within:</Anchor>
+			<Anchor>//api/name/isAnything</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/HCIsCloseTo/initWithValue:delta:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsAnything/isAnythingWithDescription:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsCloseTo.h</DeclaredIn>			
+			<DeclaredIn>HCIsAnything.h</DeclaredIn>			
 			
-			<Declaration>- (id)initWithValue:(double)aValue delta:(double)aDelta</Declaration>
+			<Declaration>+ (id)isAnythingWithDescription:(NSString *)aDescription</Declaration>
 			
 			
-			<Anchor>//api/name/initWithValue:delta:</Anchor>
+			<Anchor>//api/name/isAnythingWithDescription:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsAnything/init</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsAnything.h</DeclaredIn>			
+			
+			<Declaration>- (id)init</Declaration>
+			
+			
+			<Anchor>//api/name/init</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsAnything/initWithDescription:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>HCIsAnything.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithDescription:(NSString *)aDescription</Declaration>
+			
+			
+			<Anchor>//api/name/initWithDescription:</Anchor>
 		</Token>
 		
 	</File>

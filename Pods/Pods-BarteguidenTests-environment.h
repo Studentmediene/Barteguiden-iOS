@@ -8,8 +8,8 @@
 
 // OCHamcrest
 #define COCOAPODS_POD_AVAILABLE_OCHamcrest
-#define COCOAPODS_VERSION_MAJOR_OCHamcrest 1
-#define COCOAPODS_VERSION_MINOR_OCHamcrest 9
+#define COCOAPODS_VERSION_MAJOR_OCHamcrest 2
+#define COCOAPODS_VERSION_MINOR_OCHamcrest 1
 #define COCOAPODS_VERSION_PATCH_OCHamcrest 0
 
 // OCMockito

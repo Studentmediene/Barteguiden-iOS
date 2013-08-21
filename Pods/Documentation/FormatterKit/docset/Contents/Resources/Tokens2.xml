@@ -12,6 +12,112 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/arrayStyle</TokenIdentifier>
+			<Abstract>Specifies the style used to format arrays. TTTArrayFormatterSentenceStyle by default.</Abstract>
+			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) TTTArrayFormatterStyle arrayStyle</Declaration>
+			
+			
+			<Anchor>//api/name/arrayStyle</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/separator</TokenIdentifier>
+			<Abstract>Specifies the string used to separate delimiters from the next component. " " by default.</Abstract>
+			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSString *separator</Declaration>
+			
+			
+			<Anchor>//api/name/separator</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/delimiter</TokenIdentifier>
+			<Abstract>Specifies the string used to delimit the components in the array. "," by default.</Abstract>
+			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSString *delimiter</Declaration>
+			
+			
+			<Anchor>//api/name/delimiter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/usesSerialDelimiter</TokenIdentifier>
+			<Abstract>Specifies whether to use a delimiter between the conjunction when applied with the TTTArrayFormatterSentenceStyle. YES by default.</Abstract>
+			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL usesSerialDelimiter</Declaration>
+			
+			
+			<Anchor>//api/name/usesSerialDelimiter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/conjunction</TokenIdentifier>
+			<Abstract>Specifies the localized string used to join the penultimate and last components together when applied with the TTTArrayFormatterSentenceStyle. "and" by default.</Abstract>
+			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/usesAbbreviatedConjunction</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, strong) NSString *conjunction</Declaration>
+			
+			
+			<Anchor>//api/name/conjunction</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/abbreviatedConjunction</TokenIdentifier>
+			<Abstract>Specifies the abbreviated localized string used to join the penultimate and last components together when applied with the TTTArrayFormatterSentenceStyle. "&" by default.</Abstract>
+			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/usesAbbreviatedConjunction</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, strong) NSString *abbreviatedConjunction</Declaration>
+			
+			
+			<Anchor>//api/name/abbreviatedConjunction</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/usesAbbreviatedConjunction</TokenIdentifier>
+			<Abstract>Specifies whether to use the standard or abbreviated conjunction when applied with the TTTArrayFormatterSentenceStyle. NO by default.</Abstract>
+			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL usesAbbreviatedConjunction</Declaration>
+			
+			
+			<Anchor>//api/name/usesAbbreviatedConjunction</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/TTTArrayFormatter/localizedStringFromArray:arrayStyle:</TokenIdentifier>
+			<Abstract>Returns a string representation of a given array formatted using the default settings in the specified array format style.</Abstract>
+			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)localizedStringFromArray:(NSArray *)anArray arrayStyle:(TTTArrayFormatterStyle)style</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>anArray</Name>
+					<Abstract>The array to be formatted.</Abstract>
+				</Parameter><Parameter>
+					<Name>style</Name>
+					<Abstract>The style used to format the array.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/localizedStringFromArray:arrayStyle:</Anchor>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/TTTArrayFormatter/stringFromArray:</TokenIdentifier>
 			<Abstract>Returns a string representation of a given array formatted using the receiver’s current settings.</Abstract>
 			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
@@ -60,112 +166,6 @@
 			</Parameters>
 			
 			<Anchor>//api/name/arrayFromString:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/TTTArrayFormatter/localizedStringFromArray:arrayStyle:</TokenIdentifier>
-			<Abstract>Returns a string representation of a given array formatted using the default settings in the specified array format style.</Abstract>
-			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
-			
-			<Declaration>+ (NSString *)localizedStringFromArray:(NSArray *)anArray arrayStyle:(TTTArrayFormatterStyle)style</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>anArray</Name>
-					<Abstract>The array to be formatted.</Abstract>
-				</Parameter><Parameter>
-					<Name>style</Name>
-					<Abstract>The style used to format the array.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/localizedStringFromArray:arrayStyle:</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/arrayStyle</TokenIdentifier>
-			<Abstract>Specifies the style used to format arrays. TTTArrayFormatterSentenceStyle by default.</Abstract>
-			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, assign) TTTArrayFormatterStyle arrayStyle</Declaration>
-			
-			
-			<Anchor>//api/name/arrayStyle</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/delimiter</TokenIdentifier>
-			<Abstract>Specifies the string used to delimit the components in the array. "," by default.</Abstract>
-			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, strong) NSString *delimiter</Declaration>
-			
-			
-			<Anchor>//api/name/delimiter</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/separator</TokenIdentifier>
-			<Abstract>Specifies the string used to separate delimiters from the next component. " " by default.</Abstract>
-			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, strong) NSString *separator</Declaration>
-			
-			
-			<Anchor>//api/name/separator</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/conjunction</TokenIdentifier>
-			<Abstract>Specifies the localized string used to join the penultimate and last components together when applied with the TTTArrayFormatterSentenceStyle. "and" by default.</Abstract>
-			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/usesAbbreviatedConjunction</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>@property (nonatomic, strong) NSString *conjunction</Declaration>
-			
-			
-			<Anchor>//api/name/conjunction</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/abbreviatedConjunction</TokenIdentifier>
-			<Abstract>Specifies the abbreviated localized string used to join the penultimate and last components together when applied with the TTTArrayFormatterSentenceStyle. "&" by default.</Abstract>
-			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/usesAbbreviatedConjunction</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>@property (nonatomic, strong) NSString *abbreviatedConjunction</Declaration>
-			
-			
-			<Anchor>//api/name/abbreviatedConjunction</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/usesAbbreviatedConjunction</TokenIdentifier>
-			<Abstract>Specifies whether to use the standard or abbreviated conjunction when applied with the TTTArrayFormatterSentenceStyle. NO by default.</Abstract>
-			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, assign) BOOL usesAbbreviatedConjunction</Declaration>
-			
-			
-			<Anchor>//api/name/usesAbbreviatedConjunction</Anchor>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/TTTArrayFormatter/usesSerialDelimiter</TokenIdentifier>
-			<Abstract>Specifies whether to use a delimiter between the conjunction when applied with the TTTArrayFormatterSentenceStyle. YES by default.</Abstract>
-			<DeclaredIn>TTTArrayFormatter.h</DeclaredIn>			
-			
-			<Declaration>@property (nonatomic, assign) BOOL usesSerialDelimiter</Declaration>
-			
-			
-			<Anchor>//api/name/usesSerialDelimiter</Anchor>
 		</Token>
 		
 	</File>

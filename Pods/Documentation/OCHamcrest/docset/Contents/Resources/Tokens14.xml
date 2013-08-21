@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/HCIsCollectionContaining.html">
+	<File path="Classes/HCIsCloseTo.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/HCIsCollectionContaining</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/HCIsCloseTo</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsCollectionContaining.h</DeclaredIn>
+			<DeclaredIn>HCIsCloseTo.h</DeclaredIn>
 			
 			<NodeRef refid="14"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/HCIsCollectionContaining/isCollectionContaining:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/HCIsCloseTo/isCloseTo:within:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsCollectionContaining.h</DeclaredIn>			
+			<DeclaredIn>HCIsCloseTo.h</DeclaredIn>			
 			
-			<Declaration>+ (id)isCollectionContaining:(id&lt;HCMatcher&gt;)anElementMatcher</Declaration>
+			<Declaration>+ (id)isCloseTo:(double)aValue within:(double)aDelta</Declaration>
 			
 			
-			<Anchor>//api/name/isCollectionContaining:</Anchor>
+			<Anchor>//api/name/isCloseTo:within:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/HCIsCollectionContaining/initWithMatcher:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/HCIsCloseTo/initWithValue:delta:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCIsCollectionContaining.h</DeclaredIn>			
+			<DeclaredIn>HCIsCloseTo.h</DeclaredIn>			
 			
-			<Declaration>- (id)initWithMatcher:(id&lt;HCMatcher&gt;)anElementMatcher</Declaration>
+			<Declaration>- (id)initWithValue:(double)aValue delta:(double)aDelta</Declaration>
 			
 			
-			<Anchor>//api/name/initWithMatcher:</Anchor>
+			<Anchor>//api/name/initWithValue:delta:</Anchor>
 		</Token>
 		
 	</File>

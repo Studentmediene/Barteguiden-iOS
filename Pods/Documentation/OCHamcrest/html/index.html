@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>OCHamcrest 1.9 Reference</title>
+		<title>OCHamcrest 2.1.0 Reference</title>
 		<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/styles.css" />
 		<meta name="generator" content="appledoc 2.0.4 (build 703)" />
@@ -14,7 +14,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">OCHamcrest 1.9 Reference</h1>
+						<h1 class="title title-header">OCHamcrest 2.1.0 Reference</h1>
 					</div>		
 				</div>
 				<div id="container">
@@ -37,15 +37,19 @@
 they&rsquo;re most commonly used for writing unit tests that are expressive and
 flexible.</p>
 
-<p>OCHamcrest can be used for either Mac and iOS development with:</p>
+<p>OCHamcrest is used for both iOS or OS X development, and is compatible with:</p>
 
-<p>* OCUnit (SenTestingKit) built in to Xcode</p>
+<p>* XCTest</p>
 
-<h1>!~** Google Toolbox for Mac (GTM)</h1>
+<h1>!~** OCUnit (SenTestingKit)</h1>
+
+<p>* Kiwi</p>
+
+<h1>!~** Cedar</h1>
 
 <p>* GHUnit</p>
 
-<h1>!~** Cedar BDD framework</h1>
+<h1>!~** Google Toolbox for Mac (GTM)</h1>
 
 <p>* OCMock</p>
 
@@ -55,15 +59,35 @@ flexible.</p>
 
 <p><strong>Building:</strong></p>
 
-<p>If you want to build OCHamcrest yourself, cd to the Source folder, then</p>
+<p>If you want to build OCHamcrest yourself, clone the repo, then</p>
 
-<pre><code>$ ./MakeDistribution.sh
+<p><code>sh
+$ git submodule update --init
+$ cd Source
+$ ./MakeDistribution.sh
+</code></p>
+
+<p>If you have doxygen installed somewhere other than the Applications folder &mdash;
+in /usr/local/bin, for example &mdash; use this as the build step:</p>
+
+<p><code>sh
+$ DOXYGEN=/usr/local/bin/doxygen ./MakeDistribution.sh
+</code></p>
+
+<p>Or just use the pre-built release available at
+<a href="http://qualitycoding.org/resources/">QualityCoding.org</a>.</p>
+
+<p><strong>iOS Project Setup:</strong></p>
+
+<p>Add OCHamcrestIOS.framework to your project.</p>
+
+<p>Add:</p>
+
+<pre><code>#define HC_SHORTHAND
+#import &lt;OCHamcrestIOS/OCHamcrestIOS.h&gt;
 </code></pre>
 
-<p>Or just use the pre-built release available in
-<a href="https://github.com/hamcrest/OCHamcrest/downloads">Downloads</a>.</p>
-
-<p><strong>Mac Project Setup:</strong></p>
+<p><strong>OS X Project Setup:</strong></p>
 
 <p>Add OCHamcrest.framework to your project.</p>
 
@@ -84,41 +108,37 @@ the Run Script phase that executes tests.</p>
 
 <p>double-check your Copy Files phase.</p>
 
-<p><strong>iOS Project Setup:</strong></p>
-
-<p>Add OCHamcrestIOS.framework to your project.</p>
-
-<p>Add:</p>
-
-<pre><code>#define HC_SHORTHAND
-#import &lt;OCHamcrestIOS/OCHamcrestIOS.h&gt;
-</code></pre>
-
 <h1>My first OCHamcrest test</h1>
 
 <p>We&rsquo;ll start by writing a very simple Xcode unit test, but instead of using
 OCUnit&rsquo;s <code>STAssertEqualObjects</code> function, we&rsquo;ll use OCHamcrest&rsquo;s
 <code>assertThat</code> construct and a predefined matcher:</p>
 
-<pre><code>#import &lt;SenTestingKit/SenTestingKit.h&gt;
+<p>```obj-c</p>
 
-#define HC_SHORTHAND
-#import &lt;OCHamcrest/OCHamcrest.h&gt;
+<h1>import &lt;SenTestingKit/SenTestingKit.h></h1>
 
-@interface BiscuitTest : SenTestCase
-@end
+<h1>define HC_SHORTHAND</h1>
 
-@implementation BiscuitTest
+<h1>import &lt;OCHamcrest/OCHamcrest.h></h1>
 
-- (void) testEquals
+<p>@interface BiscuitTest : SenTestCase
+@end</p>
+
+<p>@implementation BiscuitTest</p>
+
+<ul>
+<li>(void)testEquals
 {
-    Biscuit* theBiscuit = [Biscuit biscuitNamed:@"Ginger"];
-    Biscuit* myBiscuit = [Biscuit biscuitNamed:@"Ginger"];
-    assertThat(theBiscuit, equalTo(myBiscuit));
-}
+  Biscuit<em> theBiscuit = [Biscuit biscuitNamed:@&ldquo;Ginger&rdquo;];
+  Biscuit</em> myBiscuit = [Biscuit biscuitNamed:@&ldquo;Ginger&rdquo;];
+  assertThat(theBiscuit, equalTo(myBiscuit));
+}</li>
+</ul>
 
-@end
-</code></pre>
+
+<p>@end
+```</p>
 
 <p>The <code>assertThat</code> function is a stylized sentence for making a test assertion.
 In this example, the subject of the assertion is the object <code>theBiscuit</code>,
@@ -146,6 +166,7 @@ instead of writing <code>HC_assertThat</code>, simply write <code>assertThat</co
 <li><code>hasDescription</code> &ndash; match object&rsquo;s <code>-description</code></li>
 <li><code>hasProperty</code> &ndash; match return value of method with given name</li>
 <li><code>instanceOf</code> &ndash; match object type</li>
+<li><code>isA</code> &ndash; match object type precisely, no subclasses</li>
 <li><code>nilValue</code>, <code>notNilValue</code> &ndash; match <code>nil</code>, or not <code>nil</code></li>
 <li><code>sameInstance</code> &ndash; match same object</li>
 </ul>
@@ -187,7 +208,6 @@ care about a particular value)</li>
 <ul>
 <li><code>contains</code> &ndash; exactly match the entire collection</li>
 <li><code>containsInAnyOrder</code> &ndash; match the entire collection, but in any order</li>
-<li><code>empty</code> &ndash; match empty collection</li>
 <li><code>hasCount</code> &ndash; match number of elements against another matcher</li>
 <li><code>hasCountOf</code> &ndash; match collection with given number of elements</li>
 <li><code>hasEntries</code> &ndash; match dictionary with list of key-value pairs</li>
@@ -196,7 +216,8 @@ care about a particular value)</li>
 <li><code>hasItems</code> &ndash; match if all given items appear in the collection, in any order</li>
 <li><code>hasKey</code> &ndash; match dictionary with a key</li>
 <li><code>hasValue</code> &ndash; match dictionary with a value</li>
-<li><code>onlyContains</code> &ndash; match if collections&rsquo;s items appear in given list</li>
+<li><code>isEmpty</code> &ndash; match empty collection</li>
+<li><code>onlyContains</code> &ndash; match if collection&rsquo;s items appear in given list</li>
 </ul>
 </li>
 <li><p>Decorator</p>
@@ -220,10 +241,11 @@ every item is a string ending with period.</p>
 <code>is</code> matcher is a wrapper that doesn&rsquo;t add any extra behavior to the
 underlying matcher. The following assertions are all equivalent:</p>
 
-<pre><code>assertThat(theBiscuit, equalTo(myBiscuit));
+<p><code>obj-c
+assertThat(theBiscuit, equalTo(myBiscuit));
 assertThat(theBiscuit, is(equalTo(myBiscuit)));
 assertThat(theBiscuit, is(myBiscuit));
-</code></pre>
+</code></p>
 
 <p>The last form is allowed since <code>is</code> wraps non-matcher arguments with
 <code>equalTo</code>. Other matchers that take matchers as arguments provide similar
@@ -241,77 +263,103 @@ eliminate code duplication and make your tests more readable!</p>
 <p>Let&rsquo;s write our own matcher for testing if a calendar date falls on a Saturday.
 This is the test we want to write:</p>
 
-<pre><code>- (void) testDateIsOnASaturday
-{
-    NSCalendarDate* date = [NSCalendarDate dateWithString:@"26 Apr 2008" calendarFormat:@"%d %b %Y"];
-    assertThat(date, is(onASaturday()))
-}
+<p>```obj-c
+&ndash; (void)testDateIsOnASaturday
+{</p>
+
+<pre><code>NSCalendarDate* date = [NSCalendarDate dateWithString:@"26 Apr 2008" calendarFormat:@"%d %b %Y"];
+assertThat(date, is(onASaturday()))
 </code></pre>
+
+<p>}
+```</p>
 
 <p>Here&rsquo;s the interface:</p>
 
-<pre><code>#import &lt;OCHamcrest/HCBaseMatcher.h&gt;
-#import &lt;objc/objc-api.h&gt;
+<p>```obj-c</p>
 
-@interface IsGivenDayOfWeek : HCBaseMatcher
-{
-    NSInteger day;      // 0 indicates Sunday
-}
+<h1>import &lt;OCHamcrest/<a href="Classes/HCBaseMatcher.html"><code>HCBaseMatcher</code></a>.h></h1>
 
-+ (id) isGivenDayOfWeek:(NSInteger)dayOfWeek;
-- (id) initWithDay:(NSInteger)dayOfWeek;
+<h1>import &lt;objc/objc-api.h></h1>
 
-@end
+<p>@interface IsGivenDayOfWeek : <a href="Classes/HCBaseMatcher.html"><code>HCBaseMatcher</code></a>
+{</p>
 
-OBJC_EXPORT id&lt;HCMatcher&gt; onASaturday();
+<pre><code>NSInteger day;      // Sunday is 0, Saturday is 6
 </code></pre>
+
+<p>}</p>
+
+<ul>
+<li>(id)isGivenDayOfWeek:(NSInteger)dayOfWeek;</li>
+<li>(id)initWithDay:(NSInteger)dayOfWeek;</li>
+</ul>
+
+
+<p>@end</p>
+
+<p>OBJC_EXPORT id <a href="Protocols/HCMatcher.html"><code>HCMatcher</code></a> onASaturday();
+```</p>
 
 <p>The interface consists of two parts: a class definition, and a factory function
 (with C binding). Here&rsquo;s what the implementation looks like:</p>
 
-<pre><code>#import "IsGivenDayOfWeek.h"
-#import &lt;OCHamcrest/HCDescription.h&gt;
+<p>```obj-c</p>
 
-@implementation IsGivenDayOfWeek
+<h1>import &ldquo;IsGivenDayOfWeek.h&rdquo;</h1>
 
-+ (id) isGivenDayOfWeek:(NSInteger)dayOfWeek
+<h1>import &lt;OCHamcrest/HCDescription.h></h1>
+
+<p>@implementation IsGivenDayOfWeek</p>
+
+<ul>
+<li><p>(id)isGivenDayOfWeek:(NSInteger)dayOfWeek
 {
-    return [[self alloc] initWithDay:dayOfWeek];
-}
-
-- (id) initWithDay:(NSInteger)dayOfWeek
+  return [[self alloc] initWithDay:dayOfWeek];
+}</p></li>
+<li><p>(id)initWithDay:(NSInteger)dayOfWeek
 {
-    self = [super init];
-    if (self != nil)
-        day = dayOfWeek;
-    return self;
-}
-
-// Test whether item matches.
-- (BOOL) matches:(id)item
-{
-    if (![item respondsToSelector:@selector(dayOfWeek)])
-        return NO;
-
-    return [item dayOfWeek] == day;
-}
-
-// Describe the matcher.
-- (void) describeTo:(id&lt;HCDescription&gt;)description
-{
-    NSString* dayAsString[] =
-        {@"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday"};
-    [[description appendText:@"calendar date falling on "] appendText:dayAsString[day]];
-}
-
-@end
+  self = [super init];
+  if (self)
+      day = dayOfWeek;
+  return self;
+}</p></li>
+</ul>
 
 
-id&lt;HCMatcher&gt; onASaturday()
-{
-    return [IsGivenDayOfWeek isGivenDayOfWeek:6];
-}
+<p>// Test whether item matches.
+&ndash; (BOOL)matches:(id)item
+{</p>
+
+<pre><code>if (![item respondsToSelector:@selector(dayOfWeek)])
+    return NO;
+
+return [item dayOfWeek] == day;
 </code></pre>
+
+<p>}</p>
+
+<p>// Describe the matcher.
+&ndash; (void)describeTo:(id <HCDescription>)description
+{</p>
+
+<pre><code>NSString* dayAsString[] =
+    { @"Sunday", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday" };
+[[description appendText:@"calendar date falling on "] appendText:dayAsString[day]];
+</code></pre>
+
+<p>}</p>
+
+<p>@end</p>
+
+<p>id <HCMatcher> onASaturday()
+{</p>
+
+<pre><code>return [IsGivenDayOfWeek isGivenDayOfWeek:6];
+</code></pre>
+
+<p>}
+```</p>
 
 <p>For our Matcher implementation we implement the <code>-matches:</code> method (which
 calls <code>-dayOfWeek</code> after confirming that the argument has such a method) and
@@ -364,6 +412,8 @@ can be reused between matches.</p>
 							
 							<li><a href="Classes/HCBaseMatcher.html">HCBaseMatcher</a></li>
 							
+							<li><a href="Classes/HCClassMatcher.html">HCClassMatcher</a></li>
+							
 							<li><a href="Classes/HCConformsToProtocol.html">HCConformsToProtocol</a></li>
 							
 							<li><a href="Classes/HCDescribedAs.html">HCDescribedAs</a></li>
@@ -406,6 +456,8 @@ can be reused between matches.</p>
 							
 							<li><a href="Classes/HCIsEqualIgnoringWhiteSpace.html">HCIsEqualIgnoringWhiteSpace</a></li>
 							
+							<li><a href="Classes/HCIsEqualToBool.html">HCIsEqualToBool</a></li>
+							
 							<li><a href="Classes/HCIsIn.html">HCIsIn</a></li>
 							
 							<li><a href="Classes/HCIsInstanceOf.html">HCIsInstanceOf</a></li>
@@ -415,6 +467,8 @@ can be reused between matches.</p>
 							<li><a href="Classes/HCIsNot.html">HCIsNot</a></li>
 							
 							<li><a href="Classes/HCIsSame.html">HCIsSame</a></li>
+							
+							<li><a href="Classes/HCIsTypeOf.html">HCIsTypeOf</a></li>
 							
 							<li><a href="Classes/HCOrderingComparison.html">HCOrderingComparison</a></li>
 							
@@ -458,7 +512,7 @@ can be reused between matches.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Jon Reid. All rights reserved. (Last updated: 2013-01-10)</span><br />
+						<p><span class="copyright">&copy; 2013 Jon Reid. All rights reserved. (Last updated: 2013-08-21)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.4 (build 703)</a>.</span></p>
 						

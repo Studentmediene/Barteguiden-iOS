@@ -1,6 +1,6 @@
 //
 //  OCHamcrest - HCAssertThat.m
-//  Copyright 2012 hamcrest.org. See LICENSE.txt
+//  Copyright 2013 hamcrest.org. See LICENSE.txt
 //
 //  Created by: Jon Reid, http://qualitycoding.org/
 //  Docs: http://hamcrest.github.com/OCHamcrest/
@@ -12,12 +12,11 @@
 #import "HCStringDescription.h"
 #import "HCMatcher.h"
 
-#if TARGET_OS_IPHONE
-    #import <objc/runtime.h>
-#else
-    #import <objc/objc-class.h>
-#endif
 
+static inline BOOL isLinkedToOCUnit()
+{
+    return NSClassFromString(@"XCTestCase") != Nil || NSClassFromString(@"SenTestCase") != Nil;
+}
 
 /**
     Create OCUnit failure
@@ -30,39 +29,47 @@
 @endcode
     except we use an NSInvocation so that OCUnit (SenTestingKit) does not have to be linked.
  */
-static NSException *createOCUnitException(const char* fileName, int lineNumber, __unsafe_unretained NSString *description)
+static NSException *createOCUnitException(const char* fileName, int lineNumber, NSString *description)
 {
-    __unsafe_unretained NSException *result = nil;
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
     SEL selector = @selector(failureInFile:atLine:withDescription:);
 #pragma clang diagnostic pop
-    
+
+    // Description expects a format string, but NSInvocation does not support varargs.
+    // Mask % symbols in the string so they aren't treated as placeholders.
+    description = [description stringByReplacingOccurrencesOfString:@"%"
+                                                         withString:@"%%"];
+
     NSMethodSignature *signature = [[NSException class] methodSignatureForSelector:selector];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     [invocation setTarget:[NSException class]];
     [invocation setSelector:selector];
     
-    __unsafe_unretained id fileArg = @(fileName);
+    id fileArg = @(fileName);
     [invocation setArgument:&fileArg atIndex:2];
     [invocation setArgument:&lineNumber atIndex:3];
     [invocation setArgument:&description atIndex:4];
     
     [invocation invoke];
+    __unsafe_unretained NSException *result = nil;
     [invocation getReturnValue:&result];
     return result;
 }
 
+static NSException *createGenericException(const char *fileName, int lineNumber, NSString *description)
+{
+    NSString *failureReason = [NSString stringWithFormat:@"%s:%d: matcher error: %@",
+                               fileName, lineNumber, description];
+    return [NSException exceptionWithName:@"Hamcrest Error" reason:failureReason userInfo:nil];
+}
+
 static NSException *createAssertThatFailure(const char *fileName, int lineNumber, NSString *description)
 {
-    // If the Hamcrest client has linked to OCUnit, generate an OCUnit failure.
-    if (NSClassFromString(@"SenTestCase") != Nil)
+    if (isLinkedToOCUnit())
         return createOCUnitException(fileName, lineNumber, description);
-
-    NSString *failureReason = [NSString stringWithFormat:@"%s:%d: matcher error: %@",
-                                                        fileName, lineNumber, description];
-    return [NSException exceptionWithName:@"Hamcrest Error" reason:failureReason userInfo:nil];
+    else
+        return createGenericException(fileName, lineNumber, description);
 }
 
 

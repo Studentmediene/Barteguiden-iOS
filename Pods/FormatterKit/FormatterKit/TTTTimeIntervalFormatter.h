@@ -35,6 +35,15 @@
 @property (nonatomic, strong) NSLocale *locale;
 
 /**
+ Specifies the calendar used in date calculation. Defaults to the current system calendar.
+ */
+@property (nonatomic, strong) NSCalendar *calendar;
+
+///--------------------------------------
+/// @name Configuring Deictic Expressions
+///--------------------------------------
+
+/**
  Specifies the localized string used to express the past deictic expression. "ago" by default.
  */
 @property (nonatomic, strong) NSString *pastDeicticExpression;
@@ -60,6 +69,17 @@
 @property (nonatomic, assign) NSTimeInterval presentTimeIntervalMargin;
 
 /**
+ Specifies whether to use idiomatic deictic expressions when available, such as "last week" instead of "1 week ago". Defaults to `NO`.
+
+ @discussion This implementation is entirely separate from the equivalent behavior used by `NSDateFormatter`.
+ */
+@property (nonatomic, assign) BOOL usesIdiomaticDeicticExpressions;
+
+///-----------------------------------------
+/// @name Configuring Approximate Qualifiers
+///-----------------------------------------
+
+/**
  Specifies the localized string used to qualify a time interval as being an approximate time. "about" by default.
  */
 @property (nonatomic, strong) NSString *approximateQualifierFormat;
@@ -69,17 +89,32 @@
  */
 @property (nonatomic, assign) BOOL usesApproximateQualifier;
 
+///------------------------------------
+/// @name Configuring Significant Units
+///------------------------------------
+
+/**
+ Specifies the number of units that should be displayed before approximating. `0` to show all units. `1` by default. 
+ */
+@property (nonatomic, assign) NSUInteger numberOfSignificantUnits;
+
+/**
+ Specifies the least significant unit that should be displayed when not approximating. Defaults to `NSCalendarUnitSeconds`. Must be any of year through to second inclusive.
+ */
+@property (nonatomic, assign) NSCalendarUnit leastSignificantUnit;
+
+///----------------------------------------------
+/// @name Configuring Calendar Unit Abbreviations
+///----------------------------------------------
+
 /**
  Specifies whether to use abbreviated calendar units to describe time intervals, for instance "wks" instead of "weeks" in English. Defaults to `NO`.
  */
 @property (nonatomic, assign) BOOL usesAbbreviatedCalendarUnits;
 
-/**
- Specifies whether to use idiomatic deictic expressions when available, such as "last week" instead of "1 week ago". Defaults to `NO`.
-
- @discussion This implementation is entirely separate from the equivalent behavior used by `NSDateFormatter`.
- */
-@property (nonatomic, assign) BOOL usesIdiomaticDeicticExpressions;
+///-------------------------
+/// @name Converting Objects
+///-------------------------
 
 /**
  Returns a string representation of a time interval formatted using the receiver’s current settings.

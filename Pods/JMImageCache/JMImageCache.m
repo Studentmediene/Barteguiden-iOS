@@ -8,13 +8,14 @@
 
 #import "JMImageCache.h"
 
-static NSString *_JMImageCacheDirectory;
-
 static inline NSString *JMImageCacheDirectory() {
-	if(!_JMImageCacheDirectory) {
+	static NSString *_JMImageCacheDirectory;
+	static dispatch_once_t onceToken;
+    
+	dispatch_once(&onceToken, ^{
 		_JMImageCacheDirectory = [[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/JMCache"] copy];
-	}
-
+	});
+    
 	return _JMImageCacheDirectory;
 }
 inline static NSString *keyForURL(NSURL *url) {
@@ -25,13 +26,11 @@ static inline NSString *cachePathForKey(NSString *key) {
 	return [JMImageCacheDirectory() stringByAppendingPathComponent:fileName];
 }
 
-JMImageCache *_sharedCache = nil;
-
 @interface JMImageCache ()
 
 @property (strong, nonatomic) NSOperationQueue *diskOperationQueue;
 
-- (void) _downloadAndWriteImageForURL:(NSURL *)url key:(NSString *)key completionBlock:(void (^)(UIImage *image))completion;
+- (void) _downloadAndWriteImageForURL:(NSURL *)url key:(NSString *)key completionBlock:(void (^)(UIImage *image))completion failureBlock:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError* error))failure;
 
 @end
 
@@ -40,19 +39,22 @@ JMImageCache *_sharedCache = nil;
 @synthesize diskOperationQueue = _diskOperationQueue;
 
 + (JMImageCache *) sharedCache {
-	if(!_sharedCache) {
+	static JMImageCache *_sharedCache = nil;
+	static dispatch_once_t onceToken;
+    
+	dispatch_once(&onceToken, ^{
 		_sharedCache = [[JMImageCache alloc] init];
-	}
-
+	});
+    
 	return _sharedCache;
 }
 
 - (id) init {
     self = [super init];
     if(!self) return nil;
-
+    
     self.diskOperationQueue = [[NSOperationQueue alloc] init];
-
+    
     [[NSFileManager defaultManager] createDirectoryAtPath:JMImageCacheDirectory()
                               withIntermediateDirectories:YES
                                                attributes:nil
@@ -60,48 +62,99 @@ JMImageCache *_sharedCache = nil;
 	return self;
 }
 
-- (void) _downloadAndWriteImageForURL:(NSURL *)url key:(NSString *)key completionBlock:(void (^)(UIImage *image))completion {
+- (void) _downloadAndWriteImageForURL:(NSURL *)url key:(NSString *)key completionBlock:(void (^)(UIImage *image))completion failureBlock:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError* error))failure
+{
     if (!key && !url) return;
-
+    
     if (!key) {
         key = keyForURL(url);
     }
-
+    
+    __weak JMImageCache *safeSelf = self;
+    
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *i = [[UIImage alloc] initWithData:data];
-        // stop process if the method could not initialize the image from the specified data
-        if (!i) return;
         
-        NSString *cachePath = cachePathForKey(key);
-        NSInvocation *writeInvocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(writeData:toPath:)]];
-
-        [writeInvocation setTarget:self];
-        [writeInvocation setSelector:@selector(writeData:toPath:)];
-        [writeInvocation setArgument:&data atIndex:2];
-        [writeInvocation setArgument:&cachePath atIndex:3];
-
-        [self performDiskWriteOperation:writeInvocation];
-        [self setImage:i forKey:key];
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if(completion) completion(i);
-        });
+        NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+        
+        NSDate *lastUpdated = [safeSelf dateForImageKey:key];
+        NSString *HTTPdate = [safeSelf httpDateForDate:lastUpdated];
+        if (HTTPdate) {
+            [request addValue:HTTPdate forHTTPHeaderField:@"If-Modified-Since"];
+        }
+        
+        NSURLResponse* response = nil;
+        NSError* error = nil;
+        NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        if (error)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if(failure)  failure(request, response, error);
+            });
+            return;
+        }
+        
+        NSInteger kUnModifiedHttpCode = 304;
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (httpResponse.statusCode == kUnModifiedHttpCode)
+        {
+            return;
+        }
+        
+        UIImage *imageDownloaded = [[UIImage alloc] initWithData:data];
+        if (!imageDownloaded)
+        {
+            NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+            [errorDetail setValue:[NSString stringWithFormat:@"Failed to init image with data from for URL: %@", url] forKey:NSLocalizedDescriptionKey];
+            NSError* error = [NSError errorWithDomain:@"JMImageCacheErrorDomain" code:1 userInfo:errorDetail];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if(failure) failure(request, response, error);
+            });
+        }
+        else
+        {
+            NSString *cachePath = cachePathForKey(key);
+            NSInvocation *writeInvocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(writeData:toPath:)]];
+            
+            [writeInvocation setTarget:safeSelf];
+            [writeInvocation setSelector:@selector(writeData:toPath:)];
+            [writeInvocation setArgument:&data atIndex:2];
+            [writeInvocation setArgument:&cachePath atIndex:3];
+            
+            [safeSelf performDiskWriteOperation:writeInvocation];
+            [safeSelf setImage:imageDownloaded forKey:key];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(completion) completion(imageDownloaded);
+            });
+        }
     });
+}
+
+- (NSString *)httpDateForDate:(NSDate *)lastUpdated {
+    NSDateFormatter* httpDateFormatter = [[NSDateFormatter alloc] init];
+    httpDateFormatter.dateFormat = @"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'";
+    httpDateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    httpDateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    NSString *HTTPdate = [httpDateFormatter stringFromDate:lastUpdated];
+    return HTTPdate;
 }
 
 - (void) removeAllObjects {
     [super removeAllObjects];
-
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSFileManager *fileMgr = [NSFileManager defaultManager];
         NSError *error = nil;
         NSArray *directoryContents = [fileMgr contentsOfDirectoryAtPath:JMImageCacheDirectory() error:&error];
-
+        
         if (error == nil) {
             for (NSString *path in directoryContents) {
                 NSString *fullPath = [JMImageCacheDirectory() stringByAppendingPathComponent:path];
-
+                
                 BOOL removeSuccess = [fileMgr removeItemAtPath:fullPath error:&error];
                 if (!removeSuccess) {
                     //Error Occured
@@ -114,13 +167,13 @@ JMImageCache *_sharedCache = nil;
 }
 - (void) removeObjectForKey:(id)key {
     [super removeObjectForKey:key];
-
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSFileManager *fileMgr = [NSFileManager defaultManager];
         NSString *cachePath = cachePathForKey(key);
-
+        
         NSError *error = nil;
-
+        
         BOOL removeSuccess = [fileMgr removeItemAtPath:cachePath error:&error];
         if (!removeSuccess) {
             //Error Occured
@@ -131,35 +184,39 @@ JMImageCache *_sharedCache = nil;
 #pragma mark -
 #pragma mark Getter Methods
 
-- (void) imageForURL:(NSURL *)url key:(NSString *)key completionBlock:(void (^)(UIImage *image))completion {
-
-	UIImage *i = [self cachedImageForKey:key];
-
-	if(i) {
-		if(completion) completion(i);
-	} else {
-        [self _downloadAndWriteImageForURL:url key:key completionBlock:completion];
+- (void) imageForURL:(NSURL *)url key:(NSString *)key completionBlock:(void (^)(UIImage *image))completion failureBlock:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError* error))failure{
+    
+    if (!key) {
+        key = keyForURL(url);
     }
+    
+	UIImage *cachedImage = [self cachedImageForKey:key];
+    
+	if(cachedImage) {
+		if(completion) completion(cachedImage);
+    }
+        [self _downloadAndWriteImageForURL:url key:key completionBlock:completion failureBlock:failure];
+
 }
 
-- (void) imageForURL:(NSURL *)url completionBlock:(void (^)(UIImage *image))completion {
-    [self imageForURL:url key:keyForURL(url) completionBlock:completion];
+- (void) imageForURL:(NSURL *)url completionBlock:(void (^)(UIImage *image))completion failureBlock:(void (^)(NSURLRequest *request, NSURLResponse *response, NSError* error))failure{
+    [self imageForURL:url key:keyForURL(url) completionBlock:completion failureBlock:(failure)];
 }
 
 - (UIImage *) cachedImageForKey:(NSString *)key {
     if(!key) return nil;
-
+    
 	id returner = [super objectForKey:key];
-
+    
 	if(returner) {
         return returner;
 	} else {
         UIImage *i = [self imageFromDiskForKey:key];
         if(i) [self setImage:i forKey:key];
-
+        
         return i;
     }
-
+    
     return nil;
 }
 
@@ -170,9 +227,9 @@ JMImageCache *_sharedCache = nil;
 
 - (UIImage *) imageForURL:(NSURL *)url key:(NSString*)key delegate:(id<JMImageCacheDelegate>)d {
 	if(!url) return nil;
-
+    
 	UIImage *i = [self cachedImageForURL:url];
-
+    
 	if(i) {
 		return i;
 	} else {
@@ -185,9 +242,10 @@ JMImageCache *_sharedCache = nil;
                     [d cache:self didDownloadImage:image forURL:url key:key];
                 }
             }
-        }];
+        }
+                              failureBlock:nil];
     }
-
+    
     return nil;
 }
 
@@ -196,8 +254,25 @@ JMImageCache *_sharedCache = nil;
 }
 
 - (UIImage *) imageFromDiskForKey:(NSString *)key {
-	UIImage *i = [[UIImage alloc] initWithData:[NSData dataWithContentsOfFile:cachePathForKey(key) options:0 error:NULL]];
+    
+    NSString *pathToImage = cachePathForKey(key);
+    
+	UIImage *i = [[UIImage alloc] initWithData:[NSData dataWithContentsOfFile:pathToImage options:0 error:NULL]];
 	return i;
+}
+
+- (NSDate *)dateForImageKey:(NSString *)key {
+    
+    NSString *pathToImage = cachePathForKey(key);
+
+    if(!pathToImage)
+        return nil;
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSDictionary* imageAttribute = [fileManager attributesOfItemAtPath:pathToImage error:nil];
+    NSDate *lastUpdated = [imageAttribute fileModificationDate];
+    
+    return lastUpdated;
 }
 
 - (UIImage *) imageFromDiskForURL:(NSURL *)url {

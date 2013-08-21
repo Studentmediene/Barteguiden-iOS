@@ -1,5 +1,5 @@
 PODS:
-  - FormatterKit (1.1.1):
+  - FormatterKit (1.2.1):
     - FormatterKit/AddressFormatter
     - FormatterKit/ArrayFormatter
     - FormatterKit/LocationFormatter
@@ -7,37 +7,39 @@ PODS:
     - FormatterKit/TimeIntervalFormatter
     - FormatterKit/UnitOfInformationFormatter
     - FormatterKit/URLRequestFormatter
-  - FormatterKit/AddressFormatter (1.1.1)
-  - FormatterKit/ArrayFormatter (1.1.1)
-  - FormatterKit/LocationFormatter (1.1.1)
-  - FormatterKit/OrdinalNumberFormatter (1.1.1)
-  - FormatterKit/TimeIntervalFormatter (1.1.1)
-  - FormatterKit/UnitOfInformationFormatter (1.1.1)
-  - FormatterKit/URLRequestFormatter (1.1.1)
-  - JMImageCache (0.4.0)
-  - OCHamcrest (1.9)
+  - FormatterKit/AddressFormatter (1.2.1)
+  - FormatterKit/ArrayFormatter (1.2.1)
+  - FormatterKit/LocationFormatter (1.2.1)
+  - FormatterKit/OrdinalNumberFormatter (1.2.1)
+  - FormatterKit/TimeIntervalFormatter (1.2.1)
+  - FormatterKit/UnitOfInformationFormatter (1.2.1)
+  - FormatterKit/URLRequestFormatter (1.2.1)
+  - JMImageCache (0.4.1)
+  - OCHamcrest (2.1.0)
   - OCMockito (0.23):
-    - OCHamcrest (= 1.9)
+    - OCHamcrest
   - PSAlertView (1.1)
   - RIOExpandableLabel (0.0.1)
 
 DEPENDENCIES:
   - FormatterKit
-  - JMImageCache
+  - JMImageCache (from `https://github.com/antoinerabanes/JMImageCache.git`)
   - OCHamcrest
   - OCMockito
   - PSAlertView
   - RIOExpandableLabel (from `~/Projects/Products/2013 RIOExpandableLabel/RIOExpandableLabel/`)
 
 EXTERNAL SOURCES:
+  JMImageCache:
+    :git: https://github.com/antoinerabanes/JMImageCache.git
   RIOExpandableLabel:
     :path: ~/Projects/Products/2013 RIOExpandableLabel/RIOExpandableLabel/
 
 SPEC CHECKSUMS:
-  FormatterKit: b644b98d4495bdf11fc70f8f80867df5864eaf70
-  JMImageCache: 4d764ca5819ce5b0b3bb1efb85c29977768c54bd
-  OCHamcrest: f8393efd5a49d91879be573635d6183effacc0ab
-  OCMockito: 2223021dd82697fc536c403d6850d2ed8ffae578
+  FormatterKit: 43c6567e367a872196747fda0c26395c37bd7dd6
+  JMImageCache: 0d3e8587741e0ca2f2476d90f95ccd5b5fc00a1a
+  OCHamcrest: 96f5cb58fa0fd4b3609d37fe21e5246b259bba2a
+  OCMockito: 01560fd24319b85c223e10f52e2e41fbe2c6d434
   PSAlertView: bdccae3cbd14f6060772654ae641daec7415d9fa
   RIOExpandableLabel: c2bc344f3243d9f4a977faabb59b1c96ff8e3f41
 

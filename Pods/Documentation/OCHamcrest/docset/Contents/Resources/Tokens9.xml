@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/HCHasProperty.html">
+	<File path="Classes/HCHasDescription.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/HCHasProperty</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/HCHasDescription</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCHasProperty.h</DeclaredIn>
+			<DeclaredIn>HCHasDescription.h</DeclaredIn>
 			
 			<NodeRef refid="9"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/HCHasProperty/hasProperty:value:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/HCHasDescription/hasDescription:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCHasProperty.h</DeclaredIn>			
+			<DeclaredIn>HCHasDescription.h</DeclaredIn>			
 			
-			<Declaration>+ (id)hasProperty:(NSString *)property value:(id&lt;HCMatcher&gt;)aValueMatcher</Declaration>
+			<Declaration>+ (id)hasDescription:(id&lt;HCMatcher&gt;)descriptionMatcher</Declaration>
 			
 			
-			<Anchor>//api/name/hasProperty:value:</Anchor>
+			<Anchor>//api/name/hasDescription:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/HCHasProperty/initWithProperty:value:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/HCHasDescription/initWithDescription:</TokenIdentifier>
 			<Abstract></Abstract>
-			<DeclaredIn>HCHasProperty.h</DeclaredIn>			
+			<DeclaredIn>HCHasDescription.h</DeclaredIn>			
 			
-			<Declaration>- (id)initWithProperty:(NSString *)property value:(id&lt;HCMatcher&gt;)aValueMatcher</Declaration>
+			<Declaration>- (id)initWithDescription:(id&lt;HCMatcher&gt;)descriptionMatcher</Declaration>
 			
 			
-			<Anchor>//api/name/initWithProperty:value:</Anchor>
+			<Anchor>//api/name/initWithDescription:</Anchor>
 		</Token>
 		
 	</File>

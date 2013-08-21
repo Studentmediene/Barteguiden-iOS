@@ -23,25 +23,25 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/imageForURL:key:completionBlock:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/imageForURL:key:completionBlock:failureBlock:</TokenIdentifier>
 			<Abstract></Abstract>
 			<DeclaredIn>JMImageCache.h</DeclaredIn>			
 			
-			<Declaration>- (void)imageForURL:(NSURL *)url key:(NSString *)key completionBlock:(void ( ^ ) ( UIImage *image ))completion</Declaration>
+			<Declaration>- (void)imageForURL:(NSURL *)url key:(NSString *)key completionBlock:(void ( ^ ) ( UIImage *image ))completion failureBlock:(void ( ^ ) ( NSURLRequest *request , NSURLResponse *response , NSError *error ))failure</Declaration>
 			
 			
-			<Anchor>//api/name/imageForURL:key:completionBlock:</Anchor>
+			<Anchor>//api/name/imageForURL:key:completionBlock:failureBlock:</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/imageForURL:completionBlock:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/JMImageCache/imageForURL:completionBlock:failureBlock:</TokenIdentifier>
 			<Abstract></Abstract>
 			<DeclaredIn>JMImageCache.h</DeclaredIn>			
 			
-			<Declaration>- (void)imageForURL:(NSURL *)url completionBlock:(void ( ^ ) ( UIImage *image ))completion</Declaration>
+			<Declaration>- (void)imageForURL:(NSURL *)url completionBlock:(void ( ^ ) ( UIImage *image ))completion failureBlock:(void ( ^ ) ( NSURLRequest *request , NSURLResponse *response , NSError *error ))failure</Declaration>
 			
 			
-			<Anchor>//api/name/imageForURL:completionBlock:</Anchor>
+			<Anchor>//api/name/imageForURL:completionBlock:failureBlock:</Anchor>
 		</Token>
 		
 		<Token>
@@ -148,7 +148,7 @@
 			<Abstract></Abstract>
 			<DeclaredIn>JMImageCache.h</DeclaredIn>			
 			
-			<Declaration>- (void)removeImageForURL:(NSString *)url</Declaration>
+			<Declaration>- (void)removeImageForURL:(NSURL *)url</Declaration>
 			
 			
 			<Anchor>//api/name/removeImageForURL:</Anchor>

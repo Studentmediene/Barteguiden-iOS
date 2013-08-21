@@ -37,14 +37,21 @@
         return nil;
     }
 
-    self.delimiter = NSLocalizedString(@",", @"List delimiter");
-    self.separator = NSLocalizedString(@" ", @"List separator");
-    self.conjunction = NSLocalizedString(@"and", @"List conjunction");
-    self.abbreviatedConjunction = NSLocalizedString(@"&", nil);
+    self.delimiter = NSLocalizedStringFromTable(@",", @"FormatterKit", @"List delimiter");
+    self.separator = NSLocalizedStringFromTable(@" ", @"FormatterKit", @"List separator");
+    self.conjunction = NSLocalizedStringFromTable(@"and", @"FormatterKit", @"List conjunction");
+    self.abbreviatedConjunction = NSLocalizedStringFromTable(@"&", @"FormatterKit", nil);
     self.usesAbbreviatedConjunction = NO;
     self.usesSerialDelimiter = YES;
 
     return self;
+}
+
++ (NSString *)localizedStringFromArray:(NSArray *)anArray arrayStyle:(TTTArrayFormatterStyle)style {
+    TTTArrayFormatter *formatter = [[TTTArrayFormatter alloc] init];
+    [formatter setArrayStyle:style];
+
+    return [formatter stringFromArray:anArray];
 }
 
 - (NSString *)stringFromArray:(NSArray *)anArray {
@@ -104,13 +111,6 @@
     return array;
 }
 
-+ (NSString *)localizedStringFromArray:(NSArray *)anArray arrayStyle:(TTTArrayFormatterStyle)style {
-    TTTArrayFormatter *formatter = [[TTTArrayFormatter alloc] init];
-    [formatter setArrayStyle:style];
-
-    return [formatter stringFromArray:anArray];
-}
-
 #pragma mark NSFormatter
 
 - (NSString *)stringForObjectValue:(id)anObject {
@@ -142,7 +142,7 @@
             *obj = [NSArray arrayWithArray:components];
         } else {
             if (error) {
-                *error = NSLocalizedString(@"Couldn’t convert to NSArray", @"Error converting to NSArray");
+                *error = NSLocalizedStringFromTable(@"Couldn’t convert to NSArray", @"FormatterKit", @"Error converting to NSArray");
             }
         }
     }
