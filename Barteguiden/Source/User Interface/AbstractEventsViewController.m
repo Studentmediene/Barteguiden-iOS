@@ -38,8 +38,6 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 {
     [super viewWillAppear:animated];
     
-    NSLog(@"Setting delegate to:%@", self);
-    self.eventResultsController.delegate = self;
     [self reloadPredicate];
 }
 
@@ -47,6 +45,20 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (EventResultsController *)eventResultsController
+{
+    if (_eventResultsController == nil) {
+        _eventResultsController = [[EventResultsController alloc] initWithEventStore:self.eventStore sectionNameBlock:^NSString *(id<Event> event) {
+            EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:event];
+            NSString *sectionName = [eventFormatter dateSectionName];
+            
+            return sectionName;
+        }];
+    }
+    
+    return _eventResultsController;
 }
 
 
@@ -106,59 +118,6 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 }
 
 
-#pragma mark - EventResultsControllerDelegate
-
-- (void)eventResultsControllerWillChangeContent:(EventResultsController *)controller
-{
-    [self.tableView beginUpdates];
-}
-
-- (void)eventResultsController:(EventResultsController *)controller didChangeSection:(id<EventResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(EventResultsChangeType)type
-{
-    switch (type)
-    {
-        case EventResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case EventResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        default:
-            break;
-    }
-}
-
-- (void)eventResultsController:(EventResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(EventResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
-{
-    switch (type)
-    {
-        case EventResultsChangeInsert:
-            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case EventResultsChangeDelete:
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case EventResultsChangeUpdate:
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-            break;
-            
-        case EventResultsChangeMove:
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-    }
-}
-
-- (void)eventResultsControllerDidChangeContent:(EventResultsController *)controller
-{
-    [self.tableView endUpdates];
-}
-
-
 #pragma mark - EventsSearchDisplayControllerDelegate
 
 - (NSPredicate *)eventsPredicate
@@ -172,7 +131,6 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 - (void)navigateToEvent:(id)event
 {
     EventDetailsViewController *eventDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
-//    eventDetailsViewController.delegate = self;
     eventDetailsViewController.event = event;
     eventDetailsViewController.calendarManager = self.calendarManager;
     

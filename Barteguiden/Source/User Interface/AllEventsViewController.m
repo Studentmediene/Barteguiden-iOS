@@ -73,9 +73,7 @@ enum {
 
 - (IBAction)changePriceFilter:(id)sender
 {
-    // TODO: Change back?
-    [self.eventResultsController setPredicate:[self eventsPredicate] withAnimation:YES];
-//    [self reloadPredicate];
+    [self reloadPredicate];
     [self updatePlaceholderInSearchField];
 }
 

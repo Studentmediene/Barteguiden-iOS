@@ -9,7 +9,6 @@
 #import "TabBarController.h"
 
 #import "EventKit.h"
-#import "EventKitUI.h" // TODO: Remove if EventResultsController is moved to non-UI
 #import "FilterManager.h"
 #import "CalendarManager.h"
 
@@ -68,10 +67,8 @@ static CGSize const kSettingsTabSize = {64, 49};
             AbstractEventsViewController *abstractEventsViewController = (AbstractEventsViewController *)rootViewController;
             abstractEventsViewController.eventStore = self.eventStore;
             abstractEventsViewController.calendarManager = self.calendarManager;
-            abstractEventsViewController.eventResultsController = self.eventResultsController;
             EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)abstractEventsViewController.searchDisplayController.delegate;
             eventsSearchDisplayController.eventStore = self.eventStore;
-            eventsSearchDisplayController.eventResultsController = self.eventResultsController;
         }
         
         if ([rootViewController isKindOfClass:[MyFilterViewController class]]) {
@@ -147,7 +144,6 @@ static CGSize const kSettingsTabSize = {64, 49};
 //    FeaturedViewController *featuredViewController = [[FeaturedViewController alloc] initWithStyle:UITableViewStyleGrouped];
     featuredViewController.eventStore = self.eventStore;
     featuredViewController.calendarManager = self.calendarManager;
-    featuredViewController.eventResultsController = self.eventResultsController;
     
     EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)featuredViewController.searchDisplayController.delegate;
     eventsSearchDisplayController.eventStore = self.eventStore;
@@ -161,7 +157,6 @@ static CGSize const kSettingsTabSize = {64, 49};
     AllEventsViewController *allEventsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AllEvents"];
     allEventsViewController.eventStore = self.eventStore;
     allEventsViewController.calendarManager = self.calendarManager;
-    allEventsViewController.eventResultsController = self.eventResultsController;
     
     EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)allEventsViewController.searchDisplayController.delegate;
     eventsSearchDisplayController.eventStore = self.eventStore;
@@ -176,7 +171,6 @@ static CGSize const kSettingsTabSize = {64, 49};
     myFilterViewController.eventStore = self.eventStore;
     myFilterViewController.filterManager = self.filterManager; // NOTE: This different from the other controllers
     myFilterViewController.calendarManager = self.calendarManager;
-    myFilterViewController.eventResultsController = self.eventResultsController;
     
     EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)myFilterViewController.searchDisplayController.delegate;
     eventsSearchDisplayController.eventStore = self.eventStore;
@@ -190,7 +184,6 @@ static CGSize const kSettingsTabSize = {64, 49};
     FavoritesViewController *favoritesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Favorites"];
     favoritesViewController.eventStore = self.eventStore;
     favoritesViewController.calendarManager = self.calendarManager;
-    favoritesViewController.eventResultsController = self.eventResultsController;
     
     EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)favoritesViewController.searchDisplayController.delegate;
     eventsSearchDisplayController.eventStore = self.eventStore;
@@ -206,23 +199,6 @@ static CGSize const kSettingsTabSize = {64, 49};
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
     return navigationController;
-}
-
-- (EventResultsController *)eventResultsController
-{
-    if (_eventResultsController == nil) {
-        _eventResultsController = [[EventResultsController alloc] initWithEventStore:self.eventStore sectionNameBlock:^NSString *(id<Event> event) {
-            EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:event];
-            NSString *sectionName = [eventFormatter dateSectionName];
-            
-            return sectionName;
-        }];
-//    eventResultsController.delegate = self;
-        NSSortDescriptor *startAtSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startAt" ascending:YES]; // TODO: Move EventResultsController to EventKit
-        _eventResultsController.sortDescriptors = @[startAtSortDescriptor];
-    }
-    
-    return _eventResultsController;
 }
 
 - (UIStoryboard *)storyboard
