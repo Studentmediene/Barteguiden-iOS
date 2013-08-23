@@ -11,6 +11,7 @@
 @protocol EventsSearchDisplayControllerDelegate <NSObject>
 
 - (NSPredicate *)eventsPredicate;
+- (NSString *)eventsCacheName;
 - (void)navigateToEvent:(id)event;
 
 @end

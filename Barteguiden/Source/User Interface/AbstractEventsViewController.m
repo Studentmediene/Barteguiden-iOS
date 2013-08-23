@@ -38,7 +38,7 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 {
     [super viewWillAppear:animated];
     
-    [self reloadPredicate];
+    [self reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,6 +128,11 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
     return datePredicate;
 }
 
+- (NSString *)eventsCacheName
+{
+    return nil;
+}
+
 - (void)navigateToEvent:(id)event
 {
     EventDetailsViewController *eventDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetails"];
@@ -153,11 +158,15 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
     eventCell.thumbnailImageView.image = [eventFormatter categoryImage];
 }
 
-- (void)reloadPredicate
+- (void)reloadData
 {
-    NSLog(@"Reloading predicate");
-    self.eventResultsController.predicate = [self eventsPredicate];
-    [self.eventResultsController performFetch:NULL];
+    [self reloadDataWithPredicate:[self eventsPredicate] cacheName:[self eventsCacheName]];
+}
+
+- (void)reloadDataWithPredicate:(NSPredicate *)predicate cacheName:(NSString *)cacheName
+{
+    NSLog(@"Reloading data");
+    [self.eventResultsController performFetchWithPredicate:predicate cacheName:cacheName error:NULL];
     [self.tableView reloadData];
 }
 

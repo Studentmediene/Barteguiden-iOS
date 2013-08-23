@@ -20,11 +20,10 @@ typedef NSString * (^EventSectionNameBlock)(id<Event> event);
 
 @property (nonatomic, weak) id<EventResultsControllerDelegate> delegate;
 @property (nonatomic, readonly) EventSectionNameBlock sectionNameBlock;
-@property (nonatomic, strong) NSPredicate *predicate;
 
 
 - (instancetype)initWithEventStore:(id<EventStore>)eventStore sectionNameBlock:(EventSectionNameBlock)sectionNameBlock;
-- (void)performFetch:(NSError **)error;
+- (void)performFetchWithPredicate:(NSPredicate *)predicate cacheName:(NSString *)cacheName error:(NSError **)error;
 
 // Accessing results
 - (id<Event>)eventForIndexPath:(NSIndexPath *)indexPath;

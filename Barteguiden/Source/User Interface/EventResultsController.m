@@ -22,10 +22,8 @@
 
 
 @implementation EventResultsController {
-    NSMutableArray *_fetchedEvents;
-    NSMutableArray *_sections;
+    NSArray *_sections;
 }
-
 
 - (instancetype)initWithEventStore:(id<EventStore>)eventStore sectionNameBlock:(EventSectionNameBlock)sectionNameBlock
 {
@@ -33,8 +31,7 @@
     if (self) {
         _eventStore = eventStore;
         _sectionNameBlock = sectionNameBlock;
-        
-        _sections = [NSMutableArray array];
+        _sections = [NSArray array];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
     }
@@ -46,38 +43,22 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:EventStoreChangedNotification object:self.eventStore];
 }
 
-- (void)performFetch:(NSError **)error
+- (void)performFetchWithPredicate:(NSPredicate *)predicate cacheName:(NSString *)cacheName error:(NSError **)error
 {
-    NSArray *events = [self.eventStore eventsMatchingPredicate:self.predicate error:error];
+    NSArray *cachedSections = [[[self class] cachedSections] objectForKey:cacheName];
+    if (cachedSections != nil) {
+        NSLog(@"Found events in cache");
+        _sections = cachedSections;
+        return;
+    }
+    
+    NSArray *events = [self.eventStore eventsMatchingPredicate:predicate error:error];
     NSLog(@"Fetched events:%d", [events count]);
     
-    [self generateSectionsForEvents:events];
+    _sections = [self generateSectionsForEvents:events];
+    
+    [[[self class] cachedSections] setObject:_sections forKey:cacheName];
 }
-
-- (void)generateSectionsForEvents:(NSArray *)events
-{
-    [_sections removeAllObjects];
-    
-    NSMutableArray *sections = [NSMutableArray array];
-    
-    __block NSString *lastSectionName = nil;
-    NSDictionary *sectionEvents = [events classifyObjectsUsingBlock:^id<NSCopying>(id obj) {
-        NSString *sectionName = self.sectionNameBlock(obj);
-        
-        if ([sectionName isEqual:lastSectionName] == NO) {
-            [sections addObject:sectionName];
-        }
-        
-        lastSectionName = sectionName;
-        
-        return sectionName;
-    }];
-    
-    for (NSString *sectionName in sections) {
-        [self addSectionWithName:sectionName events:sectionEvents[sectionName]];
-    }
-}
-
 
 #pragma mark - Accessing Results
 
@@ -105,22 +86,56 @@
 
 - (void)eventStoreChanged:(NSNotification *)note
 {
-    // FIXME: Reset cache
+    [[[self class] cachedSections] removeAllObjects];
 }
 
 
 #pragma mark - Private methods
 
-- (void)addSectionWithName:(NSString *)sectionName events:(NSArray *)events
+- (NSArray *)generateSectionsForEvents:(NSArray *)events
 {
-    EventResultsSection *section = [[EventResultsSection alloc] initWithEvents:events];
-    section.name = sectionName;
-    [_sections addObject:section];
+    NSMutableArray *sections = [NSMutableArray array];
+    NSMutableArray *sectionNames = [NSMutableArray array];
+    
+    __block NSString *lastSectionName = nil;
+    NSDictionary *sectionEvents = [events classifyObjectsUsingBlock:^id<NSCopying>(id obj) {
+        NSString *sectionName = self.sectionNameBlock(obj);
+        
+        if ([sectionName isEqual:lastSectionName] == NO) {
+            [sectionNames addObject:sectionName];
+        }
+        
+        lastSectionName = sectionName;
+        
+        return sectionName;
+    }];
+    
+    for (NSString *sectionName in sectionNames) {
+        EventResultsSection *section = [[EventResultsSection alloc] initWithEvents:sectionEvents[sectionName]];
+        section.name = sectionName;
+        
+        [sections addObject:section];
+    }
+    
+    return [sections copy];
 }
 
-- (NSUInteger)indexOfSectionWithName:(NSString *)sectionName
+- (NSIndexPath *)indexPathForEvent:(id<Event>)event inSections:(NSArray *)sections
 {
-    return [self indexOfSectionWithName:sectionName inSections:_sections];
+    NSString *sectionName = self.sectionNameBlock(event);
+    
+    NSUInteger sectionIndex = [self indexOfSectionWithName:sectionName inSections:sections];
+    if (sectionIndex == NSNotFound) {
+        return nil;
+    }
+    
+    EventResultsSection *section = sections[sectionIndex];
+    NSUInteger itemIndex = [self indexOfEvent:event inSection:section];
+    if (itemIndex == NSNotFound) {
+        return nil;
+    }
+    
+    return [NSIndexPath indexPathForRow:itemIndex inSection:sectionIndex];
 }
 
 - (NSUInteger)indexOfSectionWithName:(NSString *)sectionName inSections:(NSArray *)sections
@@ -141,22 +156,14 @@
     return [events indexOfObject:event];
 }
 
-- (NSIndexPath *)indexPathForEvent:(id<Event>)event inSections:(NSArray *)sections
++ (NSCache *)cachedSections
 {
-    NSString *sectionName = self.sectionNameBlock(event);
-    
-    NSUInteger sectionIndex = [self indexOfSectionWithName:sectionName inSections:sections];
-    if (sectionIndex == NSNotFound) {
-        return nil;
+    static NSCache *_cachedSections;
+    if (_cachedSections == nil) {
+        _cachedSections = [[NSCache alloc] init];
     }
     
-    EventResultsSection *section = sections[sectionIndex];
-    NSUInteger itemIndex = [self indexOfEvent:event inSection:section];
-    if (itemIndex == NSNotFound) {
-        return nil;
-    }
-    
-    return [NSIndexPath indexPathForRow:itemIndex inSection:sectionIndex];
+    return _cachedSections;
 }
 
 @end

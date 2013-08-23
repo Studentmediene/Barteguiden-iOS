@@ -61,7 +61,7 @@ static NSString * kFilterSegue = @"FilterSegue";
 {
     NSLog(@"Closing filter");
     
-    [self reloadPredicate];
+    [self reloadData];
 }
 
 @end

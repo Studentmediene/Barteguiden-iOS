@@ -59,9 +59,12 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        // Remove favorite flag
         id<Event> event = [self.eventResultsController eventForIndexPath:indexPath];
         [event setFavorite:NO];
+//        [self.tableView beginUpdates];
+//        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+//        [self.tableView endUpdates];
+        [self reloadData];
     }
 }
 

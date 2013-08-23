@@ -40,4 +40,9 @@
     return predicate;
 }
 
+- (NSString *)eventsCacheName
+{
+    return @"Featured";
+}
+
 @end

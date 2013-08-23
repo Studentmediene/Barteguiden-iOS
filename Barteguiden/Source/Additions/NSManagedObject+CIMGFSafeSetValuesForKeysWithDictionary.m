@@ -28,10 +28,14 @@
 
 - (void)safeSetValue:(id)value forKey:(NSString *)key dateFormatter:(NSDateFormatter *)dateFormatter
 {
+    if (value == nil) {
+        return;
+    }
+    
     NSDictionary *attributes = [[self entity] attributesByName];
     NSAttributeDescription *attributeDescription = [attributes objectForKey:key];
     
-    if (value == nil || value == [NSNull null]) {
+    if (value == [NSNull null]) {
         id defaultValue = [attributeDescription defaultValue];
         [self setValue:defaultValue forKey:key];
         return;

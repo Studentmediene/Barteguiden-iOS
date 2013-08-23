@@ -37,22 +37,23 @@
     // TODO: Optimize code
     _searchString = searchString;
     NSLog(@"%@%@", NSStringFromSelector(_cmd), searchString);
-    [self reloadPredicate]; // TODO: Is there something I can do with the implementation of this method?
+    [self reloadDataWithPredicate:[self eventsPredicate] cacheName:nil]; // TODO: Add caching?
+    
     return YES;
-    //    // Store a copy of the last result in order to check if result has changed
-    //    NSArray *lastResult = self.searchDisplayResult;
-    //
-    //    // Filter search display result
-    //    NSString *test = [NSString stringWithFormat:@"*%@*", searchString];
-    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", kResultFriendName, test];
-    //    self.searchDisplayResult = [self.sortedResult filteredArrayUsingPredicate:predicate];
-    //
-    //    // Determine if search display should reload table
-    //    if ([self.searchDisplayResult count] != [lastResult count])
-    //        return YES;
-    //
-    //    BOOL hasChanged = !([self.searchDisplayResult isEqualToArray:lastResult]);
-    //    return hasChanged;
+//    // Store a copy of the last result in order to check if result has changed
+//    NSArray *lastResult = self.searchDisplayResult;
+//
+//    // Filter search display result
+//    NSString *test = [NSString stringWithFormat:@"*%@*", searchString];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", kResultFriendName, test];
+//    self.searchDisplayResult = [self.sortedResult filteredArrayUsingPredicate:predicate];
+//
+//    // Determine if search display should reload table
+//    if ([self.searchDisplayResult count] != [lastResult count])
+//        return YES;
+//
+//    BOOL hasChanged = !([self.searchDisplayResult isEqualToArray:lastResult]);
+//    return hasChanged;
 }
 
 #pragma mark - UITableViewDelegate

@@ -21,7 +21,9 @@
 
 @property (nonatomic, strong) EventResultsController *eventResultsController;
 
-- (void)reloadPredicate;
+- (void)reloadData;
+- (void)reloadDataWithPredicate:(NSPredicate *)predicate cacheName:(NSString *)cacheName;
 - (NSPredicate *)eventsPredicate;
+- (NSString *)eventsCacheName;
 
 @end
