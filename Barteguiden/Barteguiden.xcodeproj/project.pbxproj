@@ -98,8 +98,6 @@
 		6983FD96173D5378003B429B /* FavoritesTab-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6983FD8E173D5377003B429B /* FavoritesTab-Normal@2x.png */; };
 		6983FD97173D5378003B429B /* FeaturedTab-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6983FD8F173D5378003B429B /* FeaturedTab-Normal.png */; };
 		6983FD9C1740B370003B429B /* ApplicationNetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6983FD9B1740B370003B429B /* ApplicationNetworkActivity.m */; };
-		6984765E17D19535005D76C2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6984765C17D19535005D76C2 /* Icon.png */; };
-		6984765F17D19535005D76C2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6984765D17D19535005D76C2 /* Icon@2x.png */; };
 		69884B97163A0CE70057D189 /* EventFormatter+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B96163A0CE70057D189 /* EventFormatter+Time.m */; };
 		69884B9A163A0D200057D189 /* EventFormatter+LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B99163A0D1F0057D189 /* EventFormatter+LocalizedText.m */; };
 		698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F870C16247B96001B9090 /* EventsSearchDisplayController.m */; };
@@ -189,6 +187,8 @@
 		69D7FC43161B57CF00E38D56 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */; };
 		69D7FC50161DF10900E38D56 /* MyFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC4F161DF10900E38D56 /* MyFilterViewController.m */; };
 		69DCD8ED165729A800A6E6A8 /* EventAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCD8EC165729A800A6E6A8 /* EventAnnotation.m */; };
+		69DE1C9E17D1AE67004555EE /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69DE1C9C17D1AE67004555EE /* Icon@2x.png */; };
+		69DE1C9F17D1AE67004555EE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69DE1C9D17D1AE67004555EE /* Icon.png */; };
 		69EE050F17B04AB700E4A511 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EE051117B04AB700E4A511 /* MainStoryboard.storyboard */; };
 		69EE051417B04D4B00E4A511 /* Event.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69EE051617B04D4B00E4A511 /* Event.strings */; };
 		69EE052017B0609B00E4A511 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69EE052217B0609B00E4A511 /* Localizable.strings */; };
@@ -331,8 +331,6 @@
 		6983FD991740B32C003B429B /* NetworkActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkActivity.h; sourceTree = "<group>"; };
 		6983FD9A1740B370003B429B /* ApplicationNetworkActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationNetworkActivity.h; sourceTree = "<group>"; };
 		6983FD9B1740B370003B429B /* ApplicationNetworkActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationNetworkActivity.m; sourceTree = "<group>"; };
-		6984765C17D19535005D76C2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		6984765D17D19535005D76C2 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		69884B95163A0CE60057D189 /* EventFormatter+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+Time.h"; sourceTree = "<group>"; };
 		69884B96163A0CE70057D189 /* EventFormatter+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventFormatter+Time.m"; sourceTree = "<group>"; };
 		69884B98163A0D1F0057D189 /* EventFormatter+LocalizedText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+LocalizedText.h"; sourceTree = "<group>"; };
@@ -460,6 +458,8 @@
 		69D7FC4F161DF10900E38D56 /* MyFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFilterViewController.m; sourceTree = "<group>"; };
 		69DCD8EB165729A800A6E6A8 /* EventAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAnnotation.h; sourceTree = "<group>"; };
 		69DCD8EC165729A800A6E6A8 /* EventAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAnnotation.m; sourceTree = "<group>"; };
+		69DE1C9C17D1AE67004555EE /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		69DE1C9D17D1AE67004555EE /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		69EE050D17B0400A00E4A511 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69EE050E17B0400A00E4A511 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69EE051217B04ABF00E4A511 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -725,8 +725,8 @@
 		6998E54F1742A1E100142FAF /* App Icon */ = {
 			isa = PBXGroup;
 			children = (
-				6984765C17D19535005D76C2 /* Icon.png */,
-				6984765D17D19535005D76C2 /* Icon@2x.png */,
+				69DE1C9D17D1AE67004555EE /* Icon.png */,
+				69DE1C9C17D1AE67004555EE /* Icon@2x.png */,
 			);
 			name = "App Icon";
 			sourceTree = "<group>";
@@ -1438,8 +1438,8 @@
 				69EE052017B0609B00E4A511 /* Localizable.strings in Resources */,
 				699F3CDF17B08E1900F17B54 /* Samfundet.json in Resources */,
 				691F9D2217C2477300B16209 /* Example.json in Resources */,
-				6984765E17D19535005D76C2 /* Icon.png in Resources */,
-				6984765F17D19535005D76C2 /* Icon@2x.png in Resources */,
+				69DE1C9E17D1AE67004555EE /* Icon@2x.png in Resources */,
+				69DE1C9F17D1AE67004555EE /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1663,7 +1663,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mediastud AS (BU9W3CPR9M)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
@@ -1686,7 +1686,7 @@
 					"-framework",
 					SparkInspector,
 				);
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ACB9807E-DB29-4956-A759-1AE38DB246AB";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1700,7 +1700,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mediastud AS (BU9W3CPR9M)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1708,7 +1708,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ACB9807E-DB29-4956-A759-1AE38DB246AB";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1718,7 +1718,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7493FD972B57486DBA74AF06 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
 				);
@@ -1733,7 +1732,6 @@
 					"-Wno-unused-parameter",
 				);
 				PRODUCT_NAME = Barteguiden;
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1743,7 +1741,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7493FD972B57486DBA74AF06 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Barteguiden-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -1755,7 +1752,6 @@
 					"-Wno-unused-parameter",
 				);
 				PRODUCT_NAME = Barteguiden;
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
