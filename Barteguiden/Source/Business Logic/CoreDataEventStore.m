@@ -56,7 +56,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
         _communicator.delegate = self;
         _builder = [[EventBuilder alloc] init];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextObjectsDidChangeNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextObjectsDidChangeNotification:) name:NSManagedObjectContextObjectsDidChangeNotification object:nil]; // NOTE: Object identity is checked in selector
     }
     return self;
 }
@@ -68,8 +68,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 
 - (void)refresh
 {
-    [self.networkActivity incrementNetworkActivity];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreWillRefreshNotification object:self];
+    [self notifyWillDownloadData];
     
     [self.communicator downloadEventChanges];
 }
@@ -79,7 +78,7 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 
 - (void)communicator:(EventStoreCommunicator *)communicator didReceiveEvents:(NSArray *)events
 {
-    [self.networkActivity decrementNetworkActivity];
+    [self notifyDidDownloadData];
     
     __weak typeof(self) bself = self;
     [self.backgroundManagedObjectContext performBlock:^{
@@ -119,12 +118,16 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
         }
         
         [bself.backgroundManagedObjectContext save:NULL]; // TODO: Fix error handling
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [bself notifyDidRefresh];
+        });
     }];
 }
 
 - (void)communicator:(EventStoreCommunicator *)communicator didFailWithError:(NSError *)underlyingError
 {
-    [self.networkActivity decrementNetworkActivity];
+    [self notifyDidDownloadData];
     
     NSError *error = [NSError errorWithDomain:EventStoreErrorDomain code:EventStoreFetchRequestFailed underlyingError:underlyingError];
     [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidFailNotification object:self userInfo:@{EventStoreErrorUserInfoKey: error}];
@@ -192,11 +195,6 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
     
     return events;
 }
-
-// TODO: Implement
-//- (void)enumerateEventsMatchingPredicate:(NSPredicate *)predicate usingBlock:(EventSearchCallback)block
-//{
-//}
 
 
 #pragma mark - Predicates
@@ -277,12 +275,12 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 
 - (void)eventStartedDownloadingData:(Event *)event
 {
-    [self.networkActivity incrementNetworkActivity];
+    [self notifyWillDownloadData];
 }
 
 - (void)eventFinishedDownloadingData:(Event *)event
 {
-    [self.networkActivity decrementNetworkActivity];
+    [self notifyDidDownloadData];
 }
 
 - (NSURL *)URLForImageWithEventID:(NSString *)eventID size:(CGSize)size
@@ -301,8 +299,6 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
 - (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kEventEntityName];
-    fetchRequest.includesSubentities = YES;
-    fetchRequest.fetchBatchSize = 20; // TODO: Is it needed?
     fetchRequest.predicate = predicate;
     
     // Set sort descriptor
@@ -364,6 +360,25 @@ static NSString * const kCalendarEventIDKey = @"calendarEventID";
         userInfo[key] = [events copy];
     }
 }
+
+- (void)notifyWillDownloadData
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreWillDownloadDataNotification object:self];
+}
+
+- (void)notifyDidDownloadData
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidDownloadDataNotification object:self];
+}
+
+- (void)notifyDidRefresh
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventStoreDidRefreshNotification object:self];
+}
+
 
 - (void)notifyDidFail:(NSError *)error
 {

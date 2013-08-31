@@ -13,6 +13,9 @@
 NSString * const EventStoreErrorDomain = @"EventStoreErrorDomain";
 
 // Notifications
+NSString * const EventStoreWillDownloadDataNotification = @"EventStoreWillDownloadDataNotification";
+NSString * const EventStoreDidDownloadDataNotification = @"EventStoreDidDownloadDataNotification";
+NSString * const EventStoreDidRefreshNotification = @"EventStoreDidRefreshNotification";
 NSString * const EventStoreChangedNotification = @"EventStoreChangedNotification";
 NSString * const EventStoreDidFailNotification = @"EventStoreDidFailNotification";
 

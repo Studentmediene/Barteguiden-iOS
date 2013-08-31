@@ -14,6 +14,7 @@
 @protocol CalendarManager;
 @class EventResultsController;
 
+
 @interface AbstractEventsViewController : UITableViewController <EventsSearchDisplayControllerDelegate, EventResultsControllerDelegate>
 
 @property (nonatomic, strong) id<EventStore> eventStore;
@@ -21,8 +22,7 @@
 
 @property (nonatomic, strong) EventResultsController *eventResultsController;
 
-- (void)reloadData;
-- (void)reloadDataWithPredicate:(NSPredicate *)predicate cacheName:(NSString *)cacheName;
+- (void)reloadEventResultsController;
 - (NSPredicate *)eventsPredicate;
 - (NSString *)eventsCacheName;
 

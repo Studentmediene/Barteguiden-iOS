@@ -98,6 +98,8 @@
 		6983FD96173D5378003B429B /* FavoritesTab-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6983FD8E173D5377003B429B /* FavoritesTab-Normal@2x.png */; };
 		6983FD97173D5378003B429B /* FeaturedTab-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6983FD8F173D5378003B429B /* FeaturedTab-Normal.png */; };
 		6983FD9C1740B370003B429B /* ApplicationNetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6983FD9B1740B370003B429B /* ApplicationNetworkActivity.m */; };
+		6984765E17D19535005D76C2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6984765C17D19535005D76C2 /* Icon.png */; };
+		6984765F17D19535005D76C2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6984765D17D19535005D76C2 /* Icon@2x.png */; };
 		69884B97163A0CE70057D189 /* EventFormatter+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B96163A0CE70057D189 /* EventFormatter+Time.m */; };
 		69884B9A163A0D200057D189 /* EventFormatter+LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B99163A0D1F0057D189 /* EventFormatter+LocalizedText.m */; };
 		698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F870C16247B96001B9090 /* EventsSearchDisplayController.m */; };
@@ -137,8 +139,6 @@
 		6998E525174286F700142FAF /* CategoryOther.png in Resources */ = {isa = PBXBuildFile; fileRef = 6998E505174286F700142FAF /* CategoryOther.png */; };
 		6998E526174286F700142FAF /* CategoryPerformances-Big.png in Resources */ = {isa = PBXBuildFile; fileRef = 6998E506174286F700142FAF /* CategoryPerformances-Big.png */; };
 		6998E527174286F700142FAF /* CategoryPerformances.png in Resources */ = {isa = PBXBuildFile; fileRef = 6998E507174286F700142FAF /* CategoryPerformances.png */; };
-		699B72CB17B0311300362253 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 699B72C917B0311300362253 /* Icon.png */; };
-		699B72CC17B0311300362253 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 699B72CA17B0311300362253 /* Icon@2x.png */; };
 		699F3CDF17B08E1900F17B54 /* Samfundet.json in Resources */ = {isa = PBXBuildFile; fileRef = 699F3CDD17B08E1900F17B54 /* Samfundet.json */; };
 		69AEFE3A1624E7AB009F3567 /* EventFormatter+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AEFE391624E7AB009F3567 /* EventFormatter+TableView.m */; };
 		69AFC61916C5DB2A0072C7DE /* EventResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AFC61816C5DB2A0072C7DE /* EventResultsController.m */; };
@@ -331,6 +331,8 @@
 		6983FD991740B32C003B429B /* NetworkActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkActivity.h; sourceTree = "<group>"; };
 		6983FD9A1740B370003B429B /* ApplicationNetworkActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationNetworkActivity.h; sourceTree = "<group>"; };
 		6983FD9B1740B370003B429B /* ApplicationNetworkActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationNetworkActivity.m; sourceTree = "<group>"; };
+		6984765C17D19535005D76C2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		6984765D17D19535005D76C2 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		69884B95163A0CE60057D189 /* EventFormatter+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+Time.h"; sourceTree = "<group>"; };
 		69884B96163A0CE70057D189 /* EventFormatter+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventFormatter+Time.m"; sourceTree = "<group>"; };
 		69884B98163A0D1F0057D189 /* EventFormatter+LocalizedText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+LocalizedText.h"; sourceTree = "<group>"; };
@@ -375,8 +377,6 @@
 		6998E505174286F700142FAF /* CategoryOther.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CategoryOther.png; sourceTree = "<group>"; };
 		6998E506174286F700142FAF /* CategoryPerformances-Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CategoryPerformances-Big.png"; sourceTree = "<group>"; };
 		6998E507174286F700142FAF /* CategoryPerformances.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CategoryPerformances.png; sourceTree = "<group>"; };
-		699B72C917B0311300362253 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		699B72CA17B0311300362253 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		699F3CDD17B08E1900F17B54 /* Samfundet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Samfundet.json; sourceTree = "<group>"; };
 		69AEFE381624E7AB009F3567 /* EventFormatter+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+TableView.h"; sourceTree = "<group>"; };
 		69AEFE391624E7AB009F3567 /* EventFormatter+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventFormatter+TableView.m"; sourceTree = "<group>"; };
@@ -725,8 +725,8 @@
 		6998E54F1742A1E100142FAF /* App Icon */ = {
 			isa = PBXGroup;
 			children = (
-				699B72C917B0311300362253 /* Icon.png */,
-				699B72CA17B0311300362253 /* Icon@2x.png */,
+				6984765C17D19535005D76C2 /* Icon.png */,
+				6984765D17D19535005D76C2 /* Icon@2x.png */,
 			);
 			name = "App Icon";
 			sourceTree = "<group>";
@@ -1435,11 +1435,11 @@
 				6998E525174286F700142FAF /* CategoryOther.png in Resources */,
 				6998E526174286F700142FAF /* CategoryPerformances-Big.png in Resources */,
 				6998E527174286F700142FAF /* CategoryPerformances.png in Resources */,
-				699B72CB17B0311300362253 /* Icon.png in Resources */,
-				699B72CC17B0311300362253 /* Icon@2x.png in Resources */,
 				69EE052017B0609B00E4A511 /* Localizable.strings in Resources */,
 				699F3CDF17B08E1900F17B54 /* Samfundet.json in Resources */,
 				691F9D2217C2477300B16209 /* Example.json in Resources */,
+				6984765E17D19535005D76C2 /* Icon.png in Resources */,
+				6984765F17D19535005D76C2 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,14 +16,15 @@
 
 @interface EventResultsController ()
 
+@property (nonatomic, strong) NSArray *sections;
+
 @property (nonatomic, strong) id<EventStore> eventStore;
+@property (nonatomic, strong) EventSectionNameBlock sectionNameBlock;
 
 @end
 
 
-@implementation EventResultsController {
-    NSArray *_sections;
-}
+@implementation EventResultsController
 
 - (instancetype)initWithEventStore:(id<EventStore>)eventStore sectionNameBlock:(EventSectionNameBlock)sectionNameBlock
 {
@@ -32,22 +33,15 @@
         _eventStore = eventStore;
         _sectionNameBlock = sectionNameBlock;
         _sections = [NSArray array];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
     }
     return self;
-}
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:EventStoreChangedNotification object:self.eventStore];
 }
 
 - (void)performFetchWithPredicate:(NSPredicate *)predicate cacheName:(NSString *)cacheName error:(NSError **)error
 {
     NSArray *cachedSections = [[[self class] cachedSections] objectForKey:cacheName];
     if (cachedSections != nil) {
-        NSLog(@"Found events in cache");
+        NSLog(@"Found events in cache:%@", cacheName);
         _sections = cachedSections;
         return;
     }
@@ -59,6 +53,7 @@
     
     [[[self class] cachedSections] setObject:_sections forKey:cacheName];
 }
+
 
 #pragma mark - Accessing Results
 
@@ -79,14 +74,6 @@
 - (NSArray *)sections
 {
     return [_sections copy];
-}
-
-
-#pragma mark - Notifications
-
-- (void)eventStoreChanged:(NSNotification *)note
-{
-    [[[self class] cachedSections] removeAllObjects];
 }
 
 
@@ -154,6 +141,21 @@
 {
     NSArray *events = [section events];
     return [events indexOfObject:event];
+}
+
+
+#pragma mark - Cache
+
++ (void)clearCache
+{
+    NSLog(@"Clearing cache in %@", NSStringFromClass([self class]));
+    [[self cachedSections] removeAllObjects];
+}
+
++ (void)deleteCacheWithName:(NSString *)cacheName
+{
+    NSLog(@"Deleting cache (%@) in %@", cacheName, NSStringFromClass([self class]));
+    [[self cachedSections] removeObjectForKey:cacheName];
 }
 
 + (NSCache *)cachedSections

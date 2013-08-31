@@ -48,6 +48,9 @@ typedef NS_ENUM(NSInteger, EventStoreErrorCode) {
 };
 
 // Notifications
+extern NSString * const EventStoreWillDownloadDataNotification;
+extern NSString * const EventStoreDidDownloadDataNotification;
+extern NSString * const EventStoreDidRefreshNotification;
 extern NSString * const EventStoreChangedNotification;
 extern NSString * const EventStoreDidFailNotification;
 

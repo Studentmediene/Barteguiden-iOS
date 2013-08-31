@@ -106,12 +106,12 @@ static CGSize const kSettingsTabSize = {64, 49};
 
 #pragma mark - Private methods
 
-- (void)setUpTabs
-{
-    UIViewController *dummyViewController = [[UIViewController alloc] init];
-    self.viewControllers = @[[self featuredViewController], dummyViewController];
-//    self.viewControllers = @[[self featuredViewController], [self allEventsViewController], [self myFilterViewController], [self favoritesViewController], dummyViewController];
-}
+//- (void)setUpTabs
+//{
+//    UIViewController *dummyViewController = [[UIViewController alloc] init];
+//    self.viewControllers = @[[self featuredViewController], dummyViewController];
+////    self.viewControllers = @[[self featuredViewController], [self allEventsViewController], [self myFilterViewController], [self favoritesViewController], dummyViewController];
+//}
 
 - (void)setUpSettingsButton
 {
@@ -138,59 +138,59 @@ static CGSize const kSettingsTabSize = {64, 49};
     [favoritesTab setFinishedSelectedImage:[UIImage imageNamed:@"FavoritesTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FavoritesTab-Normal"]];
 }
 
-- (UIViewController *)featuredViewController
-{
-    FeaturedViewController *featuredViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Featured"];
-//    FeaturedViewController *featuredViewController = [[FeaturedViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    featuredViewController.eventStore = self.eventStore;
-    featuredViewController.calendarManager = self.calendarManager;
-    
-    EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)featuredViewController.searchDisplayController.delegate;
-    eventsSearchDisplayController.eventStore = self.eventStore;
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:featuredViewController];
-    return navigationController;
-}
-
-- (UIViewController *)allEventsViewController
-{
-    AllEventsViewController *allEventsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AllEvents"];
-    allEventsViewController.eventStore = self.eventStore;
-    allEventsViewController.calendarManager = self.calendarManager;
-    
-    EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)allEventsViewController.searchDisplayController.delegate;
-    eventsSearchDisplayController.eventStore = self.eventStore;
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:allEventsViewController];
-    return navigationController;
-}
-
-- (UIViewController *)myFilterViewController
-{
-    MyFilterViewController *myFilterViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MyFilter"];
-    myFilterViewController.eventStore = self.eventStore;
-    myFilterViewController.filterManager = self.filterManager; // NOTE: This different from the other controllers
-    myFilterViewController.calendarManager = self.calendarManager;
-    
-    EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)myFilterViewController.searchDisplayController.delegate;
-    eventsSearchDisplayController.eventStore = self.eventStore;
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:myFilterViewController];
-    return navigationController;
-}
-
-- (UIViewController *)favoritesViewController
-{
-    FavoritesViewController *favoritesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Favorites"];
-    favoritesViewController.eventStore = self.eventStore;
-    favoritesViewController.calendarManager = self.calendarManager;
-    
-    EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)favoritesViewController.searchDisplayController.delegate;
-    eventsSearchDisplayController.eventStore = self.eventStore;
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:favoritesViewController];
-    return navigationController;
-}
+//- (UIViewController *)featuredViewController
+//{
+//    FeaturedViewController *featuredViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Featured"];
+////    FeaturedViewController *featuredViewController = [[FeaturedViewController alloc] initWithStyle:UITableViewStyleGrouped];
+//    featuredViewController.eventStore = self.eventStore;
+//    featuredViewController.calendarManager = self.calendarManager;
+//    
+//    EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)featuredViewController.searchDisplayController.delegate;
+//    eventsSearchDisplayController.eventStore = self.eventStore;
+//    
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:featuredViewController];
+//    return navigationController;
+//}
+//
+//- (UIViewController *)allEventsViewController
+//{
+//    AllEventsViewController *allEventsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AllEvents"];
+//    allEventsViewController.eventStore = self.eventStore;
+//    allEventsViewController.calendarManager = self.calendarManager;
+//    
+//    EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)allEventsViewController.searchDisplayController.delegate;
+//    eventsSearchDisplayController.eventStore = self.eventStore;
+//    
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:allEventsViewController];
+//    return navigationController;
+//}
+//
+//- (UIViewController *)myFilterViewController
+//{
+//    MyFilterViewController *myFilterViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MyFilter"];
+//    myFilterViewController.eventStore = self.eventStore;
+//    myFilterViewController.filterManager = self.filterManager; // NOTE: This different from the other controllers
+//    myFilterViewController.calendarManager = self.calendarManager;
+//    
+//    EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)myFilterViewController.searchDisplayController.delegate;
+//    eventsSearchDisplayController.eventStore = self.eventStore;
+//    
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:myFilterViewController];
+//    return navigationController;
+//}
+//
+//- (UIViewController *)favoritesViewController
+//{
+//    FavoritesViewController *favoritesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Favorites"];
+//    favoritesViewController.eventStore = self.eventStore;
+//    favoritesViewController.calendarManager = self.calendarManager;
+//    
+//    EventsSearchDisplayController *eventsSearchDisplayController = (EventsSearchDisplayController *)favoritesViewController.searchDisplayController.delegate;
+//    eventsSearchDisplayController.eventStore = self.eventStore;
+//    
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:favoritesViewController];
+//    return navigationController;
+//}
 
 - (UIViewController *)settingsViewController
 {

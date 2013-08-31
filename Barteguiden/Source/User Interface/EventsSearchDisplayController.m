@@ -11,9 +11,15 @@
 #import "EventKit.h"
 #import "EventKitUI.h"
 
-@implementation EventsSearchDisplayController {
-    NSString *_searchString;
-}
+
+@interface EventsSearchDisplayController ()
+
+@property (nonatomic, strong) NSString *searchString;
+
+@end
+
+
+@implementation EventsSearchDisplayController
 
 - (void)viewDidLoad
 {
@@ -34,26 +40,12 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    // TODO: Optimize code
-    _searchString = searchString;
     NSLog(@"%@%@", NSStringFromSelector(_cmd), searchString);
-    [self reloadDataWithPredicate:[self eventsPredicate] cacheName:nil]; // TODO: Add caching?
+    self.searchString = searchString;
+    
+    [self reloadEventResultsController];
     
     return YES;
-//    // Store a copy of the last result in order to check if result has changed
-//    NSArray *lastResult = self.searchDisplayResult;
-//
-//    // Filter search display result
-//    NSString *test = [NSString stringWithFormat:@"*%@*", searchString];
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", kResultFriendName, test];
-//    self.searchDisplayResult = [self.sortedResult filteredArrayUsingPredicate:predicate];
-//
-//    // Determine if search display should reload table
-//    if ([self.searchDisplayResult count] != [lastResult count])
-//        return YES;
-//
-//    BOOL hasChanged = !([self.searchDisplayResult isEqualToArray:lastResult]);
-//    return hasChanged;
 }
 
 #pragma mark - UITableViewDelegate
@@ -72,14 +64,20 @@
 {
     NSPredicate *predicate = [self.delegate eventsPredicate];
     
-    if ([_searchString length] > 0) {
-        NSPredicate *titlePredicate = [self.eventStore predicateForTitleContainingText:_searchString];
-        NSPredicate *placeNamePredicate = [self.eventStore predicateForPlaceNameContainingText:_searchString];
+    if ([self.searchString length] > 0) {
+        NSPredicate *titlePredicate = [self.eventStore predicateForTitleContainingText:self.searchString];
+        NSPredicate *placeNamePredicate = [self.eventStore predicateForPlaceNameContainingText:self.searchString];
         NSPredicate *searchPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:@[titlePredicate, placeNamePredicate]];
         predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate, searchPredicate]];
     }
     
     return predicate;
+}
+
+- (NSString *)eventsCacheName
+{
+     // NOTE: Do not cache searches
+    return nil;
 }
 
 @end

@@ -217,13 +217,13 @@ static float const kOneHourOffset = 1*60*60;
 
 - (void)addCalendarEvent:(EKEvent *)calendarEvent
 {
-    [self.calendarManager.calendarStore saveEvent:calendarEvent span:EKSpanThisEvent error:NULL];
+    [self.calendarManager.calendarStore saveEvent:calendarEvent span:EKSpanThisEvent error:NULL]; // TODO: Add error handling
     [self.event setCalendarEventID:calendarEvent.eventIdentifier];
 }
 
 - (void)removeCalendarEvent:(EKEvent *)calendarEvent
 {
-    [self.calendarManager.calendarStore removeEvent:calendarEvent span:EKSpanThisEvent error:NULL];
+    [self.calendarManager.calendarStore removeEvent:calendarEvent span:EKSpanThisEvent error:NULL]; // TODO: Add error handling
     [self.event setCalendarEventID:nil];
 }
 
@@ -309,7 +309,8 @@ static float const kOneHourOffset = 1*60*60;
     self.ageLimitLabel.text = ageLimit;
     
     NSString *defaultDescription = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_NO_DESCRIPTION", nil, [NSBundle mainBundle], @"No description", @"Default text if there are no description of event");
-    self.descriptionLabel.text = [eventFormatter currentLocalizedDescription] ?: defaultDescription;
+    NSString *description = [eventFormatter currentLocalizedDescription] ?: defaultDescription;
+    self.descriptionLabel.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     self.descriptionLabel.delegate = self;
     self.descriptionLabel.maxNumberOfLines = 4;
     

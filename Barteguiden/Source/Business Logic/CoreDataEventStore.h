@@ -27,8 +27,6 @@
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, strong) id<NetworkActivity> networkActivity;
-
 - (instancetype)init;
 - (void)refresh;
 

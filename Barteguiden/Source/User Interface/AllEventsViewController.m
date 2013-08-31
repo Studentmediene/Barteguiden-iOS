@@ -10,13 +10,12 @@
 #import "EventKit.h"
 
 
-#pragma mark - Constants
-
 enum {
     kAllEventsSegmentedControllIndex = 0,
     kPaidEventsSegmentedControllIndex = 1,
     kFreeEventsSegmentedControllIndex = 2
 };
+
 
 @implementation AllEventsViewController
 
@@ -41,6 +40,16 @@ enum {
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - IBAction
+
+- (IBAction)changePriceFilter:(id)sender
+{
+    [self updatePlaceholderInSearchField];
+    [self reloadEventResultsController];
+    [self.tableView reloadData];
 }
 
 
@@ -83,15 +92,6 @@ enum {
     }
     
     return nil;
-}
-
-
-#pragma mark - IBAction
-
-- (IBAction)changePriceFilter:(id)sender
-{
-    [self updatePlaceholderInSearchField];
-    [self reloadData];
 }
 
 

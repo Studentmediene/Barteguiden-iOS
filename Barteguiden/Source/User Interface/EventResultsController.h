@@ -19,8 +19,9 @@ typedef NSString * (^EventSectionNameBlock)(id<Event> event);
 @interface EventResultsController : NSObject
 
 @property (nonatomic, weak) id<EventResultsControllerDelegate> delegate;
-@property (nonatomic, readonly) EventSectionNameBlock sectionNameBlock;
 
++ (void)clearCache;
++ (void)deleteCacheWithName:(NSString *)cacheName;
 
 - (instancetype)initWithEventStore:(id<EventStore>)eventStore sectionNameBlock:(EventSectionNameBlock)sectionNameBlock;
 - (void)performFetchWithPredicate:(NSPredicate *)predicate cacheName:(NSString *)cacheName error:(NSError **)error;

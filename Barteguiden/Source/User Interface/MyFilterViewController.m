@@ -45,6 +45,11 @@ static NSString * kFilterSegue = @"FilterSegue";
     return predicate;
 }
 
+- (NSString *)eventsCacheName
+{
+    return @"MyFilter";
+}
+
 
 #pragma mark - Storyboard
 
@@ -61,7 +66,10 @@ static NSString * kFilterSegue = @"FilterSegue";
 {
     NSLog(@"Closing filter");
     
-    [self reloadData];
+    [[self.eventResultsController class] deleteCacheWithName:[self eventsCacheName]];
+    
+    [self reloadEventResultsController];
+    [self.tableView reloadData];
 }
 
 @end

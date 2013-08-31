@@ -17,7 +17,8 @@
 #import "HeaderView.h"
 
 
-static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier";
+static NSString * const kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier";
+static NSString * const kCellIdentifier = @"EventCell";
 
 
 @implementation AbstractEventsViewController
@@ -38,7 +39,17 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 {
     [super viewWillAppear:animated];
     
-    [self reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidRefresh:) name:EventStoreDidRefreshNotification object:self.eventStore];
+    
+    [self reloadEventResultsController];
+    [self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:EventStoreDidRefreshNotification object:self.eventStore];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,7 +88,10 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self cell];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    if (cell == nil) {
+        cell = [self createCell];
+    }
     
     [self configureCell:cell atIndexPath:indexPath];
     
@@ -143,6 +157,15 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
 }
 
 
+#pragma mark - Notifications
+
+- (void)eventStoreDidRefresh:(NSNotification *)note
+{
+    [self reloadEventResultsController];
+    [self.tableView reloadData];
+}
+
+
 #pragma mark - Private methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -158,32 +181,17 @@ static NSString *kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier
     eventCell.thumbnailImageView.image = [eventFormatter categoryImage];
 }
 
-- (void)reloadData
+- (void)reloadEventResultsController
 {
-    [self reloadDataWithPredicate:[self eventsPredicate] cacheName:[self eventsCacheName]];
+    NSLog(@"Reloading EventResultsController");
+    [self.eventResultsController performFetchWithPredicate:[self eventsPredicate] cacheName:[self eventsCacheName] error:NULL]; // TODO: Add error handling
 }
 
-- (void)reloadDataWithPredicate:(NSPredicate *)predicate cacheName:(NSString *)cacheName
+- (UITableViewCell *)createCell
 {
-    NSLog(@"Reloading data");
-    [self.eventResultsController performFetchWithPredicate:predicate cacheName:cacheName error:NULL];
-    [self.tableView reloadData];
-}
-
-- (UITableViewCell *)cell
-{
-    static NSString *cellIdentifier = @"EventCell";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell == nil) {
-//        NSLog(@"Generating new cell from nib"); // TODO: Use this to check that search field works
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EventCell" owner:self options:nil];
-        cell = (UITableViewCell *)[nib objectAtIndex:0];
-        [cell prepareForReuse];
-    }
-
-    return cell;
+//    NSLog(@"Generating new cell from nib");
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EventCell" owner:self options:nil];
+    return (UITableViewCell *)[nib objectAtIndex:0];
 }
 
 @end
- 

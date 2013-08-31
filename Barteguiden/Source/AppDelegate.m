@@ -20,6 +20,8 @@
 
 #import "TabBarController.h"
 
+#import "EventResultsController.h"
+
 #import <PSPDFAlertView.h>
 
 
@@ -32,12 +34,13 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     self.networkActivity = [[ApplicationNetworkActivity alloc] initWithApplication:[UIApplication sharedApplication]];
-    // TODO: Inject into other classes
     
     // Event store
     self.eventStore = [[CoreDataEventStore alloc] init];
-    self.eventStore.networkActivity = self.networkActivity;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidFailNotification:) name:EventStoreDidFailNotification object:self.eventStore];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreWillDownloadData:) name:EventStoreWillDownloadDataNotification object:self.eventStore];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidDownloadData:) name:EventStoreDidDownloadDataNotification object:self.eventStore];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidFail:) name:EventStoreDidFailNotification object:self.eventStore];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
     
     // Filter manager
     self.filterManager = [[UserDefaultsFilterManager alloc] initWithUserDefaults:userDefaults eventStore:self.eventStore];
@@ -46,7 +49,7 @@
     EKEventStore *calendarStore = [[EKEventStore alloc] init];
     self.calendarManager = [[UserDefaultsCalendarManager alloc] initWithUserDefaults:userDefaults calendarStore:calendarStore];
 //    [self.calendarManager registerDefaultDefaultAlertTimeInterval:-30*60]; // TODO: If I uncomment this line, I can't select None as Default Alert
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarManagerDidFailNotification:) name:CalendarManagerDidFailNotification object:self.calendarManager];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarManagerDidFail:) name:CalendarManagerDidFailNotification object:self.calendarManager];
     
     // Inject dependencies
     TabBarController *tabBarController = (TabBarController *)self.window.rootViewController;
@@ -86,7 +89,7 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     NSLog(@"Closing...");
-    [self.eventStore save:NULL];
+    [self.eventStore save:NULL]; // TODO: Fix error handling
     [self.filterManager save];
     [self.calendarManager save];
 }
@@ -99,7 +102,19 @@
 
 #pragma mark - Notifications
 
-- (void)eventStoreDidFailNotification:(NSNotification *)note
+- (void)eventStoreWillDownloadData:(NSNotification *)note
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    [self.networkActivity incrementNetworkActivity];
+}
+
+- (void)eventStoreDidDownloadData:(NSNotification *)note
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    [self.networkActivity decrementNetworkActivity];
+}
+
+- (void)eventStoreDidFail:(NSNotification *)note
 {
     NSError *error = note.userInfo[EventStoreErrorUserInfoKey];
     switch (error.code) {
@@ -115,7 +130,19 @@
     NSLog(@"Unresolved error:%@", error);
 }
 
-- (void)calendarManagerDidFailNotification:(NSNotification *)note
+- (void)eventStoreChanged:(NSNotification *)note
+{
+    NSUInteger insertedCount = [note.userInfo[EventStoreInsertedEventsUserInfoKey] count];
+    NSUInteger updatedCount = [note.userInfo[EventStoreUpdatedEventsUserInfoKey] count];
+    NSUInteger deletedCount = [note.userInfo[EventStoreDeletedEventsUserInfoKey] count];
+    NSLog(@"Inserted:%d updated:%d deleted:%d", insertedCount, updatedCount, deletedCount);
+    
+    if (insertedCount > 0 || deletedCount > 0) {
+        [EventResultsController clearCache];
+    }
+}
+
+- (void)calendarManagerDidFail:(NSNotification *)note
 {
     NSError *error = note.userInfo[CalendarManagerErrorUserInfoKey];
     switch (error.code) {

@@ -8,6 +8,7 @@
 
 #import "AbstractEventsViewController.h"
 
+
 @interface AllEventsViewController : AbstractEventsViewController
 
 @property (nonatomic, weak) IBOutlet UISegmentedControl *priceFilterSegmentedControl;

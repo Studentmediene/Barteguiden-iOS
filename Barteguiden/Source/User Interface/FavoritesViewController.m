@@ -44,6 +44,12 @@
     return predicate;
 }
 
+- (NSString *)eventsCacheName
+{
+    // NOTE: Cache is not cleared if an event is updated
+    return nil;
+}
+
 
 #pragma mark - UITableViewDataSource
 
@@ -59,12 +65,19 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        BOOL isLastEventInSection = ([[[self.eventResultsController sections] objectAtIndex:indexPath.section] numberOfEvents] == 1);
+        
         id<Event> event = [self.eventResultsController eventForIndexPath:indexPath];
         [event setFavorite:NO];
-//        [self.tableView beginUpdates];
-//        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-//        [self.tableView endUpdates];
-        [self reloadData];
+        
+        [self reloadEventResultsController];
+        
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        if (isLastEventInSection) {
+            [self.tableView deleteSections:[[NSIndexSet alloc] initWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        [self.tableView endUpdates];
     }
 }
 
