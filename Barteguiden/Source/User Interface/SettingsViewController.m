@@ -131,7 +131,7 @@
         mailViewController.mailComposeDelegate = self;
         
         NSString *subject = NSLocalizedStringWithDefaultValue(@"SETTINGS_SEND_US_YOUR_TIPS_SUBJECT", nil, [NSBundle mainBundle], @"Tips for Barteguiden", @"Subject for email about tips");
-        [mailViewController setToRecipients:@[@"barteguiden@gmail.com"]];
+        [mailViewController setToRecipients:@[@"barteguiden@studentmediene.no"]];
         [mailViewController setSubject:subject];
         
         [self presentViewController:mailViewController animated:YES completion:NULL];
