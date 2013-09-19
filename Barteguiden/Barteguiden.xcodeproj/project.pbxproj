@@ -71,6 +71,22 @@
 		697E8F3C1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 697E8F3B1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m */; };
 		697E8F3F1732004800974244 /* MissingPoster.png in Resources */ = {isa = PBXBuildFile; fileRef = 697E8F3D1732004800974244 /* MissingPoster.png */; };
 		697E8F401732004800974244 /* MissingPoster@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697E8F3E1732004800974244 /* MissingPoster@2x.png */; };
+		697ECB8117EB3E1F0053B6C3 /* SettingsTab-iOS7-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB7917EB3E1F0053B6C3 /* SettingsTab-iOS7-Normal@2x.png */; };
+		697ECB8217EB3E1F0053B6C3 /* FavoritesTab-iOS7-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB7A17EB3E1F0053B6C3 /* FavoritesTab-iOS7-Normal.png */; };
+		697ECB8317EB3E1F0053B6C3 /* MyFilterTab-iOS7-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB7B17EB3E1F0053B6C3 /* MyFilterTab-iOS7-Normal.png */; };
+		697ECB8417EB3E1F0053B6C3 /* SettingsTab-iOS7-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB7C17EB3E1F0053B6C3 /* SettingsTab-iOS7-Normal.png */; };
+		697ECB8517EB3E1F0053B6C3 /* AllEventsTab-iOS7-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB7D17EB3E1F0053B6C3 /* AllEventsTab-iOS7-Normal.png */; };
+		697ECB8617EB3E1F0053B6C3 /* AllEventsTab-iOS7-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB7E17EB3E1F0053B6C3 /* AllEventsTab-iOS7-Normal@2x.png */; };
+		697ECB8717EB3E1F0053B6C3 /* FavoritesTab-iOS7-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB7F17EB3E1F0053B6C3 /* FavoritesTab-iOS7-Normal@2x.png */; };
+		697ECB8817EB3E1F0053B6C3 /* MyFilterTab-iOS7-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB8017EB3E1F0053B6C3 /* MyFilterTab-iOS7-Normal@2x.png */; };
+		697ECB9117EB3E680053B6C3 /* MyFilterTab-iOS7-Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB8917EB3E680053B6C3 /* MyFilterTab-iOS7-Selected@2x.png */; };
+		697ECB9217EB3E680053B6C3 /* SettingsTab-iOS7-Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB8A17EB3E680053B6C3 /* SettingsTab-iOS7-Selected@2x.png */; };
+		697ECB9317EB3E680053B6C3 /* FavoritesTab-iOS7-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB8B17EB3E680053B6C3 /* FavoritesTab-iOS7-Selected.png */; };
+		697ECB9417EB3E680053B6C3 /* AllEventsTab-iOS7-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB8C17EB3E680053B6C3 /* AllEventsTab-iOS7-Selected.png */; };
+		697ECB9517EB3E680053B6C3 /* AllEventsTab-iOS7-Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB8D17EB3E680053B6C3 /* AllEventsTab-iOS7-Selected@2x.png */; };
+		697ECB9617EB3E680053B6C3 /* MyFilterTab-iOS7-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB8E17EB3E680053B6C3 /* MyFilterTab-iOS7-Selected.png */; };
+		697ECB9717EB3E680053B6C3 /* SettingsTab-iOS7-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB8F17EB3E680053B6C3 /* SettingsTab-iOS7-Selected.png */; };
+		697ECB9817EB3E680053B6C3 /* FavoritesTab-iOS7-Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 697ECB9017EB3E680053B6C3 /* FavoritesTab-iOS7-Selected@2x.png */; };
 		6983FD62173CED8B003B429B /* NavigationButtonBackground-Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 6983FD60173CED8B003B429B /* NavigationButtonBackground-Highlighted.png */; };
 		6983FD63173CED8B003B429B /* NavigationButtonBackground-Highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6983FD61173CED8B003B429B /* NavigationButtonBackground-Highlighted@2x.png */; };
 		6983FD6A173CF04D003B429B /* NavigationButtonBackground-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6983FD68173CF04D003B429B /* NavigationButtonBackground-Normal.png */; };
@@ -301,6 +317,22 @@
 		697E8F3B1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RIODarkenAndBlur.m"; sourceTree = "<group>"; };
 		697E8F3D1732004800974244 /* MissingPoster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MissingPoster.png; sourceTree = "<group>"; };
 		697E8F3E1732004800974244 /* MissingPoster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MissingPoster@2x.png"; sourceTree = "<group>"; };
+		697ECB7917EB3E1F0053B6C3 /* SettingsTab-iOS7-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsTab-iOS7-Normal@2x.png"; sourceTree = "<group>"; };
+		697ECB7A17EB3E1F0053B6C3 /* FavoritesTab-iOS7-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FavoritesTab-iOS7-Normal.png"; sourceTree = "<group>"; };
+		697ECB7B17EB3E1F0053B6C3 /* MyFilterTab-iOS7-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyFilterTab-iOS7-Normal.png"; sourceTree = "<group>"; };
+		697ECB7C17EB3E1F0053B6C3 /* SettingsTab-iOS7-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsTab-iOS7-Normal.png"; sourceTree = "<group>"; };
+		697ECB7D17EB3E1F0053B6C3 /* AllEventsTab-iOS7-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AllEventsTab-iOS7-Normal.png"; sourceTree = "<group>"; };
+		697ECB7E17EB3E1F0053B6C3 /* AllEventsTab-iOS7-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AllEventsTab-iOS7-Normal@2x.png"; sourceTree = "<group>"; };
+		697ECB7F17EB3E1F0053B6C3 /* FavoritesTab-iOS7-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FavoritesTab-iOS7-Normal@2x.png"; sourceTree = "<group>"; };
+		697ECB8017EB3E1F0053B6C3 /* MyFilterTab-iOS7-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyFilterTab-iOS7-Normal@2x.png"; sourceTree = "<group>"; };
+		697ECB8917EB3E680053B6C3 /* MyFilterTab-iOS7-Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyFilterTab-iOS7-Selected@2x.png"; sourceTree = "<group>"; };
+		697ECB8A17EB3E680053B6C3 /* SettingsTab-iOS7-Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsTab-iOS7-Selected@2x.png"; sourceTree = "<group>"; };
+		697ECB8B17EB3E680053B6C3 /* FavoritesTab-iOS7-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FavoritesTab-iOS7-Selected.png"; sourceTree = "<group>"; };
+		697ECB8C17EB3E680053B6C3 /* AllEventsTab-iOS7-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AllEventsTab-iOS7-Selected.png"; sourceTree = "<group>"; };
+		697ECB8D17EB3E680053B6C3 /* AllEventsTab-iOS7-Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AllEventsTab-iOS7-Selected@2x.png"; sourceTree = "<group>"; };
+		697ECB8E17EB3E680053B6C3 /* MyFilterTab-iOS7-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyFilterTab-iOS7-Selected.png"; sourceTree = "<group>"; };
+		697ECB8F17EB3E680053B6C3 /* SettingsTab-iOS7-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsTab-iOS7-Selected.png"; sourceTree = "<group>"; };
+		697ECB9017EB3E680053B6C3 /* FavoritesTab-iOS7-Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FavoritesTab-iOS7-Selected@2x.png"; sourceTree = "<group>"; };
 		6983FD60173CED8B003B429B /* NavigationButtonBackground-Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationButtonBackground-Highlighted.png"; sourceTree = "<group>"; };
 		6983FD61173CED8B003B429B /* NavigationButtonBackground-Highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationButtonBackground-Highlighted@2x.png"; sourceTree = "<group>"; };
 		6983FD68173CF04D003B429B /* NavigationButtonBackground-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavigationButtonBackground-Normal.png"; sourceTree = "<group>"; };
@@ -626,6 +658,7 @@
 		695EC2E5173C6E5C007C32D5 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				697ECB3C17EB33700053B6C3 /* iOS7 */,
 				6983FD8F173D5378003B429B /* FeaturedTab-Normal.png */,
 				6983FD89173D5376003B429B /* FeaturedTab-Normal@2x.png */,
 				6983FD75173D5318003B429B /* FeaturedTab-Selected.png */,
@@ -646,6 +679,29 @@
 				6983FD7D173D5319003B429B /* SettingsButton@2x.png */,
 			);
 			name = Tabs;
+			sourceTree = "<group>";
+		};
+		697ECB3C17EB33700053B6C3 /* iOS7 */ = {
+			isa = PBXGroup;
+			children = (
+				697ECB7B17EB3E1F0053B6C3 /* MyFilterTab-iOS7-Normal.png */,
+				697ECB7D17EB3E1F0053B6C3 /* AllEventsTab-iOS7-Normal.png */,
+				697ECB8C17EB3E680053B6C3 /* AllEventsTab-iOS7-Selected.png */,
+				697ECB8D17EB3E680053B6C3 /* AllEventsTab-iOS7-Selected@2x.png */,
+				697ECB7E17EB3E1F0053B6C3 /* AllEventsTab-iOS7-Normal@2x.png */,
+				697ECB8017EB3E1F0053B6C3 /* MyFilterTab-iOS7-Normal@2x.png */,
+				697ECB8E17EB3E680053B6C3 /* MyFilterTab-iOS7-Selected.png */,
+				697ECB8917EB3E680053B6C3 /* MyFilterTab-iOS7-Selected@2x.png */,
+				697ECB7A17EB3E1F0053B6C3 /* FavoritesTab-iOS7-Normal.png */,
+				697ECB7F17EB3E1F0053B6C3 /* FavoritesTab-iOS7-Normal@2x.png */,
+				697ECB8B17EB3E680053B6C3 /* FavoritesTab-iOS7-Selected.png */,
+				697ECB9017EB3E680053B6C3 /* FavoritesTab-iOS7-Selected@2x.png */,
+				697ECB7C17EB3E1F0053B6C3 /* SettingsTab-iOS7-Normal.png */,
+				697ECB7917EB3E1F0053B6C3 /* SettingsTab-iOS7-Normal@2x.png */,
+				697ECB8F17EB3E680053B6C3 /* SettingsTab-iOS7-Selected.png */,
+				697ECB8A17EB3E680053B6C3 /* SettingsTab-iOS7-Selected@2x.png */,
+			);
+			name = iOS7;
 			sourceTree = "<group>";
 		};
 		6983FD5E173CD765003B429B /* Buttons */ = {
@@ -1325,6 +1381,7 @@
 				69B9F75D17162FB100184F5B /* SectionHeader@2x.png in Resources */,
 				69B9F75E17162FB100184F5B /* SectionHeader.png in Resources */,
 				69B04682171832AD00A9F25C /* NavigationBar.png in Resources */,
+				697ECB8517EB3E1F0053B6C3 /* AllEventsTab-iOS7-Normal.png in Resources */,
 				69B04683171832AD00A9F25C /* NavigationBar@2x.png in Resources */,
 				691DC322171C521B00844DED /* AgeLimitBorder.png in Resources */,
 				691DC323171C521B00844DED /* AgeLimitBorder@2x.png in Resources */,
@@ -1332,6 +1389,7 @@
 				692E3E52171F372400325CBE /* Favorite-Normal@2x.png in Resources */,
 				692E3E53171F372400325CBE /* Favorite-Selected.png in Resources */,
 				692E3E54171F372400325CBE /* Favorite-Selected@2x.png in Resources */,
+				697ECB9817EB3E680053B6C3 /* FavoritesTab-iOS7-Selected@2x.png in Resources */,
 				692E3E57171F5ABC00325CBE /* Action.png in Resources */,
 				692E3E58171F5ABC00325CBE /* Action@2x.png in Resources */,
 				697E8F3F1732004800974244 /* MissingPoster.png in Resources */,
@@ -1345,6 +1403,7 @@
 				695EC1E61739EFBA007C32D5 /* BarButtonItem-Normal.png in Resources */,
 				695EC1E71739EFBA007C32D5 /* BarButtonItem-Highlighted@2x.png in Resources */,
 				695EC1EC1739F173007C32D5 /* BarButtonItemDone-Highlighted.png in Resources */,
+				697ECB9217EB3E680053B6C3 /* SettingsTab-iOS7-Selected@2x.png in Resources */,
 				695EC1ED1739F173007C32D5 /* BarButtonItemDone-Normal.png in Resources */,
 				695EC1EE1739F173007C32D5 /* BarButtonItemDone-Normal@2x.png in Resources */,
 				695EC1EF1739F173007C32D5 /* BarButtonItemDone-Highlighted@2x.png in Resources */,
@@ -1352,6 +1411,8 @@
 				695EC273173AEDCB007C32D5 /* SegmentedControlBackground-Normal@2x.png in Resources */,
 				695EC274173AEDCB007C32D5 /* SegmentedControlBackground-Selected.png in Resources */,
 				695EC275173AEDCB007C32D5 /* SegmentedControlBackground-Selected@2x.png in Resources */,
+				697ECB8417EB3E1F0053B6C3 /* SettingsTab-iOS7-Normal.png in Resources */,
+				697ECB8117EB3E1F0053B6C3 /* SettingsTab-iOS7-Normal@2x.png in Resources */,
 				695EC276173AEDCB007C32D5 /* SegmentedControlDivider-BothNormal.png in Resources */,
 				695EC277173AEDCB007C32D5 /* SegmentedControlDivider-BothNormal@2x.png in Resources */,
 				695EC278173AEDCB007C32D5 /* SegmentedControlDivider-LeftSelected.png in Resources */,
@@ -1368,14 +1429,18 @@
 				695EC297173B1DEB007C32D5 /* Location-Normal.png in Resources */,
 				695EC2AE173B40E9007C32D5 /* WebsiteBackArrow.png in Resources */,
 				695EC2AF173B40E9007C32D5 /* WebsiteBackArrow@2x.png in Resources */,
+				697ECB8817EB3E1F0053B6C3 /* MyFilterTab-iOS7-Normal@2x.png in Resources */,
 				695EC2B6173C65FA007C32D5 /* TabBarBackground.png in Resources */,
 				695EC2B7173C65FA007C32D5 /* TabBarBackground@2x.png in Resources */,
 				695EC2BE173C6801007C32D5 /* TabBarSelectedTab.png in Resources */,
+				697ECB8217EB3E1F0053B6C3 /* FavoritesTab-iOS7-Normal.png in Resources */,
 				695EC2BF173C6801007C32D5 /* TabBarSelectedTab@2x.png in Resources */,
+				697ECB9417EB3E680053B6C3 /* AllEventsTab-iOS7-Selected.png in Resources */,
 				6983FD62173CED8B003B429B /* NavigationButtonBackground-Highlighted.png in Resources */,
 				6983FD63173CED8B003B429B /* NavigationButtonBackground-Highlighted@2x.png in Resources */,
 				6983FD6A173CF04D003B429B /* NavigationButtonBackground-Normal.png in Resources */,
 				6983FD6B173CF04D003B429B /* NavigationButtonBackground-Normal@2x.png in Resources */,
+				697ECB9317EB3E680053B6C3 /* FavoritesTab-iOS7-Selected.png in Resources */,
 				6983FD70173CF0C5003B429B /* Website-Highlighted.png in Resources */,
 				6983FD71173CF0C5003B429B /* Website-Highlighted@2x.png in Resources */,
 				6983FD72173CF0C5003B429B /* Website-Normal@2x.png in Resources */,
@@ -1401,8 +1466,10 @@
 				6998E508174286F700142FAF /* CategorySport@2x.png in Resources */,
 				6998E509174286F700142FAF /* CategoryMusic-Big.png in Resources */,
 				6998E50A174286F700142FAF /* CategoryOther@2x.png in Resources */,
+				697ECB8617EB3E1F0053B6C3 /* AllEventsTab-iOS7-Normal@2x.png in Resources */,
 				6998E50B174286F700142FAF /* CategoryPerformances-Big@2x.png in Resources */,
 				6998E50C174286F700142FAF /* CategoryMusic.png in Resources */,
+				697ECB9517EB3E680053B6C3 /* AllEventsTab-iOS7-Selected@2x.png in Resources */,
 				6998E50D174286F700142FAF /* CategoryPerformances@2x.png in Resources */,
 				6998E50E174286F700142FAF /* CategoryExhibitions@2x.png in Resources */,
 				6998E50F174286F700142FAF /* CategoryMusic-Big@2x.png in Resources */,
@@ -1410,13 +1477,18 @@
 				6998E511174286F700142FAF /* CategoryDebate-Big@2x.png in Resources */,
 				6998E512174286F700142FAF /* CategoryDebate.png in Resources */,
 				6998E513174286F700142FAF /* CategoryDebate@2x.png in Resources */,
+				697ECB8317EB3E1F0053B6C3 /* MyFilterTab-iOS7-Normal.png in Resources */,
 				6998E514174286F700142FAF /* CategoryExhibitions-Big.png in Resources */,
+				697ECB8717EB3E1F0053B6C3 /* FavoritesTab-iOS7-Normal@2x.png in Resources */,
 				6998E515174286F700142FAF /* CategoryNightlife-Big@2x.png in Resources */,
+				697ECB9117EB3E680053B6C3 /* MyFilterTab-iOS7-Selected@2x.png in Resources */,
+				697ECB9617EB3E680053B6C3 /* MyFilterTab-iOS7-Selected.png in Resources */,
 				6998E516174286F700142FAF /* CategoryPresentations-Big@2x.png in Resources */,
 				6998E517174286F700142FAF /* CategoryExhibitions-Big@2x.png in Resources */,
 				6998E518174286F700142FAF /* CategoryNightlife@2x.png in Resources */,
 				6998E519174286F700142FAF /* CategoryPresentations@2x.png in Resources */,
 				6998E51A174286F700142FAF /* CategoryNightlife-Big.png in Resources */,
+				697ECB9717EB3E680053B6C3 /* SettingsTab-iOS7-Selected.png in Resources */,
 				6998E51B174286F700142FAF /* CategoryPresentations-Big.png in Resources */,
 				6998E51C174286F700142FAF /* CategoryPresentations.png in Resources */,
 				6998E51D174286F700142FAF /* CategorySport-Big.png in Resources */,

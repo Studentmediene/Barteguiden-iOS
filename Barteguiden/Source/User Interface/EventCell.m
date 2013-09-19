@@ -25,6 +25,13 @@
     self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
     self.subtitleLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:14];
     self.detailLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
+    
+    // Add highlight color on iOS6
+    if ([[[UIDevice currentDevice] systemVersion] integerValue] <= 6) {
+        self.titleLabel.highlightedTextColor = [UIColor whiteColor];
+        self.subtitleLabel.highlightedTextColor = [UIColor whiteColor];
+        self.detailLabel.highlightedTextColor = [UIColor whiteColor];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

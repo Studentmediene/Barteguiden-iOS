@@ -41,15 +41,18 @@ static CGSize const kSettingsTabSize = {64, 49};
 {
     self.tabBarController = (TabBarController *)self.window.rootViewController;
     
+    // Set up styles
     if ([[[UIDevice currentDevice] systemVersion] integerValue] <= 6) {
         [self setUpStyles];
         [self setUpSettingsButton];
-        [self setUpTabBarStyles];
     }
     else {
         self.window.tintColor = [UIColor colorWithRed:1.0f green:0.22f blue:0.22f alpha:1.0f];
     }
     
+    [self setUpTabBarStyles];
+    
+    // User defaults
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     self.networkActivity = [[ApplicationNetworkActivity alloc] initWithApplication:[UIApplication sharedApplication]];
@@ -246,7 +249,7 @@ static CGSize const kSettingsTabSize = {64, 49};
     settingsButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabBarBackground"]];
     [settingsButton setImage:[UIImage imageNamed:@"SettingsButton"] forState:UIControlStateNormal];
     settingsButton.showsTouchWhenHighlighted = YES;
-    [settingsButton addTarget:self action:@selector(presentSettings:) forControlEvents:UIControlEventTouchUpInside];
+    [settingsButton addTarget:self.tabBarController action:@selector(presentSettings:) forControlEvents:UIControlEventTouchUpInside];
     
     [tabBar addSubview:settingsButton];
 }
@@ -259,11 +262,20 @@ static CGSize const kSettingsTabSize = {64, 49};
     UITabBarItem *allEventsTab = tabBar.items[1];
     UITabBarItem *myFilterTab = tabBar.items[2];
     UITabBarItem *favoritesTab = tabBar.items[3];
+    UITabBarItem *settingsTab = tabBar.items[4];
     
-    [featuredTab setFinishedSelectedImage:[UIImage imageNamed:@"FeaturedTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FeaturedTab-Normal"]];
-    [allEventsTab setFinishedSelectedImage:[UIImage imageNamed:@"AllEventsTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"AllEventsTab-Normal"]];
-    [myFilterTab setFinishedSelectedImage:[UIImage imageNamed:@"MyFilterTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"MyFilterTab-Normal"]];
-    [favoritesTab setFinishedSelectedImage:[UIImage imageNamed:@"FavoritesTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FavoritesTab-Normal"]];
+    if ([[[UIDevice currentDevice] systemVersion] integerValue] <= 6) {
+        [featuredTab setFinishedSelectedImage:[UIImage imageNamed:@"FeaturedTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FeaturedTab-Normal"]];
+        [allEventsTab setFinishedSelectedImage:[UIImage imageNamed:@"AllEventsTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"AllEventsTab-Normal"]];
+        [myFilterTab setFinishedSelectedImage:[UIImage imageNamed:@"MyFilterTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"MyFilterTab-Normal"]];
+        [favoritesTab setFinishedSelectedImage:[UIImage imageNamed:@"FavoritesTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FavoritesTab-Normal"]];
+    }
+    else {
+        [allEventsTab setFinishedSelectedImage:[UIImage imageNamed:@"AllEventsTab-iOS7-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"AllEventsTab-iOS7-Normal"]];
+        [myFilterTab setFinishedSelectedImage:[UIImage imageNamed:@"MyFilterTab-iOS7-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"MyFilterTab-iOS7-Normal"]];
+        [favoritesTab setFinishedSelectedImage:[UIImage imageNamed:@"FavoritesTab-iOS7-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FavoritesTab-iOS7-Normal"]];
+        [settingsTab setFinishedSelectedImage:[UIImage imageNamed:@"SettingsTab-iOS7-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"SettingsTab-iOS7-Normal"]];
+    }
 }
 
 @end
