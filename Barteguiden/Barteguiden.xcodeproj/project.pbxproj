@@ -161,7 +161,6 @@
 		69B9F7471716203B00184F5B /* Calendar-Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F7451716203B00184F5B /* Calendar-Selected@2x.png */; };
 		69B9F75D17162FB100184F5B /* SectionHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F75B17162FB100184F5B /* SectionHeader@2x.png */; };
 		69B9F75E17162FB100184F5B /* SectionHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B9F75C17162FB100184F5B /* SectionHeader.png */; };
-		69B9F7611716332000184F5B /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B9F7601716332000184F5B /* HeaderView.m */; };
 		69BA0AD5162F3E13009726E7 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BA0AD4162F3E13009726E7 /* EventCell.xib */; };
 		69BA0ADC162F4513009726E7 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA0ADB162F4513009726E7 /* EventCell.m */; };
 		69C37BDE168F71C4009631DF /* CoreDataEventStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C37BDD168F71C4009631DF /* CoreDataEventStore.m */; };
@@ -409,8 +408,6 @@
 		69B9F7451716203B00184F5B /* Calendar-Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calendar-Selected@2x.png"; sourceTree = "<group>"; };
 		69B9F75B17162FB100184F5B /* SectionHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SectionHeader@2x.png"; sourceTree = "<group>"; };
 		69B9F75C17162FB100184F5B /* SectionHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SectionHeader.png; sourceTree = "<group>"; };
-		69B9F75F1716332000184F5B /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
-		69B9F7601716332000184F5B /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		69BA0AD4162F3E13009726E7 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		69BA0ADA162F4513009726E7 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
 		69BA0ADB162F4513009726E7 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
@@ -1046,8 +1043,6 @@
 				698F870E16247C7F001B9090 /* EventsSearchDisplayControllerDelegate.h */,
 				698F870B16247B96001B9090 /* EventsSearchDisplayController.h */,
 				698F870C16247B96001B9090 /* EventsSearchDisplayController.m */,
-				69B9F75F1716332000184F5B /* HeaderView.h */,
-				69B9F7601716332000184F5B /* HeaderView.m */,
 				69D7FC36161B570F00E38D56 /* Featured Tab */,
 				6904F8DA16136D9B00482F13 /* All Events Tab */,
 				693EF27616123B4B00D10C03 /* My Filter Tab */,
@@ -1568,7 +1563,6 @@
 				696CB68C16D81ABB0090E7C9 /* EventResultsSection.m in Sources */,
 				694C4E9B16D84960009F787D /* NSArray+RIOClassifier.m in Sources */,
 				69B1D98B1703D5FE0066B032 /* UIImage+RIOScaleAndCrop.m in Sources */,
-				69B9F7611716332000184F5B /* HeaderView.m in Sources */,
 				697E8F3C1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m in Sources */,
 				69C6F9051734282000568238 /* UserDefaultsCalendarManager.m in Sources */,
 				69CC03821736149B00F96209 /* AlertChooser.m in Sources */,
@@ -1665,9 +1659,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1718,9 +1710,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7493FD972B57486DBA74AF06 /* Pods.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Barteguiden-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;

@@ -14,10 +14,7 @@
 #import "EventDetailsViewController.h"
 #import "EventCell.h"
 
-#import "HeaderView.h"
 
-
-static NSString * const kHeaderReuseIdentifier = @"TableViewSectionHeaderViewIdentifier";
 static NSString * const kCellIdentifier = @"EventCell";
 
 
@@ -31,8 +28,6 @@ static NSString * const kCellIdentifier = @"EventCell";
     self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
     
     self.tableView.separatorColor = [UIColor colorWithHue:(216/360.0) saturation:(5/100.0) brightness:(83/100.0) alpha:1];
-    
-    [self.tableView registerClass:[HeaderView class] forHeaderFooterViewReuseIdentifier:kHeaderReuseIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -117,18 +112,6 @@ static NSString * const kCellIdentifier = @"EventCell";
     id<Event> event = [self.eventResultsController eventForIndexPath:indexPath];
     
     [self navigateToEvent:event];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 23; // TODO: Why 23 and not 24?
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kHeaderReuseIdentifier];
-    
-    return sectionHeaderView;
 }
 
 

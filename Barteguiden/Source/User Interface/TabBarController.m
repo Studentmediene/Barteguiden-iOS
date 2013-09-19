@@ -22,9 +22,6 @@
 #import "SettingsViewController.h"
 
 
-static CGSize const kSettingsTabSize = {64, 49};
-
-
 @interface TabBarController ()
 
 @property (nonatomic, strong) EventResultsController *eventResultsController;
@@ -50,8 +47,6 @@ static CGSize const kSettingsTabSize = {64, 49};
     [super viewDidLoad];
     
 //    [self setUpTabs];
-    [self setUpSettingsButton];
-    [self setUpStyles];
     
     // Inject dependencies
     for (UIViewController *viewController in self.viewControllers) {
@@ -112,31 +107,6 @@ static CGSize const kSettingsTabSize = {64, 49};
 //    self.viewControllers = @[[self featuredViewController], dummyViewController];
 ////    self.viewControllers = @[[self featuredViewController], [self allEventsViewController], [self myFilterViewController], [self favoritesViewController], dummyViewController];
 //}
-
-- (void)setUpSettingsButton
-{
-    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    settingsButton.frame = CGRectMake(self.tabBar.bounds.size.width - kSettingsTabSize.width, 0, kSettingsTabSize.width, kSettingsTabSize.height);
-        settingsButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabBarBackground"]];
-    [settingsButton setImage:[UIImage imageNamed:@"SettingsButton"] forState:UIControlStateNormal];
-    settingsButton.showsTouchWhenHighlighted = YES;
-    [settingsButton addTarget:self action:@selector(presentSettings:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.tabBar addSubview:settingsButton];
-}
-
-- (void)setUpStyles
-{
-    UITabBarItem *featuredTab = self.tabBar.items[0];
-    UITabBarItem *allEventsTab = self.tabBar.items[1];
-    UITabBarItem *myFilterTab = self.tabBar.items[2];
-    UITabBarItem *favoritesTab = self.tabBar.items[3];
-    
-    [featuredTab setFinishedSelectedImage:[UIImage imageNamed:@"FeaturedTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FeaturedTab-Normal"]];
-    [allEventsTab setFinishedSelectedImage:[UIImage imageNamed:@"AllEventsTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"AllEventsTab-Normal"]];
-    [myFilterTab setFinishedSelectedImage:[UIImage imageNamed:@"MyFilterTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"MyFilterTab-Normal"]];
-    [favoritesTab setFinishedSelectedImage:[UIImage imageNamed:@"FavoritesTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FavoritesTab-Normal"]];
-}
 
 //- (UIViewController *)featuredViewController
 //{

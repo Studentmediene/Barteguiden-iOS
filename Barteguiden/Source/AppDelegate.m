@@ -25,11 +25,30 @@
 #import <PSPDFAlertView.h>
 
 
+static CGSize const kSettingsTabSize = {64, 49};
+
+
+@interface AppDelegate ()
+
+@property (nonatomic, strong) TabBarController *tabBarController;
+
+@end
+
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self setUpStyles];
+    self.tabBarController = (TabBarController *)self.window.rootViewController;
+    
+    if ([[[UIDevice currentDevice] systemVersion] integerValue] <= 6) {
+        [self setUpStyles];
+        [self setUpSettingsButton];
+        [self setUpTabBarStyles];
+    }
+    else {
+        self.window.tintColor = [UIColor colorWithRed:1.0f green:0.22f blue:0.22f alpha:1.0f];
+    }
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
@@ -52,12 +71,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarManagerDidFail:) name:CalendarManagerDidFailNotification object:self.calendarManager];
     
     // Inject dependencies
-    TabBarController *tabBarController = (TabBarController *)self.window.rootViewController;
 //    TabBarController *tabBarController = [[TabBarController alloc] initWithEventStore:self.eventStore filterManager:self.filterManager calendarManager:self.calendarManager];
 //    tabBarController.storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    tabBarController.eventStore = self.eventStore;
-    tabBarController.filterManager = self.filterManager;
-    tabBarController.calendarManager = self.calendarManager;
+    self.tabBarController.eventStore = self.eventStore;
+    self.tabBarController.filterManager = self.filterManager;
+    self.tabBarController.calendarManager = self.calendarManager;
     
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    self.window.rootViewController = tabBarController;
@@ -217,6 +235,35 @@
     [[UITabBar appearanceWhenContainedIn:[TabBarController class], nil] setSelectionIndicatorImage:[UIImage imageNamed:@"TabBarSelectedTab"]];
     [[UITabBarItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:10]} forState:UIControlStateNormal];
     [[UITabBarItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor], UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:10]} forState:UIControlStateSelected];
+}
+
+- (void)setUpSettingsButton
+{
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    settingsButton.frame = CGRectMake(tabBar.bounds.size.width - kSettingsTabSize.width, 0, kSettingsTabSize.width, kSettingsTabSize.height);
+    settingsButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabBarBackground"]];
+    [settingsButton setImage:[UIImage imageNamed:@"SettingsButton"] forState:UIControlStateNormal];
+    settingsButton.showsTouchWhenHighlighted = YES;
+    [settingsButton addTarget:self action:@selector(presentSettings:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [tabBar addSubview:settingsButton];
+}
+
+- (void)setUpTabBarStyles
+{
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    
+    UITabBarItem *featuredTab = tabBar.items[0];
+    UITabBarItem *allEventsTab = tabBar.items[1];
+    UITabBarItem *myFilterTab = tabBar.items[2];
+    UITabBarItem *favoritesTab = tabBar.items[3];
+    
+    [featuredTab setFinishedSelectedImage:[UIImage imageNamed:@"FeaturedTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FeaturedTab-Normal"]];
+    [allEventsTab setFinishedSelectedImage:[UIImage imageNamed:@"AllEventsTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"AllEventsTab-Normal"]];
+    [myFilterTab setFinishedSelectedImage:[UIImage imageNamed:@"MyFilterTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"MyFilterTab-Normal"]];
+    [favoritesTab setFinishedSelectedImage:[UIImage imageNamed:@"FavoritesTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FavoritesTab-Normal"]];
 }
 
 @end
