@@ -235,7 +235,7 @@
 			containerPortal = 69F52A901608E70F0045B6F6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 69F52A981608E70F0045B6F6;
-			remoteInfo = Kulturkalender;
+			remoteInfo = Barteguiden;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1298,7 +1298,7 @@
 			dependencies = (
 			);
 			name = Barteguiden;
-			productName = Kulturkalender;
+			productName = Barteguiden;
 			productReference = 69F52A991608E70F0045B6F6 /* Barteguiden.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -1311,7 +1311,6 @@
 				69F52ABB1608E70F0045B6F6 /* Frameworks */,
 				69F52ABC1608E70F0045B6F6 /* Resources */,
 				69F52ABD1608E70F0045B6F6 /* Run Script */,
-				2F7A4ACB225B479796C65491 /* Copy Pods Resources */,
 				EC8A9EFE1BC344CFB2DD5FE8 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1320,7 +1319,7 @@
 				69F52AC61608E70F0045B6F6 /* PBXTargetDependency */,
 			);
 			name = BarteguidenTests;
-			productName = KulturkalenderTests;
+			productName = BarteguidenTests;
 			productReference = 69F52ABF1608E70F0045B6F6 /* BarteguidenTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
@@ -1521,20 +1520,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F7A4ACB225B479796C65491 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-KulturkalenderTests-resources.sh\"\n";
-		};
 		69F52ABD1608E70F0045B6F6 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
