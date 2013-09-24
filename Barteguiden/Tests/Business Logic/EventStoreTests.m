@@ -45,40 +45,40 @@
 #pragma mark - Tests
 
 // TODO: Remove comments
-- (void)testEventWithIdentifierReturnsNotNil
-{
-    NSString *identifier = @"1";
-    id<Event> event = [_eventStore eventWithIdentifier:identifier error:NULL];
-    STAssertNotNil(event, @"No event was returned.");
-}
-
-- (void)testPredicateForFeaturedEventsShouldOnlyMatchFeaturedEvents
-{
-    NSPredicate *predicate = [_eventStore predicateForFeaturedEvents];
-    NSArray *result = [_eventStore eventsMatchingPredicate:predicate error:NULL];
-    STAssertEquals(result.count, 1U, @"Incorrect number of featured events.");
-    
-    // TODO: Check all returned IDs
-//    [_eventStore enumerateEventsMatchingPredicate:predicate usingBlock:^(id<Event> event, BOOL *stop) {
-//    }];
-}
-
-// TODO: Check all predicates
-// TODO: Create an extensive JSON test file
-
-- (void)testNilPredicateShouldMatchAllEvents
-{
-    NSArray *result = [_eventStore eventsMatchingPredicate:nil error:NULL];
-    STAssertEquals(result.count, 5U, @"Incorrect number of events.");
-}
-
-// TODO: Move to EventTests? Rename?
-- (void)testTitleOfEventIsValid
-{
-    NSString *identifier = @"1";
-    id<Event> event = [_eventStore eventWithIdentifier:identifier error:NULL];
-    STAssertEqualObjects(event.title, @"Tirsdagsquiz", @"Incorrect title.");
-}
+//- (void)testEventWithIdentifierReturnsNotNil
+//{
+//    NSString *identifier = @"1";
+//    id<Event> event = [_eventStore eventWithIdentifier:identifier error:NULL];
+//    STAssertNotNil(event, @"No event was returned.");
+//}
+//
+//- (void)testPredicateForFeaturedEventsShouldOnlyMatchFeaturedEvents
+//{
+//    NSPredicate *predicate = [_eventStore predicateForFeaturedEvents];
+//    NSArray *result = [_eventStore eventsMatchingPredicate:predicate error:NULL];
+//    STAssertEquals(result.count, 1U, @"Incorrect number of featured events.");
+//    
+//    // TODO: Check all returned IDs
+////    [_eventStore enumerateEventsMatchingPredicate:predicate usingBlock:^(id<Event> event, BOOL *stop) {
+////    }];
+//}
+//
+//// TODO: Check all predicates
+//// TODO: Create an extensive JSON test file
+//
+//- (void)testNilPredicateShouldMatchAllEvents
+//{
+//    NSArray *result = [_eventStore eventsMatchingPredicate:nil error:NULL];
+//    STAssertEquals(result.count, 5U, @"Incorrect number of events.");
+//}
+//
+//// TODO: Move to EventTests? Rename?
+//- (void)testTitleOfEventIsValid
+//{
+//    NSString *identifier = @"1";
+//    id<Event> event = [_eventStore eventWithIdentifier:identifier error:NULL];
+//    STAssertEqualObjects(event.title, @"Tirsdagsquiz", @"Incorrect title.");
+//}
 
 
 #pragma mark - Private methods
