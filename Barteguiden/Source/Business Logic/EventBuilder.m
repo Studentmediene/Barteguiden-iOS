@@ -79,8 +79,8 @@ static NSString * const kEventEntityName = @"Event";
 
 - (void)updateDescriptionsInEvent:(Event *)event withJSONObject:(NSDictionary *)jsonObject
 {
-    NSString *description_nb = nil;
-    NSString *description_en = nil;
+    id description_nb = [NSNull null];
+    id description_en = [NSNull null];
     
     id descriptions = jsonObject[@"descriptions"];
     if ([descriptions isKindOfClass:[NSArray class]]) {
