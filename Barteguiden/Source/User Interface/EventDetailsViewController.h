@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <EventKit/EventKit.h>
 #import <EventKitUI/EventKitUI.h>
-#import "RIOExpandableLabelDelegate.h"
 
 @protocol EventStore;
 @protocol Event;
@@ -17,7 +16,7 @@
 @class RIOExpandableLabel;
 
 
-@interface EventDetailsViewController : UIViewController <EKEventEditViewDelegate, RIOExpandableLabelDelegate>
+@interface EventDetailsViewController : UIViewController <EKEventEditViewDelegate>
 
 @property (nonatomic, strong) id<EventStore> eventStore; // FIXME: Remember to inject event store
 @property (nonatomic, strong) id<Event> event;
@@ -43,7 +42,6 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *descriptionTitleLabel;
 @property (nonatomic, weak) IBOutlet RIOExpandableLabel *descriptionLabel;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *descriptionHeightConstraint;
 
 @property (nonatomic, weak) IBOutlet UIView *bottomMostView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *bottomMostViewSpacingConstraint;

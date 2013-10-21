@@ -1767,7 +1767,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7493FD972B57486DBA74AF06 /* Pods.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "\"/Applications/Spark Inspector.app/Contents/Resources/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Barteguiden-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;

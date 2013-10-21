@@ -165,6 +165,14 @@ static float const kOneHourOffset = 1*60*60;
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
+- (IBAction)revealDescription:(id)sender
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.descriptionLabel.maxNumberOfLines = 0;
+        [self.view layoutIfNeeded];
+    }];
+}
+
 
 #pragma mark - Calendar methods
 
@@ -272,22 +280,6 @@ static float const kOneHourOffset = 1*60*60;
 }
 
 
-#pragma mark - RIOExpandableLabelDelegate
-
-- (void)expandableLabelDidLayout:(RIOExpandableLabel *)expandableLabel
-{
-    self.descriptionHeightConstraint.constant = expandableLabel.displayHeight;
-}
-
-- (void)expandableLabelWantsToRevealText:(RIOExpandableLabel *)expandableLabel
-{
-    [UIView animateWithDuration:0.3 animations:^{
-        self.descriptionHeightConstraint.constant = expandableLabel.displayHeight;
-        [self.view layoutIfNeeded];
-    }];
-}
-
-
 #pragma mark - Private methods
 
 - (void)updateViewInfo
@@ -316,8 +308,8 @@ static float const kOneHourOffset = 1*60*60;
     NSString *defaultDescription = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_NO_DESCRIPTION", nil, [NSBundle mainBundle], @"No description", @"Default text if there are no description of event");
     NSString *description = [eventFormatter currentLocalizedDescription] ?: defaultDescription;
     self.descriptionLabel.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    self.descriptionLabel.delegate = self;
     self.descriptionLabel.maxNumberOfLines = 4;
+    [self.descriptionLabel moreButtonAddTarget:self action:@selector(revealDescription:)];
     
     self.favoriteButton.selected = [self.event isFavorite];
     
@@ -379,8 +371,8 @@ static float const kOneHourOffset = 1*60*60;
     self.descriptionTitleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
     self.descriptionLabel.textFont = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
 //    self.descriptionLabel.moreButtonText = @"More ▾";
-    self.descriptionLabel.moreButtonFont = [UIFont boldSystemFontOfSize:15];
-//    self.descriptionLabel.moreButtonFont = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
+//    self.descriptionLabel.moreButtonFont = [UIFont boldSystemFontOfSize:14];
+    self.descriptionLabel.moreButtonFont = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
     self.descriptionLabel.moreButtonColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1];
 }
 
