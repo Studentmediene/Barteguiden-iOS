@@ -71,10 +71,10 @@
             myFilterViewController.filterManager = self.filterManager;
         }
         
-//        if ([rootViewController isKindOfClass:[SettingsViewController class]]) {
-//            SettingsViewController *settingsViewController = (SettingsViewController *)rootViewController;
-//            settingsViewController.calendarManager = self.calendarManager;
-//        }
+        if ([rootViewController isKindOfClass:[SettingsViewController class]]) {
+            SettingsViewController *settingsViewController = (SettingsViewController *)rootViewController;
+            settingsViewController.calendarManager = self.calendarManager;
+        }
     }
 }
 
