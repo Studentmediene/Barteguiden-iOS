@@ -66,6 +66,7 @@
 		695EC2B7173C65FA007C32D5 /* TabBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 695EC2B5173C65FA007C32D5 /* TabBarBackground@2x.png */; };
 		695EC2BE173C6801007C32D5 /* TabBarSelectedTab.png in Resources */ = {isa = PBXBuildFile; fileRef = 695EC2BC173C6801007C32D5 /* TabBarSelectedTab.png */; };
 		695EC2BF173C6801007C32D5 /* TabBarSelectedTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 695EC2BD173C6801007C32D5 /* TabBarSelectedTab@2x.png */; };
+		69649084181596470002E058 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 69649083181596470002E058 /* Podfile */; };
 		696CB68C16D81ABB0090E7C9 /* EventResultsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 696CB68B16D81ABB0090E7C9 /* EventResultsSection.m */; };
 		697E8F391731F42800974244 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697E8F381731F42800974244 /* CoreImage.framework */; };
 		697E8F3C1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 697E8F3B1731F8CE00974244 /* UIImage+RIODarkenAndBlur.m */; };
@@ -309,6 +310,7 @@
 		695EC2B5173C65FA007C32D5 /* TabBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarBackground@2x.png"; sourceTree = "<group>"; };
 		695EC2BC173C6801007C32D5 /* TabBarSelectedTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarSelectedTab.png; sourceTree = "<group>"; };
 		695EC2BD173C6801007C32D5 /* TabBarSelectedTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarSelectedTab@2x.png"; sourceTree = "<group>"; };
+		69649083181596470002E058 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		696CB68916D81AAA0090E7C9 /* EventResultsSectionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResultsSectionInfo.h; sourceTree = "<group>"; };
 		696CB68A16D81ABB0090E7C9 /* EventResultsSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventResultsSection.h; sourceTree = "<group>"; };
 		696CB68B16D81ABB0090E7C9 /* EventResultsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventResultsSection.m; sourceTree = "<group>"; };
@@ -1182,6 +1184,7 @@
 				69F52A9A1608E70F0045B6F6 /* Products */,
 				7493FD972B57486DBA74AF06 /* Pods.xcconfig */,
 				98FDF9089FA14EF184FF85EB /* Pods-BarteguidenTests.xcconfig */,
+				69649083181596470002E058 /* Podfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1417,6 +1420,7 @@
 				695EC278173AEDCB007C32D5 /* SegmentedControlDivider-LeftSelected.png in Resources */,
 				695EC279173AEDCB007C32D5 /* SegmentedControlDivider-LeftSelected@2x.png in Resources */,
 				695EC27A173AEDCB007C32D5 /* SegmentedControlDivider-RightSelected.png in Resources */,
+				69649084181596470002E058 /* Podfile in Resources */,
 				695EC27B173AEDCB007C32D5 /* SegmentedControlDivider-RightSelected@2x.png in Resources */,
 				695EC290173B1DEB007C32D5 /* DisclosureIndicator-Highlighted@2x.png in Resources */,
 				695EC291173B1DEB007C32D5 /* Location-Normal@2x.png in Resources */,
