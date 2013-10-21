@@ -41,14 +41,7 @@ static CGSize const kSettingsTabSize = {64, 49};
 {
     self.tabBarController = (TabBarController *)self.window.rootViewController;
     
-    // Set up styles
-    if ([[[UIDevice currentDevice] systemVersion] integerValue] <= 6) {
-        [self setUpStyles];
-        [self setUpSettingsButton];
-    }
-    else {
-        self.window.tintColor = [UIColor colorWithRed:1.0f green:0.22f blue:0.22f alpha:1.0f];
-    }
+//    self.window.tintColor = [UIColor colorWithRed:1.0f green:0.22f blue:0.22f alpha:1.0f];
     
     [self setUpTabBarStyles];
     
@@ -188,94 +181,38 @@ static CGSize const kSettingsTabSize = {64, 49};
 {
     // Navigation bar
     UIColor *barText = [UIColor colorWithHue:0 saturation:0 brightness:(78.0/100.0) alpha:1];
-    [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:20]}];
-    
-    // Toolbar
-    [[UIToolbar appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:[UIImage imageNamed:@"NavigationBar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UIToolbar class],[TabBarController class], nil] setTintColor:barText];
     
     // Bar button item text styles
     [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateNormal];
     [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateHighlighted];
-    
-    // Back button
-    UIImage *backButtonImage = [[UIImage imageNamed:@"BackButton-Normal"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 6)];
-    UIImage *highlightedBackButtonImage = [[UIImage imageNamed:@"BackButton-Highlighted"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 6)];
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackButtonBackgroundImage:highlightedBackButtonImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 0) forBarMetrics:UIBarMetricsDefault];
-    
-    // Bar button item
-    UIImage *barButtonItemImage = [UIImage imageNamed:@"BarButtonItem-Normal"];
-    UIImage *highlightedBarButtonItemImage = [UIImage imageNamed:@"BarButtonItem-Highlighted"];
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:barButtonItemImage forState:UIControlStateNormal style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:highlightedBarButtonItemImage forState:UIControlStateHighlighted style:UIBarButtonItemStyleBordered barMetrics:UIBarMetricsDefault];
-    
-    // Bar button item done
-    UIImage *barButtonItemDoneImage = [UIImage imageNamed:@"BarButtonItemDone-Normal"];
-    UIImage *highlightedBarButtonItemDoneImage = [UIImage imageNamed:@"BarButtonItemDone-Highlighted"];
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:barButtonItemDoneImage forState:UIControlStateNormal style:UIBarButtonItemStyleDone barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:highlightedBarButtonItemDoneImage forState:UIControlStateHighlighted style:UIBarButtonItemStyleDone barMetrics:UIBarMetricsDefault];
 
     // Segmented control
     [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:13]} forState:UIControlStateNormal];
-    UIImage *unselectedBackgroundImage = [[UIImage imageNamed:@"SegmentedControlBackground-Normal"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 6, 6, 6)];
-    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:unselectedBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    UIImage *selectedBackgroundImage = [[UIImage imageNamed:@"SegmentedControlBackground-Selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 6, 6, 6)];
-    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:selectedBackgroundImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-    UIImage *bothUnselectedImage = [UIImage imageNamed:@"SegmentedControlDivider-BothNormal"];
-    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setDividerImage:bothUnselectedImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    UIImage *rightSelectedImage = [UIImage imageNamed:@"SegmentedControlDivider-RightSelected"];
-    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setDividerImage:rightSelectedImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-    UIImage *leftSelectedImage = [UIImage imageNamed:@"SegmentedControlDivider-LeftSelected"];
-    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setDividerImage:leftSelectedImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setContentPositionAdjustment:UIOffsetMake(1, 0) forSegmentType:UISegmentedControlSegmentLeft barMetrics:UIBarMetricsDefault];
-    [[UISegmentedControl appearanceWhenContainedIn:[TabBarController class], nil] setContentPositionAdjustment:UIOffsetMake(-1, 0) forSegmentType:UISegmentedControlSegmentRight barMetrics:UIBarMetricsDefault];
     
     // Tab bar
-    [[UITabBar appearanceWhenContainedIn:[TabBarController class], nil] setBackgroundImage:[UIImage imageNamed:@"TabBarBackground"]];
-    [[UITabBar appearanceWhenContainedIn:[TabBarController class], nil] setSelectionIndicatorImage:[UIImage imageNamed:@"TabBarSelectedTab"]];
     [[UITabBarItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: barText, UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:10]} forState:UIControlStateNormal];
     [[UITabBarItem appearanceWhenContainedIn:[TabBarController class], nil] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor], UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowColor: [UIColor blackColor], UITextAttributeFont: [UIFont fontWithName:@"ProximaNova-Bold" size:10]} forState:UIControlStateSelected];
-}
-
-- (void)setUpSettingsButton
-{
-    UITabBar *tabBar = self.tabBarController.tabBar;
-    
-    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    settingsButton.frame = CGRectMake(tabBar.bounds.size.width - kSettingsTabSize.width, 0, kSettingsTabSize.width, kSettingsTabSize.height);
-    settingsButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabBarBackground"]];
-    [settingsButton setImage:[UIImage imageNamed:@"SettingsButton"] forState:UIControlStateNormal];
-    settingsButton.showsTouchWhenHighlighted = YES;
-    [settingsButton addTarget:self.tabBarController action:@selector(presentSettings:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [tabBar addSubview:settingsButton];
 }
 
 - (void)setUpTabBarStyles
 {
     UITabBar *tabBar = self.tabBarController.tabBar;
     
-    UITabBarItem *featuredTab = tabBar.items[0];
+//    UITabBarItem *featuredTab = tabBar.items[0];
     UITabBarItem *allEventsTab = tabBar.items[1];
     UITabBarItem *myFilterTab = tabBar.items[2];
     UITabBarItem *favoritesTab = tabBar.items[3];
     UITabBarItem *settingsTab = tabBar.items[4];
     
-    if ([[[UIDevice currentDevice] systemVersion] integerValue] <= 6) {
-        [featuredTab setFinishedSelectedImage:[UIImage imageNamed:@"FeaturedTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FeaturedTab-Normal"]];
-        [allEventsTab setFinishedSelectedImage:[UIImage imageNamed:@"AllEventsTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"AllEventsTab-Normal"]];
-        [myFilterTab setFinishedSelectedImage:[UIImage imageNamed:@"MyFilterTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"MyFilterTab-Normal"]];
-        [favoritesTab setFinishedSelectedImage:[UIImage imageNamed:@"FavoritesTab-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FavoritesTab-Normal"]];
-    }
-    else {
-        [allEventsTab setFinishedSelectedImage:[UIImage imageNamed:@"AllEventsTab-iOS7-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"AllEventsTab-iOS7-Normal"]];
-        [myFilterTab setFinishedSelectedImage:[UIImage imageNamed:@"MyFilterTab-iOS7-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"MyFilterTab-iOS7-Normal"]];
-        [favoritesTab setFinishedSelectedImage:[UIImage imageNamed:@"FavoritesTab-iOS7-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"FavoritesTab-iOS7-Normal"]];
-        [settingsTab setFinishedSelectedImage:[UIImage imageNamed:@"SettingsTab-iOS7-Selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"SettingsTab-iOS7-Normal"]];
-    }
+    allEventsTab.image = [UIImage imageNamed:@"AllEventsTab-Normal"];
+    allEventsTab.selectedImage = [UIImage imageNamed:@"AllEventsTab-Selected"];
+    myFilterTab.image = [UIImage imageNamed:@"MyFilterTab-Normal"];
+    myFilterTab.selectedImage = [UIImage imageNamed:@"MyFilterTab-Selected"];
+    favoritesTab.image = [UIImage imageNamed:@"FavoritesTab-Normal"];
+    favoritesTab.selectedImage = [UIImage imageNamed:@"FavoritesTab-Selected"];
+    settingsTab.image = [UIImage imageNamed:@"SettingsTab-Normal"];
+    settingsTab.selectedImage = [UIImage imageNamed:@"SettingsTab-Selected"];
 }
 
 @end

@@ -16,11 +16,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Hide Done-button on iOS7
-    if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7) {
-        self.navigationItem.leftBarButtonItem = nil;
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
