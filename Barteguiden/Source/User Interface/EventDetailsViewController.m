@@ -348,7 +348,7 @@ static float const kOneHourOffset = 1*60*60;
 
 - (void)setUpStyles
 {
-    UIImage *highlightedToggleCalendarButtonImage = [[UIImage imageNamed:@"TextHighlight"] resizableImageWithCapInsets:UIEdgeInsetsMake(3, 3, 3, 3)];
+    UIImage *highlightedToggleCalendarButtonImage = [UIImage imageNamed:@"TextHighlight"];
     [self.calendarButton setBackgroundImage:highlightedToggleCalendarButtonImage forState:UIControlStateHighlighted];
     
 // TODO: Use this code to make a border around age limit
