@@ -22,7 +22,7 @@
 
 - (void)awakeFromNib
 {
-    self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
+    self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:18];
     self.subtitleLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:14];
     self.detailLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
     
