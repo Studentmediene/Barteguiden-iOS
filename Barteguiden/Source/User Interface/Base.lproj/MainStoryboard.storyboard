@@ -77,12 +77,12 @@
                         <viewControllerLayoutGuide type="bottom" id="Qa5-5Z-w8c"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="dhy-Fb-6Wj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpu-AF-hUp">
-                                <rect key="frame" x="20" y="329" width="280" height="22"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpu-AF-hUp">
+                                <rect key="frame" x="20" y="265" width="280" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="xCZ-xs-VnT"/>
+                                    <constraint firstAttribute="height" constant="22" id="5GK-rI-bWr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.20000001789999999" green="0.20000001789999999" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
@@ -90,11 +90,11 @@
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="YuK-xV-JiW" customClass="RIOExpandableLabel">
-                                <rect key="frame" x="20" y="359" width="280" height="32"/>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="YuK-xV-JiW" customClass="RIOExpandableLabel">
+                                <rect key="frame" x="20" y="295" width="280" height="32"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aoc-Lk-g2V">
-                                <rect key="frame" x="0.0" y="64" width="320" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoc-Lk-g2V">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MissingPoster.png" translatesAutoresizingMaskIntoConstraints="NO" id="5PD-4a-E3h">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -172,8 +172,8 @@
                                     <constraint firstItem="7Th-fI-DFR" firstAttribute="leading" secondItem="aoc-Lk-g2V" secondAttribute="leading" constant="20" symbolic="YES" id="vqT-WZ-DX0"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m8A-VI-Anb">
-                                <rect key="frame" x="0.0" y="264" width="320" height="57"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8A-VI-Anb">
+                                <rect key="frame" x="0.0" y="200" width="320" height="57"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Separator.png" translatesAutoresizingMaskIntoConstraints="NO" id="A8d-GZ-0dO">
                                         <rect key="frame" x="0.0" y="56" width="320" height="1"/>
@@ -276,28 +276,29 @@
                         <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="m8A-VI-Anb" firstAttribute="centerX" secondItem="dhy-Fb-6Wj" secondAttribute="centerX" id="2x9-qL-9Wg"/>
-                            <constraint firstItem="YuK-xV-JiW" firstAttribute="top" secondItem="Cpu-AF-hUp" secondAttribute="bottom" constant="8" symbolic="YES" id="4ca-te-RsL"/>
+                            <constraint firstItem="Cpu-AF-hUp" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" id="4LS-hC-9PR"/>
                             <constraint firstItem="m8A-VI-Anb" firstAttribute="leading" secondItem="aoc-Lk-g2V" secondAttribute="leading" id="8C6-rT-X3X"/>
-                            <constraint firstAttribute="trailing" secondItem="Cpu-AF-hUp" secondAttribute="trailing" constant="20" symbolic="YES" id="CpC-ks-0j3"/>
-                            <constraint firstItem="YuK-xV-JiW" firstAttribute="leading" secondItem="Cpu-AF-hUp" secondAttribute="leading" id="F59-f3-vcm"/>
-                            <constraint firstItem="m8A-VI-Anb" firstAttribute="centerX" secondItem="Cpu-AF-hUp" secondAttribute="centerX" id="NyG-9S-E3t"/>
+                            <constraint firstItem="Cpu-AF-hUp" firstAttribute="top" secondItem="m8A-VI-Anb" secondAttribute="bottom" constant="8" symbolic="YES" id="9qd-vq-2yc"/>
+                            <constraint firstItem="YuK-xV-JiW" firstAttribute="leading" secondItem="Cpu-AF-hUp" secondAttribute="leading" id="A8l-DU-OUw"/>
+                            <constraint firstItem="Cpu-AF-hUp" firstAttribute="trailing" secondItem="YuK-xV-JiW" secondAttribute="trailing" id="PBe-eO-JkZ"/>
                             <constraint firstItem="aoc-Lk-g2V" firstAttribute="top" secondItem="Zhv-9Q-hmO" secondAttribute="bottom" id="Z5U-Ud-ADb"/>
                             <constraint firstItem="m8A-VI-Anb" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" id="ZP6-zV-PMg"/>
-                            <constraint firstItem="Qa5-5Z-w8c" firstAttribute="top" secondItem="YuK-xV-JiW" secondAttribute="bottom" constant="177" id="aQu-wF-CS3"/>
+                            <constraint firstItem="Qa5-5Z-w8c" firstAttribute="top" secondItem="YuK-xV-JiW" secondAttribute="bottom" constant="177" id="aWe-3R-XQQ"/>
+                            <constraint firstItem="Cpu-AF-hUp" firstAttribute="centerX" secondItem="m8A-VI-Anb" secondAttribute="centerX" id="c9g-oo-Xdq"/>
                             <constraint firstItem="m8A-VI-Anb" firstAttribute="trailing" secondItem="aoc-Lk-g2V" secondAttribute="trailing" id="fKV-lH-Nkj"/>
-                            <constraint firstItem="Cpu-AF-hUp" firstAttribute="leading" secondItem="dhy-Fb-6Wj" secondAttribute="leading" constant="20" symbolic="YES" id="qG1-KT-qo1"/>
-                            <constraint firstItem="YuK-xV-JiW" firstAttribute="trailing" secondItem="Cpu-AF-hUp" secondAttribute="trailing" id="sjs-0n-UtJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Cpu-AF-hUp" secondAttribute="trailing" constant="20" symbolic="YES" id="gTx-KY-fsS"/>
+                            <constraint firstItem="YuK-xV-JiW" firstAttribute="top" secondItem="Cpu-AF-hUp" secondAttribute="bottom" constant="8" symbolic="YES" id="tgy-on-j9W"/>
                             <constraint firstItem="m8A-VI-Anb" firstAttribute="top" secondItem="aoc-Lk-g2V" secondAttribute="bottom" id="uWW-hI-Ftv"/>
-                            <constraint firstItem="Cpu-AF-hUp" firstAttribute="top" secondItem="m8A-VI-Anb" secondAttribute="bottom" constant="8" symbolic="YES" id="zfV-gr-GZi"/>
                         </constraints>
                     </scrollView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ageLimitLabel" destination="8qc-TU-tKd" id="0IL-mw-K5x"/>
                         <outlet property="bottomMostView" destination="YuK-xV-JiW" id="bZa-cZ-v3u"/>
-                        <outlet property="bottomMostViewSpacingConstraint" destination="aQu-wF-CS3" id="idB-8J-g9U"/>
+                        <outlet property="bottomMostViewSpacingConstraint" destination="aWe-3R-XQQ" id="6n5-yf-IUL"/>
                         <outlet property="calendarActionLabel" destination="WGS-Ft-bsU" id="B2X-3I-IpA"/>
                         <outlet property="calendarButton" destination="Wn9-Mc-SV1" id="O5a-bR-jbL"/>
                         <outlet property="calendarImageView" destination="OUn-lb-j8j" id="guf-OM-uwu"/>
