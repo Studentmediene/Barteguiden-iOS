@@ -356,17 +356,10 @@ static float const kOneHourOffset = 1*60*60;
 //    self.priceLabel.layer.borderWidth = 2;
 //    self.priceLabel.layer.cornerRadius = 2;
     
-    self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:30];
-    self.locationLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
-    self.priceLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
-    self.ageLimitLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
-    self.timeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
-    
-    self.descriptionTitleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
-    self.descriptionLabel.textFont = [UIFont fontWithName:@"ProximaNova-Regular" size:15];
 //    self.descriptionLabel.moreButtonText = @"More ▾";
 //    self.descriptionLabel.moreButtonFont = [UIFont boldSystemFontOfSize:14];
-    self.descriptionLabel.moreButtonFont = [UIFont fontWithName:@"ProximaNova-Bold" size:15];
+    self.descriptionLabel.textFont = [UIFont systemFontOfSize:15];
+    self.descriptionLabel.moreButtonFont = [UIFont boldSystemFontOfSize:15];
     self.descriptionLabel.moreButtonColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1];
 }
 
@@ -426,7 +419,7 @@ static float const kOneHourOffset = 1*60*60;
 
 - (void)setStylesForButton:(UIButton *)button
 {
-    button.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:17];
+    button.titleLabel.font = [UIFont systemFontOfSize:18];
     
     UIColor *textColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1];
     [button setTitleColor:textColor forState:UIControlStateNormal];
