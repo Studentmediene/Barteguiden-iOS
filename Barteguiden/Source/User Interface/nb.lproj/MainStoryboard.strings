@@ -127,8 +127,8 @@
 /* Class = "IBUISearchBar"; placeholder = "Search All Events"; ObjectID = "pEG-19-r4i"; */
 "pEG-19-r4i.placeholder" = "Søk i alle arrangementer";
 
-/* Class = "IBUITabBarItem"; title = "Settings"; ObjectID = "qNp-1J-cO2"; */
-"qNp-1J-cO2.title" = "Innstillinger";
+/* Class = "IBUITabBarItem"; title = "Settings"; ObjectID = "IAv-dm-EP9"; */
+"IAv-dm-EP9.title" = "Innstillinger";
 
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "qi2-oC-6CI"; */
 "qi2-oC-6CI.text" = "Tittel";
