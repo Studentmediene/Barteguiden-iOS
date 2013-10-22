@@ -11,7 +11,7 @@
 "3qj-MQ-FKp.title" = "Filter";
 
 /* Class = "IBUITabBarItem"; title = "Featured"; ObjectID = "5R0-C3-KYW"; */
-"5R0-C3-KYW.title" = "Aktuelt";
+"5R0-C3-KYW.title" = "Anbefalte";
 
 /* Class = "IBUILabel"; text = "Time"; ObjectID = "5gZ-6h-74k"; */
 "5gZ-6h-74k.text" = "Tid";
@@ -59,7 +59,7 @@
 "GBK-Ao-P5q.title" = "Arrangementer";
 
 /* Class = "IBUINavigationItem"; title = "Featured"; ObjectID = "J4V-dh-06v"; */
-"J4V-dh-06v.title" = "Aktuelt";
+"J4V-dh-06v.title" = "Anbefalte";
 
 /* Class = "IBUISegmentedControl"; JDc-np-0JG.segmentTitles[0] = "All"; ObjectID = "JDc-np-0JG"; */
 "JDc-np-0JG.segmentTitles[0]" = "Alle";
@@ -110,7 +110,7 @@
 "ecu-S6-DUi.text" = "Vis på kart";
 
 /* Class = "IBUISearchBar"; placeholder = "Search Featured"; ObjectID = "fcs-T2-Ubk"; */
-"fcs-T2-Ubk.placeholder" = "Søk i aktuelt";
+"fcs-T2-Ubk.placeholder" = "Søk i anbefalte";
 
 /* Class = "IBUITextField"; placeholder = "Age"; ObjectID = "hKk-SL-ba4"; */
 "hKk-SL-ba4.placeholder" = "Alder";
