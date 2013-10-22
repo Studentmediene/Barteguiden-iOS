@@ -22,8 +22,13 @@
 static NSString * const kWebsiteSegue = @"WebsiteSegue";
 static NSString * const kMapSegue = @"MapSegue";
 
+static NSUInteger const kActionsSection = 0;
+static NSUInteger const kLinksSection = 1;
+
 static NSUInteger const kWebsiteRow = 0;
 static NSUInteger const kMapRow = 1;
+
+static CGFloat const kDescriptionLabelBottomMargin = 5;
 
 static CGSize const kThumbnailSize = {320, 200};
 static float const kOneHourOffset = 1*60*60;
@@ -31,8 +36,9 @@ static float const kOneHourOffset = 1*60*60;
 
 @interface EventDetailsViewController ()
 
-//@property (nonatomic, weak) IBOutlet NSLayoutConstraint *headerViewHeightConstraint;
-@property (nonatomic, weak) IBOutlet UIView *headerView;
+@property (nonatomic, strong) UIView *descriptionView;
+@property (nonatomic, strong) UILabel *descriptionTitleLabel;
+@property (nonatomic, strong) RIOExpandableLabel *descriptionLabel;
 
 @end
 
@@ -43,13 +49,14 @@ static float const kOneHourOffset = 1*60*60;
 {
     [super viewDidLoad];
     
-    [self setUpConstraints];
     [self setUpStyles];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarStoreChanged:) name:EKEventStoreChangedNotification object:self.calendarManager.calendarStore];
+    
+    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0]; // WORKAROUND: Let the descriptionView be updated first
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -91,19 +98,28 @@ static float const kOneHourOffset = 1*60*60;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSUInteger websiteCount = ([self.event URL] != nil) ? 1 : 0;
-    NSUInteger mapCount = ([self.event hasLocation] == YES) ? 1 : 0;
-    
-    return websiteCount + mapCount;
+    if (section == kActionsSection) {
+        return 1;
+    }
+    else {
+        NSUInteger websiteCount = ([self.event URL] != nil) ? 1 : 0;
+        NSUInteger mapCount = ([self.event hasLocation] == YES) ? 1 : 0;
+        
+        return websiteCount + mapCount;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == kActionsSection) {
+        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    }
+    
     if ([self tableView:tableView numberOfRowsInSection:indexPath.section] == 2) {
         return [super tableView:tableView cellForRowAtIndexPath:indexPath];
     }
@@ -112,6 +128,24 @@ static float const kOneHourOffset = 1*60*60;
     NSIndexPath *adjustedIndexPath = [NSIndexPath indexPathForRow:row inSection:indexPath.section];
     
     return [super tableView:tableView cellForRowAtIndexPath:adjustedIndexPath];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == kActionsSection) {
+        return self.descriptionView;
+    }
+    
+    return [super tableView:tableView viewForFooterInSection:section];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section == kActionsSection) {
+        return CGRectGetMaxY(self.descriptionLabel.frame) + kDescriptionLabelBottomMargin;
+    }
+    
+    return [super tableView:tableView heightForFooterInSection:section];
 }
 
 
@@ -175,10 +209,14 @@ static float const kOneHourOffset = 1*60*60;
 
 - (IBAction)revealDescription:(id)sender
 {
+    [self.tableView beginUpdates];
+    
     [UIView animateWithDuration:0.3 animations:^{
         self.descriptionLabel.maxNumberOfLines = 0;
         [self.view layoutIfNeeded];
     }];
+    
+    [self.tableView endUpdates];
 }
 
 
@@ -327,13 +365,6 @@ static float const kOneHourOffset = 1*60*60;
     NSString *ageLimit = [NSString stringWithFormat:@"%@+", [self.event ageLimit]];
     self.ageLimitLabel.text = ageLimit;
     
-    NSString *defaultDescription = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_NO_DESCRIPTION", nil, [NSBundle mainBundle], @"No description", @"Default text if there are no description of event");
-    NSString *description = [eventFormatter currentLocalizedDescription] ?: defaultDescription;
-    self.descriptionLabel.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    self.descriptionLabel.maxNumberOfLines = 4;
-    self.descriptionLabel.moreButtonText = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_MORE_BUTTON_TEXT", nil, [NSBundle mainBundle], @"More ▼", @"Text of more button in event details");
-    [self.descriptionLabel moreButtonAddTarget:self action:@selector(revealDescription:)];
-    
     self.favoriteButton.selected = [self.event isFavorite];
     
     // Set up toggle calendar button
@@ -360,16 +391,56 @@ static float const kOneHourOffset = 1*60*60;
     self.descriptionLabel.moreButtonColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1];
 }
 
-- (void)setUpConstraints
+- (UIView *)descriptionView
 {
-    UIView *descriptionLabel = self.descriptionLabel;
-    UIView *scrollView = self.headerView;
-//    [scrollView addConstraint:[NSLayoutConstraint const]
-//    UIScrollView *scrollView = (UIScrollView *)self.headerView;
-//    [scrollView addConstraint:[NSLayoutConstraint constraintWithItem:scrollView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:descriptionLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:50]];
-    NSLog(@"%@", self.headerView.constraints);
-//    [self.headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[descriptionLabel]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(descriptionLabel)]];
+    if (_descriptionView == nil) {
+        _descriptionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
+        
+        UILabel *descriptionTitleLabel = self.descriptionTitleLabel;
+        RIOExpandableLabel *descriptionLabel = self.descriptionLabel;
+        
+        [_descriptionView addSubview:descriptionTitleLabel];
+        [_descriptionView addSubview:descriptionLabel];
+        
+        [_descriptionView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[descriptionTitleLabel]-15-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(descriptionTitleLabel)]];
+        [_descriptionView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[descriptionLabel]-15-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(descriptionLabel)]];
+        [_descriptionView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-15-[descriptionTitleLabel]-3-[descriptionLabel]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(descriptionTitleLabel, descriptionLabel)]];
+    }
     
+    return _descriptionView;
+}
+
+- (UILabel *)descriptionTitleLabel
+{
+    if (_descriptionTitleLabel == nil) {
+        _descriptionTitleLabel = [[UILabel alloc] init];
+        _descriptionTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _descriptionTitleLabel.font = [UIFont boldSystemFontOfSize:15];
+        
+        _descriptionTitleLabel.text = @"Description"; // FIXME: Localize
+    }
+    
+    return _descriptionTitleLabel;
+}
+
+- (RIOExpandableLabel *)descriptionLabel
+{
+    if (_descriptionLabel == nil) {
+        _descriptionLabel = [[RIOExpandableLabel alloc] init];
+        _descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _descriptionLabel.textFont = [UIFont systemFontOfSize:15];
+        
+        EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:self.event];
+        
+        NSString *defaultDescription = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_NO_DESCRIPTION", nil, [NSBundle mainBundle], @"No description", @"Default text if there are no description of event");
+        NSString *description = [eventFormatter currentLocalizedDescription] ?: defaultDescription;
+        _descriptionLabel.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        _descriptionLabel.maxNumberOfLines = 4;
+        _descriptionLabel.moreButtonText = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_MORE_BUTTON_TEXT", nil, [NSBundle mainBundle], @"More ▼", @"Text of more button in event details");
+        [_descriptionLabel moreButtonAddTarget:self action:@selector(revealDescription:)];
+    }
+    
+    return _descriptionLabel;
 }
 
 @end

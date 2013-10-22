@@ -40,11 +40,7 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *favoriteButton;
 
-@property (nonatomic, weak) IBOutlet UILabel *descriptionTitleLabel;
-@property (nonatomic, weak) IBOutlet RIOExpandableLabel *descriptionLabel;
-
 - (IBAction)toggleFavorite:(id)sender;
-- (IBAction)shareEvent:(id)sender;
 - (IBAction)toggleCalendarEvent:(id)sender;
 
 @end
