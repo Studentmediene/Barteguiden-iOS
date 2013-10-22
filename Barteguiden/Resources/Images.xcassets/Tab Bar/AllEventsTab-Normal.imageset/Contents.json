@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "AllEventsTab-Normal.png"
+      "filename" : "AllEventsTab.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "AllEventsTab-Normal@2x.png"
+      "filename" : "AllEventsTab@2x.png"
     }
   ],
   "info" : {

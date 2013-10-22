@@ -69,7 +69,7 @@
     [self.webView goForward];
 }
 
-- (void)refresh:(id)sender
+- (void)refreshOrStop:(id)sender
 {
     if (self.webView.loading == NO) {
         [self.webView loadRequest:self.webView.request];
@@ -168,7 +168,7 @@
 {
     static UIBarButtonItem *barButtonItem = nil;
     if (barButtonItem == nil) {
-        barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(refresh:)];
+        barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(refreshOrStop:)];
     }
     
     return barButtonItem;

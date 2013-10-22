@@ -49,12 +49,15 @@ static float const kOneHourOffset = 1*60*60;
     [super viewDidLoad];
     
     [self setUpConstraints];
-    [self setUpStyles];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarStoreChanged:) name:EKEventStoreChangedNotification object:self.calendarManager.calendarStore];
+    
+    // WORKAROUND: Let the descriptionView be updated first
+    [self.tableView reloadData];
+    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -349,9 +352,9 @@ static float const kOneHourOffset = 1*60*60;
     
     self.titleLabel.text = [self.event title];
     self.locationLabel.text = [self.event placeName];
-    self.timeLabel.text = [eventFormatter timeString];
     self.priceLabel.text = priceText;
     self.categoryImageView.image = [eventFormatter categoryBigImage];
+    
     
     UIImage *posterImage = [self.event imageWithSize:kThumbnailSize];
     if (posterImage != nil) {
@@ -371,26 +374,9 @@ static float const kOneHourOffset = 1*60*60;
     _descriptionLabel.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     self.favoriteButton.selected = [self.event isFavorite];
-    
-    // Set up toggle calendar button
-    NSString *addToCalendar = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_ADD_TO_CALENDAR_LABEL", nil, [NSBundle mainBundle], @"Add to Calendar", @"Text inside toggle calendar button in event details");
-    NSString *removeFromCalendar = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_REMOVE_FROM_CALENDAR_LABEL", nil, [NSBundle mainBundle], @"Remove from Calendar", @"Text inside toggle calendar button in event details");
-    NSString *calendarActionTitle = ([self isAddedToCalendar] == NO) ? addToCalendar : removeFromCalendar;
-    
-    self.calendarActionLabel.text = calendarActionTitle;
-    self.calendarImageView.image = ([self isAddedToCalendar] == NO) ? [UIImage imageNamed:@"Calendar-Normal"] : [UIImage imageNamed:@"Calendar-Selected"];
-    
-    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0]; // WORKAROUND: Let the descriptionView be updated first
-}
-
-- (void)setUpStyles
-{
-    UIImage *highlightedToggleCalendarButtonImage = [UIImage imageNamed:@"TextHighlight"];
-    [self.calendarButton setBackgroundImage:highlightedToggleCalendarButtonImage forState:UIControlStateHighlighted];
-    
-    self.descriptionLabel.textFont = [UIFont systemFontOfSize:15];
-    self.descriptionLabel.moreButtonFont = [UIFont boldSystemFontOfSize:15];
-    self.descriptionLabel.moreButtonColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1];
+    self.calendarButton.selected = [self isAddedToCalendar];
+     
+    [self.calendarButton setTitle:[eventFormatter timeString] forState:UIControlStateNormal];
 }
 
 - (void)setUpConstraints
@@ -436,7 +422,9 @@ static float const kOneHourOffset = 1*60*60;
         _descriptionLabel = [[RIOExpandableLabel alloc] init];
         _descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _descriptionLabel.textFont = [UIFont systemFontOfSize:15];
-                _descriptionLabel.maxNumberOfLines = 4;
+        _descriptionLabel.maxNumberOfLines = 4;
+        _descriptionLabel.moreButtonColor = self.view.tintColor;
+        _descriptionLabel.moreButtonFont = [UIFont systemFontOfSize:15];
         _descriptionLabel.moreButtonText = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_MORE_BUTTON_TEXT", nil, [NSBundle mainBundle], @"More ▼", @"Text of more button in event details");
         [_descriptionLabel moreButtonAddTarget:self action:@selector(revealDescription:)];
     }

@@ -21,7 +21,7 @@
 
 - (IBAction)back:(id)sender;
 - (IBAction)forward:(id)sender;
-- (IBAction)refresh:(id)sender;
+- (IBAction)refreshOrStop:(id)sender;
 - (IBAction)share:(id)sender;
 
 @property (nonatomic, strong) NSURL *openURL;
