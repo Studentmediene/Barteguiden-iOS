@@ -16,12 +16,8 @@
 {
     NSDateFormatter *dateFormatter = [self dateSectionNameDateFormatter];
     
-    // TODO: Fix
-    // Get section name
-//    BOOL startAtIsEarlierThanNow = [[self.startAt earlierDate:[NSDate date]] isEqualToDate:self.startAt];
-//    NSDate *date = (startAtIsEarlierThanNow) ? self.startAt : [NSDate date];
     NSString *sectionName = [dateFormatter stringFromDate:[self.event startAt]];
-    return sectionName;
+    return [self capitalizeFirstLetter:sectionName];
 }
 
 - (NSString *)timeAndLocationString
@@ -59,6 +55,14 @@
     }
     
     return dateFormatter;
+}
+
+- (NSString *)capitalizeFirstLetter:(NSString *)string
+{
+    NSString *firstCapChar = [[string substringToIndex:1] capitalizedString];
+    NSString *cappedString = [string stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstCapChar];
+    
+    return cappedString;
 }
 
 @end

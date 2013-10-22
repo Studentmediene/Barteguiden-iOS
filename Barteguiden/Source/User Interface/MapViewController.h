@@ -18,3 +18,7 @@
 @property (nonatomic, weak) IBOutlet MKMapView *mapView;
 
 @end
+
+// Notifications
+extern NSString * const MapWillDownloadDataNotification;
+extern NSString * const MapDidDownloadDataNotification;

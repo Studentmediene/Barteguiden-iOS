@@ -103,6 +103,7 @@
     [self.calendarManager requestAccessWithCompletion:^(NSError *error) {
         if (error == nil) {
             EKCalendarChooser *calendarChooser = [[EKCalendarChooser alloc] initWithSelectionStyle:EKCalendarChooserSelectionStyleSingle displayStyle:EKCalendarChooserDisplayWritableCalendarsOnly entityType:EKEntityTypeEvent eventStore:bself.calendarManager.calendarStore];
+            calendarChooser.hidesBottomBarWhenPushed = YES;
             calendarChooser.delegate = bself;
             calendarChooser.selectedCalendars = [NSSet setWithObject:[bself.calendarManager defaultCalendar]];
             calendarChooser.title = NSLocalizedStringWithDefaultValue(@"SETTINGS_DEFAULT_CALENDAR_CHOOSER_TITLE", nil, [NSBundle mainBundle], @"Default Calendar", @"Title of default calendar chooser");
@@ -118,6 +119,7 @@
 - (void)navigateToAlertChooser
 {
     AlertChooser *alertChooser = [[AlertChooser alloc] init];
+    alertChooser.hidesBottomBarWhenPushed = YES;
     alertChooser.delegate = self;
     alertChooser.selectedAlert = [self.calendarManager defaultAlert];
     alertChooser.title = NSLocalizedStringWithDefaultValue(@"SETTINGS_DEFAULT_ALERT_CHOOSER_TITLE", nil, [NSBundle mainBundle], @"Default Alert", @"Title of default alert chooser");

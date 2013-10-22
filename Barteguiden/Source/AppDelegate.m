@@ -25,6 +25,7 @@
 #import <PSPDFAlertView.h>
 
 #import "WebsiteViewController.h" // TODO: Needs the notifications -> Should move to a separate header file
+#import "MapViewController.h" // TODO: Needs the notifications -> Should move to a separate header file
 
 
 static CGSize const kSettingsTabSize = {64, 49};
@@ -54,8 +55,8 @@ static CGSize const kSettingsTabSize = {64, 49};
     
     // Event store
     self.eventStore = [[CoreDataEventStore alloc] init];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreWillDownloadData:) name:EventStoreWillDownloadDataNotification object:self.eventStore];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidDownloadData:) name:EventStoreDidDownloadDataNotification object:self.eventStore];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillDownloadData:) name:EventStoreWillDownloadDataNotification object:self.eventStore];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidDownloadData:) name:EventStoreDidDownloadDataNotification object:self.eventStore];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidFail:) name:EventStoreDidFailNotification object:self.eventStore];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
     
@@ -69,8 +70,12 @@ static CGSize const kSettingsTabSize = {64, 49};
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarManagerDidFail:) name:CalendarManagerDidFailNotification object:self.calendarManager];
     
     // Website notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreWillDownloadData:) name:WebsiteWillDownloadDataNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidDownloadData:) name:WebsiteDidDownloadDataNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillDownloadData:) name:WebsiteWillDownloadDataNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidDownloadData:) name:WebsiteDidDownloadDataNotification object:nil];
+    
+    // Map notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillDownloadData:) name:MapWillDownloadDataNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidDownloadData:) name:MapDidDownloadDataNotification object:nil];
     
     // Inject dependencies
 //    TabBarController *tabBarController = [[TabBarController alloc] initWithEventStore:self.eventStore filterManager:self.filterManager calendarManager:self.calendarManager];
@@ -118,13 +123,13 @@ static CGSize const kSettingsTabSize = {64, 49};
 
 #pragma mark - Notifications
 
-- (void)eventStoreWillDownloadData:(NSNotification *)note
+- (void)appWillDownloadData:(NSNotification *)note
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     [self.networkActivity incrementNetworkActivity];
 }
 
-- (void)eventStoreDidDownloadData:(NSNotification *)note
+- (void)appDidDownloadData:(NSNotification *)note
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     [self.networkActivity decrementNetworkActivity];

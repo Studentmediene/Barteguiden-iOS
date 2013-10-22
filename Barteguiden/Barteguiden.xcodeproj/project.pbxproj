@@ -27,6 +27,8 @@
 		6983FD9C1740B370003B429B /* ApplicationNetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6983FD9B1740B370003B429B /* ApplicationNetworkActivity.m */; };
 		69884B97163A0CE70057D189 /* EventFormatter+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B96163A0CE70057D189 /* EventFormatter+Time.m */; };
 		69884B9A163A0D200057D189 /* EventFormatter+LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B99163A0D1F0057D189 /* EventFormatter+LocalizedText.m */; };
+		698AD181181676C3009E62D9 /* SMIT.png in Resources */ = {isa = PBXBuildFile; fileRef = 698AD180181676C3009E62D9 /* SMIT.png */; };
+		698AD18818168714009E62D9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698AD18718168714009E62D9 /* AddressBook.framework */; };
 		698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F870C16247B96001B9090 /* EventsSearchDisplayController.m */; };
 		698F87191624A182001B9090 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F87181624A182001B9090 /* Event.m */; };
 		699F3CDF17B08E1900F17B54 /* Samfundet.json in Resources */ = {isa = PBXBuildFile; fileRef = 699F3CDD17B08E1900F17B54 /* Samfundet.json */; };
@@ -135,6 +137,8 @@
 		69884B96163A0CE70057D189 /* EventFormatter+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventFormatter+Time.m"; sourceTree = "<group>"; };
 		69884B98163A0D1F0057D189 /* EventFormatter+LocalizedText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+LocalizedText.h"; sourceTree = "<group>"; };
 		69884B99163A0D1F0057D189 /* EventFormatter+LocalizedText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventFormatter+LocalizedText.m"; sourceTree = "<group>"; };
+		698AD180181676C3009E62D9 /* SMIT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SMIT.png; sourceTree = "<group>"; };
+		698AD18718168714009E62D9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		698F870B16247B96001B9090 /* EventsSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsSearchDisplayController.h; sourceTree = "<group>"; };
 		698F870C16247B96001B9090 /* EventsSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsSearchDisplayController.m; sourceTree = "<group>"; };
 		698F870E16247C7F001B9090 /* EventsSearchDisplayControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsSearchDisplayControllerDelegate.h; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				698AD18818168714009E62D9 /* AddressBook.framework in Frameworks */,
 				697E8F391731F42800974244 /* CoreImage.framework in Frameworks */,
 				69B84F271703930C006DB348 /* MessageUI.framework in Frameworks */,
 				69B860E1168E6CF1002936B4 /* EventKitUI.framework in Frameworks */,
@@ -288,6 +293,7 @@
 		693EF25D161220D100D10C03 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				698AD180181676C3009E62D9 /* SMIT.png */,
 				69E51EA91815BE7600E9637A /* Images.xcassets */,
 				69EE052217B0609B00E4A511 /* Localizable.strings */,
 				699F3CDB17B08E0200F17B54 /* Temp */,
@@ -629,6 +635,7 @@
 		69F52A9C1608E70F0045B6F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				698AD18718168714009E62D9 /* AddressBook.framework */,
 				69F52A9D1608E70F0045B6F6 /* UIKit.framework */,
 				69F52A9F1608E70F0045B6F6 /* Foundation.framework */,
 				69F52AA11608E70F0045B6F6 /* CoreGraphics.framework */,
@@ -790,6 +797,7 @@
 			files = (
 				69F52AAA1608E70F0045B6F6 /* InfoPlist.strings in Resources */,
 				69EE050F17B04AB700E4A511 /* MainStoryboard.storyboard in Resources */,
+				698AD181181676C3009E62D9 /* SMIT.png in Resources */,
 				69BA0AD5162F3E13009726E7 /* EventCell.xib in Resources */,
 				69EE051417B04D4B00E4A511 /* Event.strings in Resources */,
 				69E51EAD1815C40600E9637A /* Podfile in Resources */,

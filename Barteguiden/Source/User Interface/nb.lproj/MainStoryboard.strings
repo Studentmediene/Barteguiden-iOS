@@ -1,3 +1,6 @@
+/* Class = "IBUINavigationItem"; title = "About"; ObjectID = "0OY-ST-tXk"; */
+"0OY-ST-tXk.title" = "Om oss";
+
 /* Class = "IBUIViewController"; title = "Event Details"; ObjectID = "0c3-bx-ucG"; */
 "0c3-bx-ucG.title" = "Detaljer";
 
@@ -30,6 +33,9 @@
 
 /* Class = "IBUILabel"; text = "Location"; ObjectID = "96o-qw-xEw"; */
 "96o-qw-xEw.text" = "Lokasjon";
+
+/* Class = "IBUILabel"; text = "About"; ObjectID = "974-5c-8HC"; */
+"974-5c-8HC.text" = "Om oss";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Categories"; ObjectID = "9fe-Bf-nRc"; */
 "9fe-Bf-nRc.headerTitle" = "Kategorier";
@@ -136,8 +142,8 @@
 /* Class = "IBUINavigationItem"; title = "Map"; ObjectID = "vNQ-11-9Zi"; */
 "vNQ-11-9Zi.title" = "Kart";
 
-/* Class = "IBUITableViewSection"; headerTitle = "Events"; ObjectID = "vQi-zh-iP9"; */
-"vQi-zh-iP9.headerTitle" = "Arrangementer";
+/* Class = "IBUITableViewSection"; headerTitle = "Info"; ObjectID = "vQi-zh-iP9"; */
+"vQi-zh-iP9.headerTitle" = "Info";
 
 /* Class = "IBUILabel"; text = "Default Calendar"; ObjectID = "x9Y-36-gem"; */
 "x9Y-36-gem.text" = "Standard kalender";
