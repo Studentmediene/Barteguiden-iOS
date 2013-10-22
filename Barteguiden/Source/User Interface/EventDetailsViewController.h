@@ -40,6 +40,9 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *favoriteButton;
 
+@property (nonatomic, weak) IBOutlet UIImageView *ageLimitBorderView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *ageLimitBorderWidthConstraint;
+
 - (IBAction)toggleFavorite:(id)sender;
 - (IBAction)toggleCalendarEvent:(id)sender;
 

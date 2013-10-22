@@ -46,9 +46,6 @@
 /* Class = "IBUISearchBar"; placeholder = "Search Favorites"; ObjectID = "CnG-RM-MRb"; */
 "CnG-RM-MRb.placeholder" = "Søk i favoritter";
 
-/* Class = "IBUILabel"; text = "Description"; ObjectID = "Cpu-AF-hUp"; */
-"Cpu-AF-hUp.text" = "Beskrivelse";
-
 /* Class = "IBUITableViewSection"; headerTitle = "Calendar"; ObjectID = "Dl4-xs-FAz"; */
 "Dl4-xs-FAz.headerTitle" = "Kalender";
 

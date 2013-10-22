@@ -24,6 +24,8 @@
 
 #import <PSPDFAlertView.h>
 
+#import "WebsiteViewController.h" // TODO: Needs the notifications -> Should move to a separate header file
+
 
 static CGSize const kSettingsTabSize = {64, 49};
 
@@ -66,16 +68,16 @@ static CGSize const kSettingsTabSize = {64, 49};
 //    [self.calendarManager registerDefaultDefaultAlertTimeInterval:-30*60]; // TODO: If I uncomment this line, I can't select None as Default Alert
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarManagerDidFail:) name:CalendarManagerDidFailNotification object:self.calendarManager];
     
+    // Website notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreWillDownloadData:) name:WebsiteWillDownloadDataNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreDidDownloadData:) name:WebsiteDidDownloadDataNotification object:nil];
+    
     // Inject dependencies
 //    TabBarController *tabBarController = [[TabBarController alloc] initWithEventStore:self.eventStore filterManager:self.filterManager calendarManager:self.calendarManager];
 //    tabBarController.storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     self.tabBarController.eventStore = self.eventStore;
     self.tabBarController.filterManager = self.filterManager;
     self.tabBarController.calendarManager = self.calendarManager;
-    
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window.rootViewController = tabBarController;
-//    [self.window makeKeyAndVisible];
     
     return YES;
 }

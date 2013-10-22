@@ -27,3 +27,7 @@
 @property (nonatomic, strong) NSURL *openURL;
 
 @end
+
+// Notifications
+extern NSString * const WebsiteWillDownloadDataNotification;
+extern NSString * const WebsiteDidDownloadDataNotification;

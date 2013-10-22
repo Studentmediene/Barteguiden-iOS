@@ -19,16 +19,7 @@
 
 + (NSString *)stringForPrice:(NSDecimalNumber *)price
 {
-    NSString *priceString = nil;
-    
-    if ([price isEqualToNumber:[NSDecimalNumber zero]]) {
-        priceString = NSLocalizedStringFromTable(@"PRICE_FREE_EVENT", @"Event", @"Free event");
-    }
-    else {
-        priceString = [[self currencyFormatter] stringFromNumber:price];
-    }
-    
-    return priceString;
+    return [[self currencyFormatter] stringFromNumber:price];
 }
 
 
@@ -39,7 +30,7 @@
     static NSNumberFormatter *currencyFormatter;
     if (currencyFormatter == nil) {
         currencyFormatter = [[NSNumberFormatter alloc] init];
-        currencyFormatter.positiveSuffix = @" kr";
+        currencyFormatter.positiveSuffix = @",-";
         currencyFormatter.groupingSeparator = @" ";
         currencyFormatter.groupingSize = 3;
         currencyFormatter.usesGroupingSeparator = YES;

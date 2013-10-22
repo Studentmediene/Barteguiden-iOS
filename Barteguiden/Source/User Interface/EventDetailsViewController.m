@@ -13,7 +13,6 @@
 #import <RIOExpandableLabel.h>
 #import "UIImage+RIODarkenAndBlur.h"
 #import <PSPDFActionSheet.h>
-#import "NavigationButton.h"
 
 #import "WebsiteViewController.h"
 #import "MapViewController.h"
@@ -49,14 +48,13 @@ static float const kOneHourOffset = 1*60*60;
 {
     [super viewDidLoad];
     
+    [self setUpConstraints];
     [self setUpStyles];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventStoreChanged:) name:EventStoreChangedNotification object:self.eventStore];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calendarStoreChanged:) name:EKEventStoreChangedNotification object:self.calendarManager.calendarStore];
-    
-    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0]; // WORKAROUND: Let the descriptionView be updated first
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -346,10 +344,13 @@ static float const kOneHourOffset = 1*60*60;
 {
     EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:self.event];
     
+    NSString *priceFormat = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_PRICE_FORMAT", nil, [NSBundle mainBundle], @"From %1$@", @"Format of price in event details");
+    NSString *priceText = [NSString localizedStringWithFormat:priceFormat, [eventFormatter priceString]];
+    
     self.titleLabel.text = [self.event title];
     self.locationLabel.text = [self.event placeName];
     self.timeLabel.text = [eventFormatter timeString];
-    self.priceLabel.text = [eventFormatter priceString];
+    self.priceLabel.text = priceText;
     self.categoryImageView.image = [eventFormatter categoryBigImage];
     
     UIImage *posterImage = [self.event imageWithSize:kThumbnailSize];
@@ -365,6 +366,10 @@ static float const kOneHourOffset = 1*60*60;
     NSString *ageLimit = [NSString stringWithFormat:@"%@+", [self.event ageLimit]];
     self.ageLimitLabel.text = ageLimit;
     
+    NSString *defaultDescription = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_NO_DESCRIPTION", nil, [NSBundle mainBundle], @"No description", @"Default text if there are no description of event");
+    NSString *description = [eventFormatter currentLocalizedDescription] ?: defaultDescription;
+    _descriptionLabel.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
     self.favoriteButton.selected = [self.event isFavorite];
     
     // Set up toggle calendar button
@@ -374,6 +379,8 @@ static float const kOneHourOffset = 1*60*60;
     
     self.calendarActionLabel.text = calendarActionTitle;
     self.calendarImageView.image = ([self isAddedToCalendar] == NO) ? [UIImage imageNamed:@"Calendar-Normal"] : [UIImage imageNamed:@"Calendar-Selected"];
+    
+    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0]; // WORKAROUND: Let the descriptionView be updated first
 }
 
 - (void)setUpStyles
@@ -381,14 +388,15 @@ static float const kOneHourOffset = 1*60*60;
     UIImage *highlightedToggleCalendarButtonImage = [UIImage imageNamed:@"TextHighlight"];
     [self.calendarButton setBackgroundImage:highlightedToggleCalendarButtonImage forState:UIControlStateHighlighted];
     
-// TODO: Use this code to make a border around age limit
-//    self.priceLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
-//    self.priceLabel.layer.borderWidth = 2;
-//    self.priceLabel.layer.cornerRadius = 2;
-    
     self.descriptionLabel.textFont = [UIFont systemFontOfSize:15];
     self.descriptionLabel.moreButtonFont = [UIFont boldSystemFontOfSize:15];
     self.descriptionLabel.moreButtonColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1];
+}
+
+- (void)setUpConstraints
+{
+    [self.ageLimitBorderView removeConstraint:self.ageLimitBorderWidthConstraint];
+    [self.ageLimitBorderView.superview addConstraint:[NSLayoutConstraint constraintWithItem:self.ageLimitBorderView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.ageLimitLabel attribute:NSLayoutAttributeWidth multiplier:1 constant:10]];
 }
 
 - (UIView *)descriptionView
@@ -416,8 +424,7 @@ static float const kOneHourOffset = 1*60*60;
         _descriptionTitleLabel = [[UILabel alloc] init];
         _descriptionTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _descriptionTitleLabel.font = [UIFont boldSystemFontOfSize:15];
-        
-        _descriptionTitleLabel.text = @"Description"; // FIXME: Localize
+        _descriptionTitleLabel.text = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_DESCRIPTION_TITLE", nil, [NSBundle mainBundle], @"Description", @"Title of description in event details");
     }
     
     return _descriptionTitleLabel;
@@ -429,13 +436,7 @@ static float const kOneHourOffset = 1*60*60;
         _descriptionLabel = [[RIOExpandableLabel alloc] init];
         _descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _descriptionLabel.textFont = [UIFont systemFontOfSize:15];
-        
-        EventFormatter *eventFormatter = [[EventFormatter alloc] initWithEvent:self.event];
-        
-        NSString *defaultDescription = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_NO_DESCRIPTION", nil, [NSBundle mainBundle], @"No description", @"Default text if there are no description of event");
-        NSString *description = [eventFormatter currentLocalizedDescription] ?: defaultDescription;
-        _descriptionLabel.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        _descriptionLabel.maxNumberOfLines = 4;
+                _descriptionLabel.maxNumberOfLines = 4;
         _descriptionLabel.moreButtonText = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_MORE_BUTTON_TEXT", nil, [NSBundle mainBundle], @"More ▼", @"Text of more button in event details");
         [_descriptionLabel moreButtonAddTarget:self action:@selector(revealDescription:)];
     }

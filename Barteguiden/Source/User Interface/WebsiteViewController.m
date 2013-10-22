@@ -11,13 +11,9 @@
 #import <PSPDFAlertView.h>
 
 
-static CGFloat kRefreshBarButtonItemWidth = 18;
-
-
 @interface WebsiteViewController ()
 
-@property (nonatomic, strong) UIBarButtonItem *activityIndicatorViewBarButtonItem;
-@property (nonatomic) BOOL lastLoading;
+@property (nonatomic, strong) UIBarButtonItem *stopBarButtonItem;
 
 @end
 
@@ -45,6 +41,15 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
     [self.webView loadRequest:urlRequest];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    if (self.webView.loading == YES) {
+        NSLog(@"Should stop");
+        [self notifyDidDownloadData]; // WORKAROUND: For some reason, -stopLoading does not trigger -webView:didFailLoadWithError: in this context
+        [self.webView stopLoading];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -66,7 +71,12 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
 
 - (void)refresh:(id)sender
 {
-    [self.webView loadRequest:self.webView.request];
+    if (self.webView.loading == NO) {
+        [self.webView loadRequest:self.webView.request];
+    }
+    else {
+        [self.webView stopLoading];
+    }
 }
 
 - (void)share:(id)sender
@@ -88,25 +98,36 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
 
 #pragma mark - UIWebViewDelegate
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    NSString *title = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANNOT_OPEN_PAGE_TITLE", nil, [NSBundle mainBundle], @"Cannot Open Page", @"Title of alert view (Displayed when browser failed to load)");
-    NSString *message = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANNOT_OPEN_PAGE_MESSAGE", nil, [NSBundle mainBundle], @"Safari cannot open the page because the address is invalid", @"Message of alert view (Displayed when browser failed to load)");
-    NSString *cancelButtonTitle = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANNOT_OPEN_PAGE_CANCEL_BUTTON", nil, [NSBundle mainBundle], @"OK", @"Title of cancel button in alert view (Displayed when browser failed to load)");
-    PSPDFAlertView *failedAlertView = [[PSPDFAlertView alloc] initWithTitle:title message:message];
-    [failedAlertView setCancelButtonWithTitle:cancelButtonTitle block:NULL];
-    [failedAlertView show];
-}
-
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [self updateRefreshButton];
+    
+    [self notifyWillDownloadData];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [self notifyDidDownloadData];
+    
     [self updateBackAndForwardButtons];
     [self updateRefreshButton];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self notifyDidDownloadData];
+    
+    [self updateRefreshButton];
+    
+    BOOL userCancelled = ([error code] == NSURLErrorCancelled);
+    if (userCancelled == NO) {
+        NSString *title = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANNOT_OPEN_PAGE_TITLE", nil, [NSBundle mainBundle], @"Cannot Open Page", @"Title of alert view (Displayed when browser failed to load)");
+        NSString *message = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANNOT_OPEN_PAGE_MESSAGE", nil, [NSBundle mainBundle], @"Safari cannot open the page because the address is invalid", @"Message of alert view (Displayed when browser failed to load)");
+        NSString *cancelButtonTitle = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANNOT_OPEN_PAGE_CANCEL_BUTTON", nil, [NSBundle mainBundle], @"OK", @"Title of cancel button in alert view (Displayed when browser failed to load)");
+        PSPDFAlertView *failedAlertView = [[PSPDFAlertView alloc] initWithTitle:title message:message];
+        [failedAlertView setCancelButtonWithTitle:cancelButtonTitle block:NULL];
+        [failedAlertView show];
+    }
 }
 
 
@@ -120,46 +141,51 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
 
 - (void)updateRefreshButton
 {
-    UIBarButtonItem *currentBarButtonItem = nil;
+    NSUInteger refreshBarButtonItemIndex = [self.toolbar.items indexOfObject:self.refreshBarButtonItem];
+    NSUInteger stopBarButtonItemIndex = [self.toolbar.items indexOfObject:self.stopBarButtonItem];
+    
     UIBarButtonItem *replacementBarButtonItem = nil;
-    if (self.webView.loading == YES && self.lastLoading == NO) {
-        currentBarButtonItem = self.refreshBarButtonItem;
-        replacementBarButtonItem = self.activityIndicatorViewBarButtonItem;
-        
-//        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    }
-    else if (self.webView.loading == NO && self.lastLoading == YES) {
-        currentBarButtonItem = self.activityIndicatorViewBarButtonItem;
+    NSUInteger replacementIndex;
+    
+    if (self.webView.loading == NO && refreshBarButtonItemIndex == NSNotFound) {
         replacementBarButtonItem = self.refreshBarButtonItem;
+        replacementIndex = stopBarButtonItemIndex;
+    }
+    else if (self.webView.loading == YES && stopBarButtonItemIndex == NSNotFound) {
+        replacementBarButtonItem = self.stopBarButtonItem;
+        replacementIndex = refreshBarButtonItemIndex;
     }
     else {
         return;
     }
-    
+
     NSMutableArray *items = [self.toolbar.items mutableCopy];
-    NSUInteger currentIndex = [items indexOfObject:currentBarButtonItem];
-    [items replaceObjectAtIndex:currentIndex withObject:replacementBarButtonItem];
+    [items replaceObjectAtIndex:replacementIndex withObject:replacementBarButtonItem];
     self.toolbar.items = [items copy];
-//    self.refreshBarButtonItem = (self.webView.loading == YES) ? self.activityIndicatorViewBarButtonItem : self.originalRefreshBarButtonItem;
-    
-    self.lastLoading = self.webView.loading;
 }
 
-- (UIBarButtonItem *)activityIndicatorViewBarButtonItem
+- (UIBarButtonItem *)stopBarButtonItem
 {
     static UIBarButtonItem *barButtonItem = nil;
     if (barButtonItem == nil) {
-        UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-        activityIndicatorView.color = [UIColor grayColor];
-        [activityIndicatorView sizeToFit];
-        [activityIndicatorView setAutoresizingMask:(UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin)];
-        [activityIndicatorView startAnimating];
-        
-        barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:activityIndicatorView];
-        barButtonItem.width = kRefreshBarButtonItemWidth;
+        barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(refresh:)];
     }
     
     return barButtonItem;
 }
 
+- (void)notifyWillDownloadData
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:WebsiteWillDownloadDataNotification object:self];
+}
+
+- (void)notifyDidDownloadData
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:WebsiteDidDownloadDataNotification object:self];
+}
+
 @end
+
+// Notifications
+NSString * const WebsiteWillDownloadDataNotification = @"WebsiteWillDownloadDataNotification";
+NSString * const WebsiteDidDownloadDataNotification = @"WebsiteDidDownloadDataNotification";

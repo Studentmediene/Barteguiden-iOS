@@ -20,7 +20,6 @@
 		6956C67616419E5300E10586 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67516419E5300E10586 /* FilterViewController.m */; };
 		6956C67A16422A0500E10586 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67916422A0500E10586 /* SettingsViewController.m */; };
 		695EC1BF1737D80A007C32D5 /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 695EC1BE1737D80A007C32D5 /* CalendarManager.m */; };
-		695EC27E173B16D9007C32D5 /* NavigationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 695EC27D173B16D8007C32D5 /* NavigationButton.m */; };
 		695EC2A2173B2316007C32D5 /* WebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695EC2A1173B2316007C32D5 /* WebsiteViewController.m */; };
 		696CB68C16D81ABB0090E7C9 /* EventResultsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 696CB68B16D81ABB0090E7C9 /* EventResultsSection.m */; };
 		697E8F391731F42800974244 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697E8F381731F42800974244 /* CoreImage.framework */; };
@@ -121,8 +120,6 @@
 		6956C67816422A0500E10586 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		6956C67916422A0500E10586 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		695EC1BE1737D80A007C32D5 /* CalendarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarManager.m; sourceTree = "<group>"; };
-		695EC27C173B16D8007C32D5 /* NavigationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationButton.h; sourceTree = "<group>"; };
-		695EC27D173B16D8007C32D5 /* NavigationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationButton.m; sourceTree = "<group>"; };
 		695EC2A0173B2316007C32D5 /* WebsiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebsiteViewController.h; sourceTree = "<group>"; };
 		695EC2A1173B2316007C32D5 /* WebsiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebsiteViewController.m; sourceTree = "<group>"; };
 		696CB68916D81AAA0090E7C9 /* EventResultsSectionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventResultsSectionInfo.h; sourceTree = "<group>"; };
@@ -307,15 +304,6 @@
 				6956C67516419E5300E10586 /* FilterViewController.m */,
 			);
 			name = "My Filter Tab";
-			sourceTree = "<group>";
-		};
-		6983FD5E173CD765003B429B /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				695EC27C173B16D8007C32D5 /* NavigationButton.h */,
-				695EC27D173B16D8007C32D5 /* NavigationButton.m */,
-			);
-			name = Buttons;
 			sourceTree = "<group>";
 		};
 		6983FD981740B30A003B429B /* NetworkActivity */ = {
@@ -708,7 +696,6 @@
 				69EE051117B04AB700E4A511 /* MainStoryboard.storyboard */,
 				69C491641625F1A600F28C45 /* Event Details */,
 				69C9E2181687C5B700D65004 /* Tabs */,
-				6983FD5E173CD765003B429B /* Buttons */,
 				69B7815116C1DC1A00ADD13A /* EventKitUI */,
 			);
 			path = "User Interface";
@@ -928,7 +915,6 @@
 				69C6F9051734282000568238 /* UserDefaultsCalendarManager.m in Sources */,
 				69CC03821736149B00F96209 /* AlertChooser.m in Sources */,
 				695EC1BF1737D80A007C32D5 /* CalendarManager.m in Sources */,
-				695EC27E173B16D9007C32D5 /* NavigationButton.m in Sources */,
 				695EC2A2173B2316007C32D5 /* WebsiteViewController.m in Sources */,
 				6983FD9C1740B370003B429B /* ApplicationNetworkActivity.m in Sources */,
 			);
