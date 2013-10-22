@@ -16,7 +16,7 @@
 @class RIOExpandableLabel;
 
 
-@interface EventDetailsViewController : UIViewController <EKEventEditViewDelegate>
+@interface EventDetailsViewController : UITableViewController <EKEventEditViewDelegate>
 
 @property (nonatomic, strong) id<EventStore> eventStore; // FIXME: Remember to inject event store
 @property (nonatomic, strong) id<Event> event;
@@ -42,9 +42,6 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *descriptionTitleLabel;
 @property (nonatomic, weak) IBOutlet RIOExpandableLabel *descriptionLabel;
-
-@property (nonatomic, weak) IBOutlet UIView *bottomMostView;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *bottomMostViewSpacingConstraint;
 
 - (IBAction)toggleFavorite:(id)sender;
 - (IBAction)shareEvent:(id)sender;

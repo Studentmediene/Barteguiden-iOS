@@ -28,12 +28,6 @@
 	<string>8</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>proxima_nova_bold-webfont.ttf</string>
-		<string>proxima_nova_reg_it-webfont.ttf</string>
-		<string>proxima_nova_reg-webfont.ttf</string>
-	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
 	<key>UIPrerenderedIcon</key>

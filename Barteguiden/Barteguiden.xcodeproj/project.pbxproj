@@ -30,9 +30,6 @@
 		69884B9A163A0D200057D189 /* EventFormatter+LocalizedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 69884B99163A0D1F0057D189 /* EventFormatter+LocalizedText.m */; };
 		698F870D16247B96001B9090 /* EventsSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F870C16247B96001B9090 /* EventsSearchDisplayController.m */; };
 		698F87191624A182001B9090 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F87181624A182001B9090 /* Event.m */; };
-		699806F01715D837000F263F /* proxima_nova_bold-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 699806ED1715D837000F263F /* proxima_nova_bold-webfont.ttf */; };
-		699806F11715D837000F263F /* proxima_nova_reg_it-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 699806EE1715D837000F263F /* proxima_nova_reg_it-webfont.ttf */; };
-		699806F21715D837000F263F /* proxima_nova_reg-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 699806EF1715D837000F263F /* proxima_nova_reg-webfont.ttf */; };
 		699F3CDF17B08E1900F17B54 /* Samfundet.json in Resources */ = {isa = PBXBuildFile; fileRef = 699F3CDD17B08E1900F17B54 /* Samfundet.json */; };
 		69AEFE3A1624E7AB009F3567 /* EventFormatter+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AEFE391624E7AB009F3567 /* EventFormatter+TableView.m */; };
 		69AFC61916C5DB2A0072C7DE /* EventResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AFC61816C5DB2A0072C7DE /* EventResultsController.m */; };
@@ -146,9 +143,6 @@
 		698F870E16247C7F001B9090 /* EventsSearchDisplayControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsSearchDisplayControllerDelegate.h; sourceTree = "<group>"; };
 		698F87171624A182001B9090 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		698F87181624A182001B9090 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		699806ED1715D837000F263F /* proxima_nova_bold-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima_nova_bold-webfont.ttf"; sourceTree = "<group>"; };
-		699806EE1715D837000F263F /* proxima_nova_reg_it-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima_nova_reg_it-webfont.ttf"; sourceTree = "<group>"; };
-		699806EF1715D837000F263F /* proxima_nova_reg-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima_nova_reg-webfont.ttf"; sourceTree = "<group>"; };
 		699F3CDD17B08E1900F17B54 /* Samfundet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Samfundet.json; sourceTree = "<group>"; };
 		69AEFE381624E7AB009F3567 /* EventFormatter+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventFormatter+TableView.h"; sourceTree = "<group>"; };
 		69AEFE391624E7AB009F3567 /* EventFormatter+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventFormatter+TableView.m"; sourceTree = "<group>"; };
@@ -299,7 +293,6 @@
 			children = (
 				69E51EA91815BE7600E9637A /* Images.xcassets */,
 				69EE052217B0609B00E4A511 /* Localizable.strings */,
-				699806EC1715D82E000F263F /* Fonts */,
 				699F3CDB17B08E0200F17B54 /* Temp */,
 			);
 			path = Resources;
@@ -342,16 +335,6 @@
 				69D7FC42161B57CF00E38D56 /* FavoritesViewController.m */,
 			);
 			name = "Favorites Tab";
-			sourceTree = "<group>";
-		};
-		699806EC1715D82E000F263F /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				699806ED1715D837000F263F /* proxima_nova_bold-webfont.ttf */,
-				699806EE1715D837000F263F /* proxima_nova_reg_it-webfont.ttf */,
-				699806EF1715D837000F263F /* proxima_nova_reg-webfont.ttf */,
-			);
-			name = Fonts;
 			sourceTree = "<group>";
 		};
 		699F3CDB17B08E0200F17B54 /* Temp */ = {
@@ -822,10 +805,7 @@
 				69EE050F17B04AB700E4A511 /* MainStoryboard.storyboard in Resources */,
 				69BA0AD5162F3E13009726E7 /* EventCell.xib in Resources */,
 				69EE051417B04D4B00E4A511 /* Event.strings in Resources */,
-				699806F01715D837000F263F /* proxima_nova_bold-webfont.ttf in Resources */,
-				699806F11715D837000F263F /* proxima_nova_reg_it-webfont.ttf in Resources */,
 				69E51EAD1815C40600E9637A /* Podfile in Resources */,
-				699806F21715D837000F263F /* proxima_nova_reg-webfont.ttf in Resources */,
 				69E51EAA1815BE7600E9637A /* Images.xcassets in Resources */,
 				69EE052017B0609B00E4A511 /* Localizable.strings in Resources */,
 				699F3CDF17B08E1900F17B54 /* Samfundet.json in Resources */,

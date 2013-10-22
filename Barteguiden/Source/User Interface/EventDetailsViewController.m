@@ -22,15 +22,17 @@
 static NSString * const kWebsiteSegue = @"WebsiteSegue";
 static NSString * const kMapSegue = @"MapSegue";
 
-static CGSize const kGroupedTableViewButtonSize = {280, 44};
+static NSUInteger const kWebsiteRow = 0;
+static NSUInteger const kMapRow = 1;
+
 static CGSize const kThumbnailSize = {320, 200};
 static float const kOneHourOffset = 1*60*60;
 
 
 @interface EventDetailsViewController ()
 
-@property (nonatomic, strong) UIButton *visitWebsiteButton;
-@property (nonatomic, strong) UIButton *showOnMapButton;
+//@property (nonatomic, weak) IBOutlet NSLayoutConstraint *headerViewHeightConstraint;
+@property (nonatomic, weak) IBOutlet UIView *headerView;
 
 @end
 
@@ -41,6 +43,7 @@ static float const kOneHourOffset = 1*60*60;
 {
     [super viewDidLoad];
     
+    [self setUpConstraints];
     [self setUpStyles];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareEvent:)];
@@ -82,6 +85,33 @@ static float const kOneHourOffset = 1*60*60;
 {
     // TODO: Check if it is the correct calendar event that is updated?
 //    [self updateViewInfo];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSUInteger websiteCount = ([self.event URL] != nil) ? 1 : 0;
+    NSUInteger mapCount = ([self.event hasLocation] == YES) ? 1 : 0;
+    
+    return websiteCount + mapCount;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self tableView:tableView numberOfRowsInSection:indexPath.section] == 2) {
+        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    }
+    
+    NSUInteger row = ([self.event URL] != nil) ? kWebsiteRow : kMapRow;
+    NSIndexPath *adjustedIndexPath = [NSIndexPath indexPathForRow:row inSection:indexPath.section];
+    
+    return [super tableView:tableView cellForRowAtIndexPath:adjustedIndexPath];
 }
 
 
@@ -143,28 +173,26 @@ static float const kOneHourOffset = 1*60*60;
     }];
 }
 
-- (IBAction)visitWebsite:(id)sender
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    WebsiteViewController *websiteViewController = [storyboard instantiateViewControllerWithIdentifier:@"Website"];
-    websiteViewController.openURL = [self.event URL];
-    [self.navigationController pushViewController:websiteViewController animated:YES];
-}
-
-- (IBAction)showOnMap:(id)sender
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    MapViewController *mapViewController = [storyboard instantiateViewControllerWithIdentifier:@"Map"];
-    mapViewController.annotation = [[EventAnnotation alloc] initWithEvent:self.event];
-    [self.navigationController pushViewController:mapViewController animated:YES];
-}
-
 - (IBAction)revealDescription:(id)sender
 {
     [UIView animateWithDuration:0.3 animations:^{
         self.descriptionLabel.maxNumberOfLines = 0;
         [self.view layoutIfNeeded];
     }];
+}
+
+
+#pragma mark - Storyboard
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:kWebsiteSegue]){
+        WebsiteViewController *websiteViewController = (WebsiteViewController *)[segue destinationViewController];
+        websiteViewController.openURL = [self.event URL];
+    }
+    else if ([[segue identifier] isEqualToString:kMapSegue]) {
+        MapViewController *mapViewController = (MapViewController *)[segue destinationViewController];
+        mapViewController.annotation = [[EventAnnotation alloc] initWithEvent:self.event];
+    }
 }
 
 
@@ -303,6 +331,7 @@ static float const kOneHourOffset = 1*60*60;
     NSString *description = [eventFormatter currentLocalizedDescription] ?: defaultDescription;
     self.descriptionLabel.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     self.descriptionLabel.maxNumberOfLines = 4;
+    self.descriptionLabel.moreButtonText = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_MORE_BUTTON_TEXT", nil, [NSBundle mainBundle], @"More ▼", @"Text of more button in event details");
     [self.descriptionLabel moreButtonAddTarget:self action:@selector(revealDescription:)];
     
     self.favoriteButton.selected = [self.event isFavorite];
@@ -314,36 +343,6 @@ static float const kOneHourOffset = 1*60*60;
     
     self.calendarActionLabel.text = calendarActionTitle;
     self.calendarImageView.image = ([self isAddedToCalendar] == NO) ? [UIImage imageNamed:@"Calendar-Normal"] : [UIImage imageNamed:@"Calendar-Selected"];
-    
-    // Set up 'visit website' and 'show on map' buttons
-    [self updateBottomMostView:self.descriptionLabel];
-    
-    if ([self.event URL] != nil) {
-        UIButton *visitWebsiteButton = [self visitWebsiteButton];
-        [self.scrollView addSubview:visitWebsiteButton];
-        
-        NSArray *buttonConstraints = [self constraintsForButton:visitWebsiteButton withTopSpacing:20];
-        [self.scrollView addConstraints:buttonConstraints];
-        
-        [self updateBottomMostView:visitWebsiteButton];
-    }
-    else {
-        [[self visitWebsiteButton] removeFromSuperview];
-    }
-    
-    if ([self.event hasLocation]) {
-        UIButton *showOnMapButton = [self showOnMapButton];
-        [self.scrollView addSubview:showOnMapButton];
-        
-        CGFloat topSpacing = (self.bottomMostView == self.visitWebsiteButton) ? 10 : 20;
-        NSArray *buttonConstraints = [self constraintsForButton:showOnMapButton withTopSpacing:topSpacing];
-        [self.scrollView addConstraints:buttonConstraints];
-        
-        [self updateBottomMostView:showOnMapButton];
-    }
-    else {
-        [[self showOnMapButton] removeFromSuperview];
-    }
 }
 
 - (void)setUpStyles
@@ -356,73 +355,21 @@ static float const kOneHourOffset = 1*60*60;
 //    self.priceLabel.layer.borderWidth = 2;
 //    self.priceLabel.layer.cornerRadius = 2;
     
-//    self.descriptionLabel.moreButtonText = @"More ▾";
-//    self.descriptionLabel.moreButtonFont = [UIFont boldSystemFontOfSize:14];
     self.descriptionLabel.textFont = [UIFont systemFontOfSize:15];
     self.descriptionLabel.moreButtonFont = [UIFont boldSystemFontOfSize:15];
     self.descriptionLabel.moreButtonColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1];
 }
 
-- (UIButton *)visitWebsiteButton
+- (void)setUpConstraints
 {
-    if (_visitWebsiteButton == nil) {
-        NSString *title = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_VISIT_WEBSITE_BUTTON", nil, [NSBundle mainBundle], @"Visit Website", @"Title of button to visit the event's website");
-        _visitWebsiteButton = [[NavigationButton alloc] initWithFrame:CGRectMake(0, 0, 280, 44)];
-        [_visitWebsiteButton setImage:[UIImage imageNamed:@"Website-Normal"] forState:UIControlStateNormal];
-        [_visitWebsiteButton setImage:[UIImage imageNamed:@"Website-Highlighted"] forState:UIControlStateHighlighted];
-        [_visitWebsiteButton setTitle:title forState:UIControlStateNormal];
-        [_visitWebsiteButton addTarget:self action:@selector(visitWebsite:) forControlEvents:UIControlEventTouchUpInside];
-        [_visitWebsiteButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
-        [self setStylesForButton:_visitWebsiteButton];
-    }
+    UIView *descriptionLabel = self.descriptionLabel;
+    UIView *scrollView = self.headerView;
+//    [scrollView addConstraint:[NSLayoutConstraint const]
+//    UIScrollView *scrollView = (UIScrollView *)self.headerView;
+//    [scrollView addConstraint:[NSLayoutConstraint constraintWithItem:scrollView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:descriptionLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:50]];
+    NSLog(@"%@", self.headerView.constraints);
+//    [self.headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[descriptionLabel]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(descriptionLabel)]];
     
-    return _visitWebsiteButton;
-}
-
-- (UIButton *)showOnMapButton
-{
-    if (_showOnMapButton == nil) {
-        NSString *title = NSLocalizedStringWithDefaultValue(@"EVENT_DETAILS_SHOW_ON_MAP_BUTTON", nil, [NSBundle mainBundle], @"Show on Map", @"Title of button to show location on map");
-        _showOnMapButton = [[NavigationButton alloc] initWithFrame:CGRectMake(0, 0, 280, 44)];
-        [_showOnMapButton setImage:[UIImage imageNamed:@"Location-Normal"] forState:UIControlStateNormal];
-        [_showOnMapButton setImage:[UIImage imageNamed:@"Location-Highlighted"] forState:UIControlStateHighlighted];
-        [_showOnMapButton setTitle:title forState:UIControlStateNormal];
-        [_showOnMapButton addTarget:self action:@selector(showOnMap:) forControlEvents:UIControlEventTouchUpInside];
-        [_showOnMapButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
-        [self setStylesForButton:_showOnMapButton];
-    }
-    
-    return _showOnMapButton;
-}
-
-- (NSArray *)constraintsForButton:(UIButton *)button withTopSpacing:(CGFloat)topSpacing
-{
-    UIView *bottomMostView = self.bottomMostView;
-    
-    NSArray *buttonHorizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-20-[button]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(button)];
-    NSArray *buttonVerticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[bottomMostView]-topSpacing-[button]" options:0 metrics:@{@"topSpacing": @(topSpacing)} views:NSDictionaryOfVariableBindings(bottomMostView, button)];
-    
-    return [buttonHorizontalConstraints arrayByAddingObjectsFromArray:buttonVerticalConstraints];
-}
-
-- (void)updateBottomMostView:(UIView *)newBottomMostView
-{
-    [self.scrollView removeConstraint:self.bottomMostViewSpacingConstraint];
-    
-    self.bottomMostView = newBottomMostView;
-    self.bottomMostViewSpacingConstraint = [NSLayoutConstraint constraintWithItem:self.scrollView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomMostView attribute:NSLayoutAttributeBottom multiplier:1 constant:20];
-    
-    [self.scrollView addConstraint:self.bottomMostViewSpacingConstraint];
-}
-
-- (void)setStylesForButton:(UIButton *)button
-{
-    button.titleLabel.font = [UIFont systemFontOfSize:18];
-    
-    UIColor *textColor = [UIColor colorWithRed:(51/255.0) green:(51/255.0) blue:(51/255.0) alpha:1];
-    [button setTitleColor:textColor forState:UIControlStateNormal];
 }
 
 @end

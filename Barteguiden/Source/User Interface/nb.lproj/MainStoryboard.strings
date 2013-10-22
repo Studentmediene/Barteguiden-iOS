@@ -1,3 +1,6 @@
+/* Class = "IBUIViewController"; title = "Event Details"; ObjectID = "0c3-bx-ucG"; */
+"0c3-bx-ucG.title" = "Detaljer";
+
 /* Class = "IBUITableViewSection"; headerTitle = "Price"; ObjectID = "249-q2-ogj"; */
 "249-q2-ogj.headerTitle" = "Pris";
 
@@ -33,9 +36,6 @@
 
 /* Class = "IBUILabel"; text = "Send us your Tips"; ObjectID = "AVg-fi-XW2"; */
 "AVg-fi-XW2.text" = "Send oss dine tips";
-
-/* Class = "IBUIViewController"; title = "Event Details"; ObjectID = "B3q-rJ-UdF"; */
-"B3q-rJ-UdF.title" = "Detaljer";
 
 /* Class = "IBUILabel"; text = "4 hours before"; ObjectID = "C15-cN-xtE"; */
 "C15-cN-xtE.text" = "4 timer tidligere";
@@ -103,6 +103,9 @@
 /* Class = "IBUILabel"; text = "All Events"; ObjectID = "dFx-KL-N0i"; */
 "dFx-KL-N0i.text" = "Alle arrangementer";
 
+/* Class = "IBUILabel"; text = "Show on Map"; ObjectID = "ecu-S6-DUi"; */
+"ecu-S6-DUi.text" = "Vis på kart";
+
 /* Class = "IBUISearchBar"; placeholder = "Search Featured"; ObjectID = "fcs-T2-Ubk"; */
 "fcs-T2-Ubk.placeholder" = "Søk i aktuelt";
 
@@ -127,6 +130,9 @@
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "qi2-oC-6CI"; */
 "qi2-oC-6CI.text" = "Tittel";
 
+/* Class = "IBUILabel"; text = "Visit Website"; ObjectID = "rs2-Id-W3K"; */
+"rs2-Id-W3K.text" = "Besøk nettsiden";
+
 /* Class = "IBUILabel"; text = "Free Events"; ObjectID = "sL2-Dp-ryT"; */
 "sL2-Dp-ryT.text" = "Gratis arrangementer";
 
@@ -141,4 +147,3 @@
 
 /* Class = "IBUILabel"; text = "Paid Events"; ObjectID = "ydX-jq-zzJ"; */
 "ydX-jq-zzJ.text" = "Betalte arrangementer";
-

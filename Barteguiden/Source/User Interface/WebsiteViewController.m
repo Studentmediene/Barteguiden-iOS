@@ -150,6 +150,7 @@ static CGFloat kRefreshBarButtonItemWidth = 18;
     static UIBarButtonItem *barButtonItem = nil;
     if (barButtonItem == nil) {
         UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        activityIndicatorView.color = [UIColor grayColor];
         [activityIndicatorView sizeToFit];
         [activityIndicatorView setAutoresizingMask:(UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin)];
         [activityIndicatorView startAnimating];
