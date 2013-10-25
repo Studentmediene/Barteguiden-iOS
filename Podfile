@@ -3,7 +3,7 @@ xcodeproj 'Barteguiden/Barteguiden.xcodeproj'
 
 pod 'PSAlertView', '>= 1.1'
 pod 'JMImageCache', :git => 'https://github.com/antoinerabanes/JMImageCache.git'
-pod 'RIOExpandableLabel', :path => '~/Projects/Products/2013 RIOExpandableLabel/RIOExpandableLabel/'
+pod 'RIOExpandableLabel', :git => 'https://github.com/chrrasmussen/RIOExpandableLabel.git'
 
 target 'BarteguidenTests', :exclusive => true do
   pod 'OCMockito', '>= 1.0.0'
