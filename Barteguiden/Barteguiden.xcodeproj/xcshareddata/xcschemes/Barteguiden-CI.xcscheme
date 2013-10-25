@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Install Cocoapods"
-               scriptText = "cd ${SRCROOT} &amp;&amp; pod install">
+               scriptText = "cd &quot;${SRCROOT}/..&quot; &amp;&amp; pod install">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
