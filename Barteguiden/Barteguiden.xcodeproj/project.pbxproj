@@ -67,7 +67,6 @@
 		69D7FC50161DF10900E38D56 /* MyFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D7FC4F161DF10900E38D56 /* MyFilterViewController.m */; };
 		69DCD8ED165729A800A6E6A8 /* EventAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCD8EC165729A800A6E6A8 /* EventAnnotation.m */; };
 		69E51EAA1815BE7600E9637A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69E51EA91815BE7600E9637A /* Images.xcassets */; };
-		69E51EAD1815C40600E9637A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 69E51EAC1815C40600E9637A /* Podfile */; };
 		69EE050F17B04AB700E4A511 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EE051117B04AB700E4A511 /* MainStoryboard.storyboard */; };
 		69EE051417B04D4B00E4A511 /* Event.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69EE051617B04D4B00E4A511 /* Event.strings */; };
 		69EE052017B0609B00E4A511 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69EE052217B0609B00E4A511 /* Localizable.strings */; };
@@ -212,7 +211,6 @@
 		69DCD8EB165729A800A6E6A8 /* EventAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAnnotation.h; sourceTree = "<group>"; };
 		69DCD8EC165729A800A6E6A8 /* EventAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAnnotation.m; sourceTree = "<group>"; };
 		69E51EA91815BE7600E9637A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		69E51EAC1815C40600E9637A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		69EE050D17B0400A00E4A511 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69EE050E17B0400A00E4A511 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69EE051217B04ABF00E4A511 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -619,7 +617,6 @@
 				69F52A9A1608E70F0045B6F6 /* Products */,
 				7493FD972B57486DBA74AF06 /* Pods.xcconfig */,
 				98FDF9089FA14EF184FF85EB /* Pods-BarteguidenTests.xcconfig */,
-				69E51EAC1815C40600E9637A /* Podfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -800,7 +797,6 @@
 				698AD181181676C3009E62D9 /* SMIT.png in Resources */,
 				69BA0AD5162F3E13009726E7 /* EventCell.xib in Resources */,
 				69EE051417B04D4B00E4A511 /* Event.strings in Resources */,
-				69E51EAD1815C40600E9637A /* Podfile in Resources */,
 				69E51EAA1815BE7600E9637A /* Images.xcassets in Resources */,
 				69EE052017B0609B00E4A511 /* Localizable.strings in Resources */,
 				699F3CDF17B08E1900F17B54 /* Samfundet.json in Resources */,

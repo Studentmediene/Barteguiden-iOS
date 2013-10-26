@@ -5,13 +5,11 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>72D72B95-DD5E-469D-AAA6-6876036655F4</string>
+	<string>1E7D5135-78BF-4D69-8876-8DF792E3F384</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Barteguiden</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9DF00244-D6FB-48D1-B1BD-BC124B07A9AE</key>
-		<string>ssh://github.com/skohorn/RIOExpandableLabel.git</string>
 		<key>A39C875D-16E7-4DB7-B06A-3417FCF044A9</key>
 		<string>https://github.com/dusken/Kulturkalender-iOS.git</string>
 	</dict>
@@ -19,8 +17,6 @@
 	<string>Barteguiden.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9DF00244-D6FB-48D1-B1BD-BC124B07A9AE</key>
-		<string>../../../2013 RIOExpandableLabel/RIOExpandableLabel</string>
 		<key>A39C875D-16E7-4DB7-B06A-3417FCF044A9</key>
 		<string>..</string>
 	</dict>
@@ -39,14 +35,6 @@
 			<string>A39C875D-16E7-4DB7-B06A-3417FCF044A9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Barteguiden-iOS</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9DF00244-D6FB-48D1-B1BD-BC124B07A9AE</string>
-			<key>IDESourceControlWCCName</key>
-			<string>RIOExpandableLabel</string>
 		</dict>
 	</array>
 </dict>
