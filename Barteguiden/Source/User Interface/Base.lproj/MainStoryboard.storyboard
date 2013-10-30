@@ -970,12 +970,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="infinite" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D80-np-pC8">
-                                                <rect key="frame" x="10" y="108" width="300" height="284"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="infinite" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D80-np-pC8">
+                                                <rect key="frame" x="10" y="108" width="300" height="330"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="300" id="03b-5l-iUW"/>
+                                                    <constraint firstAttribute="height" constant="330" id="03b-5l-iUW"/>
                                                 </constraints>
                                                 <string key="text">Barteguiden er utviklet av Studentmediene i Trondheim AS.
 
@@ -983,7 +983,7 @@ Studentmediene i Trondheim AS organiserer studentmediene Under Dusken, dusken.no
 
 Kontakt oss på:
 barteguiden@studentmediene.no</string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
