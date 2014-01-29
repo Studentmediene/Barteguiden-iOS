@@ -1,4 +1,4 @@
-Kulturkalender-iOS
-==================
+Barteguiden-iOS
+===============
 
-This is the iOS-client for the Kulturkalender-project.
+This is the iOS-client for the Barteguiden-project.

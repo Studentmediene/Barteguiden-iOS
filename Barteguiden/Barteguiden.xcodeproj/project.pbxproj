@@ -17,6 +17,7 @@
 		694B5E1D163720E400631278 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B5E1C163720E300631278 /* CoreLocation.framework */; };
 		694C4E9B16D84960009F787D /* NSArray+RIOClassifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C4E9A16D84960009F787D /* NSArray+RIOClassifier.m */; };
 		69528C0F1643152C00A96B65 /* UserDefaultsFilterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69528C0E1643152C00A96B65 /* UserDefaultsFilterManager.m */; };
+		6952A8A718999409002C7F05 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6952A8A618999409002C7F05 /* README.md */; };
 		6956C67616419E5300E10586 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67516419E5300E10586 /* FilterViewController.m */; };
 		6956C67A16422A0500E10586 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6956C67916422A0500E10586 /* SettingsViewController.m */; };
 		695EC1BF1737D80A007C32D5 /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 695EC1BE1737D80A007C32D5 /* CalendarManager.m */; };
@@ -115,6 +116,7 @@
 		694C4E9A16D84960009F787D /* NSArray+RIOClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+RIOClassifier.m"; sourceTree = "<group>"; };
 		69528C0D1643152C00A96B65 /* UserDefaultsFilterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsFilterManager.h; sourceTree = "<group>"; };
 		69528C0E1643152C00A96B65 /* UserDefaultsFilterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsFilterManager.m; sourceTree = "<group>"; };
+		6952A8A618999409002C7F05 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6956C67416419E5300E10586 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		6956C67516419E5300E10586 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		6956C67816422A0500E10586 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -614,6 +616,7 @@
 				69F52A9A1608E70F0045B6F6 /* Products */,
 				7493FD972B57486DBA74AF06 /* Pods.xcconfig */,
 				98FDF9089FA14EF184FF85EB /* Pods-BarteguidenTests.xcconfig */,
+				6952A8A618999409002C7F05 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -800,6 +803,7 @@
 				69EE051417B04D4B00E4A511 /* Event.strings in Resources */,
 				69E51EAA1815BE7600E9637A /* Images.xcassets in Resources */,
 				69EE052017B0609B00E4A511 /* Localizable.strings in Resources */,
+				6952A8A718999409002C7F05 /* README.md in Resources */,
 				699F3CDF17B08E1900F17B54 /* Samfundet.json in Resources */,
 				691F9D2217C2477300B16209 /* Example.json in Resources */,
 			);
