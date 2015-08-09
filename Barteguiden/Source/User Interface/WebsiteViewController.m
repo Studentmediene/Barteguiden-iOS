@@ -85,10 +85,10 @@
     NSString *copyLinkTitle = NSLocalizedStringWithDefaultValue(@"WEBSITE_COPY_LINK_BUTTON", nil, [NSBundle mainBundle], @"Copy Link", @"Title of button to copy link to website in alert sheet (Displayed when browsing the event's website)");
     NSString *cancelTitle = NSLocalizedStringWithDefaultValue(@"WEBSITE_CANCEL_BUTTON", nil, [NSBundle mainBundle], @"Cancel", @"Title of cancel button in alert sheet (Displayed when browsing the event's website)");
     PSPDFActionSheet *shareActionSheet = [[PSPDFActionSheet alloc] initWithTitle:nil];
-    [shareActionSheet addButtonWithTitle:openInSafariTitle block:^{
+    [shareActionSheet addButtonWithTitle:openInSafariTitle block:^(NSInteger a){
         [[UIApplication sharedApplication] openURL:self.webView.request.URL];
     }];
-    [shareActionSheet addButtonWithTitle:copyLinkTitle block:^{
+    [shareActionSheet addButtonWithTitle:copyLinkTitle block:^(NSInteger b){
         [[UIPasteboard generalPasteboard] setURL:self.webView.request.URL];
     }];
     [shareActionSheet setCancelButtonWithTitle:cancelTitle block:NULL];

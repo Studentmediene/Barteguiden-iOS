@@ -244,10 +244,10 @@ static float const kOneHourOffset = 1*60*60;
     NSString *cancelTitle = NSLocalizedStringWithDefaultValue(@"TOGGLE_CALENDAR_ACTION_SHEET_CANCEL_BUTTON", nil, [NSBundle mainBundle], @"Cancel", @"Title of cancel button in action sheet (Displayed when toggling calendar button)");
     
     PSPDFActionSheet *calendarActionSheet = [[PSPDFActionSheet alloc] initWithTitle:nil];
-    [calendarActionSheet setDestructiveButtonWithTitle:deleteTitle block:^{
+    [calendarActionSheet setDestructiveButtonWithTitle:deleteTitle block:^(NSInteger a){
         [self removeFromCalendar];
     }];
-    [calendarActionSheet addButtonWithTitle:editTitle block:^{
+    [calendarActionSheet addButtonWithTitle:editTitle block:^(NSInteger a){
         [self presentEditCalendarEvent];
     }];
     [calendarActionSheet setCancelButtonWithTitle:cancelTitle block:NULL];
