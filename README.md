@@ -4,10 +4,8 @@ Barteguiden-iOS
 This is the iOS client for the Barteguiden project.
 
 ## Prerequisites
-- Xcode 6.4 
-- CocoaPods 0.35 (`[sudo] gem install cocoapods`)
-
-Later versions of CocoaPods or Xcode may/may not work as well.
+- Xcode 7
+- CocoaPods (`[sudo] gem install cocoapods`)
 
 ## Setup
 ```bash
@@ -16,5 +14,9 @@ $ cd Barteguiden-iOS
 $ pod install
 $ open Barteguiden.xcworkspace
 ```
+
+If the app does not build, replace `-framework` and `-ObjC` with
+`$(inherit)` in Linking -> Other Linker Flags -> Debug.
+
 ## Contribute
 Yes! Feel free. 
